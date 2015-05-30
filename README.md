@@ -28,7 +28,7 @@ Where you can tab through and change the `ClassName`, add more class properties,
 `rc<tab>` will generate the same code as above without the module.exports.
 
 ```javascript
-vr<tab>
+rv<tab>
 ```
 expands to
 ```javascript
@@ -48,11 +48,11 @@ optionlaString: React.PropTypes.string
 
 Another example:
 ```javascript
-requiredObjectOfNumber: pt.oo<tab>
+requiredObjectOfString: pt.oo<tab>
 ```
 expands to
 ```javascript
-requiredObjectOfNumber: React.PropTypes.objectOf(React.PropTypes.string).isRequired
+requiredObjectOfString: React.PropTypes.objectOf(React.PropTypes.string).isRequired
 ```
 Where the React.PropTypes.String is now replacable
 
@@ -164,3 +164,30 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 ```
+
+### Cheatsheet
+#### PropTypes
+| Shortcut | Expands To                            |
+| -------- | ----------                            |
+| pt.a     | React.PropTypes.array                 |
+| pt.ar    | React.PropTypes.array.isRequired      |
+| pt.b     | React.PropTypes.bool                  |
+| pt.br    | React.PropTypes.bool.isRequired       |
+| pt.f     | React.PropTypes.func                  |
+| pt.fr    | React.PropTypes.func.isRequired       |
+| pt.nu    | React.PropTypes.number                |
+| pt.nur   | React.PropTypes.number.isRequired     |
+| pt.o     | React.PropTypes.object                |
+| pt.or    | React.PropTypes.object.isRequired     |
+| pt.s     | React.PropTypes.string                |
+| pt.sr    | React.PropTypes.string.isRequired     |
+| pt.no    | React.PropTypes.node                  |
+| pt.nor   | React.PropTypes.node.isRequired       |
+| pt.e     | React.PropTypes.element               |
+| pt.er    | React.PropTypes.element.isRequired    |
+| pt.ao    | React.PropTypes.arrayOf               |
+| pt.aor   | React.PropTypes.arrayOf.isRequired    |
+| pt.io    | React.PropTypes.instanceOf            |
+| pt.ior   | React.PropTypes.instanceOf.isRequired |
+| pt.oo    | React.PropTypes.objectOf              |
+| pt.oor   | React.PropTypes.objectOf.isRequired   |
