@@ -61,6 +61,7 @@ View the `UltiSnips/javascripts.vim` for all the available snippets.
 ## Installation
 #### vundle
 If you have never used [Vundle](https://github.com/gmarik/Vundle.vim), here are the simple steps to use.
+
 1. Install Vundle
 
    `$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
@@ -89,6 +90,7 @@ If you have never used [Vundle](https://github.com/gmarik/Vundle.vim), here are 
 
 #### pathogen
 If you have never used [pathogen](https://github.com/tpope/vim-pathogen), here are the simple steps to use.
+
 1. Install pathogen (taken directly from the github page)
   ```
   mkdir -p ~/.vim/autoload ~/.vim/bundle && \
