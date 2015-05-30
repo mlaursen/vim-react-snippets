@@ -6,11 +6,60 @@ Currently the snippets are only developed for [UltiSnips](https://github.com/Sir
 The idea for these snippets came from [vim-react-snippets](https://github.com/justinj/vim-react-snippets).
 I ended up using most of his snippets and then create a few more for the PropTypes and some fluxification.
 
-# Examples
+## Examples
+```javascript
+rce<tab>
+```
+expands to
+```javascript
+var ClassName = React.createClass({
+  
+  render: function() {
+    return (
+      <div />
+    );
+  }
+});
 
+module.exports = ClassName;
+```
+Where you can tab through and change the `ClassName`, add more class properties, and then update the render funciton.
 
-# Installation
-### vundle
+`rc<tab>` will generate the same code as above without the module.exports.
+
+```javascript
+vr<tab>
+```
+expands to
+```javascript
+var = require('./');
+```
+When you start type the variable name, it will also set it as the requiring. You can tab and change the `./` and then tab again to change the required file
+
+#### Properties
+A few examples with the react properties.
+```javascript
+optionalString: **pt.s<tab>**
+```
+expands to
+```javascript
+optionlaString: **React.PropTypes.string**
+```
+
+Another example:
+```javascript
+requiredObjectOfNumber: **pt.oo<tab>**
+```
+expands to
+```javascript
+requiredObjectOfNumber: **React.PropTypes.objectOf(__React.PropTypes.string__)**
+```
+Where the __React.PropTypes.String__ is now replacable
+
+View the `UltiSnips/javascripts.vim` for all the available snippets.
+
+## Installation
+#### vundle
 If you have never used [Vundle](https://github.com/gmarik/Vundle.vim), here are the simple steps to use.
 1. Install Vundle
 
@@ -38,7 +87,7 @@ If you have never used [Vundle](https://github.com/gmarik/Vundle.vim), here are 
 3. Save an then run `:PluginInstall` which will automatically clone each repo into `~/.vim/bundle`.
 4. Once it has finished, restart vim and your plugins will be ready to use.
 
-### pathogen
+#### pathogen
 If you have never used [pathogen](https://github.com/tpope/vim-pathogen), here are the simple steps to use.
 1. Install pathogen (taken directly from the github page)
   ```
@@ -60,8 +109,8 @@ If you have never used [pathogen](https://github.com/tpope/vim-pathogen), here a
 
 4. And you should be good to go.
 
-# Recommended Configurations and additional plugins
-### Plugins
+## Recommended Configurations and additional plugins
+#### Plugins
 * [Vundle](https://github.com/gmarik/Vundle.vim) - vim plugin manager
 * [Command-T](https://github.com/wincent/command-t) - Awesome file manager. (Requires vim with ruby support)
 * [NERD Tree](https://github.com/scrooloose/nerdtree) - File Browser
@@ -74,7 +123,7 @@ If you have never used [pathogen](https://github.com/tpope/vim-pathogen), here a
 * [vim-jsx](https://github.com/mxw/vim-jsx) - JSX syntax helper with indentation and stuffs
 * [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) - Freaking dope auto completer.
 
-### Copy/Paste Plugins for .vimrc
+#### Copy/Paste Plugins for .vimrc
 ```
 Plugin 'wincent/command-t'
 Plugin 'scrooloose/nerdtree'
@@ -98,7 +147,7 @@ Plugin 'Valloric/YouCompleteMe'         " requires python and a build after inst
 ```
 
 
-### Configuration
+#### Configuration
 ```
 " Ignore libs, and builds for Command-T
 let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*,**/node_modules/*,**/lib/*,**/target/*,**/dist/*,**/build/*"
