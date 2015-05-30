@@ -13,29 +13,30 @@ I ended up using most of his snippets and then create a few more for the PropTyp
 ### vundle
 If you have never used [Vundle](https://github.com/gmarik/Vundle.vim), here are the simple steps to use.
 1. Install Vundle
-  `$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+
+   `$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+
 2. Configure your `.vimrc`
 
-```
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-Plugin 'gmarik/vundle' " required
+   ````
+   set nocompatible
+   filetype off
+   set rtp+=~/.vim/bundle/vundle
+   call vundle#rc()
+   Plugin 'gmarik/vundle' " required
+   
+   " UltiSnips
+   Plugin 'SirVer/ultisnips'
+   
+   Plugin 'mlaursen/vim-react-snippets'
+   
+   call vundle#end()           " required
+   filetype flugin indent on   " required
+   " The rest of your .vimrc config
+   ```
 
-" UltiSnips
-Plugin 'SirVer/ultisnips'
-
-Plugin 'mlaursen/vim-react-snippets'
-
-call vundle#end()           " required
-filetype flugin indent on   " required
-" The rest of your .vimrc config
-```
-
-Save an then run `:PluginInstall` which will automatically clone each repo into `~/.vim/bundle`.
-
-Once it has finished, restart vim and your plugins will be ready to use.
+3. Save an then run `:PluginInstall` which will automatically clone each repo into `~/.vim/bundle`.
+4. Once it has finished, restart vim and your plugins will be ready to use.
 
 ### pathogen
 If you have never used [pathogen](https://github.com/tpope/vim-pathogen), here are the simple steps to use.
@@ -45,29 +46,33 @@ If you have never used [pathogen](https://github.com/tpope/vim-pathogen), here a
   curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
   ```
 2. Update your `.vimrc`
-```
-execute pathogen#infect()
-```
+
+   ```
+   execute pathogen#infect()
+   ```
+
 3. Clone each plugin into your `~./vim/bundle` directory
-  ```
-  git clone https://github.com/SirVer/ultisnips ~/.vim/bundle/ultisnips
-  git clone https://github.com/mlaursen/vim-react-snippets ~/.vim/bundle/vim-react-snippets
-  ```
+
+   ```
+   git clone https://github.com/SirVer/ultisnips ~/.vim/bundle/ultisnips
+   git clone https://github.com/mlaursen/vim-react-snippets ~/.vim/bundle/vim-react-snippets
+   ```
+
 4. And you should be good to go.
 
 # Recommended Configurations and additional plugins
 ### Plugins
-[Vundle](https://github.com/gmarik/Vundle.vim) - vim plugin manager
-[Command-T](https://github.com/wincent/command-t) - Awesome file manager. (Requires vim with ruby support)
-[NERD Tree](https://github.com/scrooloose/nerdtree) - File Browser
-[NERD Tree with Git](https://github.com/Xuyuanp/nerdtree-git-plugin) - Plugin for NERDTree for Git.. (kind of obvious, right?)
-[vim-fugitive](https://github.com/tpope/vim-fugitive) - Git VIM Plugin
-[vim-surround](https://github.com/tpope/vim-surround) - Neat surrounder stuff.
-[supertab](https://github.com/ervandew/supertab) - Helps with ultisnips and YouCompleteMe working together
-[ultisnips](https://github.com/SirVer/ultisnips) - The awesome snippets
-[vim-javascript](https://github.com/pangloss/vim-javascript) - Javascript syntax highlighting and stuffs
-[vim-jsx](https://github.com/mxw/vim-jsx) - JSX syntax helper with indentation and stuffs
-[YouCompleteMe](https://github.com/Valloric/YouCompleteMe) - Freaking dope auto completer.
+* [Vundle](https://github.com/gmarik/Vundle.vim) - vim plugin manager
+* [Command-T](https://github.com/wincent/command-t) - Awesome file manager. (Requires vim with ruby support)
+* [NERD Tree](https://github.com/scrooloose/nerdtree) - File Browser
+* [NERD Tree with Git](https://github.com/Xuyuanp/nerdtree-git-plugin) - Plugin for NERDTree for Git.. (kind of obvious, right?)
+* [vim-fugitive](https://github.com/tpope/vim-fugitive) - Git VIM Plugin
+* [vim-surround](https://github.com/tpope/vim-surround) - Neat surrounder stuff.
+* [supertab](https://github.com/ervandew/supertab) - Helps with ultisnips and YouCompleteMe working together
+* [ultisnips](https://github.com/SirVer/ultisnips) - The awesome snippets
+* [vim-javascript](https://github.com/pangloss/vim-javascript) - Javascript syntax highlighting and stuffs
+* [vim-jsx](https://github.com/mxw/vim-jsx) - JSX syntax helper with indentation and stuffs
+* [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) - Freaking dope auto completer.
 
 ### Copy/Paste Plugins for .vimrc
 ```
