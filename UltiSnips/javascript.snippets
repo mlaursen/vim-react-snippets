@@ -1,8 +1,13 @@
 # Normal javascript snippets
 #
 
-snippet vr "varable from a require" b
+snippet rv "require a variable" b
 var $1 = require('${2:./}${3:$1}$4');$0
+endsnippet
+
+snippet rrc "require React class" b
+var $1 = require('${2:./}${3:$1}.react');
+$0
 endsnippet
 
 
@@ -305,4 +310,121 @@ endsnippet
 
 snippet pap "pass all properties"
 {...this.props}
+endsnippet
+
+snippet mapp "map react properties" b
+{this.props.${1:propName}.map(function(${2:propName}) {
+	return (
+		$3
+	);
+})}
+$0
+endsnippet
+
+
+# ==========================================
+# Flux Snippets
+#
+
+snippet g_ "get private variable" b
+get$1: function($2) {
+	return _${1/\w/\l$0/};
+}${3:,}
+$0
+endsnippet
+
+
+snippet s_ "set private variable" b
+function set$1(${1/\w/\l$0/}) {
+	_${1/\w/\l$0/} = ${1/\w/\l$0/};
+}
+$0
+endsnippet
+
+snippet fsto "new flux store" b
+var AppDispatcher = require('${1:./}AppDispatcher');
+var EventEmitter = require('events').EventEmitter;
+var ${2:StoreName}Constants = require('${3:./}$2Constants');
+var _ = require('underscore');
+
+$4
+
+var $2Store = _.extend({}, EventEmitter.prototype, {
+	$0
+	emitChange: function() {
+		this.emit('change');
+	},
+
+	addChangeListener: function(callback) {
+		this.on('change', callback);
+	},
+
+	removeChangeListener: function(callback) {
+		this.removeListener('change', callback);
+	}
+});
+
+AppDispatcher.register(function(payload) {
+	var action = payload.action;
+
+	switch(action.actionType) {
+		default:
+			return true;
+	}
+
+	$2Store.emitChange();
+	return true;
+});
+
+module.exports = $2Store;
+endsnippet
+
+
+# ==========
+# Flux Actions
+
+snippet fact "new flux actins" b
+var AppDispatcher = require('${1:./}AppDispatcher');
+var $2Constants = require('${3:./}Constants');
+
+var $2Actions = {
+	$0
+};
+
+module.exports = $2Actions;
+endsnippet
+
+
+snippet faf "new flux action function" b
+$1: function($2) {
+	AppDispatcher.handleAction({
+		actionType: $3Constants.$4,
+		${5:${2/(\w+).*/$1/}}: ${2/(\w+).*/$1/}$6
+	});
+},$0
+endsnippet
+
+snippet rkm "React key mirror" b
+var keyMirror = require('react/lib/keyMirror');
+endsnippet
+
+snippet fcon "flux constants" b
+var keyMirror = require('react/lib/keyMirror');
+
+module.exports = keyMirror({
+	$1
+});
+endsnippet
+
+snippet kmv "key mirror value" b
+$1: null${2:,}
+endsnippet
+
+
+snippet fapi "Flux api outline" b
+var $1Actions = require('${2:./}Actions');
+
+module.exports = {
+	$0
+};
 endsnippet
