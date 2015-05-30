@@ -92,6 +92,7 @@ If you have never used [Vundle](https://github.com/gmarik/Vundle.vim), here are 
 If you have never used [pathogen](https://github.com/tpope/vim-pathogen), here are the simple steps to use.
 
 1. Install pathogen (taken directly from the github page)
+
   ```
   mkdir -p ~/.vim/autoload ~/.vim/bundle && \
   curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
