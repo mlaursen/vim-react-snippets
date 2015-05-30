@@ -1,0 +1,308 @@
+# Normal javascript snippets
+#
+
+snippet vr "varable from a require" b
+var $1 = require('${2:./}${3:$1}$4');$0
+endsnippet
+
+
+# ==========================================
+# React Snippets
+#
+
+# ==========================================
+# Creating new React classes Section
+#
+snippet fce "Fluxxed React component and exported" b
+var FluxIt = require('${1:./}FluxIt.react');
+
+var ${2:ClassName}Store = require('./$2Store');
+var $2API = require('./$2API');
+$3
+var $2 = React.createClass({
+	propTypes: {
+		${7:prop}: ${8:React.PropTypes.string}$9
+	},
+
+	render: function() {
+		return (
+			${10:<div />}
+		);
+	}
+});
+
+$2 = 
+	FluxIt.init(
+		$2,
+		function() {
+			${4:state}: $2Store.${5:getSomething()}
+		},
+		[$2Store],
+		[$2API.${6:get$2s}]
+	);
+
+module.exports = $2;
+$0
+endsnippet
+
+snippet rce "React class and export component" b
+var ${1:ClassName} = React.createClass({
+	$2
+	render: function() {
+		return (
+			${3:<div />}
+		);
+	}
+});
+
+module.exports = $1;
+$0
+endsnippet
+
+snippet rc "React class" b
+var ${1:ClassName} = React.createClass({
+	$2
+	render: function() {
+		return (
+			${3:<div />}
+		);
+	}
+});
+$0
+endsnippet
+
+
+# ==========================================
+# Component Specs and Lifecycle Section
+#
+snippet rend "React render function" b
+$0
+render: function() {
+	return (
+		${1:<div />}
+	);
+}
+endsnippet
+
+snippet gis "get initial state" b
+getInitialState: function() {
+	return {
+		$1
+	};
+},
+$0
+endsnippet
+
+
+snippet gdp "get default props" b
+getDefaultProps: function() {
+	return {
+		$1
+	};
+},
+$0
+endsnippet
+
+snippet pt "React prop types definition" b
+propTypes: {
+	${1:someProp}: ${2:React.PropTypes.string}${3:,}$4
+},
+$0
+endsnippet
+
+snippet statics "react statics" b
+statics: {
+	${1:foo}: function(${2:bar}) {
+		${3:return 'foo' === bar;}
+	}
+},
+$0
+endsnippet
+
+
+snippet cwm "component will mount" b
+componentWillMount: function() {
+	$1
+},
+$0
+endsnippet
+
+snippet cdm "component did mount" b
+componentDidMount: function() {
+	$1
+},
+$0
+endsnippet
+
+snippet cwrp "component will receive props" b
+componentWillReceiveProps: function(${1:nextProps}) {
+	$2
+},
+$0
+endsnippet
+
+snippet scu "should component update" b
+shouldComponentUpdate: function(${1:nextProps}, ${2:nextState}) {
+	return ${3:$1.id !== this.props.id};
+},
+$0
+endsnippet
+
+snippet cwu "component will update" b
+componentWillUpdate: function(${1:nextProps}, ${2:nextState}) {
+	$3
+},
+$0
+endsnippet
+
+snippet cdu "component did update" b
+componentDidUpdate: function(${1:prevProps}, ${2:prevState}) {
+	$3
+},
+$0
+endsnippet
+
+snippet cwum "component will unmount" b
+componentWillUnmount: function() {
+	$1
+},
+$0
+endsnippet
+
+
+# ==========================================
+# Prop Types Section
+#
+
+snippet np "new property" b
+${1:prop}: ${2:React.PropTypes.string},$0
+endsnippet
+
+
+# Inline prop types
+snippet pt.a "React PropTypes array"
+React.PropTypes.array
+endsnippet
+
+snippet pt.ar "React PropTypes array required"
+React.PropTypes.array.isRequired
+endsnippet
+
+snippet pt.b "React PropTypes boolean"
+React.PropTypes.bool
+endsnippet
+
+snippet pt.br "React PropTypes boolean required"
+React.PropTypes.bool.isRequired
+endsnippet
+
+snippet pt.f "React PropTypes function"
+React.PropTypes.func
+endsnippet
+
+snippet pt.fr "React PropTypes function required"
+React.PropTypes.func.isRequired
+endsnippet
+
+snippet pt.nu "React PropTypes number"
+React.PropTypes.number
+endsnippet
+
+snippet pt.nur "React PropTypes number required"
+React.PropTypes.number.isRequired
+endsnippet
+
+snippet pt.o "React PropTypes object"
+React.PropTypes.object
+endsnippet
+
+snippet pt.or "React PropTypes object required"
+React.PropTypes.object.isRequired
+endsnippet
+
+snippet pt.s "React PropType string"
+React.PropTypes.string
+endsnippet
+
+snippet pt.sr "React PropType string required"
+React.PropTypes.string.isRequired
+endsnippet
+
+snippet pt.no "React PropTypes node"
+React.PropTypes.node
+endsnippet
+
+snippet pt.nor "React PropTypes node required"
+React.PropTypes.node.isRequired
+endsnippet
+
+snippet pt.e "React PropTypes element"
+React.PropTypes.element
+endsnippet
+
+snippet pt.er "React PropTypes element required"
+React.PropTypes.element.isRequired
+endsnippet
+
+snippet pt.ao "React PropTypes arrayOf"
+React.PropTypes.arrayOf(React.PropTypes.${1:string})$0
+endsnippet
+
+snippet pt.aor "React PropTypes arrayOf required"
+React.PropTypes.arrayOf(${1:React.PropTypes.string}).isRequired$0
+endsnippet
+
+snippet pt.io "React PropTypes instanceOf"
+React.PropTypes.instanceOf(${1:React.PropTypes.string})$0
+endsnippet
+
+snippet pt.ior "React PropTypes instanceOf required"
+React.PropTypes.instanceOf(${1:React.PropTypes.string}).isRequired$0
+endsnippet
+
+snippet pt.oo "React PropTypes objectOf"
+React.PropTypes.objectOf(${1:React.PropTypes.string})$0
+endsnippet
+
+snippet pt.oor "React PropTypes objectOf required"
+React.PropTypes.objectOf(${1:React.PropTypes.string}).isRequired$0
+endsnippet
+
+
+# ==========================================
+# Attributes and helpers Section
+#
+
+snippet varp "get property in variable" b
+var ${1:foo} = this.props.$1;
+endsnippet
+
+snippet vars "get state in variable" b
+var ${1:foo} = this.state.$1;
+endsnippet
+
+snippet cn "className"
+className={${1:classString}}$0
+endsnippet
+
+
+snippet cns "className as a string"
+className="${1:some css classes}"$0
+endsnippet
+
+
+snippet p. "get property"
+this.props.${1:name}
+endsnippet
+
+snippet s. "get state"
+this.state.${1:name}
+endsnippet
+
+snippet ppa "pass property as"
+${1:property}={this.props.${2:$1}}
+endsnippet
+
+snippet pap "pass all properties"
+{...this.props}
+endsnippet
