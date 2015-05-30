@@ -39,22 +39,22 @@ When you start type the variable name, it will also set it as the requiring. You
 #### Properties
 A few examples with the react properties.
 ```javascript
-optionalString: **pt.s<tab>**
+optionalString: pt.s<tab>
 ```
 expands to
 ```javascript
-optionlaString: **React.PropTypes.string**
+optionlaString: React.PropTypes.string
 ```
 
 Another example:
 ```javascript
-requiredObjectOfNumber: **pt.oo<tab>**
+requiredObjectOfNumber: pt.oo<tab>
 ```
 expands to
 ```javascript
-requiredObjectOfNumber: **React.PropTypes.objectOf(__React.PropTypes.string__)**
+requiredObjectOfNumber: React.PropTypes.objectOf(React.PropTypes.string).isRequired
 ```
-Where the __React.PropTypes.String__ is now replacable
+Where the React.PropTypes.String is now replacable
 
 View the `UltiSnips/javascripts.vim` for all the available snippets.
 
