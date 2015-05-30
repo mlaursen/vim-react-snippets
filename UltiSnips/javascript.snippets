@@ -21,12 +21,12 @@ var $2API = require('./$2API');
 $3
 var $2 = React.createClass({
 	propTypes: {
-		${7:prop}: ${8:React.PropTypes.string}$9
+		$4: ${7:React.PropTypes.string}$8
 	},
 
 	render: function() {
 		return (
-			${10:<div />}
+			${9:<div />}
 		);
 	}
 });
@@ -35,7 +35,7 @@ $2 =
 	FluxIt.init(
 		$2,
 		function() {
-			${4:state}: $2Store.${5:getSomething()}
+			${4:something}: $2Store.${5:getSomething()}
 		},
 		[$2Store],
 		[$2API.${6:get$2s}]
