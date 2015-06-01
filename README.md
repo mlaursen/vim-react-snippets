@@ -154,32 +154,32 @@ These plugins will require..
 
 
 > To install vim with extra support..
-> ```bash
-> hg clone https://vim.googlecode.com/hg/ vim
-> cd vm
-> ./configure --enable-rby-interp --enable-perlinterp --enable-pythoninterp --enable-gui=no --enable-multibyte
-> make && make install
-> ```
+```bash
+hg clone https://vim.googlecode.com/hg/ vim
+cd vm
+./configure --enable-rby-interp --enable-perlinterp --enable-pythoninterp --enable-gui=no --enable-multibyte
+make && make install
+```
 
 > To install YouCompleteMe [Cygwin Fix](https://github.com/Valloric/YouCompleteMe/issues/684#issuecomment-34119853)
-> ```bash
-> cd ~/.vim/bundle/YouCompleteMe
-> ./install.sh
-> ```
+```bash
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh
+```
 
 > To Install Command-T
-> ```bash
-> cd ~/.vim/bundle/command-t/ruby/command-t
-> ruby extconf.rb
-> make
-> ```
+```bash
+cd ~/.vim/bundle/command-t/ruby/command-t
+ruby extconf.rb
+make
+```
 
 
 #### Configuration
 ```
 " Ignore libs, and builds for Command-T
 let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*,**/node_modules/*,**/lib/*,**/target/*,**/dist/*,**/build/*"
-let let g:CommandTTraverseSCM="pwd"  " gets files from current directory instead of searching for .git folder
+let g:CommandTTraverseSCM="pwd"  " gets files from current directory instead of searching for .git folder
 
 " Make YCM compatible with UltiSnips (with supertab)
 let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
