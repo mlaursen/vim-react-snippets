@@ -31,7 +31,7 @@ var $2 = React.createClass({
 
 	render: function() {
 		return (
-			${9:<div />}
+			${0:<div />}
 		);
 	}
 });
@@ -40,14 +40,13 @@ $2 =
 	FluxIt.init(
 		$2,
 		function() {
-			${4:something}: $2Store.${5:getSomething()}
+			${4:something}: $2Store.${5:get${4/\w/\u$0/}()}
 		},
 		[$2Store],
-		[$2API.${6:get$2s}]
+		[$2API.${6:get${4/\w/\u$0/}}]
 	);
 
 module.exports = $2;
-$0
 endsnippet
 
 snippet rce "React class and export component" b
@@ -55,13 +54,12 @@ var ${1:ClassName} = React.createClass({
 	$2
 	render: function() {
 		return (
-			${3:<div />}
+			${0:<div />}
 		);
 	}
 });
 
 module.exports = $1;
-$0
 endsnippet
 
 snippet rc "React class" b
@@ -69,11 +67,10 @@ var ${1:ClassName} = React.createClass({
 	$2
 	render: function() {
 		return (
-			${3:<div />}
+			${0:<div />}
 		);
 	}
 });
-$0
 endsnippet
 
 
@@ -84,7 +81,7 @@ snippet rend "React render function" b
 $0
 render: function() {
 	return (
-		${1:<div />}
+		${0:<div />}
 	);
 }
 endsnippet
@@ -110,7 +107,7 @@ endsnippet
 
 snippet pt "React prop types definition" b
 propTypes: {
-	${1:someProp}: ${2:React.PropTypes.string}${3:,}$4
+	${1:someProp}: ${2:React.PropTypes.string}${3:,}
 },
 $0
 endsnippet
@@ -315,10 +312,9 @@ endsnippet
 snippet mapp "map react properties" b
 {this.props.${1:propName}.map(function(${2:propName}) {
 	return (
-		$3
+		$0
 	);
 })}
-$0
 endsnippet
 
 
