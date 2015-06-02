@@ -60,7 +60,7 @@ View the `UltiSnips/javascripts.vim` for all the available snippets.
 
 ## Installation
 #### vundle
-If you have never used [Vundle](https://github.com/gmarik/Vundle.vim), here are the simple steps to use.
+If you have never used [Vundle](https://github.com/gmarik/vundle), here are the simple steps to use.
 
 1. Install Vundle
 
