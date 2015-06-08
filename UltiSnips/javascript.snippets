@@ -39,7 +39,9 @@ $2 =
 	FluxIt.init(
 		$2,
 		function() {
-			${4:something}: $2Store.${5:get${4/\w/\u$0/}()}
+		  return {
+				${4:something}: $2Store.${5:get${4/\w/\u$0/}()}
+			};
 		},
 		[$2Store],
 		[$2API.${6:get${4/\w/\u$0/}}]
