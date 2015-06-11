@@ -64,7 +64,7 @@ If you have never used [Vundle](https://github.com/gmarik/vundle), here are the 
 
 1. Install Vundle
 
-   `$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+   `$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle`
 
 2. Configure your `.vimrc`
 
@@ -87,6 +87,12 @@ If you have never used [Vundle](https://github.com/gmarik/vundle), here are the 
 
 3. Save an then run `:PluginInstall` which will automatically clone each repo into `~/.vim/bundle`.
 4. Once it has finished, restart vim and your plugins will be ready to use.
+
+> If you are on cygwin, you need to run
+```bash
+find ~/.vim/bundle/. -name '*.vim' -exec dos2unix {}\; && \
+dos2unix ~/.vim/bundle/YouCompleteMe/install.sh
+```
 
 #### pathogen
 If you have never used [pathogen](https://github.com/tpope/vim-pathogen), here are the simple steps to use.
@@ -153,15 +159,18 @@ These plugins will require..
 *libgmp, cmake libgcc*
 
 
-> To install vim with extra support..
+####To install vim with extra support..
 ```bash
 hg clone https://vim.googlecode.com/hg/ vim
-cd vm
-./configure --enable-rby-interp --enable-perlinterp --enable-pythoninterp --enable-gui=no --enable-multibyte
+cd vim
+./configure --enable-rubyinterp --enable-perlinterp --enable-pythoninterp --enable-gui=no --enable-multibyte
 make && make install
 ```
 
-> To install YouCompleteMe [Cygwin Fix](https://github.com/Valloric/YouCompleteMe/issues/684#issuecomment-34119853)
+####To install YouCompleteMe [Cygwin Fix](https://github.com/Valloric/YouCompleteMe/issues/684#issuecomment-34119853)
+
+Edit `/YouCompleteMe/third_party/ycmd/cpp/BoostParts/boost/python/detail/wrap_python.hpp` and remove the defined(__CYGWIN__) references
+
 ```bash
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh
