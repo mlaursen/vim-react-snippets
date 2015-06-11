@@ -421,11 +421,16 @@ var $2Actions = {
 module.exports = $2Actions;
 endsnippet
 
+global !p
+def capscore(t):
+	return '_'.join([ w.upper() for w in re.findall('[A-Z]+[a-z]*', t) ])
+endglobal
+
 
 snippet faf "new flux action function" b
 $1: function($2) {
 	AppDispatcher.handleAction({
-		actionType: $3Constants.${3/[A-z]/\u$0/g}_${1/([A-Z])|([a-z])/(?1:_$0)(?2:\u$0)/g},
+		actionType: $3Constants.`!p snip.rv=capscore(t[3])`_${1/([A-Z]+)|([a-z])/(?1:_$0)(?2:\u$0)/g},
 		${5:${2/(\w+).*/$1/}}: ${2/(\w+).*/$1/}$6
 	});
 }$0
