@@ -9,6 +9,10 @@ snippet rrc "require React class" b
 var $1 = require('${2:./}${3:$1}.react');$0
 endsnippet
 
+snippet rp "require prototype" b
+var $1 = require('${2:./}${3:$1}.proto');$0
+endsnippet
+
 
 # ==========================================
 # React Snippets
@@ -355,15 +359,22 @@ endsnippet
 #
 
 snippet g_ "get private variable" b
-get$1: function($2) {
+get$1: function() {
 	return _${1/\w/\l$0/};
-}$0
+}
+endsnippet
+
+
+snippet i_ "is private variable" b
+is$1: function() {
+	return _is$1;
+}
 endsnippet
 
 
 snippet s_ "set private variable" b
 function set$1(${1/\w/\l$0/}) {
-	_${1/\w/\l$0/} = ${1/\w/\l$0/};
+	_${1/\w/\l$0/} = ${1/\w/\l$0/};$2
 }$0
 endsnippet
 
