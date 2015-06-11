@@ -43,7 +43,7 @@ optionalString: pt.s<tab>
 ```
 expands to
 ```javascript
-optionlaString: React.PropTypes.string
+optionalString: React.PropTypes.string
 ```
 
 Another example:
