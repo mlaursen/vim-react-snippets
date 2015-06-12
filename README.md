@@ -81,7 +81,7 @@ If you have never used [Vundle](https://github.com/gmarik/vundle), here are the 
    Plugin 'mlaursen/vim-react-snippets'
    
    call vundle#end()           " required
-   filetype flugin indent on   " required
+   filetype plugin indent on   " required
    " The rest of your .vimrc config
    ```
 
@@ -90,7 +90,7 @@ If you have never used [Vundle](https://github.com/gmarik/vundle), here are the 
 
 > If you are on cygwin, you need to run
 ```bash
-find ~/.vim/bundle/. -name '*.vim' -exec dos2unix {}\; && \
+find ~/.vim/bundle/. -name '*.vim' -exec dos2unix {} \; && \
 dos2unix ~/.vim/bundle/YouCompleteMe/install.sh
 ```
 
