@@ -201,6 +201,9 @@ let g:UltiSnipsListSnippets="<c-h>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
+
+" allow jsx syntax in .js files
+let g:jsx_ext_required=0
 ```
 
 ### Cheatsheet
