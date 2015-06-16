@@ -24,7 +24,7 @@ endsnippet
 snippet fce "Fluxxed React component and exported" b
 var FluxIt = require('${1:./}FluxIt.react');
 
-var ${2:ClassName}Store = require('./$2Store');
+var ${2:`!v substitute(expand('%:t:r'), '.react', '', '')`}Store = require('./$2Store');
 var $2API = require('./$2API');
 $3
 var $2 = React.createClass({
@@ -333,20 +333,28 @@ snippet ppa "pass property as"
 ${1:property}={this.props.${2:$1}}
 endsnippet
 
+snippet psa "pass state as" 
+${1:state}={this.props.${2:$1}}
+endsnippet
+
 snippet pap "pass all properties"
 {...this.props}
 endsnippet
 
-snippet mapv "map react properties into variable" b
-var ${1:elements} = this.props.${2:propName}.map(function(${3:propName}) {
+snippet pas "pass all states"
+{...this.state}
+endsnippet
+
+snippet mapv "map react props or state into variable" b
+var ${1:elements} = this.${2:props}.${3:propName}.map(function(${4:propName}) {
 	return (
 		$0
 	);
 })}
 endsnippet
 
-snippet mapp "map react properties" b
-{this.props.${1:propName}.map(function(${2:propName}) {
+snippet mapr "map react props or state into a render" b
+{this.${1:props}.${2:propName}.map(function(${3:propName}) {
 	return (
 		$0
 	);
@@ -361,14 +369,16 @@ endsnippet
 snippet g_ "get private variable" b
 get$1: function() {
 	return _${1/\w/\l$0/};
-}
+},
+$0
 endsnippet
 
 
 snippet i_ "is private variable" b
 is$1: function() {
 	return _is$1;
-}
+},
+$0
 endsnippet
 
 
@@ -378,10 +388,14 @@ function set$1(${1/\w/\l$0/}) {
 }$0
 endsnippet
 
+
+# ==========================================
+# Flux Store Snippets
+#
 snippet fsto "new flux store" b
 var AppDispatcher = require('${1:./}AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
-var ${2:StoreName}Constants = require('${3:./}$2Constants');
+var ${2:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants = require('${3:./}$2Constants');
 var _ = require('underscore');
 
 $4
@@ -417,13 +431,18 @@ AppDispatcher.register(function(payload) {
 module.exports = $2Store;
 endsnippet
 
+snippet fcase "flux store case statement" b
+case ${1:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants.`!p snip.rv=capscore(t[1])`_$2:
+  $3
+	break;
+endsnippet
 
-# ==========
-# Flux Actions
-
-snippet fact "new flux actins" b
+# ==========================================
+# Flux Actions Snippets
+#
+snippet fact "new flux actions" b
 var AppDispatcher = require('${1:./}AppDispatcher');
-var $2Constants = require('${3:./}Constants');
+var ${2:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants = require('${3:./}$2Constants');
 
 var $2Actions = {
 	$0
@@ -441,12 +460,17 @@ endglobal
 snippet faf "new flux action function" b
 $1: function($2) {
 	AppDispatcher.handleAction({
-		actionType: $3Constants.`!p snip.rv=capscore(t[3])`_${1/([A-Z]+)|([a-z])/(?1:_$0)(?2:\u$0)/g},
+		actionType: ${3:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants.`!p snip.rv=capscore(t[3])`_${1/([A-Z]+)|([a-z])/(?1:_$0)(?2:\u$0)/g},
 		${5:${2/(\w+).*/$1/}}: ${2/(\w+).*/$1/}$6
 	});
-}$0
+},$0
 endsnippet
 
+
+
+# ==========================================
+# Flux Constants Snippets
+#
 snippet rkm "React key mirror" b
 var keyMirror = require('react/lib/keyMirror');
 endsnippet
@@ -455,17 +479,20 @@ snippet fcon "flux constants" b
 var keyMirror = require('react/lib/keyMirror');
 
 module.exports = keyMirror({
-	$1
+	$0
 });
 endsnippet
 
 snippet kmv "key mirror value" b
-$1: null${2:,}
+${1:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}: null,
 endsnippet
 
 
+# ==========================================
+# Flux API Snippets
+#
 snippet fapi "Flux api outline" b
-var $1Actions = require('${2:./}Actions');
+var ${1:`!v substitute(expand('%:t:r'), 'API', '', '')`}Actions = require('${2:./}$1Actions');
 
 module.exports = {
 	$0
