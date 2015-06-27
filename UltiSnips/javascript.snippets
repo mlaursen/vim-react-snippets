@@ -54,6 +54,34 @@ $2 =
 module.exports = $2;
 endsnippet
 
+
+snippet fc "Fluxxed React component" b
+var ${1:`!v substitute(expand('%:t:r'), '.react', '', '')`} = React.createClass({
+	propTypes: {
+		$2: ${6:React.PropTypes.string}$7
+	},
+
+	render: function() {
+		return (
+			${0:<div />}
+		);
+	}
+});
+
+$1 = 
+	FluxIt.init(
+		$1,
+		function() {
+		  return {
+				${2:something}: $1Store.${3:get${2/\w/\u$0/}()}
+			};
+		},
+		[$1Store],
+		[$1API.${5:get${2/\w/\u$0/}}]
+	);
+endsnippet
+
+
 snippet rce "React class and export component" b
 var ${1:ClassName} = React.createClass({
 	$2
@@ -173,6 +201,10 @@ componentWillUnmount: function() {
 	$1
 },
 $0
+endsnippet
+
+snippet im "is mounted"
+this.isMounted()
 endsnippet
 
 
@@ -334,7 +366,7 @@ ${1:property}={this.props.${2:$1}}
 endsnippet
 
 snippet psa "pass state as" 
-${1:state}={this.props.${2:$1}}
+${1:state}={this.state.${2:$1}}
 endsnippet
 
 snippet pap "pass all properties"
