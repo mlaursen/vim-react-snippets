@@ -1,14 +1,14 @@
+global !p
+def capscore(t):
+	return '_'.join([ w.upper() for w in re.findall('[A-Z]+[a-z]*', t) ])
+endglobal
+
+
 # Normal javascript snippets
 #
-
-snippet rv "require a variable" b
-var $1 = require('${2:./}${3:$1}');$0
+snippet imp "Import a variable" b
+import $1 from '$2'
 endsnippet
-
-snippet rp "require prototype" b
-var $1 = require('${2:./}${3:$1}.proto');$0
-endsnippet
-
 
 # ==========================================
 # React Snippets
@@ -17,195 +17,149 @@ endsnippet
 # ==========================================
 # Creating new React classes Section
 #
-snippet fce "Fluxxed React component and exported" b
-var FluxIt = require('${1:./}FluxIt');
+snippet fce "Export a Fluxxed React component" b
+import React, { Component, PropTypes } from 'react'
 
-var ${2:`!v substitute(expand('%:t:r'), '.react', '', '')`}Store = require('./$2Store');
-var $2API = require('./$2API');
-$3
-var $2 = React.createClass({
-	propTypes: {
-		$4: ${7:PropTypes.string}$8
-	},
+import { Init } from '$1/common/FluxIt'
+import $2Store from '$3/stores/$2Store'
+import $2API from '$3/api/$2API'
 
-	render: function() {
-		return (
-			${0:<div />}
-		);
-	}
-});
-
-$2 = FluxIt.init($2, function(props) {
+@Init((props) => {
 	return {
-		${4:something}: $2Store.${5:get${4/\w/\u$0/}()}
-	};
-}, [$2Store], [$2API.${6:get${4/\w/\u$0/}}]);
-
-module.exports = $2;
-endsnippet
-
-
-snippet fc "Fluxxed React component" b
-var ${1:`!v substitute(expand('%:t:r'), '.react', '', '')`} = React.createClass({
-	propTypes: {
-		$2: ${6:PropTypes.string}$7
-	},
-
-	render: function() {
-		return (
-			${0:<div />}
-		);
+	  $4
 	}
-});
-
-$1 = 
-	FluxIt.init(
-		$1,
-		function() {
-		  return {
-				${2:something}: $1Store.${3:get${2/\w/\u$0/}()}
-			};
-		},
-		[$1Store],
-		[$1API.${5:get${2/\w/\u$0/}}]
-	);
-endsnippet
-
-
-snippet rce "React class and export component" b
-var ${1:ClassName} = React.createClass({
-	$2
-	render: function() {
+}, [$2Store], [$2API.$5], ['${4/(\w+).*/$1/}']$7)
+export default class ${2:`!v expand('%:t:r')`} extends Component {
+	render() {
 		return (
-			${0:<div />}
-		);
+			${6:<div />}
+		)
 	}
-});
-
-module.exports = $1;
+}
 endsnippet
+
+
+snippet fcle "Export a LazyLoaded Fluxxed React component" b
+import React, { Component, PropTypes } from 'react'
+
+import { LazyLoad } from '$1/common/FluxIt'
+import $2Store from '$3/stores/$2Store'
+import $2API from '$3/api/$2API'
+
+@LazyLoad((props) => {
+	return {
+	  $4
+	}
+}, [$2Store], [$2API.$5], ['${4/(\w+).*/$1/}']$7)
+export default class ${2:`!v expand('%:t:r')`} extends Component {
+	render() {
+		return (
+			${6:<div />}
+		)
+	}
+}
+endsnippet
+
+
+snippet rce "React class exported" b
+import React, { Component, PropTypes } from 'react'
+
+export default class ${1:`!v expand('%:t:r')`} extends Component {
+	render() {
+		return (
+			${2:<div />}
+		)
+	}
+}
+endsnippet
+
 
 snippet rc "React class" b
-var ${1:ClassName} = React.createClass({
-	$2
-	render: function() {
+class ${1:ComponentName} extends Component {
+	render() {
 		return (
-			${0:<div />}
-		);
+			${2:<div />}
+		)
 	}
-});
+}
 endsnippet
+
 
 
 # ==========================================
 # Component Specs and Lifecycle Section
 #
-snippet rend "React render function" b
-render: function() {
-	return (
-		${0:<div />}
-	);
-}
-endsnippet
-
 snippet gis "get initial state" b
-getInitialState: function() {
+getInitialState() {
 	return {
 		$1
-	};
-},
-$0
+	}
+}
 endsnippet
 
 
 snippet gdp "get default props" b
-getDefaultProps: function() {
+getDefaultProps() {
 	return {
 		$1
-	};
-},
-$0
+	}
+}
 endsnippet
+
 
 snippet pt "React prop types definition" b
-propTypes: {
+static propTypes = {
 	${1:someProp}: ${2:PropTypes.string}
-},
-$0
-endsnippet
-
-snippet statics "react statics" b
-statics: {
-	${1:foo}: function(${2:bar}) {
-		${3:return 'foo' === bar;}
-	}
-},
-$0
+}
 endsnippet
 
 
 snippet cwm "component will mount" b
-componentWillMount: function() {
+componentWillMount() {
 	$1
-},
-$0
+}
 endsnippet
 
 snippet cdm "component did mount" b
-componentDidMount: function() {
+componentDidMount() {
 	$1
-},
-$0
+}
 endsnippet
 
 snippet cwrp "component will receive props" b
-componentWillReceiveProps: function(${1:nextProps}) {
-	$2
-},
-$0
+componentWillReceiveProps(nextProps) {
+	$1
+}
 endsnippet
 
 snippet scu "should component update" b
-shouldComponentUpdate: function(${1:nextProps}, ${2:nextState}) {
-	return ${3:$1.id !== this.props.id};
-},
-$0
+shouldComponentUpdate(nextProps, nextState) {
+	return $1;
+}
 endsnippet
 
 snippet cwu "component will update" b
-componentWillUpdate: function(${1:nextProps}, ${2:nextState}) {
+componentWillUpdate(nextProps, nextState) {
 	$3
-},
-$0
+}
 endsnippet
 
 snippet cdu "component did update" b
-componentDidUpdate: function(${1:prevProps}, ${2:prevState}) {
-	$3
-},
-$0
+componentDidUpdate(prevProps, prevState) {
+	$1
+}
 endsnippet
 
 snippet cwum "component will unmount" b
-componentWillUnmount: function() {
+componentWillUnmount() {
 	$1
-},
-$0
-endsnippet
-
-snippet im "is mounted"
-this.isMounted()
+}
 endsnippet
 
 
 # ==========================================
 # Prop Types Section
 #
-
-snippet np "new property" b
-${1:prop}: ${2:PropTypes.string}$0
-endsnippet
-
 
 # Inline prop types
 snippet pt.a "React PropTypes array" w
@@ -273,114 +227,47 @@ PropTypes.element.isRequired
 endsnippet
 
 snippet pt.ao "React PropTypes arrayOf" w
-PropTypes.arrayOf(${1:PropTypes.string})$0
+PropTypes.arrayOf(${1:PropTypes.string})
 endsnippet
 
 snippet pt.aor "React PropTypes arrayOf required" w
-PropTypes.arrayOf(${1:PropTypes.string}).isRequired$0
+PropTypes.arrayOf(${1:PropTypes.string}).isRequired
 endsnippet
 
 snippet pt.io "React PropTypes instanceOf" w
-PropTypes.instanceOf(${1:PropTypes.string})$0
+PropTypes.instanceOf(${1:PropTypes.string})
 endsnippet
 
 snippet pt.ior "React PropTypes instanceOf required" w
-PropTypes.instanceOf(${1:PropTypes.string}).isRequired$0
+PropTypes.instanceOf(${1:PropTypes.string}).isRequired
 endsnippet
 
 snippet pt.oo "React PropTypes objectOf" w
-PropTypes.objectOf(${1:PropTypes.string})$0
+PropTypes.objectOf(${1:PropTypes.string})
 endsnippet
 
 snippet pt.oor "React PropTypes objectOf required" w
-PropTypes.objectOf(${1:PropTypes.string}).isRequired$0
+PropTypes.objectOf(${1:PropTypes.string}).isRequired
 endsnippet
 
 snippet pt.one "React PropTypes oneOf" w
-PropTypes.oneOf(['$1'$2])$0
+PropTypes.oneOf(['$1'$2])
 endsnippet
 
 snippet pt.oner "React PropTypes oneOf required" w
-PropTypes.oneOf(['$1'$2]).isRequired$0
+PropTypes.oneOf(['$1'$2]).isRequired
 endsnippet
 
 snippet pt.onet "React PropTypes onOfType" w
 PropTypes.oneOfType([
 	$1
-])$0
+])
 endsnippet
 
 snippet pt.onetr "React PropTypes onOfType required" w
 PropTypes.oneOfType([
 	$1
-]).isRequired$0
-endsnippet
-
-
-# ==========================================
-# Attributes and helpers Section
-#
-
-snippet varp "get property in variable" b
-var ${1:foo} = this.props.$1;
-endsnippet
-
-snippet vars "get state in variable" b
-var ${1:foo} = this.state.$1;
-endsnippet
-
-snippet ss "set state" b
-this.setState({
-	$1
-});$0
-endsnippet
-
-snippet cn "className"
-className={${1:classString}}$0
-endsnippet
-
-snippet cns "className as a string"
-className="${1:some css classes}"$0
-endsnippet
-
-snippet p. "get property" w
-this.props.${1:name}
-endsnippet
-
-snippet s. "get state" w
-this.state.${1:name}
-endsnippet
-
-snippet ppa "pass property as"
-${1:property}={this.props.${2:$1}}
-endsnippet
-
-snippet psa "pass state as" 
-${1:state}={this.state.${2:$1}}
-endsnippet
-
-snippet pap "pass all properties"
-{...this.props}
-endsnippet
-
-snippet pas "pass all states"
-{...this.state}
-endsnippet
-
-snippet mapv "map react props or state into variable" b
-var ${1:elements} = this.${2:props}.${3:propName}.map(function(${4:propName}) {
-	return (
-		$0
-	);
-})}
-endsnippet
-
-snippet mapr "map react props or state into a render" b
-{this.${1:props}.${2:propName}.map(function(${3:propName}) {
-	return (
-		$0
-	);
-})}
+]).isRequired
 endsnippet
 
 
@@ -389,25 +276,16 @@ endsnippet
 #
 
 snippet g_ "get private variable" b
-get$1: function() {
-	return _${1/\w/\l$0/};
-},
-$0
+get$1($2) {
+	return _${1/\w/\l$0/}$3;
+}
 endsnippet
 
 
 snippet i_ "is private variable" b
 is$1: function() {
 	return _is$1;
-},
-$0
-endsnippet
-
-
-snippet s_ "set private variable" b
-function set$1(${1/\w/\l$0/}) {
-	_${1/\w/\l$0/} = ${1/\w/\l$0/};$2
-}$0
+}
 endsnippet
 
 
@@ -415,43 +293,32 @@ endsnippet
 # Flux Store Snippets
 #
 snippet fsto "new flux store" b
-var AppDispatcher = require('${1:./}AppDispatcher');
-var EventEmitter = require('events').EventEmitter;
-var ${2:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants = require('${3:./}$2Constants');
-var _ = require('underscore');
+import AppDispatcher from '$1/common/AppDispatcher'
 
-$4
+import Store from '$1/stores/Store'
+import ${2:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants from '$1/actionConstants/$2Constants'
 
-var $2Store = _.extend({}, EventEmitter.prototype, {
+$3
+
+class _${4:`!v expand('%:t:r')`} extends Store {
 	$0
-	emitChange: function() {
-		this.emit('change');
-	},
+}
 
-	addChangeListener: function(callback) {
-		this.on('change', callback);
-	},
+let $4 = new _$4();
+export default $4;
 
-	removeChangeListener: function(callback) {
-		this.removeListener('change', callback);
-	}
-});
-
-AppDispatcher.register(function(payload) {
-	var action = payload.action;
+AppDispatcher.register(payload => {
+	const action = payload.action;
 
 	switch(action.actionType) {
 		$5
 		default:
-			return true;
+			return;
 	}
-
-	$2Store.emitChange();
-	return true;
+	$4.emitChange();
 });
-
-module.exports = $2Store;
 endsnippet
+
 
 snippet fcase "flux store case statement" b
 case ${1:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants.`!p snip.rv=capscore(t[1])`_$2:
@@ -463,24 +330,17 @@ endsnippet
 # Flux Actions Snippets
 #
 snippet fact "new flux actions" b
-var AppDispatcher = require('${1:./}AppDispatcher');
-var ${2:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants = require('${3:./}$2Constants');
+import AppDispatcher from '$1/common/AppDispatcher'
+import ${2:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants = from '$1/actionConstants/$2Constants'
 
-var $2Actions = {
+export default {
 	$0
-};
-
-module.exports = $2Actions;
+}
 endsnippet
-
-global !p
-def capscore(t):
-	return '_'.join([ w.upper() for w in re.findall('[A-Z]+[a-z]*', t) ])
-endglobal
 
 
 snippet faf "new flux action function" b
-$1: function($2) {
+$1($2) {
 	AppDispatcher.handleAction({
 		actionType: ${3:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants.`!p snip.rv=capscore(t[3])`_${1/([A-Z]+)|([a-z])/(?1:_$0)(?2:\u$0)/g},
 		${5:${2/(\w+).*/$1/}}: ${2/(\w+).*/$1/}$6
@@ -494,19 +354,15 @@ endsnippet
 # Flux Constants Snippets
 #
 snippet rkm "React key mirror" b
-var keyMirror = require('react/lib/keyMirror');
+import keyMirror from 'react/lib/keyMirror'
 endsnippet
 
 snippet fcon "flux constants" b
-var keyMirror = require('react/lib/keyMirror');
+import keyMirror from 'react/lib/keyMirror'
 
-module.exports = keyMirror({
+export default keyMirror({
 	$0
 });
-endsnippet
-
-snippet kmv "key mirror value" b
-${1:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}: null,
 endsnippet
 
 
