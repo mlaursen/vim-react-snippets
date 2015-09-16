@@ -331,7 +331,7 @@ endsnippet
 #
 snippet fact "new flux actions" b
 import AppDispatcher from '$1/common/AppDispatcher'
-import ${2:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants = from '$1/actionConstants/$2Constants'
+import ${2:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants from '$1/actionConstants/$2Constants'
 
 export default {
 	$0
