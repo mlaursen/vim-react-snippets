@@ -1,13 +1,49 @@
 global !p
 def capscore(t):
 	return '_'.join([ w.upper() for w in re.findall('[A-Z]+[a-z]*', t) ])
+
+def lowerdash(t):
+	return '-'.join([ w.lower() for w in re.findall('[a-z]+|[A-Z]+[a-z]*', t) ])
 endglobal
+
 
 
 # Normal javascript snippets
 #
-snippet imp "Import a variable" b
-import $1 from '$2'
+snippet imp "Import a lib" b
+import $1 from '$2`!p snip.rv=lowerdash(t[1])`';
+endsnippet
+
+snippet impf "Import a file" b
+import $1 from '${2:./}${3:$1}';
+endsnippet
+
+snippet impn "Import nested" b
+import { $1 } from '$2';
+endsnippet
+
+snippet => "Create an arrow function"
+(${1:arg}) => {
+	$2
+}
+endsnippet
+
+snippet =>> "Create an arrow function inline"
+(${1:arg}) => $2
+endsnippet
+
+snippet imm "Import immutable List and Map" b
+import { List, Map } from 'immutable';
+endsnippet
+
+snippet "\.map" "Map with an arrow function" r
+.map($1 => {
+	return $2;
+});
+endsnippet
+
+snippet "\.map=" "Map with an arrow function inline" r
+.map($1 => $2)
 endsnippet
 
 # ==========================================
@@ -18,11 +54,12 @@ endsnippet
 # Creating new React classes Section
 #
 snippet fce "Export a Fluxxed React component" b
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
-import { Init } from '$1/common/FluxIt'
-import $2Store from '$3/stores/$2Store'
-import $2API from '$3/api/$2API'
+import { Init } from '$1/common/FluxIt';
+import $2Store from '$3/stores/$2Store';
+import $2API from '$3/api/$2API';
 
 @Init((props) => {
 	return {
@@ -30,21 +67,28 @@ import $2API from '$3/api/$2API'
 	}
 }, [$2Store], [$2API.$5], ['${4/(\w+).*/$1/}']$7)
 export default class ${2:`!v expand('%:t:r')`} extends Component {
+	constructor(props) {
+		super(props);
+
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+	}
+
 	render() {
 		return (
 			${6:<div />}
-		)
+		);
 	}
 }
 endsnippet
 
 
 snippet fcle "Export a LazyLoaded Fluxxed React component" b
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
-import { LazyLoad } from '$1/common/FluxIt'
-import $2Store from '$3/stores/$2Store'
-import $2API from '$3/api/$2API'
+import { LazyLoad } from '$1/common/FluxIt';
+import $2Store from '$3/stores/$2Store';
+import $2API from '$3/api/$2API';
 
 @LazyLoad((props) => {
 	return {
@@ -52,23 +96,36 @@ import $2API from '$3/api/$2API'
 	}
 }, [$2Store], [$2API.$5], ['${4/(\w+).*/$1/}']$7)
 export default class ${2:`!v expand('%:t:r')`} extends Component {
+	constructor(props) {
+		super(props);
+
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+	}
+
 	render() {
 		return (
 			${6:<div />}
-		)
+		);
 	}
 }
 endsnippet
 
 
 snippet rce "React class exported" b
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default class ${1:`!v expand('%:t:r')`} extends Component {
+	constructor(props) {
+		super(props);
+
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+	}
+
 	render() {
 		return (
 			${2:<div />}
-		)
+		);
 	}
 }
 endsnippet
@@ -76,33 +133,50 @@ endsnippet
 
 snippet rc "React class" b
 class ${1:ComponentName} extends Component {
+	constructor(props) {
+		super(props);
+
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+	}
+
 	render() {
 		return (
 			${2:<div />}
-		)
+		);
 	}
 }
 endsnippet
 
+snippet icss "Impore css transition group" b
+import CSSTransitionGroup from 'react-addons-css-transition-group';
+endsnippet
 
+snippet iadd "Import react addon" b
+import $1 from 'react-addons-`!p snip.rv=lowerdash(t[1])`';
+endsnippet
+
+snippet rcf "React class function" b
+$1 = (${2:e}) => {
+	$3
+}
+endsnippet
+
+
+snippet reactf "React file with a render" b
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import $1 from '${2:./}$1';
+
+ReactDOM.render(<$1 />, document.getElementById('${3:app}'));
+endsnippet
 
 # ==========================================
 # Component Specs and Lifecycle Section
 #
-snippet gis "get initial state" b
-getInitialState() {
-	return {
-		$1
-	}
-}
-endsnippet
-
-
-snippet gdp "get default props" b
-getDefaultProps() {
-	return {
-		$1
-	}
+snippet dp "get default props" b
+static defaultProps = {
+	$1
 }
 endsnippet
 
@@ -293,10 +367,10 @@ endsnippet
 # Flux Store Snippets
 #
 snippet fsto "new flux store" b
-import AppDispatcher from '$1/common/AppDispatcher'
+import AppDispatcher from '$1/common/AppDispatcher';
 
-import Store from '$1/stores/Store'
-import ${2:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants from '$1/actionConstants/$2Constants'
+import Store from '$1/stores/Store';
+import ${2:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants from '$1/actionConstants/$2Constants';
 
 $3
 
@@ -372,7 +446,43 @@ endsnippet
 snippet fapi "Flux api outline" b
 var ${1:`!v substitute(expand('%:t:r'), 'API', '', '')`}Actions = require('${2:./}$1Actions');
 
-module.exports = {
+export default {
 	$0
 };
+endsnippet
+
+
+
+# ==========================================
+# Testing
+#
+snippet rtest "React component test" b
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import { expect } from 'chai';
+
+import ${1:`!v expand('%:t:r')`} from '$2/js/components/$1';
+
+const { renderIntoDocument, Simulate } = TestUtils;
+
+describe('$1', () => {
+	
+	it('$3', () => {
+		const component = renderIntoDocument(
+			<$1 $4 />
+		);
+		$5
+	});
+});
+endsnippet
+
+snippet it "Testing it statement" b
+it('$1', () => {
+	$2
+});
+endsnippet
+
+snippet ee "Expect equal" b
+expect($1).to.equal($2);
 endsnippet
