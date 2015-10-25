@@ -4,6 +4,9 @@ def capscore(t):
 
 def lowerdash(t):
 	return '-'.join([ w.lower() for w in re.findall('[a-z]+|[A-Z]+[a-z]*', t) ])
+
+def datakeys(t):
+	return ', '.join([ '\'' + w[0].lower() + w[1:] + '\'' for w in re.findall('[A-Z][A-z]+', t) ])
 endglobal
 
 
@@ -22,13 +25,13 @@ snippet impn "Import nested" b
 import { $1 } from '$2';
 endsnippet
 
-snippet => "Create an arrow function"
+snippet "(?=.)=>" "Create an arrow function" r
 (${1:arg}) => {
 	$2
 }
 endsnippet
 
-snippet =>> "Create an arrow function inline"
+snippet "(?=.)=>>" "Create an arrow function inline" r
 (${1:arg}) => $2
 endsnippet
 
@@ -46,6 +49,10 @@ snippet "\.map=" "Map with an arrow function inline" r
 .map($1 => $2)
 endsnippet
 
+snippet cl "Console.log" b
+console.log($1);
+endsnippet
+
 # ==========================================
 # React Snippets
 #
@@ -57,15 +64,18 @@ snippet fce "Export a Fluxxed React component" b
 import React, { Component, PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
-import { Init } from '$1/common/FluxIt';
+import { init } from '$1/common/FluxIt';
 import $2Store from '$3/stores/$2Store';
-import $2API from '$3/api/$2API';
+import $2Actions from '$3/actions/$2Actions';
+import { $4 } from '$3/api/API';
 
-@Init((props) => {
+@init((props) => {
 	return {
-	  $4
+	  $5
 	}
-}, [$2Store], [$2API.$5], ['${4/(\w+).*/$1/}']$7)
+}, [$2Store], (context) => {
+	$6
+})
 export default class ${2:`!v expand('%:t:r')`} extends Component {
 	constructor(props) {
 		super(props);
@@ -75,7 +85,7 @@ export default class ${2:`!v expand('%:t:r')`} extends Component {
 
 	render() {
 		return (
-			${6:<div />}
+			${7:<div />}
 		);
 	}
 }
@@ -86,15 +96,12 @@ snippet fcle "Export a LazyLoaded Fluxxed React component" b
 import React, { Component, PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
-import { LazyLoad } from '$1/common/FluxIt';
+import { lazyLoad } from '$1/common/FluxIt';
 import $2Store from '$3/stores/$2Store';
-import $2API from '$3/api/$2API';
+import $2Actions from '$3/actions/$2Actions';
+import { $4 } from '$3/api/API';
 
-@LazyLoad((props) => {
-	return {
-	  $4
-	}
-}, [$2Store], [$2API.$5], ['${4/(\w+).*/$1/}']$7)
+@lazyLoad([$2Store], [${5:$4}], [${6:`!p snip.rv=datakeys(t[5])`}])
 export default class ${2:`!v expand('%:t:r')`} extends Component {
 	constructor(props) {
 		super(props);
@@ -104,7 +111,33 @@ export default class ${2:`!v expand('%:t:r')`} extends Component {
 
 	render() {
 		return (
-			${6:<div />}
+			${7:<div />}
+		);
+	}
+}
+endsnippet
+
+
+snippet fcpe "Export a Parameter lazy loaded Fluxxed React component" b
+import React, { Component, PropTypes } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+
+import { paramLoad } from '$1/common/FluxIt';
+import $2Store from '$3/stores/$2Store';
+import $2Actions from '$3/actions/$2Actions';
+import { $4 } from '$3/api/API';
+
+@paramLoad([$2Store], [${5:$4}], [${6:`!p snip.rv=datakeys(t[5])`}])
+export default class ${2:`!v expand('%:t:r')`} extends Component {
+	constructor(props) {
+		super(props);
+
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+	}
+
+	render() {
+		return (
+			${7:<div />}
 		);
 	}
 }
@@ -344,22 +377,16 @@ PropTypes.oneOfType([
 ]).isRequired
 endsnippet
 
-
-# ==========================================
-# Flux Snippets
-#
-
-snippet g_ "get private variable" b
-get$1($2) {
-	return _${1/\w/\l$0/}$3;
-}
+snippet pt.sh "React PropTyes shape" w
+PropTypes.shape({
+	$1
+})
 endsnippet
 
-
-snippet i_ "is private variable" b
-is$1: function() {
-	return _is$1;
-}
+snippet pt.shr "React PropTypes shape required" w
+PropTypes.shape({
+	$1
+}).isRequired
 endsnippet
 
 
@@ -368,13 +395,14 @@ endsnippet
 #
 snippet fsto "new flux store" b
 import AppDispatcher from '$1/common/AppDispatcher';
+import { Map } from 'immutable';
 
-import Store from '$1/stores/Store';
+import FluxStore from '$1/stores/FluxStore';
 import ${2:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants from '$1/actionConstants/$2Constants';
 
-$3
+let _$3
 
-class _${4:`!v expand('%:t:r')`} extends Store {
+class _${4:`!v expand('%:t:r')`} extends FluxStore {
 	$0
 }
 
@@ -427,30 +455,13 @@ endsnippet
 # ==========================================
 # Flux Constants Snippets
 #
-snippet rkm "React key mirror" b
-import keyMirror from 'react/lib/keyMirror'
-endsnippet
-
 snippet fcon "flux constants" b
-import keyMirror from 'react/lib/keyMirror'
+import keymirror from 'keymirror'
 
-export default keyMirror({
+export default keymirror({
 	$0
 });
 endsnippet
-
-
-# ==========================================
-# Flux API Snippets
-#
-snippet fapi "Flux api outline" b
-var ${1:`!v substitute(expand('%:t:r'), 'API', '', '')`}Actions = require('${2:./}$1Actions');
-
-export default {
-	$0
-};
-endsnippet
-
 
 
 # ==========================================
