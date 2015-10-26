@@ -39,14 +39,14 @@ snippet imm "Import immutable List and Map" b
 import { List, Map } from 'immutable';
 endsnippet
 
-snippet "\.map" "Map with an arrow function" r
-.map($1 => {
+snippet "\.(map|filter|forEach|reduce)" "Map with an arrow function" r
+.`!p snip.rv = match.group(1)`($1 => {
 	return $2;
 });
 endsnippet
 
-snippet "\.map=" "Map with an arrow function inline" r
-.map($1 => $2)
+snippet "\.(map|filter|forEach|reduce)=" "Map with an arrow function inline" r
+.`!p snip.rv = match.group(1)`($1 => $2)
 endsnippet
 
 snippet cl "Console.log" b
