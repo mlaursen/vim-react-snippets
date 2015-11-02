@@ -7,6 +7,9 @@ def lowerdash(t):
 
 def datakeys(t):
 	return ', '.join([ '\'' + w[0].lower() + w[1:] + '\'' for w in re.findall('[A-Z][A-z]+', t) ])
+
+def apifuncs(t):
+	return '\n  '.join([ w + '(context.);' for w in t.split(', ') ])
 endglobal
 
 
@@ -65,16 +68,16 @@ import React, { Component, PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import { init } from '$1/common/FluxIt';
-import $2Store from '$3/stores/$2Store';
-import $2Actions from '$3/actions/$2Actions';
-import { $4 } from '$3/api/API';
+import ${3:`!v expand('%:t:r')`}Store from '$4/stores/$3Store';
+import $3Actions from '$4/actions/$3Actions';
+import { $5 } from '$4/common/API';
 
 @init((props) => {
 	return {
-	  $5
+	  $6
 	}
-}, [$2Store], (context) => {
-	$6
+}, [$3Store], (context) => {
+	${7:`!p snip.rv=apifuncs(t[5])`}
 })
 export default class ${2:`!v expand('%:t:r')`} extends Component {
 	constructor(props) {
@@ -85,7 +88,7 @@ export default class ${2:`!v expand('%:t:r')`} extends Component {
 
 	render() {
 		return (
-			${7:<div />}
+			${8:<div />}
 		);
 	}
 }
@@ -395,12 +398,13 @@ endsnippet
 #
 snippet fsto "new flux store" b
 import AppDispatcher from '$1/common/AppDispatcher';
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 
 import FluxStore from '$1/stores/FluxStore';
 import ${2:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants from '$1/actionConstants/$2Constants';
 
-let _$3
+let _$3 = fromJS({
+});
 
 class _${4:`!v expand('%:t:r')`} extends FluxStore {
 	$0
@@ -432,12 +436,12 @@ endsnippet
 # Flux Actions Snippets
 #
 snippet fact "new flux actions" b
-import AppDispatcher from '$1/common/AppDispatcher'
-import ${2:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants from '$1/actionConstants/$2Constants'
+import AppDispatcher from '$1/common/AppDispatcher';
+import ${2:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants from '$1/actionConstants/$2Constants';
 
 export default {
 	$0
-}
+};
 endsnippet
 
 
@@ -456,7 +460,7 @@ endsnippet
 # Flux Constants Snippets
 #
 snippet fcon "flux constants" b
-import keymirror from 'keymirror'
+import keymirror from 'keymirror';
 
 export default keymirror({
 	$0
