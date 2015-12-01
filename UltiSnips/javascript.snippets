@@ -56,6 +56,25 @@ snippet cl "Console.log" b
 console.log($1);
 endsnippet
 
+snippet exp "Export from location" b
+export $1 from '${2:./}$1';
+endsnippet
+
+snippet expn "Export nested" b
+export { $1 } from '${2:./}';
+endsnippet
+
+snippet expi "Export from a file import" b
+import $1 from '${2:./}${3:$1}';
+export ${4:default} $1;
+endsnippet
+
+snippet expf "Export function" b
+export ${1:default }function($2) {
+	$3
+}
+endsnippet
+
 # ==========================================
 # React Snippets
 #
