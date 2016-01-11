@@ -28,6 +28,14 @@ snippet impn "Import nested" b
 import { $1 } from '$2';
 endsnippet
 
+snippet impp "Import without from" b
+import '$1';
+endsnippet
+
+snippet rc "Require const" b
+const $1 = require('`!p snip.rv=lowerdash(t[1])`');
+endsnippet
+
 snippet "(?=.)=>" "Create an arrow function" r
 (${1:arg}) => {
 	$2
@@ -40,6 +48,11 @@ endsnippet
 
 snippet imm "Import immutable List and Map" b
 import { List, Map } from 'immutable';
+endsnippet
+
+
+snippet icn "Import classnames" b
+import classnames from 'classnames';
 endsnippet
 
 snippet "\.(map|filter|forEach|reduce)" "Map with an arrow function" r
@@ -73,6 +86,11 @@ import $1 from '${2:./}${3:$1}';
 export ${4:default} $1;
 endsnippet
 
+snippet expix "Export from a jsx file import" b
+import $1 from '${2:./}${3:$1}.jsx';
+export ${4:default} $1;
+endsnippet
+
 snippet expf "Export function" b
 export ${1:default }function($2) {
 	$3
@@ -82,94 +100,6 @@ endsnippet
 # ==========================================
 # React Snippets
 #
-
-# ==========================================
-# Creating new React classes Section
-#
-snippet fce "Export a Fluxxed React component" b
-import React, { Component, PropTypes } from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-
-import { init } from '$1/common/FluxIt';
-import ${3:`!v expand('%:t:r')`}Store from '$4/stores/$3Store';
-import $3Actions from '$4/actions/$3Actions';
-import { $5 } from '$4/common/API';
-
-@init((props) => {
-	return {
-	  $6
-	};
-}, [$3Store], (context) => {
-	${7:`!p snip.rv=apifuncs(t[5])`}
-})
-export default class ${2:`!v expand('%:t:r')`} extends Component {
-	constructor(props) {
-		super(props);
-
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-	}
-
-	render() {
-		return (
-			${8:<div />}
-		);
-	}
-}
-endsnippet
-
-
-snippet fcle "Export a LazyLoaded Fluxxed React component" b
-import React, { Component, PropTypes } from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-
-import { lazyLoad } from '$1/common/FluxIt';
-import $2Store from '$3/stores/$2Store';
-import $2Actions from '$3/actions/$2Actions';
-import { $4 } from '$3/api/API';
-
-@lazyLoad([$2Store], [${5:$4}], [${6:`!p snip.rv=datakeys(t[5])`}])
-export default class ${2:`!v expand('%:t:r')`} extends Component {
-	constructor(props) {
-		super(props);
-
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-	}
-
-	render() {
-		return (
-			${7:<div />}
-		);
-	}
-}
-endsnippet
-
-
-snippet fcpe "Export a Parameter lazy loaded Fluxxed React component" b
-import React, { Component, PropTypes } from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-
-import { paramLoad } from '$1/common/FluxIt';
-import $2Store from '$3/stores/$2Store';
-import $2Actions from '$3/actions/$2Actions';
-import { $4 } from '$3/api/API';
-
-@paramLoad([$2Store], [${5:$4}], [${6:`!p snip.rv=datakeys(t[5])`}])
-export default class ${2:`!v expand('%:t:r')`} extends Component {
-	constructor(props) {
-		super(props);
-
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-	}
-
-	render() {
-		return (
-			${7:<div />}
-		);
-	}
-}
-endsnippet
-
-
 snippet rce "React class exported" b
 import React, { Component, PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
@@ -190,19 +120,14 @@ export default class ${1:`!v expand('%:t:r')`} extends Component {
 endsnippet
 
 
-snippet rc "React class" b
-class ${1:ComponentName} extends Component {
-	constructor(props) {
-		super(props);
+snippet rfe "React function exported" b
+import React from 'react';
 
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-	}
-
-	render() {
-		return (
-			${2:<div />}
-		);
-	}
+export default function `!v expand('%:t:r')`($2) {
+	return (
+		${3:<div>
+		</div>}
+	);
 }
 endsnippet
 
@@ -242,7 +167,7 @@ endsnippet
 
 snippet pt "React prop types definition" b
 static propTypes = {
-	${1:someProp}: ${2:PropTypes.string}
+	${1:someProp}: ${2:PropTypes.string},
 };
 endsnippet
 
@@ -523,4 +448,52 @@ endsnippet
 
 snippet ee "Expect equal" b
 expect($1).to.equal($2);
+endsnippet
+
+
+# ==========================================
+# React Documenting
+#
+snippet rdoc "React Documentation Component" b
+import React, { Component } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+import $1 from 'react-md/${2:$1s}';
+
+import DocPage from 'react-md-documentation';
+import $1Examples from './$1Examples';
+import $1ExamplesRaw from '!!raw!./$1Examples';
+//import './_`!p snip.rv=lowerdash(t[1])`.scss';
+
+export default class `!v expand('%:t:r')` extends Component {
+	constructor(props) {
+		super(props);
+
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+	}
+
+	render() {
+		return (
+			<DocPage
+				components={[{
+					component: $1,
+					details: [$4],
+				}]}
+				examples={[{
+					markdown: $1ExamplesRaw,
+					children: <$1Examples />,
+				}]}
+				>
+				$3
+			</DocPage>
+		);
+	}
+}
+endsnippet
+
+snippet rpt "React Documentation prop type"
+{
+  name: '$1',
+	pt: '$2',
+	desc: \`$3\`,
+},
 endsnippet
