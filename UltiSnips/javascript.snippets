@@ -56,6 +56,10 @@ snippet cl "Console.log" b
 console.log($1);
 endsnippet
 
+snippet clv "Console log variable" b
+console.log('$1:', $1);
+endsnippet
+
 snippet exp "Export from location" b
 export $1 from '${2:./}$1';
 endsnippet
@@ -213,7 +217,7 @@ endsnippet
 snippet rcf "React class function" b
 $1 = (${2:e}) => {
 	$3
-}
+};
 endsnippet
 
 
@@ -232,14 +236,14 @@ endsnippet
 snippet dp "get default props" b
 static defaultProps = {
 	$1
-}
+};
 endsnippet
 
 
 snippet pt "React prop types definition" b
 static propTypes = {
 	${1:someProp}: ${2:PropTypes.string}
-}
+};
 endsnippet
 
 
