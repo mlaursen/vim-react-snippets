@@ -32,6 +32,10 @@ snippet impp "Import without from" b
 import '$1';
 endsnippet
 
+snippet imps "Import pluralized" b
+import $1 from '${2:.}/$1s';
+endsnippet
+
 snippet rc "Require const" b
 const $1 = require('`!p snip.rv=lowerdash(t[1])`');
 endsnippet
@@ -111,6 +115,11 @@ export default class ${1:`!v expand('%:t:r')`} extends Component {
 		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 	}
 
+	static propTypes = {
+		className: PropTypes.string,
+		children: PropTypes.node,
+	};
+
 	render() {
 		return (
 			${2:<div />}
@@ -129,6 +138,23 @@ export default function `!v expand('%:t:r')`($2) {
 		</div>}
 	);
 }
+endsnippet
+
+snippet rpe "React pure export" b
+import React, { PropTypes } from 'react';
+
+const `!v expand('%:t:r')` = (${1:props}) => {
+	return (
+		<div${2}>
+		</div>
+	);
+};
+
+`!v expand('%:t:r')`.propTypes = {
+	${3}
+};
+
+export default `!v expand('%:t:r')`;
 endsnippet
 
 snippet icss "Impore css transition group" b
@@ -167,7 +193,7 @@ endsnippet
 
 snippet pt "React prop types definition" b
 static propTypes = {
-	${1:someProp}: ${2:PropTypes.string},
+	${1:className}: ${2:PropTypes.string},${0}
 };
 endsnippet
 
@@ -221,235 +247,124 @@ endsnippet
 
 # Inline prop types
 snippet pt.a "React PropTypes array" w
-PropTypes.array
+PropTypes.array,
 endsnippet
 
 snippet pt.ar "React PropTypes array required" w
-PropTypes.array.isRequired
+PropTypes.array.isRequired,
 endsnippet
 
 snippet pt.b "React PropTypes boolean" w
-PropTypes.bool
+PropTypes.bool,
 endsnippet
 
 snippet pt.br "React PropTypes boolean required" w
-PropTypes.bool.isRequired
+PropTypes.bool.isRequired,
 endsnippet
 
 snippet pt.f "React PropTypes function" w
-PropTypes.func
+PropTypes.func,
 endsnippet
 
 snippet pt.fr "React PropTypes function required" w
-PropTypes.func.isRequired
+PropTypes.func.isRequired,
 endsnippet
 
 snippet pt.nu "React PropTypes number" w
-PropTypes.number
+PropTypes.number,
 endsnippet
 
 snippet pt.nur "React PropTypes number required" w
-PropTypes.number.isRequired
+PropTypes.number.isRequired,
 endsnippet
 
 snippet pt.o "React PropTypes object" w
-PropTypes.object
+PropTypes.object,
 endsnippet
 
 snippet pt.or "React PropTypes object required" w
-PropTypes.object.isRequired
+PropTypes.object.isRequired,
 endsnippet
 
 snippet pt.s "React PropType string" w
-PropTypes.string
+PropTypes.string,
 endsnippet
 
 snippet pt.sr "React PropType string required" w
-PropTypes.string.isRequired
+PropTypes.string.isRequired,
 endsnippet
 
 snippet pt.no "React PropTypes node" w
-PropTypes.node
+PropTypes.node,
 endsnippet
 
 snippet pt.nor "React PropTypes node required" w
-PropTypes.node.isRequired
+PropTypes.node.isRequired,
 endsnippet
 
 snippet pt.e "React PropTypes element" w
-PropTypes.element
+PropTypes.element,
 endsnippet
 
 snippet pt.er "React PropTypes element required" w
-PropTypes.element.isRequired
+PropTypes.element.isRequired,
 endsnippet
 
 snippet pt.ao "React PropTypes arrayOf" w
-PropTypes.arrayOf(${1:PropTypes.string})
+PropTypes.arrayOf(${1:PropTypes.string}),
 endsnippet
 
 snippet pt.aor "React PropTypes arrayOf required" w
-PropTypes.arrayOf(${1:PropTypes.string}).isRequired
+PropTypes.arrayOf(${1:PropTypes.string}).isRequired,
 endsnippet
 
 snippet pt.io "React PropTypes instanceOf" w
-PropTypes.instanceOf(${1:PropTypes.string})
+PropTypes.instanceOf(${1:PropTypes.string}),
 endsnippet
 
 snippet pt.ior "React PropTypes instanceOf required" w
-PropTypes.instanceOf(${1:PropTypes.string}).isRequired
+PropTypes.instanceOf(${1:PropTypes.string}).isRequired,
 endsnippet
 
 snippet pt.oo "React PropTypes objectOf" w
-PropTypes.objectOf(${1:PropTypes.string})
+PropTypes.objectOf(${1:PropTypes.string}),
 endsnippet
 
 snippet pt.oor "React PropTypes objectOf required" w
-PropTypes.objectOf(${1:PropTypes.string}).isRequired
+PropTypes.objectOf(${1:PropTypes.string}).isRequired,
 endsnippet
 
 snippet pt.one "React PropTypes oneOf" w
-PropTypes.oneOf(['$1'$2])
+PropTypes.oneOf(['$1'$2]),
 endsnippet
 
 snippet pt.oner "React PropTypes oneOf required" w
-PropTypes.oneOf(['$1'$2]).isRequired
+PropTypes.oneOf(['$1'$2]).isRequired,
 endsnippet
 
 snippet pt.onet "React PropTypes onOfType" w
 PropTypes.oneOfType([
 	$1
-])
+]),
 endsnippet
 
 snippet pt.onetr "React PropTypes onOfType required" w
 PropTypes.oneOfType([
 	$1
-]).isRequired
+]).isRequired,
 endsnippet
 
 snippet pt.sh "React PropTyes shape" w
 PropTypes.shape({
 	$1
-})
+}),
 endsnippet
 
 snippet pt.shr "React PropTypes shape required" w
 PropTypes.shape({
 	$1
-}).isRequired
+}).isRequired,
 endsnippet
-
-
-# ==========================================
-# Flux Store Snippets
-#
-snippet fsto "new flux store" b
-import AppDispatcher from '$1/common/AppDispatcher';
-import { Map, fromJS } from 'immutable';
-
-import FluxStore from '$1/stores/FluxStore';
-import ${2:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants from '$1/actionConstants/$2Constants';
-
-let _$3 = fromJS({
-});
-
-class _${4:`!v expand('%:t:r')`} extends FluxStore {
-	$0
-}
-
-let $4 = new _$4();
-export default $4;
-
-AppDispatcher.register(payload => {
-	const action = payload.action;
-
-	switch(action.actionType) {
-		$5
-		default:
-			return;
-	}
-	$4.emitChange();
-});
-endsnippet
-
-
-snippet fcase "flux store case statement" b
-case ${1:`!v substitute(expand('%:t:r'), 'Store', '', '')`}Constants.`!p snip.rv=capscore(t[1])`_$2:
-  $3
-	break;
-endsnippet
-
-# ==========================================
-# Flux Actions Snippets
-#
-snippet fact "new flux actions" b
-import AppDispatcher from '$1/common/AppDispatcher';
-import ${2:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants from '$1/actionConstants/$2Constants';
-
-export default {
-	$0
-};
-endsnippet
-
-
-snippet faf "new flux action function" b
-$1($2) {
-	AppDispatcher.handleAction({
-		actionType: ${3:`!v substitute(expand('%:t:r'), 'Actions', '', '')`}Constants.`!p snip.rv=capscore(t[3])`_${1/([A-Z]+)|([a-z])/(?1:_$0)(?2:\u$0)/g},
-		${5:${2/(\w+).*/$1/}}: ${2/(\w+).*/$1/}$6
-	});
-},$0
-endsnippet
-
-
-
-# ==========================================
-# Flux Constants Snippets
-#
-snippet fcon "flux constants" b
-import keymirror from 'keymirror';
-
-export default keymirror({
-	$0
-});
-endsnippet
-
-
-# ==========================================
-# Testing
-#
-snippet rtest "React component test" b
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import { expect } from 'chai';
-
-import ${1:`!v expand('%:t:r')`} from '$2/js/components/$1';
-
-const { renderIntoDocument, Simulate } = TestUtils;
-
-describe('$1', () => {
-	
-	it('$3', () => {
-		const component = renderIntoDocument(
-			<$1 $4 />
-		);
-		$5
-	});
-});
-endsnippet
-
-snippet it "Testing it statement" b
-it('$1', () => {
-	$2
-});
-endsnippet
-
-snippet ee "Expect equal" b
-expect($1).to.equal($2);
-endsnippet
-
 
 # ==========================================
 # React Documenting
@@ -495,5 +410,5 @@ snippet rpt "React Documentation prop type"
   name: '$1',
 	pt: '$2',
 	desc: \`$3\`,
-},
+}
 endsnippet
