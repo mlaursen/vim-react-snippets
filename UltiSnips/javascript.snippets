@@ -5,15 +5,6 @@ def capscore(t):
 def lowerdash(t):
 	return '-'.join([ w.lower() for w in re.findall('[a-z]+|[A-Z]+[a-z]*', t) ])
 
-def datakeys(t):
-	return ', '.join([ '\'' + w[0].lower() + w[1:] + '\'' for w in re.findall('[A-Z][A-z]+', t) ])
-
-def apifuncs(t):
-	return '\n  '.join([ w + '(context.);' for w in t.split(', ') ])
-endglobal
-
-
-
 # Normal javascript snippets
 #
 snippet imp "Import a lib" b
@@ -38,16 +29,6 @@ endsnippet
 
 snippet rc "Require const" b
 const $1 = require('`!p snip.rv=lowerdash(t[1])`');
-endsnippet
-
-snippet "(?=.)=>" "Create an arrow function" r
-(${1:arg}) => {
-	$2
-}
-endsnippet
-
-snippet "(?=.)=>>" "Create an arrow function inline" r
-(${1:arg}) => $2
 endsnippet
 
 snippet imm "Import immutable List and Map" b
@@ -128,6 +109,27 @@ export default class ${1:`!v expand('%:t:r')`} extends Component {
 }
 endsnippet
 
+snippet r.cce "React.createClass export" b
+import React, { PropTypes } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+
+const ${1:`!v expand('%:t:r')`} = React.createClass({
+	mixins: [PureRenderMixin],
+
+	render() {
+		return (
+			${2:<div />}
+		);
+	}
+});
+
+$1.propTypes = {
+	className: PropTypes.string,
+};
+
+export default $1;
+endsnippet
+
 
 snippet rfe "React function exported" b
 import React from 'react';
@@ -157,7 +159,7 @@ const `!v expand('%:t:r')` = (${1:props}) => {
 export default `!v expand('%:t:r')`;
 endsnippet
 
-snippet icss "Impore css transition group" b
+snippet icss "Import css transition group" b
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 endsnippet
 
@@ -364,51 +366,4 @@ snippet pt.shr "React PropTypes shape required" w
 PropTypes.shape({
 	$1
 }).isRequired,
-endsnippet
-
-# ==========================================
-# React Documenting
-#
-snippet rdoc "React Documentation Component" b
-import React, { Component } from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import $1 from 'react-md/${2:$1s}';
-
-import DocPage from 'react-md-documentation';
-import $1Examples from './$1Examples';
-import $1ExamplesRaw from '!!raw!./$1Examples';
-//import './_`!p snip.rv=lowerdash(t[1])`.scss';
-
-export default class `!v expand('%:t:r')` extends Component {
-	constructor(props) {
-		super(props);
-
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-	}
-
-	render() {
-		return (
-			<DocPage
-				components={[{
-					component: $1,
-					details: [$4],
-				}]}
-				examples={[{
-					markdown: $1ExamplesRaw,
-					children: <$1Examples />,
-				}]}
-				>
-				$3
-			</DocPage>
-		);
-	}
-}
-endsnippet
-
-snippet rpt "React Documentation prop type"
-{
-  name: '$1',
-	pt: '$2',
-	desc: \`$3\`,
-}
 endsnippet
