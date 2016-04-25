@@ -232,3 +232,5 @@ let g:jsx_ext_required=0
 | pt.ior   | React.PropTypes.instanceOf.isRequired |
 | pt.oo    | React.PropTypes.objectOf              |
 | pt.oor   | React.PropTypes.objectOf.isRequired   |
+| pt.sh    | React.PropTypes.shape                 |
+| pt.shr   | React.PropTypes.shape.isRequired      |
