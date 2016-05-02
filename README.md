@@ -39,9 +39,9 @@ export default class MyComponent extends Component {
 ```
 Where you can tab through and change the `MyComponent`, add more class properties, and then update the render function.
 
-`r.cce<tab>` will generate the same code as above but as `const MyComponetn = React.createClass({ ... });`
+`r.cce<tab>` will generate the same code as above but as `const MyComponent = React.createClass({ ... });`
 
-See [javascript.snippets](/mlaursen/vim-react-snippets/blob/master/UltiSnips/javascript.snippets) for all snippets.
+See [javascript.snippets](../blob/master/UltiSnips/javascript.snippets) for all snippets.
 
 ### Cheatsheet
 #### PropTypes
@@ -104,5 +104,5 @@ If you have never used [Vundle](https://github.com/gmarik/vundle), here are the 
 4. Once it has finished, restart vim and your plugins will be ready to use.
 
 ### Example .vimrc
-You can check out my [.vimrc](/mlaursen/dotfiles/blob/master/.vimrc) for other plugins and stuff.
+You can check out my [.vimrc](../dotfiles/blob/master/.vimrc) for other plugins and stuff.
 
