@@ -38,7 +38,7 @@ endsnippet
 
 
 snippet icn "Import classnames" b
-import classnames from 'classnames';
+import cn from 'classnames';
 endsnippet
 
 snippet "\.(map|filter|forEach|reduce)" "Map with an arrow function" r
@@ -87,24 +87,23 @@ endsnippet
 # React Snippets
 #
 snippet rce "React class exported" b
-import React, { Component, PropTypes } from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import React, { PureComponent, PropTypes } from 'react';
 
-export default class ${1:`!v expand('%:t:r')`} extends Component {
-	constructor(props) {
-		super(props);
-
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-	}
-
+export default class ${1:`!v expand('%:t:r')`} extends PureComponent {
 	static propTypes = {
 		className: PropTypes.string,
 		children: PropTypes.node,
 	};
 
+	${2:constructor(props) {
+		super(props);
+
+		this.state = {};
+	}}
+
 	render() {
 		return (
-			${2:<div />}
+			${3:<div />}
 		);
 	}
 }
@@ -168,12 +167,32 @@ snippet iadd "Import react addon" b
 import $1 from 'react-addons-`!p snip.rv=lowerdash(t[1])`';
 endsnippet
 
+snippet rcm "React class non-bound function" b
+_$1(${2:e}) {
+	$3
+}
+endsnippet
+
+
 snippet rcf "React class function" b
 $1 = (${2:e}) => {
 	$3
 };
 endsnippet
 
+snippet struct "React class constructor" b
+constructor(props${1:, context}) {
+	super(props$1);
+
+	this.state = {
+		$2
+	};
+}
+endsnippet
+
+snippet bindf "Bind react class function" b
+this.$1 = this.$1.bind(this);
+endsnippet
 
 snippet reactf "React file with a render" b
 import React from 'react';
