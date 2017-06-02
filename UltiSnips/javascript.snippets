@@ -41,6 +41,10 @@ snippet icn "Import classnames" b
 import cn from 'classnames';
 endsnippet
 
+snippet ise "Import shallowEqual" b
+import shallowEqual from 'shallowequal';
+endsnippet
+
 snippet "\.(map|filter|forEach|reduce)" "Map with an arrow function" r
 .`!p snip.rv = match.group(1)`($1 => {
 	return $2;
@@ -87,7 +91,8 @@ endsnippet
 # React Snippets
 #
 snippet rce "React class exported" b
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class ${1:`!v expand('%:t:r')`} extends PureComponent {
 	static propTypes = {
@@ -109,54 +114,23 @@ export default class ${1:`!v expand('%:t:r')`} extends PureComponent {
 }
 endsnippet
 
-snippet r.cce "React.createClass export" b
-import React, { PropTypes } from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-
-const ${1:`!v expand('%:t:r')`} = React.createClass({
-	mixins: [PureRenderMixin],
-
-	render() {
-		return (
-			${2:<div />}
-		);
-	}
-});
-
-$1.propTypes = {
-	className: PropTypes.string,
-};
-
-export default $1;
-endsnippet
-
-
-snippet rfe "React function exported" b
-import React from 'react';
-
-export default function `!v expand('%:t:r')`($2) {
-	return (
-		${3:<div>
-		</div>}
-	);
-}
-endsnippet
-
 snippet rpe "React pure export" b
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const `!v expand('%:t:r')` = (${1:props}) => {
+
+const ${1:`!v expand('%:t:r')`} = (${2:props}) => {
 	return (
-		<div${2}>
+		<div${3}>
 		</div>
 	);
 };
 
-`!v expand('%:t:r')`.propTypes = {
-	${3}
+$1.propTypes = {
+	${4}
 };
 
-export default `!v expand('%:t:r')`;
+export default $1;
 endsnippet
 
 snippet icss "Import css transition group" b
