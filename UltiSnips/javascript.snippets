@@ -32,10 +32,6 @@ snippet rc "Require const" b
 const $1 = require('$2`!p snip.rv=lowerdash(t[1])`');
 endsnippet
 
-snippet imm "Import immutable List and Map" b
-import { List, Map } from 'immutable';
-endsnippet
-
 
 snippet icn "Import classnames" b
 import cn from 'classnames';
@@ -45,21 +41,11 @@ snippet ise "Import shallowEqual" b
 import shallowEqual from 'shallowequal';
 endsnippet
 
-snippet "\.(map|filter|forEach|reduce)" "Map with an arrow function" r
-.`!p snip.rv = match.group(1)`($1 => {
-	return $2;
-});
-endsnippet
-
-snippet "\.(map|filter|forEach|reduce)=" "Map with an arrow function inline" r
-.`!p snip.rv = match.group(1)`($1 => $2)
-endsnippet
-
-snippet cl "Console.log" b
+snippet cl "Console.log"
 console.log($1);
 endsnippet
 
-snippet clv "Console log variable" b
+snippet clv "Console log variable"
 console.log('$1:', $1);
 endsnippet
 
@@ -81,10 +67,18 @@ import $1 from '${2:./}${3:$1}.jsx';
 export ${4:default} $1;
 endsnippet
 
-snippet expf "Export function" b
-export ${1:default }function($2) {
-	$3
-}
+snippet desc "Describe a test" b
+describe('$1', () => {
+	it('should $2', () => {
+		$3
+	});
+});
+endsnippet
+
+snippet it "Create a test block" b
+it('should $1', () => {
+	$2
+});
 endsnippet
 
 # ==========================================
@@ -133,48 +127,10 @@ $1.propTypes = {
 export default $1;
 endsnippet
 
-snippet icss "Import css transition group" b
-import CSSTransitionGroup from 'react-addons-css-transition-group';
-endsnippet
-
-snippet iadd "Import react addon" b
-import $1 from 'react-addons-`!p snip.rv=lowerdash(t[1])`';
-endsnippet
-
-snippet rcm "React class non-bound function" b
-_$1(${2:e}) {
-	$3
-}
-endsnippet
-
-
 snippet rcf "React class function" b
 $1 = (${2:e}) => {
 	$3
 };
-endsnippet
-
-snippet struct "React class constructor" b
-constructor(props${1:, context}) {
-	super(props$1);
-
-	this.state = {
-		$2
-	};
-}
-endsnippet
-
-snippet bindf "Bind react class function" b
-this.$1 = this.$1.bind(this);
-endsnippet
-
-snippet reactf "React file with a render" b
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import $1 from '${2:./}$1';
-
-ReactDOM.render(<$1 />, document.getElementById('${3:app}'));
 endsnippet
 
 # ==========================================
@@ -234,6 +190,13 @@ snippet cwum "component will unmount" b
 componentWillUnmount() {
 	$1
 }
+endsnippet
+
+snippet gds "Get Derived State from Props" b
+static getDerivedStateFromProps(nextProps, prevState) {
+	$1
+	return null;
+};
 endsnippet
 
 

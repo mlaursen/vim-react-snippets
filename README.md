@@ -74,35 +74,6 @@ See [javascript.snippets](../master/UltiSnips/javascript.snippets) for all snipp
 
 
 ## Installation
-#### vundle
-If you have never used [Vundle](https://github.com/gmarik/vundle), here are the simple steps to use.
-
-1. Install Vundle
-
-   `$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle`
-
-2. Configure your `.vimrc`
-
-   ````
-   set nocompatible
-   filetype off
-   set rtp+=~/.vim/bundle/vundle
-   call vundle#rc()
-   Plugin 'gmarik/vundle' " required
-   
-   " UltiSnips
-   Plugin 'SirVer/ultisnips'
-   
-   Plugin 'mlaursen/vim-react-snippets'
-   
-   call vundle#end()           " required
-   filetype plugin indent on   " required
-   " The rest of your .vimrc config
-   ```
-
-3. Save an then run `:PluginInstall` which will automatically clone each repo into `~/.vim/bundle`.
-4. Once it has finished, restart vim and your plugins will be ready to use.
-
 ### Example .vimrc
-You can check out my [.vimrc](https://github.com/mlaursen/dotfiles/blob/master/.vimrc) for other plugins and stuff.
+You can check out my [.vimrc](https://github.com/mlaursen/dotfiles/blob/macbook/.vimrc) for other plugins and stuff.
 
