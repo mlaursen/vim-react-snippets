@@ -24,6 +24,10 @@ snippet impp "Import without from" b
 import "$1";
 endsnippet
 
+snippet imp* "import * as Something from" b
+import * as $1 from "$2`!p snip.rv=lowerdash(t[1])`";
+endsnippet
+
 snippet rc "Require const" b
 const $1 = require("$2`!p snip.rv=lowerdash(t[1])`");
 endsnippet
@@ -85,16 +89,14 @@ export I$1State {
 }
 
 export default class $1 extends React.Component<I$1Props, I$1State> {
-	${2:constructor(props: I$1Props) {
+	constructor(props: I$1Props) {
 		super(props);
 
 		this.state = {};
-	}}
+	}
 
 	render() {
-		return (
-			${3:<div />}
-		);
+		return null;$0
 	}
 }
 endsnippet
@@ -107,7 +109,6 @@ export interface I${1:`!v expand('%:t:r')`}Props {
 
 const $1: React.SFC<I$1Props> = props => {
 	$2
-
 	return null;
 };
 
@@ -157,7 +158,7 @@ endsnippet
 
 snippet gds "Get Derived State from Props" b
 public static getDerivedStateFromProps(nextProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
-	$1
+	$2
 	return null;
 };
 endsnippet
@@ -170,14 +171,13 @@ endsnippet
 
 snippet scu "should component update" b
 public shouldComponentUpdate(nextProps: I${1:`!v expand('%:t:r')`}Props, nextState: I$1State) {
-	return $1;
+	return true;$0
 }
 endsnippet
 
 snippet gsbu "get snapshot before update" b
 public getSnapshotBeforeUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
-  $2
-	return null;
+	return null;$0
 }
 endsnippet
 
@@ -201,7 +201,7 @@ endsnippet
 
 
 # ==========================================
-# Prop Types Section
+# Prop Types Section (only for legacy)
 #
 
 # Inline prop types
