@@ -132,7 +132,7 @@ endsnippet
 # Component Specs and Lifecycle Section
 #
 snippet sdp "static default props" b
-static defaultProps: I${1:`!v expand('%:t:r')`}DefaultProps = {
+public static defaultProps: I${1:`!v expand('%:t:r')`}DefaultProps = {
 	$2
 };
 endsnippet
@@ -144,7 +144,7 @@ ${1:`!v expand('%:t:r')`}.defaultProps: I$1DefaultProps = {
 endsnippet
 
 snippet spt "static prop types" b
-static propTypes = {
+public static propTypes = {
 	${1:className}: ${2:PropTypes.string},${0}
 };
 endsnippet
@@ -156,7 +156,7 @@ ${1:`!v expand('%:t:r')`}.propTypes = {
 endsnippet
 
 snippet gds "Get Derived State from Props" b
-static getDerivedStateFromProps(nextProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
+public static getDerivedStateFromProps(nextProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
 	$1
 	return null;
 };
@@ -179,6 +179,7 @@ public getSnapshotBeforeUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevS
   $2
 	return null;
 }
+endsnippet
 
 snippet cdu "component did update" b
 public componentDidUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
