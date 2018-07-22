@@ -1,0 +1,253 @@
+extends typescript
+
+# ==========================================
+# React Snippets
+#
+snippet rce "React class exported" b
+import * as React from 'react';
+
+export I${1:`!v expand('%:t:r')`}Props {
+}
+
+export I$1State {
+}
+
+export default class $1 extends React.Component<I$1Props, I$1State> {
+	${2:constructor(props: I$1Props) {
+		super(props);
+
+		this.state = {};
+	}}
+
+	render() {
+		return (
+			${3:<div />}
+		);
+	}
+}
+endsnippet
+
+snippet sfc "Stateless functional component" b
+import * as React from "react";
+
+export interface I${1:`!v expand('%:t:r')`}Props {
+}
+
+const $1: React.SFC<I$1Props> = props => {
+	$2
+
+	return null;
+};
+
+export default $1;
+endsnippet
+
+snippet rcf "React class function" b
+$1 = (${2:event}) => {
+	$3
+};
+endsnippet
+
+snippet idp "interface default props" b
+export interface I${1:`!v expand('%:t:r')`}DefaultProps {
+  $2
+}
+
+export type $1WithDefaultProps = I$1Props & I$1DefaultProps;
+endsnippet
+
+# ==========================================
+# Component Specs and Lifecycle Section
+#
+snippet sdp "static default props" b
+static defaultProps: I${1:`!v expand('%:t:r')`}DefaultProps = {
+	$2
+};
+endsnippet
+
+snippet cdp "component default props" b
+${1:`!v expand('%:t:r')`}.defaultProps: I$1DefaultProps = {
+	$2
+};
+endsnippet
+
+snippet spt "static prop types" b
+static propTypes = {
+	${1:className}: ${2:PropTypes.string},${0}
+};
+endsnippet
+
+snippet cpt "component prop types" b
+${1:`!v expand('%:t:r')`}.propTypes = {
+	${2:className}: ${3:PropTypes.string},${0}
+};
+endsnippet
+
+snippet gds "Get Derived State from Props" b
+static getDerivedStateFromProps(nextProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
+	$1
+	return null;
+};
+endsnippet
+
+snippet cdm "component did mount" b
+public componentDidMount() {
+	$1
+}
+endsnippet
+
+snippet scu "should component update" b
+public shouldComponentUpdate(nextProps: I${1:`!v expand('%:t:r')`}Props, nextState: I$1State) {
+	return $1;
+}
+endsnippet
+
+snippet gsbu "get snapshot before update" b
+public getSnapshotBeforeUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
+  $2
+	return null;
+}
+
+snippet cdu "component did update" b
+public componentDidUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
+	$2
+}
+endsnippet
+
+snippet cdc "component did catch" b
+public componentDidCatch(error: Error, info: React.ErroInfo) {
+	$1
+}
+endsnippet
+
+snippet cwum "component will unmount" b
+public componentWillUnmount() {
+	$1
+}
+endsnippet
+
+
+# ==========================================
+# Prop Types Section
+#
+
+# Inline prop types
+snippet pt.a "React PropTypes array" w
+PropTypes.array,
+endsnippet
+
+snippet pt.ar "React PropTypes array required" w
+PropTypes.array.isRequired,
+endsnippet
+
+snippet pt.b "React PropTypes boolean" w
+PropTypes.bool,
+endsnippet
+
+snippet pt.br "React PropTypes boolean required" w
+PropTypes.bool.isRequired,
+endsnippet
+
+snippet pt.f "React PropTypes function" w
+PropTypes.func,
+endsnippet
+
+snippet pt.fr "React PropTypes function required" w
+PropTypes.func.isRequired,
+endsnippet
+
+snippet pt.nu "React PropTypes number" w
+PropTypes.number,
+endsnippet
+
+snippet pt.nur "React PropTypes number required" w
+PropTypes.number.isRequired,
+endsnippet
+
+snippet pt.o "React PropTypes object" w
+PropTypes.object,
+endsnippet
+
+snippet pt.or "React PropTypes object required" w
+PropTypes.object.isRequired,
+endsnippet
+
+snippet pt.s "React PropType string" w
+PropTypes.string,
+endsnippet
+
+snippet pt.sr "React PropType string required" w
+PropTypes.string.isRequired,
+endsnippet
+
+snippet pt.no "React PropTypes node" w
+PropTypes.node,
+endsnippet
+
+snippet pt.nor "React PropTypes node required" w
+PropTypes.node.isRequired,
+endsnippet
+
+snippet pt.e "React PropTypes element" w
+PropTypes.element,
+endsnippet
+
+snippet pt.er "React PropTypes element required" w
+PropTypes.element.isRequired,
+endsnippet
+
+snippet pt.ao "React PropTypes arrayOf" w
+PropTypes.arrayOf(${1:PropTypes.string}),
+endsnippet
+
+snippet pt.aor "React PropTypes arrayOf required" w
+PropTypes.arrayOf(${1:PropTypes.string}).isRequired,
+endsnippet
+
+snippet pt.io "React PropTypes instanceOf" w
+PropTypes.instanceOf(${1:PropTypes.string}),
+endsnippet
+
+snippet pt.ior "React PropTypes instanceOf required" w
+PropTypes.instanceOf(${1:PropTypes.string}).isRequired,
+endsnippet
+
+snippet pt.oo "React PropTypes objectOf" w
+PropTypes.objectOf(${1:PropTypes.string}),
+endsnippet
+
+snippet pt.oor "React PropTypes objectOf required" w
+PropTypes.objectOf(${1:PropTypes.string}).isRequired,
+endsnippet
+
+snippet pt.one "React PropTypes oneOf" w
+PropTypes.oneOf(["$1"$2]),
+endsnippet
+
+snippet pt.oner "React PropTypes oneOf required" w
+PropTypes.oneOf(["$1"$2]).isRequired,
+endsnippet
+
+snippet pt.onet "React PropTypes onOfType" w
+PropTypes.oneOfType([
+	$1
+]),
+endsnippet
+
+snippet pt.onetr "React PropTypes onOfType required" w
+PropTypes.oneOfType([
+	$1
+]).isRequired,
+endsnippet
+
+snippet pt.sh "React PropTyes shape" w
+PropTypes.shape({
+	$1
+}),
+endsnippet
+
+snippet pt.shr "React PropTypes shape required" w
+PropTypes.shape({
+	$1
+}).isRequired,
+endsnippet
