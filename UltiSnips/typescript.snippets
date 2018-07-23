@@ -76,16 +76,21 @@ it("should $1", () => {
 });
 endsnippet
 
+snippet intf "create interface for file" b
+export interface I${1:`!v expand('%:t:r')`}$2 {
+}
+endsnippet
+
 # ==========================================
 # React Snippets
 #
 snippet rce "React class exported" b
-import * as React from 'react';
+import * as React from "react";
 
-export I${1:`!v expand('%:t:r')`}Props {
+export interface I${1:`!v expand('%:t:r')`}Props {
 }
 
-export I$1State {
+export interface I$1State {
 }
 
 export default class $1 extends React.Component<I$1Props, I$1State> {
@@ -95,7 +100,7 @@ export default class $1 extends React.Component<I$1Props, I$1State> {
 		this.state = {};
 	}
 
-	render() {
+	public render() {
 		return null;$0
 	}
 }
