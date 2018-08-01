@@ -8,66 +8,55 @@ endglobal
 
 # Normal javascript snippets
 #
-snippet imp "Import a lib" b
+snippet imp "import package that converts from camelCase or PascalCase to kebab-cased" b
 import $1 from '$2`!p snip.rv=lowerdash(t[1])`';
 endsnippet
 
-snippet impf "Import a file" b
+snippet impf "import File from './File'" b
 import $1 from '${2:./}${3:$1}';
 endsnippet
 
-snippet impn "Import nested" b
+snippet impn "import { nested } from" b
 import { $1 } from '$2';
 endsnippet
 
-snippet impp "Import without from" b
+snippet impp "import file without a declaration" b
 import '$1';
 endsnippet
 
-snippet imps "Import pluralized" b
-import $1 from '${2:.}/$1s';
-endsnippet
-
-snippet rc "Require const" b
+snippet rc "require package that converts from camelCase or PascalCase to kebab-cased" b
 const $1 = require('$2`!p snip.rv=lowerdash(t[1])`');
 endsnippet
 
-
-snippet icn "Import classnames" b
+snippet icn "import classnames as cn" b
 import cn from 'classnames';
 endsnippet
 
-snippet ise "Import shallowEqual" b
+snippet ise "import shallowEqual" b
 import shallowEqual from 'shallowequal';
 endsnippet
 
-snippet cl "Console.log"
-console.log($1);
-endsnippet
-
-snippet clv "Console log variable"
-console.log('$1:', $1);
-endsnippet
-
-snippet exp "Export from location" b
+snippet expf "export File from './File'" b
 export $1 from '${2:./}$1';
 endsnippet
 
-snippet expn "Export nested" b
-export { $1 } from '${2:./}';
+snippet expn "export nested" b
+export { $1 } from '$2';
 endsnippet
 
-snippet expi "Export from a file import" b
-import $1 from '${2:./}${3:$1}';
-export ${4:default} $1;
+snippet exp* "export * from" b
+export * from '$1';
 endsnippet
 
-snippet expix "Export from a jsx file import" b
-import $1 from '${2:./}${3:$1}.jsx';
-export ${4:default} $1;
+snippet cl "console.log"
+console.log($1);
 endsnippet
 
-snippet desc "Describe a test" b
+snippet clv "console.log variable"
+console.log('$1:', $1);
+endsnippet
+
+snippet desc "describe a test" b
 describe('$1', () => {
 	it('should $2', () => {
 		$3
@@ -75,7 +64,7 @@ describe('$1', () => {
 });
 endsnippet
 
-snippet it "Create a test block" b
+snippet it "create a test block" b
 it('should $1', () => {
 	$2
 });
@@ -84,50 +73,33 @@ endsnippet
 # ==========================================
 # React Snippets
 #
-snippet rce "React class exported" b
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+snippet rce "react class exported" b
+import React, { ${2:Pure}Component } from 'react';
 
-export default class ${1:`!v expand('%:t:r')`} extends PureComponent {
-	static propTypes = {
-		className: PropTypes.string,
-		children: PropTypes.node,
-	};
-
-	${2:constructor(props) {
+export default class ${1:`!v expand('%:t:r')`} extends $2Component {
+	constructor(props) {
 		super(props);
 
 		this.state = {};
-	}}
+	}
 
 	render() {
-		return (
-			${3:<div />}
-		);
+		return null;$0
 	}
 }
 endsnippet
 
-snippet rpe "React pure export" b
+snippet sfc "stateless functional component" b
 import React from 'react';
-import PropTypes from 'prop-types';
 
-
-const ${1:`!v expand('%:t:r')`} = (${2:props}) => {
-	return (
-		<div${3}>
-		</div>
-	);
-};
-
-$1.propTypes = {
-	${4}
+const ${1:`!v expand('%:t:r')`} = props => {
+	return null;$0
 };
 
 export default $1;
 endsnippet
 
-snippet rcf "React class function" b
+snippet rcf "react class function" b
 $1 = (${2:e}) => {
 	$3
 };
@@ -136,34 +108,38 @@ endsnippet
 # ==========================================
 # Component Specs and Lifecycle Section
 #
-snippet dp "get default props" b
+snippet sdp "static default props" b
 static defaultProps = {
 	$1
 };
 endsnippet
 
-
-snippet pt "React prop types definition" b
-static propTypes = {
-	${1:className}: ${2:PropTypes.string},${0}
+snippet cdp "component default props" b
+${1:`!v expand('%:t:r')`}.defaultProps = {
+	$2
 };
 endsnippet
 
+snippet spt "static prop types" b
+static propTypes = {
+	${1:className}: ${2:PropTypes.string},$0
+};
+endsnippet
 
-snippet cwm "component will mount" b
-componentWillMount() {
-	$1
+snippet cpt "component prop types" b
+${1:`!v expand('%:t:r')`}.propTypes = {
+	${2:className}: ${3:PropTypes.string},$0
+};
+endsnippet
+
+snippet gds "get derived state from props" b
+static getDerivedStateFromProps(nextProps, prevState) {
+	return null;$0
 }
 endsnippet
 
 snippet cdm "component did mount" b
 componentDidMount() {
-	$1
-}
-endsnippet
-
-snippet cwrp "component will receive props" b
-componentWillReceiveProps(nextProps) {
 	$1
 }
 endsnippet
@@ -174,15 +150,21 @@ shouldComponentUpdate(nextProps, nextState) {
 }
 endsnippet
 
-snippet cwu "component will update" b
-componentWillUpdate(nextProps, nextState) {
-	$3
+snippet gsbu "get snapshot before update" b
+public getSnapshotBeforeUpdate(prevProps, prevState) {
+	return null;$0
 }
 endsnippet
 
 snippet cdu "component did update" b
-componentDidUpdate(prevProps, prevState) {
-	$1
+componentDidUpdate(prevProps, prevState, ${1:snapshot}) {
+	$0
+}
+endsnippet
+
+snippet cdc "component did catch" b
+componentDidCatch(error, info) {
+	$0
 }
 endsnippet
 
@@ -192,11 +174,25 @@ componentWillUnmount() {
 }
 endsnippet
 
-snippet gds "Get Derived State from Props" b
-static getDerivedStateFromProps(nextProps, prevState) {
+# ==========================================
+# Deprecated Lifecycle Section
+#
+snippet cwm "component will mount" b
+componentWillMount() {
 	$1
-	return null;
-};
+}
+endsnippet
+
+snippet cwrp "component will receive props" b
+componentWillReceiveProps(nextProps) {
+	$1
+}
+endsnippet
+
+snippet cwu "component will update" b
+componentWillUpdate(nextProps, nextState) {
+	$3
+}
 endsnippet
 
 
@@ -205,122 +201,122 @@ endsnippet
 #
 
 # Inline prop types
-snippet pt.a "React PropTypes array" w
-PropTypes.array,
+snippet pt.a "PropTypes.array" w
+PropTypes.array
 endsnippet
 
-snippet pt.ar "React PropTypes array required" w
-PropTypes.array.isRequired,
+snippet pt.ar "PropTypes.array.isRequired" w
+PropTypes.array.isRequired
 endsnippet
 
-snippet pt.b "React PropTypes boolean" w
-PropTypes.bool,
+snippet pt.b "PropTypes.bool" w
+PropTypes.bool
 endsnippet
 
-snippet pt.br "React PropTypes boolean required" w
-PropTypes.bool.isRequired,
+snippet pt.br "PropTypes.bool.isRequired" w
+PropTypes.bool.isRequired
 endsnippet
 
-snippet pt.f "React PropTypes function" w
-PropTypes.func,
+snippet pt.f "PropTypes.func" w
+PropTypes.func
 endsnippet
 
-snippet pt.fr "React PropTypes function required" w
-PropTypes.func.isRequired,
+snippet pt.fr "PropTypes.func.isRequired" w
+PropTypes.func.isRequired
 endsnippet
 
-snippet pt.nu "React PropTypes number" w
-PropTypes.number,
+snippet pt.nu "PropTypes.number" w
+PropTypes.number
 endsnippet
 
-snippet pt.nur "React PropTypes number required" w
-PropTypes.number.isRequired,
+snippet pt.nur "PropTypes.number.isRequired" w
+PropTypes.number.isRequired
 endsnippet
 
-snippet pt.o "React PropTypes object" w
-PropTypes.object,
+snippet pt.o "PropTypes.object" w
+PropTypes.object
 endsnippet
 
-snippet pt.or "React PropTypes object required" w
-PropTypes.object.isRequired,
+snippet pt.or "PropTypes.object.isRequired" w
+PropTypes.object.isRequired
 endsnippet
 
-snippet pt.s "React PropType string" w
-PropTypes.string,
+snippet pt.s "PropTyes.string" w
+PropTypes.string
 endsnippet
 
-snippet pt.sr "React PropType string required" w
-PropTypes.string.isRequired,
+snippet pt.sr "PropTyes.string.isRequired" w
+PropTypes.string.isRequired
 endsnippet
 
-snippet pt.no "React PropTypes node" w
-PropTypes.node,
+snippet pt.no "PropTypes.node" w
+PropTypes.node
 endsnippet
 
-snippet pt.nor "React PropTypes node required" w
-PropTypes.node.isRequired,
+snippet pt.nor "PropTypes.node.isRequired" w
+PropTypes.node.isRequired
 endsnippet
 
-snippet pt.e "React PropTypes element" w
-PropTypes.element,
+snippet pt.e "PropTypes.element" w
+PropTypes.element
 endsnippet
 
-snippet pt.er "React PropTypes element required" w
-PropTypes.element.isRequired,
+snippet pt.er "PropTypes.element.isRequired" w
+PropTypes.element.isRequired
 endsnippet
 
-snippet pt.ao "React PropTypes arrayOf" w
-PropTypes.arrayOf(${1:PropTypes.string}),
+snippet pt.ao "PropTypes.arrayOf()" w
+PropTypes.arrayOf(${1:PropTypes.string})
 endsnippet
 
-snippet pt.aor "React PropTypes arrayOf required" w
-PropTypes.arrayOf(${1:PropTypes.string}).isRequired,
+snippet pt.aor "PropTypes.arrayOf().isRequired" w
+PropTypes.arrayOf(${1:PropTypes.string}).isRequired
 endsnippet
 
-snippet pt.io "React PropTypes instanceOf" w
-PropTypes.instanceOf(${1:PropTypes.string}),
+snippet pt.io "PropTypes.instanceOf()" w
+PropTypes.instanceOf(${1:PropTypes.string})
 endsnippet
 
-snippet pt.ior "React PropTypes instanceOf required" w
-PropTypes.instanceOf(${1:PropTypes.string}).isRequired,
+snippet pt.ior "PropTypes.instanceOf().isRequired" w
+PropTypes.instanceOf(${1:PropTypes.string}).isRequired
 endsnippet
 
-snippet pt.oo "React PropTypes objectOf" w
-PropTypes.objectOf(${1:PropTypes.string}),
+snippet pt.oo "PropTypes.objectOf()" w
+PropTypes.objectOf(${1:PropTypes.string})
 endsnippet
 
-snippet pt.oor "React PropTypes objectOf required" w
-PropTypes.objectOf(${1:PropTypes.string}).isRequired,
+snippet pt.oor "PropTypes.objectOf().isRequired" w
+PropTypes.objectOf(${1:PropTypes.string}).isRequired
 endsnippet
 
-snippet pt.one "React PropTypes oneOf" w
-PropTypes.oneOf(['$1'$2]),
+snippet pt.one "PropTypes.oneOf([])" w
+PropTypes.oneOf(['$1'$2])
 endsnippet
 
-snippet pt.oner "React PropTypes oneOf required" w
-PropTypes.oneOf(['$1'$2]).isRequired,
+snippet pt.oner "PropTypes.oneOf([]).isRequired" w
+PropTypes.oneOf(['$1'$2]).isRequired
 endsnippet
 
-snippet pt.onet "React PropTypes onOfType" w
+snippet pt.onet "PropTYpes.oneOfType([])" w
 PropTypes.oneOfType([
 	$1
-]),
+])
 endsnippet
 
-snippet pt.onetr "React PropTypes onOfType required" w
+snippet pt.onetr "PropTYpes.oneOfType([]).isRequired" w
 PropTypes.oneOfType([
 	$1
-]).isRequired,
+]).isRequired
 endsnippet
 
-snippet pt.sh "React PropTyes shape" w
+snippet pt.sh "PropTypes.shape" w
 PropTypes.shape({
 	$1
-}),
+})
 endsnippet
 
-snippet pt.shr "React PropTypes shape required" w
+snippet pt.shr "PropTypes.shape.isRequired" w
 PropTypes.shape({
 	$1
-}).isRequired,
+}).isRequired
 endsnippet
