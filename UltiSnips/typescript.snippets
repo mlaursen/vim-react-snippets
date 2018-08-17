@@ -20,7 +20,7 @@ snippet impn "import { nested } from" b
 import { $1 } from "$2";
 endsnippet
 
-snippet imp* "import all from a package that converts from camelCase or PascalCase to kebab-cased" b
+snippet impa "import all from a package that converts from camelCase or PascalCase to kebab-cased" b
 import * as $1 from "$2`!p snip.rv=lowerdash(t[1])`";
 endsnippet
 
@@ -43,7 +43,7 @@ snippet expn "export nested" b
 export { $1 } from "$2";
 endsnippet
 
-snippet exp* "export * from" b
+snippet expa "export * from" b
 export * from "$1";
 endsnippet
 
