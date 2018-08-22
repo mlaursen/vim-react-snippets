@@ -112,6 +112,16 @@ const ${1:`!v expand('%:t:r')`}: React.SFC<$2I$1Props> = props => {
 export default $1;
 endsnippet
 
+snippet sfcnp "stateless functional component (without prop interface)" b
+import * as React from "react";
+
+const ${1:`!v expand('%:t:r')`} = props => {
+	return null;$0
+};
+
+export default $1;
+endsnippet
+
 snippet rcf "react class function" b
 $1 = (${2:event}) => {
 	$3
