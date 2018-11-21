@@ -99,23 +99,14 @@ export default class ${1:`!v expand('%:t:r')`} extends React.Component<I$1Props,
 }
 endsnippet
 
-snippet sfc "stateless functional component (with prop interace)" b
+snippet fc "function component (with prop interface)" b
 import * as React from "react";
 
 export interface I$1Props {
+	$3
 }
 
-const ${1:`!v expand('%:t:r')`}: React.SFC<$2I$1Props> = props => {
-	return null;$0
-};
-
-export default $1;
-endsnippet
-
-snippet sfcnp "stateless functional component (without prop interface)" b
-import * as React from "react";
-
-const ${1:`!v expand('%:t:r')`} = () => {
+const ${1:`!v expand('%:t:r')`}: React.FunctionComponent<$2I$1Props> = props => {
 	return null;$0
 };
 

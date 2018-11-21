@@ -89,20 +89,10 @@ export default class ${1:`!v expand('%:t:r')`} extends $2Component {
 }
 endsnippet
 
-snippet sfc "stateless functional component" b
+snippet fc "function component" b
 import React from 'react';
 
 const ${1:`!v expand('%:t:r')`} = props => {
-	return null;$0
-};
-
-export default $1;
-endsnippet
-
-snippet sfcnp "stateless functional component" b
-import React from 'react';
-
-const ${1:`!v expand('%:t:r')`} = () => {
 	return null;$0
 };
 
