@@ -156,7 +156,13 @@ endsnippet
 
 snippet gds "get derived state from props" b
 public static getDerivedStateFromProps(nextProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
-	return null;$0
+	return ${1:null};$0
+};
+endsnippet
+
+snippet gds "get derived state from props" b
+public static getDerivedStateFromError(error: Error) {
+	return ${1:null};$0
 };
 endsnippet
 

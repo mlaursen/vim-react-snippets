@@ -138,6 +138,12 @@ static getDerivedStateFromProps(nextProps, prevState) {
 }
 endsnippet
 
+snippet gde "get derived state from error" b
+static getDerivedStateFromError(error) {
+	return ${1:null};$0
+}
+endsnippet
+
 snippet cdm "component did mount" b
 componentDidMount() {
 	$1
@@ -152,7 +158,7 @@ endsnippet
 
 snippet gsbu "get snapshot before update" b
 getSnapshotBeforeUpdate(prevProps, prevState) {
-	return null;$0
+	return ${1:null};$0
 }
 endsnippet
 
