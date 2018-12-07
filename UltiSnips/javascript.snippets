@@ -84,7 +84,7 @@ export default class ${1:`!v expand('%:t:r')`} extends $2Component {
 	}
 
 	render() {
-		return null;$0
+		return ${3:null};$0
 	}
 }
 endsnippet
@@ -93,7 +93,7 @@ snippet fc "function component" b
 import React from 'react';
 
 const ${1:`!v expand('%:t:r')`} = props => {
-	return null;$0
+	return ${2:null};$0
 };
 
 export default $1;
@@ -134,7 +134,7 @@ endsnippet
 
 snippet gds "get derived state from props" b
 static getDerivedStateFromProps(nextProps, prevState) {
-	return null;$0
+	return ${1:null};$0
 }
 endsnippet
 
@@ -152,7 +152,7 @@ endsnippet
 
 snippet scu "should component update" b
 shouldComponentUpdate(nextProps, nextState) {
-	return $1;
+	return ${1:true};$0
 }
 endsnippet
 

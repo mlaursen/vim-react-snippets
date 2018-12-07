@@ -94,7 +94,7 @@ export default class ${1:`!v expand('%:t:r')`} extends React.Component<I$1Props,
 	}
 
 	public render() {
-		return null;$0
+		return ${2:null};$0
 	}
 }
 endsnippet
@@ -107,7 +107,7 @@ export interface I$1Props {
 }
 
 const ${1:`!v expand('%:t:r')`}: React.FunctionComponent<$2I$1Props> = props => {
-	return null;$0
+	return ${4:null};$0
 };
 
 export default $1;
@@ -160,7 +160,7 @@ public static getDerivedStateFromProps(nextProps: I${1:`!v expand('%:t:r')`}Prop
 };
 endsnippet
 
-snippet gds "get derived state from props" b
+snippet gde "get derived state from props" b
 public static getDerivedStateFromError(error: Error) {
 	return ${1:null};$0
 };
@@ -174,13 +174,13 @@ endsnippet
 
 snippet scu "should component update" b
 public shouldComponentUpdate(nextProps: I${1:`!v expand('%:t:r')`}Props, nextState: I$1State) {
-	return true;$0
+	return ${1:true};$0
 }
 endsnippet
 
 snippet gsbu "get snapshot before update" b
 public getSnapshotBeforeUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
-	return null;$0
+	return ${1:null};$0
 }
 endsnippet
 
