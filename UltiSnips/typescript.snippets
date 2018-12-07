@@ -180,13 +180,13 @@ endsnippet
 
 snippet gsbu "get snapshot before update" b
 public getSnapshotBeforeUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
-	return ${1:null};$0
+	return ${2:null};$0
 }
 endsnippet
 
 snippet cdu "component did update" b
 public componentDidUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State, ${2:snapshot: any}) {
-	$0
+	$3
 }
 endsnippet
 
