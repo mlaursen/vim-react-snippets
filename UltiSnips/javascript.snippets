@@ -56,6 +56,18 @@ snippet clv "console.log variable"
 console.log('$1:', $1);
 endsnippet
 
+snippet ce "console.error"
+console.error($1);
+endsnippet
+
+snippet cw "console.warn"
+console.warn($1);
+endsnippet
+
+snippet ct "console.table"
+console.table($1);
+endsnippet
+
 snippet desc "describe a test" b
 describe('$1', () => {
 	it('should $2', () => {
