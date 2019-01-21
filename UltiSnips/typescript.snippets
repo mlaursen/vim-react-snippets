@@ -43,6 +43,10 @@ snippet expn "export nested" b
 export { $1 } from "$2";
 endsnippet
 
+snippet expd "export { default as File } from './File'" b
+export { default as $1 } from "${2:./}$1";
+endsnippet
+
 snippet expa "export * from" b
 export * from "$1";
 endsnippet
@@ -90,7 +94,7 @@ endsnippet
 # React Snippets
 #
 snippet rce "react class exported (with prop and state interfaces)" b
-import * as React from "react";
+import React, { Component } from "react";
 
 export interface I$1Props {
 }
@@ -98,7 +102,7 @@ export interface I$1Props {
 export interface I$1State {
 }
 
-export default class ${1:`!v expand('%:t:r')`} extends React.Component<I$1Props, I$1State> {
+export default class ${1:`!v expand('%:t:r')`} extends Component<I$1Props, I$1State> {
 	constructor(props: I$1Props) {
 		super(props);
 
@@ -112,13 +116,13 @@ export default class ${1:`!v expand('%:t:r')`} extends React.Component<I$1Props,
 endsnippet
 
 snippet fc "function component (with prop interface)" b
-import * as React from "react";
+import React, { FunctionComponent } from "react";
 
 export interface I$1Props {
 	$3
 }
 
-const ${1:`!v expand('%:t:r')`}: React.FunctionComponent<$2I$1Props> = props => {
+const ${1:`!v expand('%:t:r')`}: FunctionComponent<$2I$1Props> = props => {
 	return ${4:null};$0
 };
 
@@ -131,14 +135,6 @@ $1 = (${2:event}) => {
 };
 endsnippet
 
-snippet idp "interface default props and type with default props" b
-export interface I${1:`!v expand('%:t:r')`}DefaultProps {
-  $2
-}
-
-export type $1WithDefaultProps = I$1Props & I$1DefaultProps;
-endsnippet
-
 # ==========================================
 # Component Specs and Lifecycle Section
 #
@@ -149,9 +145,11 @@ public static defaultProps: I${1:`!v expand('%:t:r')`}DefaultProps = {
 endsnippet
 
 snippet cdp "component default props" b
-${1:`!v expand('%:t:r')`}.defaultProps = {
+const defaultProps: I$${1:`!v expand('%:t:r')`}DefaultProps = {
 	$2
-} as I$1DefaultProps;
+};
+
+$1.defaultProps = defaultProps;
 endsnippet
 
 snippet spt "static prop types" b
@@ -203,7 +201,7 @@ public componentDidUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState:
 endsnippet
 
 snippet cdc "component did catch" b
-public componentDidCatch(error: Error, info: React.ErroInfo) {
+public componentDidCatch(error: Error, info: ErroInfo) {
 	$1
 }
 endsnippet
@@ -215,15 +213,19 @@ public componentWillUnmount() {
 endsnippet
 
 snippet r.me "React.MouseEvent<T>" w
-React.MouseEvent<$1>
+MouseEvent<$1>
 endsnippet
 
 snippet r.te "React.TouchEvent<T>" w
-React.TouchEvent<$1>
+TouchEvent<$1>
 endsnippet
 
 snippet r.ke "React.KeyboardEvent<T>" w
-React.KeyboardEvent<$1>
+KeyboardEvent<$1>
+endsnippet
+
+snippet r.fe "React.FormEvent<T>" w
+FormEvent<$1>
 endsnippet
 
 
