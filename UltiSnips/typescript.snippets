@@ -91,7 +91,30 @@ endsnippet
 # ==========================================
 # React Snippets
 #
-snippet rce "react class exported (with prop and state interfaces)" b
+snippet rce "react class exported" b
+import React, { Component } from "react";
+
+export default class ${1:`!v expand('%:t:r')`} extends Component {
+	public render() {
+		return ${2:null};$0
+	}
+}
+endsnippet
+
+snippet rcep "react class exported (with prop interface)" b
+import React, { Component } from "react";
+
+export interface I$1Props {
+}
+
+export default class ${1:`!v expand('%:t:r')`} extends Component<I$1Props> {
+	public render() {
+		return ${2:null};$0
+	}
+}
+endsnippet
+
+snippet rceps "react class exported (with prop and state interfaces)" b
 import React, { Component } from "react";
 
 export interface I$1Props {
