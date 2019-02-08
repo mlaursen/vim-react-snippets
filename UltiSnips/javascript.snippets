@@ -111,6 +111,16 @@ const ${1:`!v expand('%:t:r')`} = props => {
 export default $1;
 endsnippet
 
+snippet sfc "simple function component" b
+import React from 'react';
+
+const ${1:`!v expand('%:t:r')`} = () => {
+	return ${2:null};$0
+};
+
+export default $1;
+endsnippet
+
 snippet rcf "react class function" b
 $1 = (${2:e}) => {
 	$3

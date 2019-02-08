@@ -35,6 +35,7 @@ endsnippet
 snippet icn "import classnames as cn" b
 import cn from "classnames";
 endsnippet
+
 snippet expf "export File from './File'" b
 export $1 from "${2:./}$1";
 endsnippet
@@ -124,6 +125,16 @@ export interface I$1Props {
 
 const ${1:`!v expand('%:t:r')`}: FunctionComponent<$2I$1Props> = props => {
 	return ${4:null};$0
+};
+
+export default $1;
+endsnippet
+
+snippet sfc "simple function component (no prop interface)" b
+import React, { FunctionComponent } from "react";
+
+const ${1:`!v expand('%:t:r')`}: FunctionComponent = () => {
+	return ${2:null};$0
 };
 
 export default $1;
