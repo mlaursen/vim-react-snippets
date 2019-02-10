@@ -225,53 +225,53 @@ endsnippet
 # Hooks and effects
 #
 
-snippet useS "useState()" w
+snippet useS "useState()" b
 const [$1, set$3`!p snip.rv=t[1].capitalize()`] = useState($2);
 endsnippet
 
-snippet useE "useEffect()" w
+snippet useE "useEffect()" b
 useEffect(() => {
 	$1$0
 }$2);
 endsnippet
 
-snippet useC "useContext()" w
+snippet useC "useContext()" b
 const ${2:context} = useContext($1);
 endsnippet
 
-snippet useRed "useReducer(reducer, initialValue)" w
+snippet useRed "useReducer(reducer, initialValue)" b
 const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null});
 endsnippet
 
-snippet useCB "useCallback(fn, inputs)" w
+snippet useCB "useCallback(fn, inputs)" b
 const ${3:callback} = useCallback(() => {
 	$1
 }, ${4:[$2]});
 endsnippet
 
-snippet useM "useMemo(fn, inputs)" w
+snippet useM "useMemo(fn, inputs)" b
 const ${3:memoized} = useMemo(() => {
 	$1
 }, ${4:[$2]});
 endsnippet
 
-snippet useR "useRef(defaultValue)" w
+snippet useR "useRef(defaultValue)" b
 const ${2:ref} = useRef(${1:null});
 endsnippet
 
-snippet useI "useImperitiveHandle(ref, createHandle, [inputs])" w
+snippet useI "useImperitiveHandle(ref, createHandle, [inputs])" b
 useImperitiveHandle(${1:ref}, ${4:() => ({
 	$2
 })}, ${5:[$3]})
 endsnippet
 
-snippet useL "useLayoutEffect()" w
+snippet useL "useLayoutEffect()" b
 useLayoutEffect(() => {
 	$1
 });
 endsnippet
 
-snippet useD "useDebugValue(value)" w
+snippet useD "useDebugValue(value)" b
 useDebugValue(${1:null});
 endsnippet
 
