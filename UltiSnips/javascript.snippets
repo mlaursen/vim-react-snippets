@@ -236,7 +236,7 @@ useEffect(() => {
 endsnippet
 
 snippet useC "useContext()" b
-const ${2:context} = useContext($1);
+${3:const ${2:context}} = useContext($1);
 endsnippet
 
 snippet useRed "useReducer(reducer, initialValue)" b
@@ -244,7 +244,7 @@ const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null});
 endsnippet
 
 snippet useCB "useCallback(fn, inputs)" b
-const ${3:callback} = useCallback(() => {
+${5:const ${3:callback}} = useCallback(() => {
 	$1
 }, ${4:[$2]});
 endsnippet
