@@ -1,4 +1,8 @@
 global !p
+def upperfirst(t):
+	if len(t) < 2:
+		return '' if len(t) < 1 else t.capitalize()
+	return t[0].capitalize() + t[1:]
 def lowerdash(t):
 	return '-'.join([ w.lower() for w in re.findall('[a-z]+|[A-Z]+[a-z]*', t) ])
 endglobal
@@ -226,7 +230,7 @@ endsnippet
 #
 
 snippet useS "useState()" b
-const [$1, set$3`!p snip.rv=t[1].capitalize()`] = useState($2);
+const [$1, set$3`!p snip.rv=upperfirst(t[1])`] = useState($2);
 endsnippet
 
 snippet useE "useEffect()" b
@@ -236,7 +240,7 @@ useEffect(() => {
 endsnippet
 
 snippet useC "useContext()" b
-${3:const ${2:context}} = useContext($1);
+${3:const ${1:context} =} useContext($2);
 endsnippet
 
 snippet useRed "useReducer(reducer, initialValue)" b
@@ -244,19 +248,19 @@ const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null});
 endsnippet
 
 snippet useCB "useCallback(fn, inputs)" b
-${5:const ${3:callback}} = useCallback(() => {
-	$1
-}, ${4:[$2]});
+const ${1:callback} = useCallback(($2) => ${3:{
+	$4
+}}$5);
 endsnippet
 
 snippet useM "useMemo(fn, inputs)" b
-const ${3:memoized} = useMemo(() => {
-	$1
-}, ${4:[$2]});
+const ${1:memoized} = useMemo(() => ${2:{
+	$3
+}}, [$4]);
 endsnippet
 
 snippet useR "useRef(defaultValue)" b
-const ${2:ref} = useRef(${1:null});
+const ${1:ref} = useRef(${2:null});
 endsnippet
 
 snippet useI "useImperitiveHandle(ref, createHandle, [inputs])" b

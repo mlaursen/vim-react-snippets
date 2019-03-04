@@ -1,4 +1,8 @@
 global !p
+def upperfirst(t):
+	if len(t) < 2:
+		return '' if len(t) < 1 else t.capitalize()
+	return t[0].capitalize() + t[1:]
 def lowerdash(t):
 	return '-'.join([ w.lower() for w in re.findall('[a-z]+|[A-Z]+[a-z]*', t) ])
 endglobal
@@ -170,13 +174,25 @@ endsnippet
 # Component Specs and Lifecycle Section
 #
 snippet sdp "static default props" b
+public static defaultProps = {
+	$2
+};
+endsnippet
+
+snippet sdpt "static default props (typed)" b
 public static defaultProps: I${1:`!v expand('%:t:r')`}DefaultProps = {
 	$2
 };
 endsnippet
 
 snippet cdp "component default props" b
-const defaultProps: I$${1:`!v expand('%:t:r')`}DefaultProps = {
+${1:`!v expand('%:t:r')`}.defaultProps = {
+	$2
+};
+endsnippet
+
+snippet cdpt "component default props (typed)" b
+const defaultProps: I${1:`!v expand('%:t:r')`}DefaultProps = {
 	$2
 };
 
@@ -269,7 +285,7 @@ endsnippet
 #
 
 snippet useS "useState()" b
-const [$1, set$3`!p snip.rv=t[1].capitalize()`] = useState($2);
+const [$1, set$4`!p snip.rv=upperfirst(t[1])`] = useState$3($2);$0
 endsnippet
 
 snippet useE "useEffect()" b
@@ -279,7 +295,7 @@ useEffect(() => {
 endsnippet
 
 snippet useC "useContext()" b
-${3:const ${2:context}} = useContext($1);
+${5:const ${1:context} =} useContext$3($2);$0
 endsnippet
 
 snippet useRed "useReducer(reducer, initialValue)" b
@@ -299,19 +315,19 @@ const ${4:reducer}: Reducer<$1State, $1Action> = (state, action) => {
 endsnippet
 
 snippet useCB "useCallback(fn, inputs)" b
-${5:const ${3:callback}} = useCallback(() => {
-	$1
-}, ${4:[$2]});
+const ${1:callback} = useCallback(($2) => ${3:{
+	$4
+}}$5);
 endsnippet
 
 snippet useM "useMemo(fn, inputs)" b
-const ${3:memoized} = useMemo(() => {
-	$1
-}, ${4:[$2]});
+const ${1:memoized} = useMemo(() => ${2:{
+	$3
+}}, [$4]);
 endsnippet
 
 snippet useR "useRef(defaultValue)" b
-const ${2:ref} = useRef(${1:null});
+const ${1:ref} = useRef$3(${2:null});$0
 endsnippet
 
 snippet useI "useImperitiveHandle(ref, createHandle, [inputs])" b
