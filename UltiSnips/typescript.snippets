@@ -88,7 +88,7 @@ it("should $1", () => {
 endsnippet
 
 snippet intf "create interface for file" b
-export interface I${1:`!v expand('%:t:r')`}$2 {
+export interface ${1:`!v expand('%:t:r')`}$2 {
 }
 endsnippet
 
@@ -108,10 +108,10 @@ endsnippet
 snippet rcep "react class exported (with prop interface)" b
 import React, { Component } from "react";
 
-export interface I$1Props {
+export interface $1Props {
 }
 
-export default class ${1:`!v expand('%:t:r')`} extends Component<I$1Props> {
+export default class ${1:`!v expand('%:t:r')`} extends Component<$1Props> {
 	public render() {
 		return ${2:null};$0
 	}
@@ -121,14 +121,14 @@ endsnippet
 snippet rceps "react class exported (with prop and state interfaces)" b
 import React, { Component } from "react";
 
-export interface I$1Props {
+export interface $1Props {
 }
 
-export interface I$1State {
+export interface $1State {
 }
 
-export default class ${1:`!v expand('%:t:r')`} extends Component<I$1Props, I$1State> {
-	constructor(props: I$1Props) {
+export default class ${1:`!v expand('%:t:r')`} extends Component<$1Props, $1State> {
+	constructor(props: $1Props) {
 		super(props);
 
 		this.state = {};
@@ -143,11 +143,11 @@ endsnippet
 snippet fc "function component (with prop interface)" b
 import React, { FunctionComponent } from "react";
 
-export interface I$1Props {
+export interface $1Props {
 	$3
 }
 
-const ${1:`!v expand('%:t:r')`}: FunctionComponent<$2I$1Props> = props => {
+const ${1:`!v expand('%:t:r')`}: FunctionComponent<$2$1Props> = props => {
 	return ${4:null};$0
 };
 
@@ -180,7 +180,7 @@ public static defaultProps = {
 endsnippet
 
 snippet sdpt "static default props (typed)" b
-public static defaultProps: I${1:`!v expand('%:t:r')`}DefaultProps = {
+public static defaultProps: ${1:`!v expand('%:t:r')`}DefaultProps = {
 	$2
 };
 endsnippet
@@ -192,7 +192,7 @@ ${1:`!v expand('%:t:r')`}.defaultProps = {
 endsnippet
 
 snippet cdpt "component default props (typed)" b
-const defaultProps: I${1:`!v expand('%:t:r')`}DefaultProps = {
+const defaultProps: ${1:`!v expand('%:t:r')`}DefaultProps = {
 	$2
 };
 
@@ -212,7 +212,7 @@ ${1:`!v expand('%:t:r')`}.propTypes = {
 endsnippet
 
 snippet gds "get derived state from props" b
-public static getDerivedStateFromProps(nextProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
+public static getDerivedStateFromProps(nextProps: ${1:`!v expand('%:t:r')`}Props, prevState: $1State) {
 	return ${2:null};$0
 };
 endsnippet
@@ -230,19 +230,19 @@ public componentDidMount() {
 endsnippet
 
 snippet scu "should component update" b
-public shouldComponentUpdate(nextProps: I${1:`!v expand('%:t:r')`}Props, nextState: I$1State) {
+public shouldComponentUpdate(nextProps: ${1:`!v expand('%:t:r')`}Props, nextState: $1State) {
 	return ${1:true};$0
 }
 endsnippet
 
 snippet gsbu "get snapshot before update" b
-public getSnapshotBeforeUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State) {
+public getSnapshotBeforeUpdate(prevProps: ${1:`!v expand('%:t:r')`}Props, prevState: $1State) {
 	return ${2:null};$0
 }
 endsnippet
 
 snippet cdu "component did update" b
-public componentDidUpdate(prevProps: I${1:`!v expand('%:t:r')`}Props, prevState: I$1State, ${2:snapshot: any}) {
+public componentDidUpdate(prevProps: ${1:`!v expand('%:t:r')`}Props, prevState: $1State, ${2:snapshot: any}) {
 	$3
 }
 endsnippet
