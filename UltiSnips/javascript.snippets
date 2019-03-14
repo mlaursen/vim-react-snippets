@@ -115,9 +115,9 @@ endsnippet
 snippet sfc "simple function component" b
 import React from 'react';
 
-const ${1:`!v expand('%:t:r')`} = () => {
-	return ${2:null};$0
-};
+const ${1:`!v expand('%:t:r')`} = () => ${2:{
+	return ${3:null};$0
+}};
 
 export default $1;
 endsnippet

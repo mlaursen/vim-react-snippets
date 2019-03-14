@@ -157,9 +157,9 @@ endsnippet
 snippet sfc "simple function component (no prop interface)" b
 import React, { FunctionComponent } from "react";
 
-const ${1:`!v expand('%:t:r')`}: FunctionComponent = () => {
-	return ${2:null};$0
-};
+const ${1:`!v expand('%:t:r')`}: FunctionComponent = () => ${2:{
+	return ${3:null};$0
+}};
 
 export default $1;
 endsnippet
