@@ -192,11 +192,11 @@ ${1:`!v expand('%:t:r')`}.defaultProps = {
 endsnippet
 
 snippet cdpt "component default props (typed)" b
-const defaultProps: ${1:`!v expand('%:t:r')`}DefaultProps = {
+const defaultProps: $1DefaultProps = {
 	$2
 };
 
-$1.defaultProps = defaultProps;
+${3:`!v expand('%:t:r')`}.defaultProps = defaultProps;
 endsnippet
 
 snippet spt "static prop types" b
