@@ -73,6 +73,39 @@ snippet ct "console.table"
 console.table($1);
 endsnippet
 
+# ==========================================
+# Test Snippets
+#
+snippet rtf "React Test File" b
+import React from 'react';
+import { cleanup, render } from 'react-testing-library';
+
+import ${1:`!v expand('%:t:r')`} from '../$1';
+
+afterEach(cleanup);
+
+describe('$1', () => {
+	it('should $2', () => {
+		$3
+	)};
+});
+endsnippet
+
+snippet rhtf "React Hooks Test File" b
+import React from 'react';
+import { cleanup, renderHook } from 'react-hooks-testing-library';
+
+import { $2 } from '../${1`!v expand('%:t:r')`}';
+
+afterEach(cleanup);
+
+describe('$1', () => {
+	it('should $3', () => {
+		$4
+	)};
+});
+endsnippet
+
 snippet desc "describe a test" b
 describe('$1', () => {
 	it('should $2', () => {
@@ -314,6 +347,11 @@ endsnippet
 # Other useful react/redux snippets
 #
 
+snippet fref "React forward ref" b
+export default forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
+endsnippet
+
+priority -1
 snippet fref "React forward ref" w
 forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
 endsnippet

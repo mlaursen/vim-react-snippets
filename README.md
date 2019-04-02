@@ -1,8 +1,22 @@
 # vim-react-snippets
 
 A collection of common Javascript and Typescript vim snippets for developing
-[React] applications. This project relies on [UltiSnips] as the snippet
-provider.
+[React] applications. The snippest within this repo rely on [UltiSnips] as the
+snippet provider.
+
+## Javascript Example
+
+![Javascript Example](https://user-images.githubusercontent.com/3920850/55372575-75010a80-54bf-11e9-97ce-3557ba3f044e.gif)
+
+## Typescript Example
+
+![Typescript Example](https://user-images.githubusercontent.com/3920850/55372579-79c5be80-54bf-11e9-92d3-3122879aaa61.gif)
+
+## Hooks Example
+
+![Hooks Example](https://user-images.githubusercontent.com/3920850/55372583-7c281880-54bf-11e9-94ab-c8fb1bba411b.gif)
+
+## Table of Contents
 
 <!-- toc -->
 
@@ -93,7 +107,9 @@ provider.
   - [Importing](#importing)
   - [Exporting](#exporting)
   - [Logging](#logging)
-  - [Tests](#tests)
+  - [Tests (Javascript and Typescript)](#tests-javascript-and-typescript)
+    - [Create Test File](#create-test-file)
+    - [Create Hooks Test File](#create-hooks-test-file)
     - [Describe a test](#describe-a-test)
     - [it should...](#it-should)
 
@@ -175,6 +191,12 @@ something else follows it).
 import React, { Component } from "react";
 
 export default class $CFN extends Component {
+  constuctor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
   render() {
     return null;
   }
@@ -323,7 +345,7 @@ static getDerivedStateFromError(error) {
 
 ```js
 componentDidMount() {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -333,7 +355,7 @@ componentDidMount() {
 
 ```js
 shouldComponentUpdate(nextProps, nextState) {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -343,7 +365,7 @@ shouldComponentUpdate(nextProps, nextState) {
 
 ```js
 getSnapshotBeforeUpdate(prevProps, prevState) {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -353,7 +375,7 @@ getSnapshotBeforeUpdate(prevProps, prevState) {
 
 ```js
 componentDidUpdate(prevProps, prevState, $SNAPSHOT) {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -363,7 +385,7 @@ componentDidUpdate(prevProps, prevState, $SNAPSHOT) {
 
 ```js
 componentDidCatch(error, info) {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -373,7 +395,7 @@ componentDidCatch(error, info) {
 
 ```js
 componentWillUnmount() {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -457,7 +479,7 @@ const $REF = useRef($TABSTOP);
 
 <!-- prettier-ignore -->
 ```js
-useImperitiveHanlde($REF, () => ({
+useImperitiveHandle($REF, () => ({
   $TABSTOP,
 }), [$TABSTOP]);
 ```
@@ -485,7 +507,19 @@ useDebugValue($NULL);
 `fref` ->
 
 ```js
-forwardRef((props, ref) => <$CFN {...props} forwardedRef={ref} />);
+export default forwardRef((props, ref) => (
+  <$CFN {...props} forwardedRef={ref} />
+));
+```
+
+Or inline:
+
+`export const Forwarded = fref` ->
+
+```js
+export const Forwarded = forwardRef((props, ref) => (
+  <$CFN {...props} forwardedRef={ref} />
+));
 ```
 
 ### General Redux (Javascript)
@@ -774,7 +808,7 @@ static getDerivedStateFromError(error: Error) {
 
 ```ts
 componentDidMount() {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -784,7 +818,7 @@ componentDidMount() {
 
 ```ts
 shouldComponentUpdate(nextProps: $CFN_Props, nextState: $CFN_State) {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -794,7 +828,7 @@ shouldComponentUpdate(nextProps: $CFN_Props, nextState: $CFN_State) {
 
 ```ts
 getSnapshotBeforeUpdate(prevProps: $CFN_Props, prevState: $CFN_State) {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -804,7 +838,7 @@ getSnapshotBeforeUpdate(prevProps: $CFN_Props, prevState: $CFN_State) {
 
 ```ts
 componentDidUpdate(prevProps: $CFN_Props, prevState: $CFN_State, $SNAPSHOT) {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -814,7 +848,7 @@ componentDidUpdate(prevProps: $CFN_Props, prevState: $CFN_State, $SNAPSHOT) {
 
 ```ts
 componentDidCatch(error: Error, info: ErrorInfo) {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -824,7 +858,7 @@ componentDidCatch(error: Error, info: ErrorInfo) {
 
 ```ts
 componentWillUnmount() {
-	$TABSTOP
+  $TABSTOP
 }
 ```
 
@@ -933,7 +967,7 @@ const $REF = useRef$TABSTOP(TABSTOP);
 
 <!-- prettier-ignore -->
 ```ts
-useImperitiveHanlde($REF, () => ({
+useImperitiveHandle($REF, () => ({
   $TABSTOP,
 }), [$TABSTOP]);
 ```
@@ -961,7 +995,19 @@ useDebugValue($NULL);
 `fref` ->
 
 ```ts
-forwardRef((props, ref) => <$CFN {...props} forwardedRef={ref} />);
+export default forwardRef<$TABSTOPElement, $CFN_Props>((props, ref) => (
+  <$CFN {...props} forwardedRef={ref} />
+));
+```
+
+Or inline:
+
+`export const Forwarded = fref` ->
+
+```ts
+export const Forwarded = forwardRef<$TABSTOPElement, $CFN_Props>(
+  (props, ref) => <$CFN {...props} forwardedRef={ref} />
+);
 ```
 
 #### Function Component Export
@@ -997,7 +1043,45 @@ forwardRef((props, ref) => <$CFN {...props} forwardedRef={ref} />);
 | `cw`     | `console.warrn($TABSTOP);`             |
 | `ct`     | `console.table($TABSTOP);`             |
 
-### Tests
+### Tests (Javascript and Typescript)
+
+#### Create Test File
+
+`ctf` ->
+
+```tsx
+import React from "react";
+import { cleanup, render } from "react-testing-library";
+
+import $CFN from "../$CFN";
+
+afterEach(cleanup);
+
+describe('$CFN', () => {
+  it('should $TABSTOP', () => {
+    $TABSTOP
+  )};
+});
+```
+
+#### Create Hooks Test File
+
+`chtf` ->
+
+```tsx
+import React from "react";
+import { cleanup, renderHook } from "react-hooks-testing-library";
+
+import { $TABSTOP } from "../$CFN";
+
+afterEach(cleanup);
+
+describe('$CFN', () => {
+  it('should $TABSTOP', () => {
+    $TABSTOP
+  )};
+});
+```
 
 #### Describe a test
 
@@ -1012,6 +1096,8 @@ describe('$CFN', () => {
 ```
 
 #### it should...
+
+`it` ->
 
 ```ts
 it("should $TABSTOP", () => {

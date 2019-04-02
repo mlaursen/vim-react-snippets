@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "format": "prettier --write  README.md",
+    "format": "prettier --write README.md",
     "toc": "markdown-toc -i README.md"
   },
   "devDependencies": {
@@ -24,8 +24,8 @@
   },
   "lint-staged": {
     "README.md": [
-      "yarn toc",
-      "yarn format",
+      "markdown-toc -i",
+      "prettier --write",
       "git add"
     ]
   }
