@@ -108,8 +108,8 @@ snippet provider.
   - [Exporting](#exporting)
   - [Logging](#logging)
   - [Tests (Javascript and Typescript)](#tests-javascript-and-typescript)
-    - [Create Test File](#create-test-file)
-    - [Create Hooks Test File](#create-hooks-test-file)
+    - [React Test File](#react-test-file)
+    - [React Hooks Test File](#react-hooks-test-file)
     - [Describe a test](#describe-a-test)
     - [it should...](#it-should)
 
@@ -1045,9 +1045,9 @@ export const Forwarded = forwardRef<$TABSTOPElement, $CFN_Props>(
 
 ### Tests (Javascript and Typescript)
 
-#### Create Test File
+#### React Test File
 
-`ctf` ->
+`rtf` ->
 
 ```tsx
 import React from "react";
@@ -1057,16 +1057,16 @@ import $CFN from "../$CFN";
 
 afterEach(cleanup);
 
-describe('$CFN', () => {
-  it('should $TABSTOP', () => {
-    $TABSTOP
-  )};
+describe("$CFN", () => {
+  it("should $TABSTOP", () => {
+    $TABSTOP;
+  });
 });
 ```
 
-#### Create Hooks Test File
+#### React Hooks Test File
 
-`chtf` ->
+`rhtf` ->
 
 ```tsx
 import React from "react";
@@ -1076,10 +1076,10 @@ import { $TABSTOP } from "../$CFN";
 
 afterEach(cleanup);
 
-describe('$CFN', () => {
-  it('should $TABSTOP', () => {
-    $TABSTOP
-  )};
+describe("$CFN", () => {
+  it("should $TABSTOP", () => {
+    $TABSTOP;
+  });
 });
 ```
 
