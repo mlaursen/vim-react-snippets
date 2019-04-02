@@ -1,0 +1,32 @@
+{
+  "name": "vim-react-snippets",
+  "version": "0.0.1",
+  "description": "Reusable Javascript and Typescript vim snippets for UltiSnips and developing React apps.",
+  "repository": "git@github.com:mlaursen/vim-react-snippets.git",
+  "author": "Mikkel Laursen <mlaursen03@gmail.com>",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write  README.md",
+    "toc": "markdown-toc -i README.md"
+  },
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "markdown-toc": "^1.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.16.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all toc format"
+    }
+  },
+  "lint-staged": {
+    "README.md": [
+      "yarn toc",
+      "yarn format",
+      "git add"
+    ]
+  }
+}

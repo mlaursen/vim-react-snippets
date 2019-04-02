@@ -9,6 +9,10 @@ endglobal
 
 # Normal javascript snippets
 #
+snippet rc "require package that converts from camelCase or PascalCase to kebab-cased" b
+const $1 = require("$2`!p snip.rv=lowerdash(t[1])`");
+endsnippet
+
 snippet imp "import package that converts from camelCase or PascalCase to kebab-cased" b
 import $1 from "$2`!p snip.rv=lowerdash(t[1])`";
 endsnippet
@@ -27,10 +31,6 @@ endsnippet
 
 snippet impp "import file without a declaration" b
 import "$1";
-endsnippet
-
-snippet rc "require package that converts from camelCase or PascalCase to kebab-cased" b
-const $1 = require("$2`!p snip.rv=lowerdash(t[1])`");
 endsnippet
 
 snippet icn "import classnames as cn" b
@@ -140,7 +140,23 @@ export default class ${1:`!v expand('%:t:r')`} extends Component<$1Props, $1Stat
 }
 endsnippet
 
-snippet fc "function component (with prop interface)" b
+snippet rcc "React class component" b
+class $1 extends Component {
+	public render() {
+		return null;$0
+	}
+}
+endsnippet
+
+snippet rcon "React class constructor" b
+constructor(props: ${1:`!v expand('%:t:r')`}Props) {
+	super(props);
+
+	this.state = ${1:{}};$0
+}
+endsnippet
+
+snippet fce "function component export (with prop interface)" b
 import React, { FunctionComponent } from "react";
 
 export interface $1Props {
@@ -154,7 +170,7 @@ const ${1:`!v expand('%:t:r')`}: FunctionComponent<$2$1Props> = props => {
 export default $1;
 endsnippet
 
-snippet sfc "simple function component (no prop interface)" b
+snippet sfce "simple function component export (no prop interface)" b
 import React, { FunctionComponent } from "react";
 
 const ${1:`!v expand('%:t:r')`}: FunctionComponent = () => ${2:{
@@ -162,6 +178,12 @@ const ${1:`!v expand('%:t:r')`}: FunctionComponent = () => ${2:{
 }};
 
 export default $1;
+endsnippet
+
+snippet fc "functional component" b
+const $1: FunctionComponent$2 = ${3:props} => {
+	return null;$0
+};
 endsnippet
 
 snippet rcf "react class function" b
@@ -180,7 +202,7 @@ public static defaultProps = {
 endsnippet
 
 snippet sdpt "static default props (typed)" b
-public static defaultProps: ${1:`!v expand('%:t:r')`}DefaultProps = {
+public static defaultProps: DefaultProps = {
 	$2
 };
 endsnippet
@@ -259,24 +281,44 @@ public componentWillUnmount() {
 }
 endsnippet
 
-snippet r.me "React.MouseEvent<T>" w
-React.MouseEvent<$1>
+snippet r.me "React.MouseEvent" w
+React.MouseEvent$0
 endsnippet
 
-snippet r.te "React.TouchEvent<T>" w
-React.TouchEvent<$1>
+snippet r.te "React.TouchEvent" w
+React.TouchEvent$0
 endsnippet
 
-snippet r.ke "React.KeyboardEvent<T>" w
-React.KeyboardEvent<$1>
+snippet r.ke "React.KeyboardEvent" w
+React.KeyboardEvent$0
 endsnippet
 
-snippet r.fe "React.FormEvent<T>" w
-React.FormEvent<$1>
+snippet r.ce "React.ChangeEvent" w
+React.ChangeEvent$0
 endsnippet
 
-snippet r.foe "React.FocusEvent<T>" w
-React.FocusEvent<$1>
+snippet r.fo "React.FocusEvent" w
+React.FocusEvent$0
+endsnippet
+
+snippet r.meh "React.MouseEventHandler" w
+React.MouseEventHandler$0
+endsnippet
+
+snippet r.teh "React.TouchEventHandler" w
+React.TouchEventHandler$0
+endsnippet
+
+snippet r.keh "React.KeyboardEventHandler" w
+React.KeyboardEventHandler$0
+endsnippet
+
+snippet r.ceh "React.ChangeEventHandler" w
+React.ChangeEventHandler$0
+endsnippet
+
+snippet r.foh "React.FocusEventHandler" w
+React.FocusEventHandler$0
 endsnippet
 
 
@@ -298,20 +340,17 @@ snippet useC "useContext()" b
 ${5:const ${1:context} =} useContext$3($2);$0
 endsnippet
 
+priority -1
+snippet useC "useContext()" w
+useContext$2($1);
+endsnippet
+
 snippet useRed "useReducer(reducer, initialValue)" b
 const [${4:state}, ${5:dispatch}] = useReducer<typeof $2>(${2:reducer}, ${3:null});
 endsnippet
 
 snippet useRedUT "use reducer untyped" b
 const [${3:state}, ${4:dispatch}] = useReducer($1, ${2:{}});
-endsnippet
-
-snippet rr "react reducer" b
-type ${1:Custom}State = ${2:{}};
-type $1Action = "${3:increment}";
-const ${4:reducer}: Reducer<$1State, $1Action> = (state, action) => {
-	return state;$0
-};
 endsnippet
 
 snippet useCB "useCallback(fn, inputs)" b

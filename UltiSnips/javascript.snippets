@@ -9,6 +9,10 @@ endglobal
 
 # Normal javascript snippets
 #
+snippet rc "require package that converts from camelCase or PascalCase to kebab-cased" b
+const $1 = require('$2`!p snip.rv=lowerdash(t[1])`');
+endsnippet
+
 snippet imp "import package that converts from camelCase or PascalCase to kebab-cased" b
 import $1 from '$2`!p snip.rv=lowerdash(t[1])`';
 endsnippet
@@ -21,20 +25,16 @@ snippet impn "import { nested } from" b
 import { $1 } from '$2';
 endsnippet
 
+snippet impa "import * as Thing from" b
+import * as $1 from "$2`!p snip.rv=lowerdash(t[1])`";
+endsnippet
+
 snippet impp "import file without a declaration" b
 import '$1';
 endsnippet
 
-snippet rc "require package that converts from camelCase or PascalCase to kebab-cased" b
-const $1 = require('$2`!p snip.rv=lowerdash(t[1])`');
-endsnippet
-
 snippet icn "import classnames as cn" b
 import cn from 'classnames';
-endsnippet
-
-snippet ise "import shallowEqual" b
-import shallowEqual from 'shallowequal';
 endsnippet
 
 snippet expf "export File from './File'" b
@@ -43,6 +43,10 @@ endsnippet
 
 snippet expn "export nested" b
 export { $1 } from '$2';
+endsnippet
+
+snippet expd "export { default as File } from './File'" b
+export { default as $1 } from "${2:./}$1";
 endsnippet
 
 snippet expa "export * from" b
@@ -86,10 +90,10 @@ endsnippet
 # ==========================================
 # React Snippets
 #
-snippet rce "react class exported" b
-import React, { ${2:Pure}Component } from 'react';
+snippet rce "React class exported" b
+import React, { Component } from 'react';
 
-export default class ${1:`!v expand('%:t:r')`} extends $2Component {
+export default class ${1:`!v expand('%:t:r')`} extends Component {
 	constructor(props) {
 		super(props);
 
@@ -97,29 +101,51 @@ export default class ${1:`!v expand('%:t:r')`} extends $2Component {
 	}
 
 	render() {
-		return ${3:null};$0
+		return null;$0
 	}
 }
 endsnippet
 
-snippet fc "function component" b
+snippet rcc "React class component" b
+class $1 extends Component {
+	render() {
+		return null;$0
+	}
+}
+endsnippet
+
+snippet rcon "React class constructor" b
+constructor(props) {
+	super(props);
+
+	this.state = ${1:{}};$0
+}
+endsnippet
+
+snippet fce "function component exported" b
 import React from 'react';
 
 const ${1:`!v expand('%:t:r')`} = props => {
-	return ${2:null};$0
+	return null;$0
 };
 
 export default $1;
 endsnippet
 
-snippet sfc "simple function component" b
+snippet sfce "simple function component export (no props)" b
 import React from 'react';
 
-const ${1:`!v expand('%:t:r')`} = () => ${2:{
-	return ${3:null};$0
-}};
+const ${1:`!v expand('%:t:r')`} = () => {
+	return null;$0
+};
 
 export default $1;
+endsnippet
+
+snippet fc "functional component" b
+const $1 = props => {
+	return null;$0
+};
 endsnippet
 
 snippet rcf "react class function" b
@@ -186,7 +212,7 @@ getSnapshotBeforeUpdate(prevProps, prevState) {
 endsnippet
 
 snippet cdu "component did update" b
-componentDidUpdate(prevProps, prevState, ${1:snapshot}) {
+componentDidUpdate(prevProps, prevState${1:, snapshot}) {
 	$0
 }
 endsnippet
@@ -240,7 +266,12 @@ useEffect(() => {
 endsnippet
 
 snippet useC "useContext()" b
-${3:const ${1:context} =} useContext($2);
+const ${1:context} = useContext($2);
+endsnippet
+
+priority -1
+snippet useC "useContext()" w
+useContext($1);
 endsnippet
 
 snippet useRed "useReducer(reducer, initialValue)" b
@@ -277,6 +308,55 @@ endsnippet
 
 snippet useD "useDebugValue(value)" b
 useDebugValue(${1:null});
+endsnippet
+
+# ==========================================
+# Other useful react/redux snippets
+#
+
+snippet fref "React forward ref" w
+forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
+endsnippet
+
+snippet cc "React create context" b
+export const $1 = createContext($2);
+endsnippet
+
+snippet @c "@connect" b
+@connect(${1:state})
+endsnippet
+
+snippet @ca "@connectAdvanced" b
+@connectAdvanced(${1:dispatch} => {
+	$2
+	return (${3:state}${4:, props}) => {
+		$0
+		return {};
+	};
+})
+endsnippet
+
+snippet cf "connect function" w
+connect(${1:state})(${2:`!v expand('%:t:r')`});
+endsnippet
+
+snippet caf "connect advanced function" w
+connectAdvanced(${1:dispatch} => {
+	$2
+	return (${3:state}${4:, props}) => {
+		$5
+		return {};
+	};
+})(${6:`!v expand('%:t:r')`});
+endsnippet
+
+snippet bac "bind action creators" b
+const ${1:actions} = bindActionCreators({ $2 }, dispatch);$0
+endsnippet
+
+priority -1
+snippet bac "bind action creators" w
+bindActionCreators({ $1 }, dispatch);$0
 endsnippet
 
 # ==========================================
