@@ -307,6 +307,7 @@ snippet useC "useContext()" w
 useContext($1);
 endsnippet
 
+priority 0
 snippet useRed "useReducer(reducer, initialValue)" b
 const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null});
 endsnippet
@@ -356,6 +357,7 @@ snippet fref "React forward ref" w
 forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
 endsnippet
 
+priority 0
 snippet cc "React create context" b
 export const $1 = createContext($2);
 endsnippet
@@ -401,6 +403,7 @@ endsnippet
 # Prop Types Section
 #
 
+priority 0
 # Inline prop types
 snippet pt.a "PropTypes.array" w
 PropTypes.array
