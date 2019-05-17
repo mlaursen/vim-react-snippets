@@ -1069,10 +1069,10 @@ describe("$CFN", () => {
 `rhtf` ->
 
 ```tsx
-import React from "react";
-import { cleanup, renderHook } from "react-hooks-testing-library";
+import { cleanup } from "react-testing-library";
+import { renderHook } from "react-hooks-testing-library";
 
-import { $TABSTOP } from "../$CFN";
+import $TABSTOP from "../$CFN";
 
 afterEach(cleanup);
 
