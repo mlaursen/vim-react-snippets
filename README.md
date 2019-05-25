@@ -713,11 +713,11 @@ $TABSTOP = $TABSTOP => {
 `fce` ->
 
 ```tsx
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 
 export interface $CFN_Props {}
 
-const $CFN: FunctionComponent<$CFN_Props> = props => {
+const $CFN: FC<$CFN_Props> = props => {
   return null;
 };
 
@@ -729,9 +729,9 @@ export default $CFN;
 `sfce` ->
 
 ```tsx
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 
-const $CFN: FunctionComponent = () => {
+const $CFN: FC = () => {
   return null;
 };
 
@@ -743,7 +743,7 @@ export default $CFN;
 `fc` ->
 
 ```tsx
-const $TABSTOP: FunctionComponent = props => {
+const $TABSTOP: FC = props => {
   return null;
 };
 ```

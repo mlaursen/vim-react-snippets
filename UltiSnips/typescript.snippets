@@ -190,13 +190,13 @@ constructor(props: ${1:`!v expand('%:t:r')`}Props) {
 endsnippet
 
 snippet fce "function component export (with prop interface)" b
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 
 export interface $1Props {
 	$3
 }
 
-const ${1:`!v expand('%:t:r')`}: FunctionComponent<$2$1Props> = props => {
+const ${1:`!v expand('%:t:r')`}: FC<$2$1Props> = props => {
 	return ${4:null};$0
 };
 
@@ -204,9 +204,9 @@ export default $1;
 endsnippet
 
 snippet sfce "simple function component export (no prop interface)" b
-import React, { FunctionComponent } from "react";
+import React, { FC } from "react";
 
-const ${1:`!v expand('%:t:r')`}: FunctionComponent = () => ${2:{
+const ${1:`!v expand('%:t:r')`}: FC = () => ${2:{
 	return ${3:null};$0
 }};
 
@@ -214,7 +214,7 @@ export default $1;
 endsnippet
 
 snippet fc "functional component" b
-const $1: FunctionComponent$2 = ${3:props} => {
+const $1: FC$2 = ${3:props} => {
 	return null;$0
 };
 endsnippet
