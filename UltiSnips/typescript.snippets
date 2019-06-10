@@ -37,6 +37,10 @@ snippet icn "import classnames as cn" b
 import cn from "classnames";
 endsnippet
 
+snippet ism "import scss module" b
+import ${2:styles} from './${1:`!v expand('%:t:r')`}.module.scss';
+endsnippet
+
 snippet expf "export File from './File'" b
 export $1 from "${2:./}$1";
 endsnippet

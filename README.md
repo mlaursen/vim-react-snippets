@@ -1023,6 +1023,7 @@ export const Forwarded = forwardRef<$TABSTOPElement, $CFN_Props>(
 | `impa`   | `import * as Thing from 'package-or/path';`    |
 | `impp`   | `import './file';`                             |
 | `icn`    | `import cn from 'classnames';`                 |
+| `ism`    | `import styles from './$CFN.module.scss';`     |
 
 ### Exporting
 
