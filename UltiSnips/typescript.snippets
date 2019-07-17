@@ -86,7 +86,7 @@ endsnippet
 #
 snippet rtf "React Test File" b
 import React from "react";
-import { cleanup, render } from "react-testing-library";
+import { cleanup, render } from "@testing-library/react";
 
 import ${1:`!v expand('%:t:r')`} from "../$1";
 
@@ -100,8 +100,8 @@ describe("$1", () => {
 endsnippet
 
 snippet rhtf "React Hooks Test File" b
-import { cleanup } from "react-testing-library";
-import { renderHook } from "react-hooks-testing-library";
+import { cleanup } from "@testing-library/react";
+import { renderHook } from "@testing-library/react-hooks";
 
 import $2 from "../${1:`!v expand('%:t:r')`}";
 
