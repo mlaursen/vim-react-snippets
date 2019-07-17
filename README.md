@@ -1029,6 +1029,7 @@ export const Forwarded = forwardRef<$TABSTOPElement, $CFN_Props>(
 
 | Shortcut | Expands to                                    |
 | -------- | --------------------------------------------- |
+| `exp`    | `export { default } from './CurrentFolder';`  |
 | `expf`   | `export File from './File';`                  |
 | `expn`   | `export { nested } from 'package-or/path`     |
 | `expa`   | `export * from 'package-or/path';`            |

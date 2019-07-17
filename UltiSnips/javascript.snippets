@@ -41,6 +41,10 @@ snippet ism "import scss module" b
 import ${2:styles} from './${1:`!v expand('%:t:r')`}.module.scss';
 endsnippet
 
+snippet exp "export { default } from './CurrentFolderName'"
+export { default } from './${1:`!v expand('%:p:h:t')`}';
+endsnippet
+
 snippet expf "export File from './File'" b
 export $1 from '${2:./}$1';
 endsnippet
@@ -50,7 +54,7 @@ export { $1 } from '$2';
 endsnippet
 
 snippet expd "export { default as File } from './File'" b
-export { default as $1 } from "${2:./}$1";
+export { default as $1 } from '${2:./}$1';
 endsnippet
 
 snippet expa "export * from" b
