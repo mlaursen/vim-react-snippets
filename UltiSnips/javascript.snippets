@@ -310,12 +310,6 @@ snippet useC "useContext()" b
 const ${1:context} = useContext($2);
 endsnippet
 
-priority -1
-snippet useC "useContext()" w
-useContext($1);
-endsnippet
-
-priority 0
 snippet useRed "useReducer(reducer, initialValue)" b
 const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null});
 endsnippet
@@ -353,6 +347,33 @@ useDebugValue(${1:null});
 endsnippet
 
 # ==========================================
+# "Inline" versions of hooks
+#
+
+priority -1
+snippet useC "useContext()" w
+useContext$2($1);
+endsnippet
+
+snippet useCB "useCallback(fn, inputs)" b
+useCallback(($1) => ${2:{
+	$3
+}}, [$4]);
+endsnippet
+
+snippet useM "useMemo(fn, inputs)" b
+useMemo(() => ${1:{
+	$2
+}}, [$3]);
+endsnippet
+
+snippet useR "useRef(defaultValue)" b
+useRef$2(${1:null});$0
+endsnippet
+
+priority 0
+
+# ==========================================
 # Other useful react/redux snippets
 #
 
@@ -360,12 +381,6 @@ snippet fref "React forward ref" b
 export default forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
 endsnippet
 
-priority -1
-snippet fref "React forward ref" w
-forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
-endsnippet
-
-priority 0
 snippet cc "React create context" b
 export const $1 = createContext($2);
 endsnippet
@@ -407,11 +422,16 @@ snippet bac "bind action creators" w
 bindActionCreators({ $1 }, dispatch);$0
 endsnippet
 
+snippet fref "React forward ref" w
+forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
+endsnippet
+
+priority 0
+
 # ==========================================
 # Prop Types Section
 #
 
-priority 0
 # Inline prop types
 snippet pt.a "PropTypes.array" w
 PropTypes.array
