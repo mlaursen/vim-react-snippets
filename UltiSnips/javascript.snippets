@@ -355,19 +355,19 @@ snippet useC "useContext()" w
 useContext$2($1);
 endsnippet
 
-snippet useCB "useCallback(fn, inputs)" b
+snippet useCB "useCallback(fn, inputs)" w
 useCallback(($1) => ${2:{
 	$3
 }}, [$4]);
 endsnippet
 
-snippet useM "useMemo(fn, inputs)" b
+snippet useM "useMemo(fn, inputs)" w
 useMemo(() => ${1:{
 	$2
 }}, [$3]);
 endsnippet
 
-snippet useR "useRef(defaultValue)" b
+snippet useR "useRef(defaultValue)" w
 useRef$2(${1:null});$0
 endsnippet
 
