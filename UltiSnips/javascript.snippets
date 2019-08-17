@@ -62,23 +62,23 @@ export * from '$1';
 endsnippet
 
 snippet cl "console.log"
-console.log($1);
+console.log($1)
 endsnippet
 
 snippet clv "console.log variable"
-console.log('$1:', $1);
+console.log('$1:', $1)
 endsnippet
 
 snippet ce "console.error"
-console.error($1);
+console.error($1)
 endsnippet
 
 snippet cw "console.warn"
-console.warn($1);
+console.warn($1)
 endsnippet
 
 snippet ct "console.table"
-console.table($1);
+console.table($1)
 endsnippet
 
 # ==========================================
@@ -126,6 +126,10 @@ snippet it "create a test block" b
 it('should $1', () => {
 	$2
 });
+endsnippet
+
+snippet todo "it.todo()" b
+it.todo('should $1');
 endsnippet
 
 # ==========================================

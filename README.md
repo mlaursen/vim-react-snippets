@@ -112,6 +112,7 @@ snippet provider.
     - [React Hooks Test File](#react-hooks-test-file)
     - [Describe a test](#describe-a-test)
     - [it should...](#it-should)
+    - [Test todo](#test-todo)
 
 <!-- tocstop -->
 
@@ -1037,13 +1038,13 @@ export const Forwarded = forwardRef<$TABSTOPElement, $CFN_Props>(
 
 ### Logging
 
-| Shortcut | Expands to                             |
-| -------- | -------------------------------------- |
-| `cl`     | `console.log($TABSTOP);`               |
-| `clv`    | `console.log('variable: ', variable);` |
-| `ce`     | `console.error($TABSTOP);`             |
-| `cw`     | `console.warrn($TABSTOP);`             |
-| `ct`     | `console.table($TABSTOP);`             |
+| Shortcut | Expands to                            |
+| -------- | ------------------------------------- |
+| `cl`     | `console.log($TABSTOP)`               |
+| `clv`    | `console.log('variable: ', variable)` |
+| `ce`     | `console.error($TABSTOP)`             |
+| `cw`     | `console.warrn($TABSTOP)`             |
+| `ct`     | `console.table($TABSTOP)`             |
 
 ### Tests (Javascript and Typescript)
 
@@ -1106,6 +1107,14 @@ describe('$CFN', () => {
 it("should $TABSTOP", () => {
   $TABSTOP;
 });
+```
+
+#### Test todo
+
+`todo` ->
+
+```ts
+it.todo("should $TABSTOP");
 ```
 
 [react]: https://reactjs.org/
