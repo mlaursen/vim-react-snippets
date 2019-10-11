@@ -1,7 +1,7 @@
 # vim-react-snippets
 
 A collection of common Javascript and Typescript vim snippets for developing
-[React] applications. The snippest within this repo rely on [UltiSnips] as the
+[React] applications. The snippets within this repo rely on [UltiSnips] as the
 snippet provider.
 
 ## Javascript Example
@@ -1123,4 +1123,4 @@ it.todo("should $TABSTOP");
   https://github.com/mlaursen/vim-react-snippets/tree/master/UltiSnips
 [minpac]: https://github.com/k-takata/minpac
 [vim-plug]: https://github.com/junegunn/vim-plug
-[full .vimrc]: https://github.com/mlaursen/dotfiles/tree/macbook/.vimrc
+[full .vimrc]: https://github.com/mlaursen/dotfiles/tree/master/.vimrc
