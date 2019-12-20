@@ -230,7 +230,7 @@ constructor(props) {
 
 #### Static PropTypes
 
-`sdp` ->
+`spt` ->
 
 ```js
 static propTypes = {
@@ -669,7 +669,7 @@ constructor(props: $CFN_Props) {
 
 #### Static PropTypes
 
-`sdp` ->
+`spt` ->
 
 ```js
 public static propTypes = {
