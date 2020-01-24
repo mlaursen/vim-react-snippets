@@ -1054,11 +1054,9 @@ export const Forwarded = forwardRef<$TABSTOPElement, $CFN_Props>(
 
 ```tsx
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import $CFN from "../$CFN";
-
-afterEach(cleanup);
 
 describe("$CFN", () => {
   it("should $TABSTOP", () => {
@@ -1073,12 +1071,9 @@ describe("$CFN", () => {
 
 ```tsx
 import React from "react";
-import { cleanup } from "@testing-library/react";
 import { renderHook } from "@testing-library/react-hooks";
 
 import $TABSTOP from "../$CFN";
-
-afterEach(cleanup);
 
 describe("$CFN", () => {
   it("should $TABSTOP", () => {

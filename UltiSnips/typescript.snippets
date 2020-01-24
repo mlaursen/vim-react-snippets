@@ -86,11 +86,9 @@ endsnippet
 #
 snippet rtf "React Test File" b
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import ${1:`!v expand('%:t:r')`} from "../$1";
-
-afterEach(cleanup);
 
 describe("$1", () => {
 	it("should $2", () => {
@@ -100,12 +98,9 @@ describe("$1", () => {
 endsnippet
 
 snippet rhtf "React Hooks Test File" b
-import { cleanup } from "@testing-library/react";
 import { renderHook } from "@testing-library/react-hooks";
 
 import $2 from "../${1:`!v expand('%:t:r')`}";
-
-afterEach(cleanup);
 
 describe("$1", () => {
 	it("should $3", () => {
