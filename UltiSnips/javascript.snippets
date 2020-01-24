@@ -376,10 +376,6 @@ priority 0
 # Other useful react/redux snippets
 #
 
-snippet fref "React forward ref" b
-export default forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
-endsnippet
-
 snippet cc "React create context" b
 export const $1 = createContext($2);
 endsnippet
@@ -419,10 +415,6 @@ endsnippet
 priority -1
 snippet bac "bind action creators" w
 bindActionCreators({ $1 }, dispatch);$0
-endsnippet
-
-snippet fref "React forward ref" w
-forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
 endsnippet
 
 priority 0

@@ -56,7 +56,6 @@ snippet provider.
     - [useImperitiveHandle](#useimperitivehandle)
     - [useLayoutEffect](#uselayouteffect)
     - [useDebugValue](#usedebugvalue)
-    - [forwardRef](#forwardref)
   - [General Redux (Javascript)](#general-redux-javascript)
     - [@connect (annotation)](#connect-annotation)
     - [connect (function)](#connect-function)
@@ -102,8 +101,7 @@ snippet provider.
     - [useImperitiveHandle](#useimperitivehandle-1)
     - [useLayoutEffect](#uselayouteffect-1)
     - [useDebugValue](#usedebugvalue-1)
-    - [forwardRef](#forwardref-1)
-    - [Function Component Export](#function-component-export-2)
+    - [forwardRef](#forwardref)
   - [Importing](#importing)
   - [Exporting](#exporting)
   - [Logging](#logging)
@@ -503,26 +501,6 @@ useLayoutEffect(() => {
 useDebugValue($NULL);
 ```
 
-#### forwardRef
-
-`fref` ->
-
-```js
-export default forwardRef((props, ref) => (
-  <$CFN {...props} forwardedRef={ref} />
-));
-```
-
-Or inline:
-
-`export const Forwarded = fref` ->
-
-```js
-export const Forwarded = forwardRef((props, ref) => (
-  <$CFN {...props} forwardedRef={ref} />
-));
-```
-
 ### General Redux (Javascript)
 
 #### @connect (annotation)
@@ -714,11 +692,11 @@ $TABSTOP = $TABSTOP => {
 `fce` ->
 
 ```tsx
-import React, { FC } from "react";
+import React, { ReactElement } from "react";
 
 export interface $CFN_Props {}
 
-const $CFN: FC<$CFN_Props> = props => {
+const $CFN: FC<$CFN_Props> = (props: $CFN_Props): ReactElement | null => {
   return null;
 };
 
@@ -730,9 +708,9 @@ export default $CFN;
 `sfce` ->
 
 ```tsx
-import React, { FC } from "react";
+import React, { ReactElement } from "react";
 
-const $CFN: FC = () => {
+const $CFN = (): ReactElement | null => {
   return null;
 };
 
@@ -996,22 +974,18 @@ useDebugValue($NULL);
 `fref` ->
 
 ```ts
-export default forwardRef<$TABSTOPElement, $CFN_Props>((props, ref) => (
-  <$CFN {...props} forwardedRef={ref} />
-));
+const Forwarded$CFN = forwardRef<$TABSTOP_Element, $CFN_Props>($CFN);
+
+export default Forwarded$CFN;
 ```
 
 Or inline:
 
-`export const Forwarded = fref` ->
+`export default fref` ->
 
 ```ts
-export const Forwarded = forwardRef<$TABSTOPElement, $CFN_Props>(
-  (props, ref) => <$CFN {...props} forwardedRef={ref} />
-);
+export default forwardRef<$TABSTOP_Element, $CFN_Props>($CFN);
 ```
-
-#### Function Component Export
 
 ### Importing
 

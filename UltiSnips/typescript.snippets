@@ -197,13 +197,13 @@ constructor(props: ${1:`!v expand('%:t:r')`}Props) {
 endsnippet
 
 snippet fce "function component export (with prop interface)" b
-import React, { FC } from "react";
+import React, { ReactElement } from "react";
 
 export interface $1Props {
 	$3
 }
 
-const ${1:`!v expand('%:t:r')`}: FC<$2$1Props> = props => {
+const ${1:`!v expand('%:t:r')`} = (${2:props}: $1Props): ReactElement | null => {
 	return ${4:null};$0
 };
 
@@ -211,9 +211,9 @@ export default $1;
 endsnippet
 
 snippet sfce "simple function component export (no prop interface)" b
-import React, { FC } from "react";
+import React, { ReactElement } from "react";
 
-const ${1:`!v expand('%:t:r')`}: FC = () => ${2:{
+const ${1:`!v expand('%:t:r')`} = (): ReactElement | null => ${2:{
 	return ${3:null};$0
 }};
 
@@ -452,7 +452,9 @@ priority 0
 #
 
 snippet fref "React forward ref" b
-export default forwardRef<$2Element, $1Props>((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${3:forwardedRef}={ref} />);
+const Forwarded${1:`!v expand('%:t:r')`} = forwardRef<$2Element, $1Props>($1);
+
+export default Forwarded$1;
 endsnippet
 
 snippet cc "React create context" b
@@ -461,7 +463,7 @@ endsnippet
 
 priority -1
 snippet fref "React forward ref" w
-forwardRef<$2Element, $1Props>((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${3:forwardedRef}={ref} />);
+forwardRef<$2Element, $1Props>(${1:`!v expand('%:t:r')`});
 endsnippet
 
 priority 0
