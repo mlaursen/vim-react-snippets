@@ -111,6 +111,7 @@ snippet provider.
     - [Describe a test](#describe-a-test)
     - [it should...](#it-should)
     - [Test todo](#test-todo)
+    - [expect snapshot](#expect-snapshot)
 
 <!-- tocstop -->
 
@@ -1084,6 +1085,14 @@ it("should $TABSTOP", () => {
 
 ```ts
 it.todo("should $TABSTOP");
+```
+
+#### expect snapshot
+
+`es` ->
+
+```ts
+expect($TABSTOP_container).toMatchSnapshot();
 ```
 
 [react]: https://reactjs.org/
