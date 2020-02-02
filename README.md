@@ -56,6 +56,7 @@ snippet provider.
     - [useImperitiveHandle](#useimperitivehandle)
     - [useLayoutEffect](#uselayouteffect)
     - [useDebugValue](#usedebugvalue)
+    - [forwardRef](#forwardref)
   - [General Redux (Javascript)](#general-redux-javascript)
     - [@connect (annotation)](#connect-annotation)
     - [connect (function)](#connect-function)
@@ -101,7 +102,8 @@ snippet provider.
     - [useImperitiveHandle](#useimperitivehandle-1)
     - [useLayoutEffect](#uselayouteffect-1)
     - [useDebugValue](#usedebugvalue-1)
-    - [forwardRef](#forwardref)
+    - [forwardRef](#forwardref-1)
+    - [Function Component Export](#function-component-export-2)
   - [Importing](#importing)
   - [Exporting](#exporting)
   - [Logging](#logging)
@@ -287,14 +289,30 @@ const $CFN = () => {
 export default $CFN;
 ```
 
-#### Function Component
+#### Forwarded Function Component Export
 
-`fc` ->
+`ffce` ->
 
 ```jsx
-const $TABSTOP = () => {
-  return null;
+import React, { forwardRef } from "react";
+
+export default forwardRef(function $CFB(props, ref) {
+  return <div ref={ref}></div>;
+});
+```
+
+#### Forwarded Function Component Named Export
+
+`ffcne` ->
+
+```jsx
+import React, { forwardRef } from "react";
+
+const $CFN = (props, ref) => {
+  return <div ref={ref}></div>;
 };
+
+export default forwardRef($1);
 ```
 
 #### Component PropTypes
@@ -693,11 +711,11 @@ $TABSTOP = $TABSTOP => {
 `fce` ->
 
 ```tsx
-import React, { ReactElement } from "react";
+import React, { FC } from "react";
 
 export interface $CFN_Props {}
 
-const $CFN: FC<$CFN_Props> = (props: $CFN_Props): ReactElement | null => {
+const $CFN: FC<$CFN_Props> = props => {
   return null;
 };
 
@@ -709,9 +727,9 @@ export default $CFN;
 `sfce` ->
 
 ```tsx
-import React, { ReactElement } from "react";
+import React, { FC } from "react";
 
-const $CFN = (): ReactElement | null => {
+const $CFN: FC = () => {
   return null;
 };
 
@@ -970,23 +988,7 @@ useLayoutEffect(() => {
 useDebugValue($NULL);
 ```
 
-#### forwardRef
-
-`fref` ->
-
-```ts
-const Forwarded$CFN = forwardRef<$TABSTOP_Element, $CFN_Props>($CFN);
-
-export default Forwarded$CFN;
-```
-
-Or inline:
-
-`export default fref` ->
-
-```ts
-export default forwardRef<$TABSTOP_Element, $CFN_Props>($CFN);
-```
+#### Function Component Export
 
 ### Importing
 

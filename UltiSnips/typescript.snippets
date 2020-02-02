@@ -201,13 +201,13 @@ constructor(props: ${1:`!v expand('%:t:r')`}Props) {
 endsnippet
 
 snippet fce "function component export (with prop interface)" b
-import React, { ReactElement } from "react";
+import React, { FC } from "react";
 
 export interface $1Props {
 	$3
 }
 
-const ${1:`!v expand('%:t:r')`} = (${2:props}: $1Props): ReactElement | null => {
+const ${1:`!v expand('%:t:r')`}: FC<$2$1Props> = props => {
 	return ${4:null};$0
 };
 
@@ -215,19 +215,28 @@ export default $1;
 endsnippet
 
 snippet sfce "simple function component export (no prop interface)" b
-import React, { ReactElement } from "react";
+import React, { FC } from "react";
 
-const ${1:`!v expand('%:t:r')`} = (): ReactElement | null => ${2:{
+const ${1:`!v expand('%:t:r')`}: FC = () => ${2:{
 	return ${3:null};$0
 }};
 
 export default $1;
 endsnippet
 
-snippet fc "functional component" b
-const $1: FC$2 = ${3:props} => {
-	return null;$0
-};
+snippet ffce "forwarded function component export"
+import React, { forwardRef, ReactNode } from "react";
+
+interface ${1:`!v expand('%:t:r')`}Props {
+	children?: ReactNode;
+}
+
+export default forwardRef<HTML${2:Div}Element, $1Props>(function $1(props, ref) {
+	return (
+		<div ref={ref}>$0
+		</div>
+	);
+});
 endsnippet
 
 snippet rcf "react class function" b
@@ -447,27 +456,6 @@ endsnippet
 
 snippet useR "useRef(defaultValue)" w
 useRef$2(${1:null});$0
-endsnippet
-
-priority 0
-
-# ==========================================
-# Other useful react/redux snippets
-#
-
-snippet fref "React forward ref" b
-const Forwarded${1:`!v expand('%:t:r')`} = forwardRef<$2Element, $1Props>($1);
-
-export default Forwarded$1;
-endsnippet
-
-snippet cc "React create context" b
-export const $1 = createContext$3($2);$0
-endsnippet
-
-priority -1
-snippet fref "React forward ref" w
-forwardRef<$2Element, $1Props>(${1:`!v expand('%:t:r')`});
 endsnippet
 
 priority 0

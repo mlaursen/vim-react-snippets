@@ -186,10 +186,28 @@ const ${1:`!v expand('%:t:r')`} = () => {
 export default $1;
 endsnippet
 
-snippet fc "functional component" b
-const $1 = props => {
-	return null;$0
+snippet ffce "forwarded function component export" b
+import React, { forwardRef } from 'react';
+
+export default forwardRef(function ${1:`!v expand('%:t:r')`}(props, ref) {
+	return (
+		<div ref={ref}>$0
+		</div>
+	);
+});
+endsnippet
+
+snippet ffcne "forwarded function component named export" b
+import React, { forwardRef } from 'react';
+
+const ${1:`!v expand('%:t:r')`} = (props, ref) => {
+	return (
+		<div ref={ref}>$0
+		</div>
+	);
 };
+
+export default forwardRef($1);
 endsnippet
 
 snippet rcf "react class function" b
@@ -379,10 +397,6 @@ priority 0
 # ==========================================
 # Other useful react/redux snippets
 #
-
-snippet cc "React create context" b
-export const $1 = createContext($2);
-endsnippet
 
 snippet @c "@connect" b
 @connect(${1:state})
