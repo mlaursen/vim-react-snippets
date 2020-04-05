@@ -253,7 +253,7 @@ static defaultProps = {
 `rcf` ->
 
 ```js
-$TABSTOP = $TABSTOP => {
+$TABSTOP = ($TABSTOP) => {
   $TABSTOP;
 };
 ```
@@ -267,7 +267,7 @@ $TABSTOP = $TABSTOP => {
 ```jsx
 import React from "react";
 
-const $CFN = props => {
+const $CFN = (props) => {
   return null;
 };
 
@@ -557,7 +557,7 @@ connect($STATE)($CFN);
 `ca` ->
 
 ```js
-connectAdvanced($DISPATCH => {
+connectAdvanced(($DISPATCH) => {
   $TABSTOP;
 
   return ($STATE, $PROPS) => {
@@ -698,7 +698,7 @@ public static defaultProps: DefaultProps = {
 `rcf` ->
 
 ```js
-$TABSTOP = $TABSTOP => {
+$TABSTOP = ($TABSTOP) => {
   $TABSTOP;
 };
 ```
@@ -714,7 +714,7 @@ import React, { FC } from "react";
 
 export interface $CFN_Props {}
 
-const $CFN: FC<$CFN_Props> = props => {
+const $CFN: FC<$CFN_Props> = (props) => {
   return null;
 };
 
@@ -740,7 +740,7 @@ export default $CFN;
 `fc` ->
 
 ```tsx
-const $TABSTOP: FC = props => {
+const $TABSTOP: FC = (props) => {
   return null;
 };
 ```
