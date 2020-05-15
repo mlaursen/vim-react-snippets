@@ -730,6 +730,10 @@ export default $CFN;
 ```tsx
 import React, { forwardRef } from "react";
 
+export interface $CFNProps {
+  $TABSTOP;
+}
+
 const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
   props,
   ref
