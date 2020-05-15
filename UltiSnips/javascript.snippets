@@ -189,25 +189,14 @@ endsnippet
 snippet ffce "forwarded function component export" b
 import React, { forwardRef } from 'react';
 
-export default forwardRef(function ${1:`!v expand('%:t:r')`}(props, ref) {
+const $1 = forwardRef(function ${1:`!v expand('%:t:r')`}(props, ref) {
 	return (
 		<div ref={ref}>$0
 		</div>
 	);
 });
-endsnippet
 
-snippet ffcne "forwarded function component named export" b
-import React, { forwardRef } from 'react';
-
-const ${1:`!v expand('%:t:r')`} = (props, ref) => {
-	return (
-		<div ref={ref}>$0
-		</div>
-	);
-};
-
-export default forwardRef($1);
+export default $1;
 endsnippet
 
 snippet rcf "react class function" b

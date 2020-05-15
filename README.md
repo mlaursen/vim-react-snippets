@@ -34,7 +34,6 @@ snippet provider.
     - [Function Component Export](#function-component-export)
     - [Simple Function Component Export](#simple-function-component-export)
     - [Forwarded Function Component Export](#forwarded-function-component-export)
-    - [Forwarded Function Component Named Export](#forwarded-function-component-named-export)
     - [Component PropTypes](#component-proptypes)
     - [Component Default Props](#component-default-props)
   - [React Lifecycle (Javascript)](#react-lifecycle-javascript)
@@ -76,6 +75,7 @@ snippet provider.
   - [Function Components (Typescript)](#function-components-typescript)
     - [Function Component Export](#function-component-export-1)
     - [Simple Function Component Export](#simple-function-component-export-1)
+    - [Forwarded Function Component Export](#forwarded-function-component-export-1)
     - [Function Component](#function-component)
     - [Component PropTypes](#component-proptypes-1)
     - [Component Default Props](#component-default-props-1)
@@ -295,23 +295,11 @@ export default $CFN;
 ```jsx
 import React, { forwardRef } from "react";
 
-export default forwardRef(function $CFB(props, ref) {
+const $CFN = forwardRef(function $CFN(props, ref) {
   return <div ref={ref}></div>;
 });
-```
 
-#### Forwarded Function Component Named Export
-
-`ffcne` ->
-
-```jsx
-import React, { forwardRef } from "react";
-
-const $CFN = (props, ref) => {
-  return <div ref={ref}></div>;
-};
-
-export default forwardRef($1);
+export default $CFN;
 ```
 
 #### Component PropTypes
@@ -731,6 +719,23 @@ import React, { FC } from "react";
 const $CFN: FC = () => {
   return null;
 };
+
+export default $CFN;
+```
+
+#### Forwarded Function Component Export
+
+`ffce` ->
+
+```tsx
+import React, { forwardRef } from "react";
+
+const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
+  props,
+  ref
+) {
+  return <div ref={ref}></div>;
+});
 
 export default $CFN;
 ```
