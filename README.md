@@ -191,17 +191,17 @@ something else follows it).
 `rce` ->
 
 ```jsx
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 export default class $CFN extends Component {
   constuctor(props) {
-    super(props);
+    super(props)
 
-    this.state = {};
+    this.state = {}
   }
 
   render() {
-    return null;
+    return null
   }
 }
 ```
@@ -213,7 +213,7 @@ export default class $CFN extends Component {
 ```jsx
 class $CFN extends Component {
   render() {
-    return null;
+    return null
   }
 }
 ```
@@ -224,9 +224,9 @@ class $CFN extends Component {
 
 ```jsx
 constructor(props) {
-  super(props);
+  super(props)
 
-  this.state = {};
+  this.state = {}
 }
 ```
 
@@ -256,8 +256,8 @@ static defaultProps = {
 
 ```js
 $TABSTOP = ($TABSTOP) => {
-  $TABSTOP;
-};
+  $TABSTOP
+}
 ```
 
 ### Function Components (Javascript)
@@ -267,13 +267,13 @@ $TABSTOP = ($TABSTOP) => {
 `fce` ->
 
 ```jsx
-import React from "react";
+import React from "react"
 
 const $CFN = (props) => {
-  return null;
-};
+  return null
+}
 
-export default $CFN;
+export default $CFN
 ```
 
 #### Simple Function Component Export
@@ -281,13 +281,13 @@ export default $CFN;
 `sfce` ->
 
 ```jsx
-import React from "react";
+import React from "react"
 
 const $CFN = () => {
-  return null;
-};
+  return null
+}
 
-export default $CFN;
+export default $CFN
 ```
 
 #### Forwarded Function Component Export
@@ -295,13 +295,13 @@ export default $CFN;
 `ffce` ->
 
 ```jsx
-import React, { forwardRef } from "react";
+import React, { forwardRef } from "react"
 
 const $CFN = forwardRef(function $CFN(props, ref) {
-  return <div ref={ref}></div>;
-});
+  return <div ref={ref}></div>
+})
 
-export default $CFN;
+export default $CFN
 ```
 
 #### Component PropTypes
@@ -311,7 +311,7 @@ export default $CFN;
 ```js
 $CFN.propTypes = {
   $TABSTOP,
-};
+}
 ```
 
 #### Component Default Props
@@ -321,7 +321,7 @@ $CFN.propTypes = {
 ```js
 $CFN.defaultProps = {
   $TABSTOP,
-};
+}
 ```
 
 ### React Lifecycle (Javascript)
@@ -332,7 +332,7 @@ $CFN.defaultProps = {
 
 ```js
 static getDerivedStateFromProps(nextProps, prevState) {
-  return null;
+  return null
 }
 ```
 
@@ -342,7 +342,7 @@ static getDerivedStateFromProps(nextProps, prevState) {
 
 ```js
 static getDerivedStateFromError(error) {
-  return null;
+  return null
 }
 ```
 
@@ -413,7 +413,7 @@ componentWillUnmount() {
 `useS` ->
 
 ```js
-const [$STATE, set$STATE] = useState($TABSTOP);
+const [$STATE, set$STATE] = useState($TABSTOP)
 ```
 
 #### useEffect
@@ -423,7 +423,7 @@ const [$STATE, set$STATE] = useState($TABSTOP);
 ```js
 useEffect(() => {
   $TABSTOP
-}$TABSTOP);
+}$TABSTOP)
 ```
 
 #### useEffect async
@@ -432,20 +432,20 @@ useEffect(() => {
 
 ```js
 useEffect(() => {
-  let cancelled = false;
+  let cancelled = false
   (async function $DOWORK() {
     $TABSTOP
     if (cancelled) {
-      return;
+      return
     }
 
     $TABSTOP
-  })();
+  })()
 
   return () => {
     cancelled = true
-  };
-}$TABSTOP);
+  }
+}$TABSTOP)
 ```
 
 #### useContext
@@ -453,7 +453,7 @@ useEffect(() => {
 `useC` ->
 
 ```js
-const context = useContext($TABSTOP);
+const context = useContext($TABSTOP)
 ```
 
 or inline:
@@ -461,7 +461,7 @@ or inline:
 `return useC` ->
 
 ```js
-return useContext($TABSTOP);
+return useContext($TABSTOP)
 ```
 
 #### useReducer
@@ -469,7 +469,7 @@ return useContext($TABSTOP);
 `useRed` ->
 
 ```js
-const [$STATE, $DISPATCH] = useReducer($REDUCER, $NULL);
+const [$STATE, $DISPATCH] = useReducer($REDUCER, $NULL)
 ```
 
 #### useCallback
@@ -480,7 +480,7 @@ const [$STATE, $DISPATCH] = useReducer($REDUCER, $NULL);
 ```js
 const $CALLBACK = useCallback(($TABSTOP) => {
   $TABSTOP
-}, [$TABSTOP]);
+}, [$TABSTOP])
 ```
 
 #### useMemo
@@ -491,7 +491,7 @@ const $CALLBACK = useCallback(($TABSTOP) => {
 ```js
 const $MEMOIZED = useMemo(() => {
   $TABSTOP
-}, [$TABSTOP]);
+}, [$TABSTOP])
 ```
 
 #### useRef
@@ -499,7 +499,7 @@ const $MEMOIZED = useMemo(() => {
 `useR` ->
 
 ```js
-const $REF = useRef($TABSTOP);
+const $REF = useRef($TABSTOP)
 ```
 
 #### useImperitiveHandle
@@ -510,7 +510,7 @@ const $REF = useRef($TABSTOP);
 ```js
 useImperitiveHandle($REF, () => ({
   $TABSTOP,
-}), [$TABSTOP]);
+}), [$TABSTOP])
 ```
 
 #### useLayoutEffect
@@ -519,8 +519,8 @@ useImperitiveHandle($REF, () => ({
 
 ```js
 useLayoutEffect(() => {
-  $TABSTOP;
-});
+  $TABSTOP
+})
 ```
 
 #### useDebugValue
@@ -528,7 +528,7 @@ useLayoutEffect(() => {
 `useD` ->
 
 ```js
-useDebugValue($NULL);
+useDebugValue($NULL)
 ```
 
 ### General Redux (Javascript)
@@ -546,7 +546,7 @@ useDebugValue($NULL);
 `cf` ->
 
 ```js
-connect($STATE)($CFN);
+connect($STATE)($CFN)
 ```
 
 #### @connectAdvanced (annotation)
@@ -559,8 +559,8 @@ connect($STATE)($CFN);
 
   return ($STATE, $PROPS) => {
     $TABSTOP
-    return {};
-  };
+    return {}
+  }
 })
 ```
 
@@ -570,13 +570,13 @@ connect($STATE)($CFN);
 
 ```js
 connectAdvanced(($DISPATCH) => {
-  $TABSTOP;
+  $TABSTOP
 
   return ($STATE, $PROPS) => {
-    $TABSTOP;
-    return {};
-  };
-})($CFN);
+    $TABSTOP
+    return {}
+  }
+})($CFN)
 ```
 
 #### bindActionCreators
@@ -584,7 +584,7 @@ connectAdvanced(($DISPATCH) => {
 `bac` ->
 
 ```js
-const $ACTIONS = bindActionCreators({ $TABSTOP }, dispatch);
+const $ACTIONS = bindActionCreators({ $TABSTOP }, dispatch)
 ```
 
 Or inline:
@@ -592,7 +592,7 @@ Or inline:
 `const myActions = bac` ->
 
 ```js
-const myActions = bindActionCreators({ $TABSTOP }, dispatch);
+const myActions = bindActionCreators({ $TABSTOP }, dispatch)
 ```
 
 ### Class Components (Typescript)
@@ -602,11 +602,11 @@ const myActions = bindActionCreators({ $TABSTOP }, dispatch);
 `rce` ->
 
 ```tsx
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 export default class $CFN extends Component {
   public render() {
-    return null;
+    return null
   }
 }
 ```
@@ -616,13 +616,13 @@ export default class $CFN extends Component {
 `rcep` ->
 
 ```tsx
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 export interface $CFN_Props {}
 
 export default class $CFN extends Component<$CFN_Props> {
   public render() {
-    return null;
+    return null
   }
 }
 ```
@@ -632,7 +632,7 @@ export default class $CFN extends Component<$CFN_Props> {
 `rceps` ->
 
 ```tsx
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 export interface $CFN_Props {}
 
@@ -640,13 +640,13 @@ export interface $CFN_State {}
 
 export default class $CFN extends Component<$CFN_Props, $CFN_State> {
   constructor(props: $CFN_Props) {
-    super(props);
+    super(props)
 
-    this.state = {};
+    this.state = {}
   }
 
   public render() {
-    return null;
+    return null
   }
 }
 ```
@@ -658,7 +658,7 @@ export default class $CFN extends Component<$CFN_Props, $CFN_State> {
 ```jsx
 class $CFN extends Component {
   public render() {
-    return null;
+    return null
   }
 }
 ```
@@ -669,9 +669,9 @@ class $CFN extends Component {
 
 ```ts
 constructor(props: $CFN_Props) {
-  super(props);
+  super(props)
 
-  this.state = {};
+  this.state = {}
 }
 ```
 
@@ -711,8 +711,8 @@ public static defaultProps: DefaultProps = {
 
 ```js
 $TABSTOP = ($TABSTOP) => {
-  $TABSTOP;
-};
+  $TABSTOP
+}
 ```
 
 ### Function Components (Typescript)
@@ -722,15 +722,15 @@ $TABSTOP = ($TABSTOP) => {
 `fce` ->
 
 ```tsx
-import React, { FC } from "react";
+import React, { FC } from "react"
 
 export interface $CFN_Props {}
 
 const $CFN: FC<$CFN_Props> = (props) => {
-  return null;
-};
+  return null
+}
 
-export default $CFN;
+export default $CFN
 ```
 
 #### Simple Function Component Export
@@ -738,13 +738,13 @@ export default $CFN;
 `sfce` ->
 
 ```tsx
-import React, { FC } from "react";
+import React, { FC } from "react"
 
 const $CFN: FC = () => {
-  return null;
-};
+  return null
+}
 
-export default $CFN;
+export default $CFN
 ```
 
 #### Forwarded Function Component Export
@@ -752,20 +752,20 @@ export default $CFN;
 `ffce` ->
 
 ```tsx
-import React, { forwardRef } from "react";
+import React, { forwardRef } from "react"
 
 export interface $CFNProps {
-  $TABSTOP;
+  $TABSTOP
 }
 
 const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
   props,
   ref
 ) {
-  return <div ref={ref}></div>;
-});
+  return <div ref={ref}></div>
+})
 
-export default $CFN;
+export default $CFN
 ```
 
 #### Function Component
@@ -774,8 +774,8 @@ export default $CFN;
 
 ```tsx
 const $TABSTOP: FC = (props) => {
-  return null;
-};
+  return null
+}
 ```
 
 #### Component PropTypes
@@ -785,7 +785,7 @@ const $TABSTOP: FC = (props) => {
 ```ts
 $CFN.propTypes = {
   $TABSTOP,
-};
+}
 ```
 
 #### Component Default Props
@@ -795,7 +795,7 @@ $CFN.propTypes = {
 ```ts
 $CFN.defaultProps = {
   $TABSTOP,
-};
+}
 ```
 
 #### Component Default Props Typed
@@ -805,9 +805,9 @@ $CFN.defaultProps = {
 ```ts
 const defaultProps: DefaultProps = {
   $TABSTOP,
-};
+}
 
-$CFN.defaultProps = defaultProps;
+$CFN.defaultProps = defaultProps
 ```
 
 ### React Lifecycle (Typescript)
@@ -818,7 +818,7 @@ $CFN.defaultProps = defaultProps;
 
 ```ts
 static getDerivedStateFromProps(nextProps: $CFN_Props, prevState: $CFN_State) {
-  return null;
+  return null
 }
 ```
 
@@ -828,7 +828,7 @@ static getDerivedStateFromProps(nextProps: $CFN_Props, prevState: $CFN_State) {
 
 ```ts
 static getDerivedStateFromError(error: Error) {
-  return null;
+  return null
 }
 ```
 
@@ -916,7 +916,7 @@ componentWillUnmount() {
 `useS` ->
 
 ```ts
-const [$STATE, set$STATE] = useState$TABSTOP($TABSTOP);
+const [$STATE, set$STATE] = useState$TABSTOP($TABSTOP)
 ```
 
 #### useEffect
@@ -926,7 +926,7 @@ const [$STATE, set$STATE] = useState$TABSTOP($TABSTOP);
 ```ts
 useEffect(() => {
   $TABSTOP
-}$TABSTOP);
+}$TABSTOP)
 ```
 
 #### useEffect async
@@ -935,20 +935,20 @@ useEffect(() => {
 
 ```js
 useEffect(() => {
-  let cancelled = false;
+  let cancelled = false
   (async function $DOWORK(): Promise<$VOID> {
     $TABSTOP
     if (cancelled) {
-      return;
+      return
     }
 
     $TABSTOP
-  })();
+  })()
 
   return () => {
     cancelled = true
-  };
-}$TABSTOP);
+  }
+}$TABSTOP)
 ```
 
 #### useContext
@@ -956,7 +956,7 @@ useEffect(() => {
 `useC` ->
 
 ```ts
-const context = useContext$TABSTOP($TABSTOP);
+const context = useContext$TABSTOP($TABSTOP)
 ```
 
 or inline:
@@ -964,7 +964,7 @@ or inline:
 `return useC` ->
 
 ```ts
-return useContext$TABSTOP($TABSTOP);
+return useContext$TABSTOP($TABSTOP)
 ```
 
 #### useReducer
@@ -972,7 +972,7 @@ return useContext$TABSTOP($TABSTOP);
 `useRed` ->
 
 ```ts
-const [$STATE, $DISPATCH] = useReducer<typeof $REDUCER>($REDUCER, $NULL);
+const [$STATE, $DISPATCH] = useReducer<typeof $REDUCER>($REDUCER, $NULL)
 ```
 
 #### useReducer Untyped
@@ -980,7 +980,7 @@ const [$STATE, $DISPATCH] = useReducer<typeof $REDUCER>($REDUCER, $NULL);
 `useRedUT` ->
 
 ```ts
-const [$STATE, $DISPATCH] = useReducer($REDUCER, $NULL);
+const [$STATE, $DISPATCH] = useReducer($REDUCER, $NULL)
 ```
 
 #### useCallback
@@ -991,7 +991,7 @@ const [$STATE, $DISPATCH] = useReducer($REDUCER, $NULL);
 ```ts
 const $CALLBACK = useCallback(($TABSTOP) => {
   $TABSTOP
-}, [$TABSTOP]);
+}, [$TABSTOP])
 ```
 
 #### useMemo
@@ -1002,7 +1002,7 @@ const $CALLBACK = useCallback(($TABSTOP) => {
 ```ts
 const $MEMOIZED = useMemo(() => {
   $TABSTOP
-}, [$TABSTOP]);
+}, [$TABSTOP])
 ```
 
 #### useRef
@@ -1010,7 +1010,7 @@ const $MEMOIZED = useMemo(() => {
 `useR` ->
 
 ```ts
-const $REF = useRef$TABSTOP(TABSTOP);
+const $REF = useRef$TABSTOP(TABSTOP)
 ```
 
 #### useImperitiveHandle
@@ -1021,7 +1021,7 @@ const $REF = useRef$TABSTOP(TABSTOP);
 ```ts
 useImperitiveHandle($REF, () => ({
   $TABSTOP,
-}), [$TABSTOP]);
+}), [$TABSTOP])
 ```
 
 #### useLayoutEffect
@@ -1030,8 +1030,8 @@ useImperitiveHandle($REF, () => ({
 
 ```ts
 useLayoutEffect(() => {
-  $TABSTOP;
-});
+  $TABSTOP
+})
 ```
 
 #### useDebugValue
@@ -1039,33 +1039,33 @@ useLayoutEffect(() => {
 `useD` ->
 
 ```ts
-useDebugValue($NULL);
+useDebugValue($NULL)
 ```
 
 #### Function Component Export
 
 ### Importing
 
-| Shortcut | Expands to                                     |
-| -------- | ---------------------------------------------- |
-| `rc`     | `const packageName = require('package-name');` |
-| `imp`    | `import packageName from 'package-name';`      |
-| `impf`   | `import File from './File';`                   |
-| `impn`   | `import { nested } from 'package-or/path';`    |
-| `impa`   | `import * as Thing from 'package-or/path';`    |
-| `impp`   | `import './file';`                             |
-| `icn`    | `import cn from 'classnames';`                 |
-| `ism`    | `import styles from './$CFN.module.scss';`     |
+| Shortcut | Expands to                                    |
+| -------- | --------------------------------------------- |
+| `rc`     | `const packageName = require('package-name')` |
+| `imp`    | `import packageName from 'package-name'`      |
+| `impf`   | `import File from './File'`                   |
+| `impn`   | `import { nested } from 'package-or/path'`    |
+| `impa`   | `import * as Thing from 'package-or/path'`    |
+| `impp`   | `import './file'`                             |
+| `icn`    | `import cn from 'classnames'`                 |
+| `ism`    | `import styles from './$CFN.module.scss'`     |
 
 ### Exporting
 
-| Shortcut | Expands to                                    |
-| -------- | --------------------------------------------- |
-| `exp`    | `export { default } from './CurrentFolder';`  |
-| `expf`   | `export File from './File';`                  |
-| `expn`   | `export { nested } from 'package-or/path`     |
-| `expa`   | `export * from 'package-or/path';`            |
-| `expd`   | `export { default as Thing } from './Thing';` |
+| Shortcut | Expands to                                   |
+| -------- | -------------------------------------------- |
+| `exp`    | `export { default } from './CurrentFolder'`  |
+| `expf`   | `export File from './File'`                  |
+| `expn`   | `export { nested } from 'package-or/path`    |
+| `expa`   | `export * from 'package-or/path'`            |
+| `expd`   | `export { default as Thing } from './Thing'` |
 
 ### Logging
 
@@ -1084,16 +1084,16 @@ useDebugValue($NULL);
 `rtf` ->
 
 ```tsx
-import React from "react";
-import { render } from "@testing-library/react";
+import React from "react"
+import { render } from "@testing-library/react"
 
-import $CFN from "../$CFN";
+import $CFN from "../$CFN"
 
 describe("$CFN", () => {
   it("should $TABSTOP", () => {
-    $TABSTOP;
-  });
-});
+    $TABSTOP
+  })
+})
 ```
 
 #### React Hooks Test File
@@ -1101,16 +1101,16 @@ describe("$CFN", () => {
 `rhtf` ->
 
 ```tsx
-import React from "react";
-import { renderHook } from "@testing-library/react-hooks";
+import React from "react"
+import { renderHook } from "@testing-library/react-hooks"
 
-import $TABSTOP from "../$CFN";
+import $TABSTOP from "../$CFN"
 
 describe("$CFN", () => {
   it("should $TABSTOP", () => {
-    $TABSTOP;
-  });
-});
+    $TABSTOP
+  })
+})
 ```
 
 #### Describe a test
@@ -1121,8 +1121,8 @@ describe("$CFN", () => {
 describe('$CFN', () => {
   it('should $TABSTOP', () => {
     $TABSTOP
-  )};
-});
+  )}
+})
 ```
 
 #### it should...
@@ -1131,8 +1131,8 @@ describe('$CFN', () => {
 
 ```ts
 it("should $TABSTOP", () => {
-  $TABSTOP;
-});
+  $TABSTOP
+})
 ```
 
 #### Test todo
@@ -1140,7 +1140,7 @@ it("should $TABSTOP", () => {
 `todo` ->
 
 ```ts
-it.todo("should $TABSTOP");
+it.todo("should $TABSTOP")
 ```
 
 #### expect snapshot
@@ -1148,7 +1148,7 @@ it.todo("should $TABSTOP");
 `es` ->
 
 ```ts
-expect($TABSTOP_container).toMatchSnapshot();
+expect($TABSTOP_container).toMatchSnapshot()
 ```
 
 [react]: https://reactjs.org/
