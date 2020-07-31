@@ -395,7 +395,7 @@ snippet useEA "useEffect() async" b
 useEffect(() => {
   let cancelled = false
   (async function ${3:doWork}(): Promise<${3:void}> {
-    $1
+    ${1:// async work here}
     if (cancelled) {
       return
     }
@@ -406,7 +406,7 @@ useEffect(() => {
   return () => {
     cancelled = true
   }
-}$2)
+}, [$2])
 endsnippet
 
 snippet useC "useContext()" b

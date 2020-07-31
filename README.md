@@ -433,7 +433,9 @@ useEffect(() => {
 ```js
 useEffect(() => {
   let cancelled = false
-  (async function $DOWORK() {
+
+  ;(async function $DOWORK() {
+    // async work here
     $TABSTOP
     if (cancelled) {
       return
@@ -445,7 +447,7 @@ useEffect(() => {
   return () => {
     cancelled = true
   }
-}$TABSTOP)
+}, [$TABSTOP])
 ```
 
 #### useContext
@@ -936,7 +938,9 @@ useEffect(() => {
 ```js
 useEffect(() => {
   let cancelled = false
-  (async function $DOWORK(): Promise<$VOID> {
+
+  ;(async function $DOWORK(): Promise<$VOID> {
+    // async work here
     $TABSTOP
     if (cancelled) {
       return
@@ -948,7 +952,7 @@ useEffect(() => {
   return () => {
     cancelled = true
   }
-}$TABSTOP)
+}, [$TABSTOP])
 ```
 
 #### useContext
