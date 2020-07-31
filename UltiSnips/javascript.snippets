@@ -319,19 +319,20 @@ endsnippet
 snippet useEA "useEffect() async" b
 useEffect(() => {
   let cancelled = false
-  (async function ${3:doWork}() {
+
+  ;(async function ${4:doWork}() {
     ${1:// async work here}
     if (cancelled) {
       return
     }
 
-    $0
+    $2
   })()
 
   return () => {
     cancelled = true
   }
-}, [$2])
+}, [$3])
 endsnippet
 
 snippet useC "useContext()" b
