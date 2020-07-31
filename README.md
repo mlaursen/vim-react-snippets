@@ -48,6 +48,7 @@ snippet provider.
   - [Hooks and Effects (Javascript)](#hooks-and-effects-javascript)
     - [useState](#usestate)
     - [useEffect](#useeffect)
+    - [useEffect async](#useeffect-async)
     - [useContext](#usecontext)
     - [useReducer](#usereducer)
     - [useCallback](#usecallback)
@@ -93,6 +94,7 @@ snippet provider.
   - [Hooks and Effects (Typescript)](#hooks-and-effects-typescript)
     - [useState](#usestate-1)
     - [useEffect](#useeffect-1)
+    - [useEffect async](#useeffect-async-1)
     - [useContext](#usecontext-1)
     - [useReducer](#usereducer-1)
     - [useReducer Untyped](#usereducer-untyped)
@@ -421,6 +423,28 @@ const [$STATE, set$STATE] = useState($TABSTOP);
 ```js
 useEffect(() => {
   $TABSTOP
+}$TABSTOP);
+```
+
+#### useEffect async
+
+`useEA` ->
+
+```js
+useEffect(() => {
+  let cancelled = false;
+  (async function $DOWORK() {
+    $TABSTOP
+    if (cancelled) {
+      return;
+    }
+
+    $TABSTOP
+  })();
+
+  return () => {
+    cancelled = true
+  };
 }$TABSTOP);
 ```
 
@@ -902,6 +926,28 @@ const [$STATE, set$STATE] = useState$TABSTOP($TABSTOP);
 ```ts
 useEffect(() => {
   $TABSTOP
+}$TABSTOP);
+```
+
+#### useEffect async
+
+`useEA` ->
+
+```js
+useEffect(() => {
+  let cancelled = false;
+  (async function $DOWORK(): Promise<$VOID> {
+    $TABSTOP
+    if (cancelled) {
+      return;
+    }
+
+    $TABSTOP
+  })();
+
+  return () => {
+    cancelled = true
+  };
 }$TABSTOP);
 ```
 

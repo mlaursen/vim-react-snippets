@@ -391,6 +391,24 @@ useEffect(() => {
 }$2);
 endsnippet
 
+snippet useEA "useEffect() async" b
+useEffect(() => {
+  let cancelled = false;
+  (async function ${3:doWork}(): Promise<${3:void}> {
+    $1
+    if (cancelled) {
+      return;
+    }
+
+    $0
+  })();
+
+  return () => {
+    cancelled = true
+  };
+}$2);
+endsnippet
+
 snippet useC "useContext()" b
 ${5:const ${1:context} =} useContext$3($2);$0
 endsnippet
