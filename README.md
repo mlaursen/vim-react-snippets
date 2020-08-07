@@ -77,7 +77,6 @@ snippet provider.
     - [Function Component Export](#function-component-export-1)
     - [Simple Function Component Export](#simple-function-component-export-1)
     - [Forwarded Function Component Export](#forwarded-function-component-export-1)
-    - [Function Component](#function-component)
     - [Component PropTypes](#component-proptypes-1)
     - [Component Default Props](#component-default-props-1)
     - [Component Default Props Typed](#component-default-props-typed)
@@ -719,20 +718,21 @@ $TABSTOP = ($TABSTOP) => {
 
 ### Function Components (Typescript)
 
+Note: These are different than the Javascript versions on purpose and use the
+`function` syntax instead of a "const + arrow function".
+
 #### Function Component Export
 
 `fce` ->
 
 ```tsx
-import React, { FC } from "react"
+import React, { ReactElement } from "react"
 
 export interface $CFN_Props {}
 
-const $CFN: FC<$CFN_Props> = (props) => {
+export default $CFN(props: $CFN_Props): ReactElement | null {
   return null
 }
-
-export default $CFN
 ```
 
 #### Simple Function Component Export
@@ -740,13 +740,11 @@ export default $CFN
 `sfce` ->
 
 ```tsx
-import React, { FC } from "react"
+import React, { ReactElement } from "react"
 
-const $CFN: FC = () => {
+export default $CFN(): ReactElement | null {
   return null
 }
-
-export default $CFN
 ```
 
 #### Forwarded Function Component Export
@@ -768,16 +766,6 @@ const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
 })
 
 export default $CFN
-```
-
-#### Function Component
-
-`fc` ->
-
-```tsx
-const $TABSTOP: FC = (props) => {
-  return null
-}
 ```
 
 #### Component PropTypes
