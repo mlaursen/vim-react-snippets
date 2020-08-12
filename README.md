@@ -103,7 +103,6 @@ snippet provider.
     - [useImperitiveHandle](#useimperitivehandle-1)
     - [useLayoutEffect](#uselayouteffect-1)
     - [useDebugValue](#usedebugvalue-1)
-    - [Function Component Export](#function-component-export-2)
   - [Importing](#importing)
   - [Exporting](#exporting)
   - [Logging](#logging)
@@ -730,7 +729,7 @@ import React, { ReactElement } from "react"
 
 export interface $CFN_Props {}
 
-export default $CFN(props: $CFN_Props): ReactElement | null {
+export default function $CFN(props: $CFN_Props): ReactElement | null {
   return null
 }
 ```
@@ -742,7 +741,7 @@ export default $CFN(props: $CFN_Props): ReactElement | null {
 ```tsx
 import React, { ReactElement } from "react"
 
-export default $CFN(): ReactElement | null {
+export default function $CFN(): ReactElement | null {
   return null
 }
 ```
@@ -1033,8 +1032,6 @@ useLayoutEffect(() => {
 ```ts
 useDebugValue($NULL)
 ```
-
-#### Function Component Export
 
 ### Importing
 
