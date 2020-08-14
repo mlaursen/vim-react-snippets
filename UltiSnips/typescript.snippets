@@ -332,44 +332,52 @@ public componentWillUnmount() {
 }
 endsnippet
 
-snippet r.me "React.MouseEvent" w
-React.MouseEvent$0
+snippet me "MouseEvent<HTMLButtonElement>" w
+${1:event: }MouseEvent<HTML${2:Button}Element>$0
 endsnippet
 
-snippet r.te "React.TouchEvent" w
-React.TouchEvent$0
+snippet te "TouchEvent<HTMLButtonElement>" w
+${1:event: }TouchEvent<HTML${2:Button}Element>$0
 endsnippet
 
-snippet r.ke "React.KeyboardEvent" w
-React.KeyboardEvent$0
+snippet ke "KeyboardEvent<HTMLElement>" w
+${1:event: }KeyboardEvent<HTML$2Element>$0
 endsnippet
 
-snippet r.ce "React.ChangeEvent" w
-React.ChangeEvent$0
+snippet ce "ChangeEvent<HTMLInputElement>" w
+${1:event }ChangeEvent<HTML${2:Input}Element>$0
 endsnippet
 
-snippet r.fo "React.FocusEvent" w
-React.FocusEvent$0
+snippet fe "FormEvent<HTMLInputElement>" w
+${1:event }FormEvent<HTML${2:Input}Element>$0
 endsnippet
 
-snippet r.meh "React.MouseEventHandler" w
-React.MouseEventHandler$0
+snippet fo "FocusEvent<HTMLInputElement>" w
+${1:event }FocusEvent<HTML${2:Input}Element>$0
 endsnippet
 
-snippet r.teh "React.TouchEventHandler" w
-React.TouchEventHandler$0
+snippet meh "MouseEventHandler<HTMLButtonElement>" w
+MouseEventHandler<HTML${1:Button}Element>$0
 endsnippet
 
-snippet r.keh "React.KeyboardEventHandler" w
-React.KeyboardEventHandler$0
+snippet teh "TouchEventHandler<HTMLButtonElement>" w
+TouchEventHandler<HTML${1:Button}Element>$0
 endsnippet
 
-snippet r.ceh "React.ChangeEventHandler" w
-React.ChangeEventHandler$0
+snippet keh "KeyboardEventHandler<HTMLElement>" w
+KeyboardEventHandler<HTML$1Element>$0
 endsnippet
 
-snippet r.foh "React.FocusEventHandler" w
-React.FocusEventHandler$0
+snippet ceh "ChangeEventHandler<HTMLInputElement>" w
+ChangeEventHandler<HTML${1:Input}Element>$0
+endsnippet
+
+snippet feh "FormEventHandler<HTMLElement>" w
+FormEventHandler<HTMLElement>$0
+endsnippet
+
+snippet foh "FocusEventHandler<HTMLInputElement>" w
+FocusEventHandler<HTML${1:Input}Element>$0
 endsnippet
 
 

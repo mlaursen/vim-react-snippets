@@ -883,20 +883,23 @@ componentWillUnmount() {
 
 ### React Event Types (Typescript Only)
 
-| Shortcut | Expands to                   |
-| -------- | ---------------------------- |
-| `r.me`   | `React.MouseEvent`           |
-| `r.te`   | `React.TouchEvent`           |
-| `r.ke`   | `React.KeyboardEvent`        |
-| `r.ce`   | `React.ChangeEvent`          |
-| `r.fe`   | `React.FormEvent`            |
-| `r.fo`   | `React.FocusEvent`           |
-| `r.meh`  | `React.MouseEventHandler`    |
-| `r.teh`  | `React.TouchEventHandler`    |
-| `r.keh`  | `React.KeyboardEventHandler` |
-| `r.ceh`  | `React.ChangeEventHandler`   |
-| `r.feh`  | `React.FormEventHandler`     |
-| `r.foh`  | `React.FocusEventHandler`    |
+| Shortcut | Expands to                               |
+| -------- | ---------------------------------------- |
+| `me`     | `event: MouseEvent<HTMLButtonElement>`   |
+| `te`     | `event: TouchEvent<HTMLButtonElement>`   |
+| `ke`     | `event: KeyboardEvent<HTMLInputElement>` |
+| `ce`     | `event: ChangeEvent<HTMLInputElement>`   |
+| `fe`     | `event: FormEvent<HTMLInputElement>`     |
+| `fo`     | `event: FocusEvent<HTMLElement>`         |
+| `meh`    | `MouseEventHandler<HTMLButtonElement>`   |
+| `teh`    | `TouchEventHandler<HTMLButtonElement>`   |
+| `keh`    | `KeyboardEventHandler<HTMLInputElement>` |
+| `ceh`    | `ChangeEventHandler<HTMLInputElement>`   |
+| `feh`    | `FormEventHandler<HTMLElement>`          |
+| `foh`    | `FocusEventHandler<HTMLInputElement>`    |
+
+> Note: The `event:` and `Button`/`Input` parts are a tabstop which can be
+> removed or changed.
 
 ### Hooks and Effects (Typescript)
 
