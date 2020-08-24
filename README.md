@@ -525,7 +525,7 @@ useLayoutEffect(() => {
 
 #### useDebugValue
 
-`useD` ->
+`useDV` ->
 
 ```js
 useDebugValue($NULL)
@@ -1030,7 +1030,7 @@ useLayoutEffect(() => {
 
 #### useDebugValue
 
-`useD` ->
+`useDV` ->
 
 ```ts
 useDebugValue($NULL)
