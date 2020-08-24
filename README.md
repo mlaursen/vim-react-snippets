@@ -888,13 +888,13 @@ componentWillUnmount() {
 | `me`     | `event: MouseEvent<HTMLButtonElement>`   |
 | `te`     | `event: TouchEvent<HTMLButtonElement>`   |
 | `ke`     | `event: KeyboardEvent<HTMLInputElement>` |
-| `ce`     | `event: ChangeEvent<HTMLInputElement>`   |
+| `che`    | `event: ChangeEvent<HTMLInputElement>`   |
 | `fe`     | `event: FormEvent<HTMLInputElement>`     |
 | `fo`     | `event: FocusEvent<HTMLElement>`         |
 | `meh`    | `MouseEventHandler<HTMLButtonElement>`   |
 | `teh`    | `TouchEventHandler<HTMLButtonElement>`   |
 | `keh`    | `KeyboardEventHandler<HTMLInputElement>` |
-| `ceh`    | `ChangeEventHandler<HTMLInputElement>`   |
+| `cheh`   | `ChangeEventHandler<HTMLInputElement>`   |
 | `feh`    | `FormEventHandler<HTMLElement>`          |
 | `foh`    | `FocusEventHandler<HTMLInputElement>`    |
 
