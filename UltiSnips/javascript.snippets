@@ -414,6 +414,18 @@ priority 0
 # Other useful react/redux snippets
 #
 
+snippet mc "mirrored const"
+const $1 = '$1'
+endsnippet
+
+snippet useD "useDispatch" b
+const dispatch = useDispatch();
+endsnippet
+
+snippet useSR "useSelector" b
+const ${1:value} = useSelector(${2:state => $3});
+endsnippet
+
 snippet @c "@connect" b
 @connect(${1:state})
 endsnippet

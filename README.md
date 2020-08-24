@@ -58,6 +58,9 @@ snippet provider.
     - [useLayoutEffect](#uselayouteffect)
     - [useDebugValue](#usedebugvalue)
   - [General Redux (Javascript)](#general-redux-javascript)
+    - [mirrored const](#mirrored-const)
+    - [useDispatch](#usedispatch)
+    - [useSelector](#useselector)
     - [@connect (annotation)](#connect-annotation)
     - [connect (function)](#connect-function)
     - [@connectAdvanced (annotation)](#connectadvanced-annotation)
@@ -90,6 +93,11 @@ snippet provider.
     - [Component Did Catch](#component-did-catch-1)
     - [Component Will Unmount](#component-will-unmount-1)
   - [React Event Types (Typescript Only)](#react-event-types-typescript-only)
+  - [General Redux (Typescript)](#general-redux-typescript)
+    - [mirrored const](#mirrored-const-1)
+    - [useDispatch](#usedispatch-1)
+    - [useSelector](#useselector-1)
+    - [useAppSelector (useSelector typed for your redux store)](#useappselector-useselector-typed-for-your-redux-store)
   - [Hooks and Effects (Typescript)](#hooks-and-effects-typescript)
     - [useState](#usestate-1)
     - [useEffect](#useeffect-1)
@@ -533,6 +541,32 @@ useDebugValue($NULL)
 
 ### General Redux (Javascript)
 
+#### mirrored const
+
+`mc` ->
+
+```js
+const $THING = "$THING"
+```
+
+#### useDispatch
+
+`useD` ->
+
+```ts
+const dispatch = useDispatch()
+```
+
+#### useSelector
+
+````ts
+
+`useSR` ->
+
+```ts
+const $VALUE = usSelector(($STATE) => $SELECTOR);
+````
+
 #### @connect (annotation)
 
 `@c` ->
@@ -900,6 +934,40 @@ componentWillUnmount() {
 
 > Note: The `event:` and `Button`/`Input` parts are a tabstop which can be
 > removed or changed.
+
+### General Redux (Typescript)
+
+#### mirrored const
+
+`mc` ->
+
+```ts
+const $THING = "$THING"
+```
+
+#### useDispatch
+
+`useD` ->
+
+```ts
+const dispatch: $AppDispatch = useDispatch()
+```
+
+#### useSelector
+
+`useSR` ->
+
+```ts
+const $VALUE = usSelector(($STATE: AppState) => $SELECTOR)
+```
+
+#### useAppSelector (useSelector typed for your redux store)
+
+`useAS` ->
+
+```ts
+const $VALUE = useAppSelector(($STATE) => $SELECTOR)
+```
 
 ### Hooks and Effects (Typescript)
 

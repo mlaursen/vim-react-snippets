@@ -617,3 +617,23 @@ PropTypes.shape({
 	$1
 }).isRequired
 endsnippet
+
+# ==========================================
+# Other useful react/redux snippets
+#
+
+snippet mc "mirrored const"
+const $1 = '$1'
+endsnippet
+
+snippet useD "useDispatch" b
+const dispatch${1:: AppDispatch} = useDispatch();
+endsnippet
+
+snippet useSR "useSelector" b
+const ${1:value} = useSelector((${2:state${3:: AppState} => $4}))
+endsnippet
+
+snippet useAS "useAppSelector" b
+const ${1:value} = useAppSelector(${2:state => $3})
+endsnippet
