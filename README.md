@@ -889,14 +889,14 @@ componentWillUnmount() {
 | `te`     | `event: TouchEvent<HTMLButtonElement>`   |
 | `ke`     | `event: KeyboardEvent<HTMLInputElement>` |
 | `che`    | `event: ChangeEvent<HTMLInputElement>`   |
-| `fe`     | `event: FormEvent<HTMLInputElement>`     |
-| `fo`     | `event: FocusEvent<HTMLElement>`         |
+| `fe`     | `event: FocusEvent<HTMLElement>`         |
+| `foe`    | `event: FormEvent<HTMLInputElement>`     |
 | `meh`    | `MouseEventHandler<HTMLButtonElement>`   |
 | `teh`    | `TouchEventHandler<HTMLButtonElement>`   |
 | `keh`    | `KeyboardEventHandler<HTMLInputElement>` |
 | `cheh`   | `ChangeEventHandler<HTMLInputElement>`   |
-| `feh`    | `FormEventHandler<HTMLElement>`          |
-| `foh`    | `FocusEventHandler<HTMLInputElement>`    |
+| `feh`    | `FocusEventHandler<HTMLInputElement>`    |
+| `foeh`   | `FormEventHandler<HTMLElement>`          |
 
 > Note: The `event:` and `Button`/`Input` parts are a tabstop which can be
 > removed or changed.
