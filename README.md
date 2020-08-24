@@ -1061,13 +1061,15 @@ useDebugValue($NULL)
 
 ### Logging
 
-| Shortcut | Expands to                            |
-| -------- | ------------------------------------- |
-| `cl`     | `console.log($TABSTOP)`               |
-| `clv`    | `console.log('variable: ', variable)` |
-| `ce`     | `console.error($TABSTOP)`             |
-| `cw`     | `console.warrn($TABSTOP)`             |
-| `ct`     | `console.table($TABSTOP)`             |
+| Shortcut | Expands to                              |
+| -------- | --------------------------------------- |
+| `cl`     | `console.log($TABSTOP)`                 |
+| `clv`    | `console.log('variable: ', variable)`   |
+| `ce`     | `console.error($TABSTOP)`               |
+| `cev`    | `console.error('variable: ', $TABSTOP)` |
+| `cw`     | `console.warrn($TABSTOP)`               |
+| `ct`     | `console.table($TABSTOP)`               |
+| `cd`     | `console.debug($TABSTOP)`               |
 
 ### Tests (Javascript and Typescript)
 
