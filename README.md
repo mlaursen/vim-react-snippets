@@ -96,8 +96,10 @@ snippet provider.
   - [General Redux (Typescript)](#general-redux-typescript)
     - [mirrored const](#mirrored-const-1)
     - [useDispatch](#usedispatch-1)
+    - [useAppDispatch (Typescript Only)](#useappdispatch-typescript-only)
     - [useSelector](#useselector-1)
-    - [useAppSelector (useSelector typed for your redux store)](#useappselector-useselector-typed-for-your-redux-store)
+    - [useAppSelector (Typescript Only)](#useappselector-typescript-only)
+    - [create bound redux (Typescript Only)](#create-bound-redux-typescript-only)
   - [Hooks and Effects (Typescript)](#hooks-and-effects-typescript)
     - [useState](#usestate-1)
     - [useEffect](#useeffect-1)
@@ -564,7 +566,7 @@ const dispatch = useDispatch()
 `useSR` ->
 
 ```ts
-const $VALUE = usSelector(($STATE) => $SELECTOR);
+const $VALUE = useSelector(($STATE) => $SELECTOR);
 ````
 
 #### @connect (annotation)
@@ -953,20 +955,46 @@ const $THING = "$THING"
 const dispatch: $AppDispatch = useDispatch()
 ```
 
+#### useAppDispatch (Typescript Only)
+
+`useAD` ->
+
+```ts
+const dispatch = useAppDispatch()
+```
+
 #### useSelector
 
 `useSR` ->
 
 ```ts
-const $VALUE = usSelector(($STATE: AppState) => $SELECTOR)
+const $VALUE = useSelector(($STATE: AppState) => $SELECTOR)
 ```
 
-#### useAppSelector (useSelector typed for your redux store)
+#### useAppSelector (Typescript Only)
 
 `useAS` ->
 
 ```ts
 const $VALUE = useAppSelector(($STATE) => $SELECTOR)
+```
+
+#### create bound redux (Typescript Only)
+
+See the
+[Typescript documentation](https://react-redux.js.org/using-react-redux/static-typing)
+for more information about these defaults
+
+`cbr` ->
+
+```ts
+import { useSelector, TypedUseSelectorHook } from "react-redux"
+
+// import ${1:{ RootState, AppDispatch }} from "${2:./store}"
+import $TABSTOP from "./$STORE"
+
+export const useAppState: TypedUseSelectorHook<$RootState> = useSelector
+export const useAppDispatch: $AppDispatch = useDispatch
 ```
 
 ### Hooks and Effects (Typescript)

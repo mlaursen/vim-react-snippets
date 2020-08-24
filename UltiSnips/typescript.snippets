@@ -627,7 +627,11 @@ const $1 = '$1'
 endsnippet
 
 snippet useD "useDispatch" b
-const dispatch${1:: AppDispatch} = useDispatch();
+const dispatch${1:: AppDispatch} = useDispatch()
+endsnippet
+
+snippet useAD "useAppDispatch" b
+const dispatch = useAppDispatch()
 endsnippet
 
 snippet useSR "useSelector" b
@@ -636,4 +640,13 @@ endsnippet
 
 snippet useAS "useAppSelector" b
 const ${1:value} = useAppSelector(${2:state => $3})
+endsnippet
+
+snippet cbr "create bound redux" b
+import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux"
+
+import ${1:{ RootState, AppDispatch }} from "${2:./store}"
+
+export const useAppState: TypedUseSelectorHook<${3:RootState}> = useSelector
+export const useAppDispatch: ${4:AppDispatch} = useDispatch
 endsnippet
