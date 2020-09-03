@@ -116,6 +116,7 @@ snippet provider.
   - [Importing](#importing)
   - [Exporting](#exporting)
   - [Logging](#logging)
+  - [NODE_ENV](#node_env)
   - [Tests (Javascript and Typescript)](#tests-javascript-and-typescript)
     - [React Test File](#react-test-file)
     - [React Hooks Test File](#react-hooks-test-file)
@@ -1166,6 +1167,13 @@ useDebugValue($NULL)
 | `cw`     | `console.warrn($TABSTOP)`               |
 | `ct`     | `console.table($TABSTOP)`               |
 | `cd`     | `console.debug($TABSTOP)`               |
+
+### NODE_ENV
+
+| Shortcut | Expands to                              |
+| -------- | --------------------------------------- |
+| `dev`    | `process.env.NODE_ENV !== "production"` |
+| `prod`   | `process.env.NODE_ENV === "production"` |
 
 ### Tests (Javascript and Typescript)
 
