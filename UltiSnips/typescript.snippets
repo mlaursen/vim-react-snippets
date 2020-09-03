@@ -244,14 +244,12 @@ export interface ${1:`!v expand('%:t:r')`}Props {
 	$3
 }
 
-const $1 = forwardRef<HTML${2:Div}Element, $1Props>(function $1(props, ref) {
+export default function $1 forwardRef<HTML${2:Div}Element, $1Props>(function $1(props, ref) {
 	return (
 		<div ref={ref}>$0
 		</div>
 	)
 })
-
-export default $1
 endsnippet
 
 snippet rcf "react class function" b
@@ -502,6 +500,91 @@ endsnippet
 
 priority 0
 
+
+# ==========================================
+# Other useful react/redux snippets
+#
+
+snippet mc "mirrored const"
+const $1 = '$1'
+endsnippet
+
+snippet useD "useAppDispatch()" b
+const dispatch = useAppDispatch()
+endsnippet
+
+snippet useDS "useDispatch()" b
+const dispatch${1:: AppDispatch} = useDispatch()
+endsnippet
+
+snippet useSL "useSelector(selector)" b
+const ${1:value} = useSelector((${2:state${3:: AppState} => $4}))
+endsnippet
+
+snippet useAS "useAppSelector(selector)" b
+const ${1:value} = useAppSelector(${2:state => $3})
+endsnippet
+
+priority -1
+snippet useD "useDispatch()" w
+useAppDispatch()
+endsnippet
+
+snippet useSL "useSelector(state)" w
+useSelector((${1:state${2:: AppState} => $3}))
+endsnippet
+
+snippet useAS "useAppSelector(state)" w
+useAppSelector(${1:state => $2})
+endsnippet
+
+priority 0
+
+# ==========================================
+# redux toolkit snippets
+#
+
+snippet cs "createSlice()" b
+const { actions, reducer } = createSlice({
+	name: "${1:`!v expand('%:t:r')`}",
+	initialState: $2,
+	reducers: {
+		$0
+	}
+})
+endsnippet
+
+snippet ecs "export createSlice()" b
+const { actions, reducer } = createSlice({
+	name: "${1:`!v expand('%:t:r')`}",
+	initialState: $2,
+	reducers: {
+		$3: (state) => state,
+	}
+})
+
+export const { $3 } = actions
+
+export default reducer
+endsnippet
+
+snippet cpr "create prepare reducer" b
+$1: {
+	reducer(state, action: ${2:PayloadAction}<$3>) {
+		$0
+	},
+	prepare($4) {
+		return { payload { $5 } }
+	}
+}
+endsnippet
+
+snippet cat "create async thunk" b
+const $1 = createAsyncThunk("$2$1", async ($3) => {
+	$0
+})
+endsnippet
+
 # ==========================================
 # Prop Types Section (only for legacy)
 #
@@ -625,37 +708,4 @@ snippet pt.shr "PropTypes.shape.isRequired" w
 PropTypes.shape({
 	$1
 }).isRequired
-endsnippet
-
-# ==========================================
-# Other useful react/redux snippets
-#
-
-snippet mc "mirrored const"
-const $1 = '$1'
-endsnippet
-
-snippet useD "useDispatch" b
-const dispatch${1:: AppDispatch} = useDispatch()
-endsnippet
-
-snippet useAD "useAppDispatch" b
-const dispatch = useAppDispatch()
-endsnippet
-
-snippet useSL "useSelector(selector)" b
-const ${1:value} = useSelector((${2:state${3:: AppState} => $4}))
-endsnippet
-
-snippet useAS "useAppSelector(selector)" b
-const ${1:value} = useAppSelector(${2:state => $3})
-endsnippet
-
-snippet cbr "create bound redux" b
-import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux"
-
-import ${1:{ RootState, AppDispatch }} from "${2:./store}"
-
-export const useAppState: TypedUseSelectorHook<${3:RootState}> = useSelector
-export const useAppDispatch: ${4:AppDispatch} = useDispatch
 endsnippet

@@ -427,14 +427,72 @@ const $1 = '$1'
 endsnippet
 
 snippet useD "useDispatch" b
-const dispatch = useDispatch();
+const dispatch = useDispatch()
 endsnippet
 
 snippet useSL "useSelector(selector)" b
-const ${1:value} = useSelector(${2:state => $3});
+const ${1:value} = useSelector(${2:state => $3})
+endsnippet
+
+priority -1
+snippet useD "useDispatch" b
+useDispatch()
+endsnippet
+
+snippet useSL "useSelector(state)" w
+useSelector((${1:state => $2}))
+endsnippet
+
+snippet useAS "useSelector(state)" w
+useAppSelector(${1:state => $2})
 endsnippet
 
 priority 0
+
+# ==========================================
+# redux toolkit snippets
+#
+
+snippet cs "createSlice()" b
+const { actions, reducer } = createSlice({
+	name: "${1:`!v expand('%:t:r')`}",
+	initialState: $2,
+	reducers: {
+		$0
+	}
+})
+endsnippet
+
+snippet ecs "export createSlice()" b
+const { actions, reducer } = createSlice({
+	name: "${1:`!v expand('%:t:r')`}",
+	initialState: $2,
+	reducers: {
+		$3: (state) => state,
+	}
+})
+
+export const { $3 } = actions
+
+export default reducer
+endsnippet
+
+snippet cpr "create prepare reducer" b
+$1: {
+	reducer(state, action) {
+		$0
+	},
+	prepare($2) {
+		return { payload { $3 } }
+	}
+}
+endsnippet
+
+snippet cat "create async thunk" b
+const $1 = createAsyncThunk("$2$1", async ($3) => {
+	$0
+})
+endsnippet
 
 # ==========================================
 # Prop Types Section

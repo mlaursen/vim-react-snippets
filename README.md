@@ -61,6 +61,11 @@ snippet provider.
     - [mirrored const](#mirrored-const)
     - [useDispatch](#usedispatch)
     - [useSelector](#useselector)
+  - [Redux Toolkit (Javascript)](#redux-toolkit-javascript)
+    - [createSlice](#createslice)
+    - [export createSlice](#export-createslice)
+    - [create prepare reducer](#create-prepare-reducer)
+    - [createAsyncThunk](#createasyncthunk)
   - [Class Components (Typescript)](#class-components-typescript)
     - [React Class Export](#react-class-export-1)
     - [React Class Export with Prop interface](#react-class-export-with-prop-interface)
@@ -94,7 +99,11 @@ snippet provider.
     - [useAppDispatch (Typescript Only)](#useappdispatch-typescript-only)
     - [useSelector](#useselector-1)
     - [useAppSelector (Typescript Only)](#useappselector-typescript-only)
-    - [create bound redux (Typescript Only)](#create-bound-redux-typescript-only)
+  - [Redux Toolkit (Typescript)](#redux-toolkit-typescript)
+    - [createSlice](#createslice-1)
+    - [export createSlice](#export-createslice-1)
+    - [create prepare reducer](#create-prepare-reducer-1)
+    - [createAsyncThunk](#createasyncthunk-1)
   - [Hooks and Effects (Typescript)](#hooks-and-effects-typescript)
     - [useState](#usestate-1)
     - [useEffect](#useeffect-1)
@@ -551,19 +560,92 @@ const $THING = "$THING"
 
 `useD` ->
 
-```ts
+```js
+const dispatch = useDispatch()
+```
+
+or inline:
+
+`const dispatch = useD` ->
+
+```js
 const dispatch = useDispatch()
 ```
 
 #### useSelector
 
-````ts
-
 `useSL` ->
 
-```ts
-const $VALUE = useSelector(($STATE) => $SELECTOR);
-````
+```js
+const $VALUE = useSelector(($STATE) => $SELECTOR)
+```
+
+or inline:
+
+`const checked = useSL` ->
+
+```js
+const checked = useSelector(($STATE) => $SELECTOR)
+```
+
+### Redux Toolkit (Javascript)
+
+#### createSlice
+
+`cs` ->
+
+```js
+const { actions, reducer } = createSlice({
+  name: "$CFN",
+  initialState: $TABSTOP,
+  reducers: {
+    $TABSTOP,
+  },
+})
+```
+
+#### export createSlice
+
+`esc` ->
+
+```js
+const { actions, reducer } = createSlice({
+  name: "$CFN",
+  initialState: $TABSTOP,
+  reducers: {
+    $TABSTOP,
+  },
+})
+
+export const { $TABSTOP } = actions
+
+export default reducer
+```
+
+#### create prepare reducer
+
+`cpr` ->
+
+```js
+$TABSTOP: {
+	reducer(state, action) {
+		$$TABSTOP
+	},
+	prepare($TABSTOP) {
+		return { payload { $TABSTOP } }
+	}
+}
+```
+
+#### createAsyncThunk
+
+`cat` ->
+
+```js
+const $TABSTOP = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
+  $TABSTOP
+})
+```
 
 ### Class Components (Typescript)
 
@@ -883,7 +965,7 @@ const $THING = "$THING"
 
 #### useDispatch
 
-`useD` ->
+`useDS` ->
 
 ```ts
 const dispatch: $AppDispatch = useDispatch()
@@ -891,7 +973,15 @@ const dispatch: $AppDispatch = useDispatch()
 
 #### useAppDispatch (Typescript Only)
 
-`useAD` ->
+`useD` ->
+
+```ts
+const dispatch = useAppDispatch()
+```
+
+or inline:
+
+`const dispatch = useD` ->
 
 ```ts
 const dispatch = useAppDispatch()
@@ -905,6 +995,14 @@ const dispatch = useAppDispatch()
 const $VALUE = useSelector(($STATE: AppState) => $SELECTOR)
 ```
 
+or inline:
+
+`const checked = useSL` ->
+
+```ts
+const checked = useSelector(($STATE: AppState) => $SELECTOR)
+```
+
 #### useAppSelector (Typescript Only)
 
 `useAS` ->
@@ -913,22 +1011,71 @@ const $VALUE = useSelector(($STATE: AppState) => $SELECTOR)
 const $VALUE = useAppSelector(($STATE) => $SELECTOR)
 ```
 
-#### create bound redux (Typescript Only)
+or inline:
 
-See the
-[Typescript documentation](https://react-redux.js.org/using-react-redux/static-typing)
-for more information about these defaults
-
-`cbr` ->
+`const checked = useAS` ->
 
 ```ts
-import { useSelector, TypedUseSelectorHook } from "react-redux"
+const checked = useSelector(($STATE: AppState) => $SELECTOR)
+```
 
-// import ${1:{ RootState, AppDispatch }} from "${2:./store}"
-import $TABSTOP from "./$STORE"
+### Redux Toolkit (Typescript)
 
-export const useAppState: TypedUseSelectorHook<$RootState> = useSelector
-export const useAppDispatch: $AppDispatch = useDispatch
+#### createSlice
+
+`cs` ->
+
+```js
+const { actions, reducer } = createSlice({
+  name: "$CFN",
+  initialState: $TABSTOP,
+  reducers: {
+    $TABSTOP,
+  },
+})
+```
+
+#### export createSlice
+
+`esc` ->
+
+```js
+const { actions, reducer } = createSlice({
+  name: "$CFN",
+  initialState: $TABSTOP,
+  reducers: {
+    $TABSTOP,
+  },
+})
+
+export const { $TABSTOP } = actions
+
+export default reducer
+```
+
+#### create prepare reducer
+
+`cpr` ->
+
+```js
+$TABSTOP: {
+	reducer(state, action: $PayloadAction<$TABSTOP>) {
+		$$TABSTOP
+	},
+	prepare($TABSTOP) {
+		return { payload { $TABSTOP } }
+	}
+}
+```
+
+#### createAsyncThunk
+
+`cat` ->
+
+```js
+const $TABSTOP = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
+  $TABSTOP
+})
 ```
 
 ### Hooks and Effects (Typescript)
