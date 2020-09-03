@@ -642,11 +642,11 @@ snippet useAD "useAppDispatch" b
 const dispatch = useAppDispatch()
 endsnippet
 
-snippet useSR "useSelector" b
+snippet useSL "useSelector(selector)" b
 const ${1:value} = useSelector((${2:state${3:: AppState} => $4}))
 endsnippet
 
-snippet useAS "useAppSelector" b
+snippet useAS "useAppSelector(selector)" b
 const ${1:value} = useAppSelector(${2:state => $3})
 endsnippet
 

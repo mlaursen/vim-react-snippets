@@ -564,7 +564,7 @@ const dispatch = useDispatch()
 
 ````ts
 
-`useSR` ->
+`useSL` ->
 
 ```ts
 const $VALUE = useSelector(($STATE) => $SELECTOR);
@@ -966,7 +966,7 @@ const dispatch = useAppDispatch()
 
 #### useSelector
 
-`useSR` ->
+`useSL` ->
 
 ```ts
 const $VALUE = useSelector(($STATE: AppState) => $SELECTOR)
