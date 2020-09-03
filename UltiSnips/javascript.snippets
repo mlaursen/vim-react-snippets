@@ -434,43 +434,6 @@ snippet useSL "useSelector(selector)" b
 const ${1:value} = useSelector(${2:state => $3});
 endsnippet
 
-snippet @c "@connect" b
-@connect(${1:state})
-endsnippet
-
-snippet @ca "@connectAdvanced" b
-@connectAdvanced(${1:dispatch} => {
-	$2
-	return (${3:state}${4:, props}) => {
-		$0
-		return {}
-	}
-})
-endsnippet
-
-snippet cf "connect function" w
-connect(${1:state})(${2:`!v expand('%:t:r')`})
-endsnippet
-
-snippet caf "connect advanced function" w
-connectAdvanced(${1:dispatch} => {
-	$2
-	return (${3:state}${4:, props}) => {
-		$5
-		return {}
-	}
-})(${6:`!v expand('%:t:r')`})
-endsnippet
-
-snippet bac "bind action creators" b
-const ${1:actions} = bindActionCreators({ $2 }, dispatch)$0
-endsnippet
-
-priority -1
-snippet bac "bind action creators" w
-bindActionCreators({ $1 }, dispatch)$0
-endsnippet
-
 priority 0
 
 # ==========================================
