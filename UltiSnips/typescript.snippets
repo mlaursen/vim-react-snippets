@@ -399,26 +399,26 @@ endsnippet
 
 snippet useE "useEffect()" b
 useEffect(() => {
-	$1$0
-}$2)
+	$0
+}, [$1])
 endsnippet
 
 snippet useEA "useEffect() async" b
 useEffect(() => {
-  let cancelled = false
+	let cancelled = false
 
-  ;(async function ${4:doWork}(): Promise<${5:void}> {
-    ${1:// async work here}
-    if (cancelled) {
-      return
-    }
+	;(async function ${4:doWork}(): Promise<${5:void}> {
+		${1:// async work here}
+		if (cancelled) {
+			return
+		}
 
-    $2
-  })()
+		$2
+	})()
 
-  return () => {
-    cancelled = true
-  }
+	return () => {
+		cancelled = true
+	}
 }, [$3])
 endsnippet
 
@@ -458,8 +458,8 @@ endsnippet
 
 snippet useL "useLayoutEffect()" b
 useLayoutEffect(() => {
-	$1
-})
+	$0
+}, [$1])
 endsnippet
 
 snippet useDV "useDebugValue(value)" b

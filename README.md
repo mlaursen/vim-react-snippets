@@ -431,7 +431,7 @@ const [$STATE, set$STATE] = useState($TABSTOP)
 ```js
 useEffect(() => {
   $TABSTOP
-}$TABSTOP)
+}, [$TABSTOP])
 ```
 
 #### useEffect async
@@ -530,7 +530,7 @@ useImperitiveHandle($REF, () => ({
 ```js
 useLayoutEffect(() => {
   $TABSTOP
-})
+}, [$TABSTOP])
 ```
 
 #### useDebugValue
@@ -1014,7 +1014,7 @@ const [$STATE, set$STATE] = useState$TABSTOP($TABSTOP)
 ```ts
 useEffect(() => {
   $TABSTOP
-}$TABSTOP)
+}, [$TABSTOP])
 ```
 
 #### useEffect async
@@ -1121,7 +1121,7 @@ useImperitiveHandle($REF, () => ({
 ```ts
 useLayoutEffect(() => {
   $TABSTOP
-})
+}, [$TABSTOP])
 ```
 
 #### useDebugValue
