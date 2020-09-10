@@ -809,14 +809,12 @@ export interface $CFNProps {
   $TABSTOP
 }
 
-const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
+export default forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
   props,
   ref
 ) {
   return <div ref={ref}></div>
 })
-
-export default $CFN
 ```
 
 #### Component PropTypes
@@ -1016,7 +1014,7 @@ or inline:
 `const checked = useAS` ->
 
 ```ts
-const checked = useSelector(($STATE: AppState) => $SELECTOR)
+const checked = useAppSelector(($STATE: AppState) => $SELECTOR)
 ```
 
 ### Redux Toolkit (Typescript)
