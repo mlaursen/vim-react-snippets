@@ -489,10 +489,20 @@ $1: {
 endsnippet
 
 snippet cat "create async thunk" b
-const $1 = createAsyncThunk("$2$1", async ($3) => {
+export const $1 = createAsyncThunk("$2$1", async ($3) => {
 	$0
 })
 endsnippet
+
+priority -1
+
+snippet cat "create async thunk (inline)" w
+createAsyncThunk("$1", async ($2) => {
+	$0
+})
+endsnippet
+
+priority 0
 
 # ==========================================
 # Prop Types Section

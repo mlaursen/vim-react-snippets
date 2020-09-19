@@ -642,7 +642,17 @@ $TABSTOP: {
 `cat` ->
 
 ```js
-const $TABSTOP = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
+export const $TABSTOP = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
+  $TABSTOP
+})
+```
+
+or inline:
+
+`export const doThing = cat` ->
+
+```js
+export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
   $TABSTOP
 })
 ```
@@ -1070,8 +1080,18 @@ $TABSTOP: {
 
 `cat` ->
 
-```js
-const $TABSTOP = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
+```ts
+export const $TABSTOP = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
+  $TABSTOP
+})
+```
+
+or inline:
+
+`export const doThing = cat` ->
+
+```ts
+export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
   $TABSTOP
 })
 ```
