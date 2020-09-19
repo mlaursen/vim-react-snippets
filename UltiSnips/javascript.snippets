@@ -464,6 +464,8 @@ const { actions, reducer } = createSlice({
 endsnippet
 
 snippet ecs "export createSlice()" b
+import { createSlice } from "@reduxjs/toolkit"
+
 const { actions, reducer } = createSlice({
 	name: "${1:`!v expand('%:t:r')`}",
 	initialState: $2,

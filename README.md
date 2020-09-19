@@ -609,6 +609,8 @@ const { actions, reducer } = createSlice({
 `esc` ->
 
 ```js
+import { createSlice } from "@reduxjs/toolkit"
+
 const { actions, reducer } = createSlice({
   name: "$CFN",
   initialState: $TABSTOP,
@@ -1048,6 +1050,8 @@ const { actions, reducer } = createSlice({
 `esc` ->
 
 ```js
+import { createSlice } from "@reduxjs/toolkit"
+
 const { actions, reducer } = createSlice({
   name: "$CFN",
   initialState: $TABSTOP,
