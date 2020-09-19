@@ -632,7 +632,7 @@ $TABSTOP: {
 		$$TABSTOP
 	},
 	prepare($TABSTOP) {
-		return { payload { $TABSTOP } }
+		return { payload: { $TABSTOP } }
 	}
 }
 ```
@@ -1061,7 +1061,7 @@ $TABSTOP: {
 		$$TABSTOP
 	},
 	prepare($TABSTOP) {
-		return { payload { $TABSTOP } }
+		return { payload: { $TABSTOP } }
 	}
 }
 ```
