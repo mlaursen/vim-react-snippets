@@ -4,6 +4,21 @@ A collection of common Javascript and Typescript vim snippets for developing
 [React] applications. The snippets within this repo rely on [UltiSnips] as the
 snippet provider.
 
+## Installation
+
+I recommend using a package manager such as [vim-plug] to install your vim
+packages.
+
+```vim
+call plug#begin('~/.vim/plugged')
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
+call plug#end()
+```
+
+You can always see my [full .vimrc] for my Javascript/Typescript configuration
+and setup.
+
 ## Javascript Example
 
 ![Javascript Example](https://user-images.githubusercontent.com/3920850/55372575-75010a80-54bf-11e9-97ce-3557ba3f044e.gif)
@@ -20,7 +35,6 @@ snippet provider.
 
 <!-- toc -->
 
-- [Installation](#installation)
 - [Cheatsheet](#cheatsheet)
   - [PropTypes](#proptypes)
   - [Class Components (Javascript)](#class-components-javascript)
@@ -131,39 +145,12 @@ snippet provider.
 
 <!-- tocstop -->
 
-## Installation
-
-I recommend using a package manager such as [minpac] or [vim-plug] to install
-your vim packages.
-
-```vim
-" with minpac
-function! PackInit() abort
-  packadd minpac
-
-  call minpac#init()
-  call minpac#add('k-takata/minpac', {'type': 'opt'})
-
-  call minpac#add('SirVer/ultisnips')
-  call minpac#add('mlaursen/vim-react-snippets')
-endfunction
-
-" with vim-plug
-call plug#begin('~/.vim/plugged')
-Plug 'SirVer/ultisnips'
-Plug 'mlaursen/vim-react-snippets'
-call plug#end()
-```
-
-You can always see my [full .vimrc] for my Javascript/Typescript configuration
-and setup.
-
 ## Cheatsheet
 
 I will list the current supported snippets below and their implementation. I
 recommend checking out the full source files in the [UltiSnips folder] to see
 the full tabstop locations. The examples below will use `$TABSTOP` or `$NAME` to
-indicate that there is a tabstop or a tabbable/replacable variable. Finally, if
+indicate that there is a tabstop or a tabbable/replaceable variable. Finally, if
 you see `$CFN` or `$CFN_`, it will be the Current File Name (the trailing
 underscore will not be included, it is just added to show separation when
 something else follows it).
@@ -1355,6 +1342,5 @@ expect($TABSTOP_container).toMatchSnapshot()
 [ultisnips]: https://github.com/SirVer/ultisnips
 [ultisnips folder]:
   https://github.com/mlaursen/vim-react-snippets/tree/master/UltiSnips
-[minpac]: https://github.com/k-takata/minpac
 [vim-plug]: https://github.com/junegunn/vim-plug
 [full .vimrc]: https://github.com/mlaursen/dotfiles/tree/master/.vimrc
