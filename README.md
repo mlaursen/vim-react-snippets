@@ -140,6 +140,7 @@ and setup.
     - [React Hooks Test File](#react-hooks-test-file)
     - [Describe a test](#describe-a-test)
     - [it should...](#it-should)
+    - [it should (async)...](#it-should-async)
     - [Test todo](#test-todo)
     - [expect snapshot](#expect-snapshot)
 
@@ -1318,6 +1319,16 @@ describe('$CFN', () => {
 
 ```ts
 it("should $TABSTOP", () => {
+  $TABSTOP
+})
+```
+
+#### it should (async)...
+
+`ait` ->
+
+```ts
+it("should $TABSTOP", async () => {
   $TABSTOP
 })
 ```
