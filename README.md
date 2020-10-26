@@ -1035,7 +1035,7 @@ const { actions, reducer } = createSlice({
 
 #### export createSlice
 
-`esc` ->
+`ecs` ->
 
 ```js
 import { createSlice } from "@reduxjs/toolkit"
