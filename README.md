@@ -113,6 +113,9 @@ and setup.
     - [useAppDispatch (Typescript Only)](#useappdispatch-typescript-only)
     - [useSelector](#useselector-1)
     - [useAppSelector (Typescript Only)](#useappselector-typescript-only)
+    - [Ref (Typescript Only)](#ref-typescript-only)
+    - [MutableRefObject (Typescript Only)](#mutablerefobject-typescript-only)
+    - [RefCallback (Typescript Only)](#refcallback-typescript-only)
   - [Redux Toolkit (Typescript)](#redux-toolkit-typescript)
     - [createSlice](#createslice-1)
     - [export createSlice](#export-createslice-1)
@@ -1015,6 +1018,54 @@ or inline:
 
 ```ts
 const checked = useAppSelector(($STATE: AppState) => $SELECTOR)
+```
+
+#### Ref<E | null> (Typescript Only)
+
+`reft` ->
+
+```ts
+export type $TABSTOP = Ref<$TABSTOP_Element | null>
+```
+
+or inline:
+
+`export type SomeRef = reft` ->
+
+```ts
+export type SomeRef = Ref<$TABSTOP_Element | null>
+```
+
+#### MutableRefObject<E | null> (Typescript Only)
+
+`mro` ->
+
+```ts
+export type $TABSTOP = MutableRefObject<$TABSTOP_Element | null>
+```
+
+or inline:
+
+`export type SomeRef = mro` ->
+
+```ts
+export type SomeRef = MutableRefObject<$TABSTOP_Element | null>
+```
+
+#### RefCallback<E | null> (Typescript Only)
+
+`refcb` ->
+
+```ts
+export type $TABSTOP = RefCallback<$TABSTOP_Element | null>
+```
+
+or inline:
+
+`export type SomeRef = refcb` ->
+
+```ts
+export type SomeRef = RefCallback<$TABSTOP_Element | null>
 ```
 
 ### Redux Toolkit (Typescript)

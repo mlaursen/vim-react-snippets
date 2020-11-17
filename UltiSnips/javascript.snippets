@@ -452,6 +452,18 @@ snippet useSL "useSelector(selector)" b
 const ${1:value} = useSelector(${2:state => $3})
 endsnippet
 
+snippet reft "export type Name = Ref<E | null>" b
+export type $1 = Ref<${3:HTML{$2}Element} | null>$0
+endsnippet
+
+snippet mro "export type Name = MutableRefObject<E | null>" b
+export type $1 = MutableRefObject<${3:HTML{$2}Element} | null>$0
+endsnippet
+
+snippet refcb "export type Name = RefCallback<E | null>" b
+export type $1 = RefCallback<${3:HTML{$2}Element} | null>$0
+endsnippet
+
 priority -1
 snippet useD "useDispatch" b
 useDispatch()
@@ -463,6 +475,18 @@ endsnippet
 
 snippet useAS "useSelector(state)" w
 useAppSelector(${1:state => $2})
+endsnippet
+
+snippet reft "Ref<E | null>" w
+Ref<${2:HTML{$1}Element} | null>$0
+endsnippet
+
+snippet mro "MutableRefObject<E | null>" w
+MutableRefObject<${2:HTML{$1}Element} | null>$0
+endsnippet
+
+snippet refcb "Ref<E | null>" w
+RefCallback<${2:HTML{$1}Element} | null>$0
 endsnippet
 
 priority 0
