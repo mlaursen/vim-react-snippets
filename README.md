@@ -1254,7 +1254,8 @@ useDebugValue($NULL)
 | `clv`    | `console.log('variable: ', variable)`   |
 | `ce`     | `console.error($TABSTOP)`               |
 | `cev`    | `console.error('variable: ', $TABSTOP)` |
-| `cw`     | `console.warrn($TABSTOP)`               |
+| `cw`     | `console.warn($TABSTOP)`                |
+| `cwv`    | `console.warn('variable: ', $TABSTOP)`  |
 | `ct`     | `console.table($TABSTOP)`               |
 | `cd`     | `console.debug($TABSTOP)`               |
 
