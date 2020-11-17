@@ -1228,6 +1228,7 @@ useDebugValue($NULL)
 | Shortcut | Expands to                                    |
 | -------- | --------------------------------------------- |
 | `rc`     | `const packageName = require('package-name')` |
+| `rcn`    | `const { nested } = require('package-name')`  |
 | `imp`    | `import packageName from 'package-name'`      |
 | `impf`   | `import File from './File'`                   |
 | `impn`   | `import { nested } from 'package-or/path'`    |

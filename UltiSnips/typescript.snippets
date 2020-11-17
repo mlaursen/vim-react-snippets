@@ -13,6 +13,10 @@ snippet rc "require package that converts from camelCase or PascalCase to kebab-
 const $1 = require("$2`!p snip.rv=lowerdash(t[1])`")
 endsnippet
 
+snippet rcn "const { nested } = require('package')" b
+const { $1 } = require("$2");
+endsnippet
+
 snippet imp "import package that converts from camelCase or PascalCase to kebab-cased" b
 import $1 from "$2`!p snip.rv=lowerdash(t[1])`"
 endsnippet
