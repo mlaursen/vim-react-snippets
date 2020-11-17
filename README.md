@@ -80,6 +80,8 @@ and setup.
     - [export createSlice](#export-createslice)
     - [create prepare reducer](#create-prepare-reducer)
     - [createAsyncThunk](#createasyncthunk)
+  - [General Built-Ins (Javascript)](#general-built-ins-javascript)
+    - [jsdoc comment](#jsdoc-comment)
   - [Class Components (Typescript)](#class-components-typescript)
     - [React Class Export](#react-class-export-1)
     - [React Class Export with Prop interface](#react-class-export-with-prop-interface)
@@ -134,8 +136,9 @@ and setup.
     - [useImperitiveHandle](#useimperitivehandle-1)
     - [useLayoutEffect](#uselayouteffect-1)
     - [useDebugValue](#usedebugvalue-1)
-  - [General Built-Ins (Typescript Only)](#general-built-ins-typescript-only)
-    - [reduce to type](#reduce-to-type)
+  - [General Built-Ins (Typescript)](#general-built-ins-typescript)
+    - [reduce to type (Typescript Only)](#reduce-to-type-typescript-only)
+    - [jsdoc comment](#jsdoc-comment-1)
   - [Importing](#importing)
   - [Exporting](#exporting)
   - [Logging](#logging)
@@ -650,6 +653,18 @@ or inline:
 export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
   $TABSTOP
 })
+```
+
+### General Built-Ins (Javascript)
+
+#### jsdoc comment
+
+`/**` ->
+
+```js
+/**
+ * $TABEND
+ */
 ```
 
 ### Class Components (Typescript)
@@ -1276,9 +1291,9 @@ useLayoutEffect(() => {
 useDebugValue($NULL)
 ```
 
-### General Built-Ins (Typescript Only)
+### General Built-Ins (Typescript)
 
-#### reduce to type
+#### reduce to type (Typescript Only)
 
 `re` ->
 
@@ -1291,6 +1306,16 @@ reduce<$TABSTOP>(($RESULT, $VALUE) => {
   return $RESULT
 }, {})
 // ^^ is a $TABSTOP
+```
+
+#### jsdoc comment
+
+`/**` ->
+
+```ts
+/**
+ * $TABEND
+ */
 ```
 
 ### Importing
