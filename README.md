@@ -134,6 +134,8 @@ and setup.
     - [useImperitiveHandle](#useimperitivehandle-1)
     - [useLayoutEffect](#uselayouteffect-1)
     - [useDebugValue](#usedebugvalue-1)
+  - [General Built-Ins (Typescript Only)](#general-built-ins-typescript-only)
+    - [reduce to type](#reduce-to-type)
   - [Importing](#importing)
   - [Exporting](#exporting)
   - [Logging](#logging)
@@ -1272,6 +1274,23 @@ useLayoutEffect(() => {
 
 ```ts
 useDebugValue($NULL)
+```
+
+### General Built-Ins (Typescript Only)
+
+#### reduce to type
+
+`re` ->
+
+> Normally would be something like `list.re ->`
+
+```ts
+reduce<$TABSTOP>(($RESULT, $VALUE) => {
+  $TABEND
+
+  return $RESULT
+}, {})
+// ^^ is a $TABSTOP
 ```
 
 ### Importing

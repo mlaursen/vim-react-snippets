@@ -617,6 +617,18 @@ endsnippet
 priority 0
 
 # ==========================================
+# General Built-Ins
+#
+
+snippet re "reduce<Type>" w
+reduce<$1>((${2:result}, ${3:value}) => {
+	$0
+
+	return $2
+}, ${4:{}})
+endsnippet
+
+# ==========================================
 # Prop Types Section (only for legacy)
 #
 
