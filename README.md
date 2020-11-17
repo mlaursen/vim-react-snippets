@@ -1258,6 +1258,7 @@ useDebugValue($NULL)
 | `cwv`    | `console.warn('variable: ', $TABSTOP)`  |
 | `ct`     | `console.table($TABSTOP)`               |
 | `cd`     | `console.debug($TABSTOP)`               |
+| `cdv`    | `console.debug('variable: ', $TABSTOP)` |
 
 ### NODE_ENV
 
