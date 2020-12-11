@@ -1382,6 +1382,9 @@ describe("$CFN", () => {
 })
 ```
 
+> Note: typescript will do `import { $CFN } from "./$CFN"` since I prefer
+> non-default exports in typescript
+
 #### React Hooks Test File
 
 `rhtf` ->

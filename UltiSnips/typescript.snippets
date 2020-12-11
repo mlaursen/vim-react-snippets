@@ -116,7 +116,7 @@ snippet rtf "React Test File" b
 import React from "react"
 import { render } from "@testing-library/react"
 
-import ${1:`!v expand('%:t:r')`} from "../$1"
+import { ${1:`!v expand('%:t:r')`} } from "../$1"
 
 describe("$1", () => {
 	it("should $2", () => {
