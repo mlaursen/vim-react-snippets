@@ -94,8 +94,11 @@ and setup.
     - [React Class Function (arrow bound class function)](#react-class-function-arrow-bound-class-function-1)
   - [Function Components (Typescript)](#function-components-typescript)
     - [Function Component Export](#function-component-export-1)
+    - [Function Component Default Export](#function-component-default-export)
     - [Simple Function Component Export](#simple-function-component-export-1)
+    - [Simple Function Component Default Export](#simple-function-component-default-export)
     - [Forwarded Function Component Export](#forwarded-function-component-export-1)
+    - [Forwarded Function Component Default Export](#forwarded-function-component-default-export)
     - [Component PropTypes](#component-proptypes-1)
     - [Component Default Props](#component-default-props-1)
     - [Component Default Props Typed](#component-default-props-typed)
@@ -801,6 +804,20 @@ import React, { ReactElement } from "react"
 
 export interface $CFN_Props {}
 
+export function $CFN(props: $CFN_Props): ReactElement | null {
+  return null
+}
+```
+
+#### Function Component Default Export
+
+`fcde` ->
+
+```tsx
+import React, { ReactElement } from "react"
+
+export interface $CFN_Props {}
+
 export default function $CFN(props: $CFN_Props): ReactElement | null {
   return null
 }
@@ -813,6 +830,18 @@ export default function $CFN(props: $CFN_Props): ReactElement | null {
 ```tsx
 import React, { ReactElement } from "react"
 
+export function $CFN(): ReactElement | null {
+  return null
+}
+```
+
+#### Simple Function Component Default Export
+
+`sfcde` ->
+
+```tsx
+import React, { ReactElement } from "react"
+
 export default function $CFN(): ReactElement | null {
   return null
 }
@@ -821,6 +850,25 @@ export default function $CFN(): ReactElement | null {
 #### Forwarded Function Component Export
 
 `ffce` ->
+
+```tsx
+import React, { forwardRef } from "react"
+
+export interface $CFNProps {
+  $TABSTOP
+}
+
+export const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
+  props,
+  ref
+) {
+  return <div ref={ref}></div>
+})
+```
+
+#### Forwarded Function Component Default Export
+
+`ffcde` ->
 
 ```tsx
 import React, { forwardRef } from "react"

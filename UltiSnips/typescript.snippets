@@ -242,12 +242,32 @@ export interface $1Props {
 	$3
 }
 
+export function ${1:`!v expand('%:t:r')`}(${2:props}: $1Props): ReactElement | null {
+	return ${4:null}$0
+}
+endsnippet
+
+snippet fcde "function component default export (with prop interface)" b
+import React, { ReactElement } from "react"
+
+export interface $1Props {
+	$3
+}
+
 export default function ${1:`!v expand('%:t:r')`}(${2:props}: $1Props): ReactElement | null {
 	return ${4:null}$0
 }
 endsnippet
 
 snippet sfce "simple function component export (no prop interface)" b
+import React, { ReactElement } from "react"
+
+export function ${1:`!v expand('%:t:r')`}(): ReactElement | null {
+	return ${2:null}
+}
+endsnippet
+
+snippet sfcde "simple function component default export (no prop interface)" b
 import React, { ReactElement } from "react"
 
 export default function ${1:`!v expand('%:t:r')`}(): ReactElement | null {
@@ -262,13 +282,27 @@ export interface ${1:`!v expand('%:t:r')`}Props {
 	$3
 }
 
+export const $1 = forwardRef<HTML${2:Div}Element, $1Props>(function $1(props, ref) {
+	return (
+		<div ref={ref}>$0
+		</div>
+	)
+})
+endsnippet
+
+snippet ffcde "forwarded function component default export"
+import React, { forwardRef } from "react"
+
+export interface ${1:`!v expand('%:t:r')`}Props {
+	$3
+}
+
 export default forwardRef<HTML${2:Div}Element, $1Props>(function $1(props, ref) {
 	return (
 		<div ref={ref}>$0
 		</div>
 	)
 })
-
 endsnippet
 
 snippet rcf "react class function" b
