@@ -12,7 +12,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "husky": "^7.0.1",
+    "husky": "^7.0.2",
     "lint-staged": "^11.1.1",
     "markdown-toc": "^1.2.0",
     "prettier": "^2.3.2"
