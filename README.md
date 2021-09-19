@@ -154,6 +154,15 @@ and setup.
     - [it should (async)...](#it-should-async)
     - [Test todo](#test-todo)
     - [expect snapshot](#expect-snapshot)
+- [SCSS Snippets](#scss-snippets)
+  - [New Sass Module System](#new-sass-module-system)
+    - [Use file](#use-file)
+    - [Use file as \*](#use-file-as-)
+    - [Forward file with](#forward-file-with)
+  - [Old Sass Module System](#old-sass-module-system)
+    - [Import file](#import-file)
+  - [Utility](#utility)
+    - [`prefers-color-scheme` Media Query](#prefers-color-scheme-media-query)
 
 <!-- tocstop -->
 
@@ -1496,6 +1505,56 @@ it.todo("should $TABSTOP")
 
 ```ts
 expect($TABSTOP_container).toMatchSnapshot()
+```
+
+## SCSS Snippets
+
+### New Sass Module System
+
+#### Use file
+
+`use` =>
+
+```scss
+@use "$TABSTOP";
+```
+
+#### Use file as \*
+
+`use*` ->
+
+```scss
+@use "$TABSTOP" as *;
+```
+
+#### Forward file with
+
+`forw` ->
+
+```scss
+@forward "$TABSTOP" with ($TABSTOP);
+```
+
+### Old Sass Module System
+
+#### Import file
+
+`imp` ->
+
+```scss
+@import "$1";
+```
+
+### Utility
+
+#### `prefers-color-scheme` Media Query
+
+`pcs` ->
+
+```scss
+@media (prefers-color-scheme: $TABSTOP_dark) {
+	$TABSTOP
+}
 ```
 
 [react]: https://reactjs.org/
