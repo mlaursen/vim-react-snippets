@@ -7,20 +7,13 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "format": "prettier --write README.md",
-    "toc": "markdown-toc -i README.md",
-    "prepare": "husky install"
+    "toc": "markdown-toc -i README.md"
   },
   "devDependencies": {
     "husky": "^7.0.2",
-    "lint-staged": "^11.1.1",
     "markdown-toc": "^1.2.0",
     "prettier": "^2.4.1"
-  },
-  "lint-staged": {
-    "README.md": [
-      "markdown-toc -i",
-      "prettier --write"
-    ]
   }
 }
