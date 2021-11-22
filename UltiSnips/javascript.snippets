@@ -124,18 +124,6 @@ describe('$1', () => {
 })
 endsnippet
 
-snippet rhtf "React Hooks Test File" b
-import { renderHook } from '@testing-library/react-hooks'
-
-import $2 from '../${1:`!v expand('%:t:r')`}'
-
-describe('$1', () => {
-	it('should $3', () => {
-		$4
-	})
-})
-endsnippet
-
 snippet desc "describe a test" b
 describe('$1', () => {
 	it('should $2', () => {

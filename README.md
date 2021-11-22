@@ -148,7 +148,6 @@ and setup.
   - [NODE_ENV](#node_env)
   - [Tests (Javascript and Typescript)](#tests-javascript-and-typescript)
     - [React Test File](#react-test-file)
-    - [React Hooks Test File](#react-hooks-test-file)
     - [Describe a test](#describe-a-test)
     - [it should...](#it-should)
     - [it should (async)...](#it-should-async)
@@ -1436,22 +1435,6 @@ describe("$CFN", () => {
 
 > Note: typescript will do `import { $CFN } from "./$CFN"` since I prefer
 > non-default exports in typescript
-
-#### React Hooks Test File
-
-`rhtf` ->
-
-```tsx
-import { renderHook } from "@testing-library/react-hooks"
-
-import $TABSTOP from "../$CFN"
-
-describe("$CFN", () => {
-  it("should $TABSTOP", () => {
-    $TABSTOP
-  })
-})
-```
 
 #### Describe a test
 
