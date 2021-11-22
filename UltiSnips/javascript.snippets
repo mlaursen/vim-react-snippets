@@ -113,7 +113,6 @@ endsnippet
 # Test Snippets
 #
 snippet rtf "React Test File" b
-import React from 'react'
 import { render } from '@testing-library/react'
 
 import ${1:`!v expand('%:t:r')`} from '../$1'
@@ -169,7 +168,7 @@ endsnippet
 # React Snippets
 #
 snippet rce "React class exported" b
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 export default class ${1:`!v expand('%:t:r')`} extends Component {
 	constructor(props) {
@@ -201,8 +200,6 @@ constructor(props) {
 endsnippet
 
 snippet fce "function component exported" b
-import React from 'react'
-
 const ${1:`!v expand('%:t:r')`} = props => {
 	return null$0
 }
@@ -211,8 +208,6 @@ export default $1
 endsnippet
 
 snippet sfce "simple function component export (no props)" b
-import React from 'react'
-
 const ${1:`!v expand('%:t:r')`} = () => {
 	return null$0
 }
@@ -221,7 +216,7 @@ export default $1
 endsnippet
 
 snippet ffce "forwarded function component export" b
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 const $1 = forwardRef(function ${1:`!v expand('%:t:r')`}(props, ref) {
 	return (

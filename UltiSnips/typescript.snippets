@@ -113,7 +113,6 @@ endsnippet
 # Test Snippets
 #
 snippet rtf "React Test File" b
-import React from "react"
 import { render } from "@testing-library/react"
 
 import { ${1:`!v expand('%:t:r')`} } from "../$1"
@@ -175,7 +174,7 @@ endsnippet
 # React Snippets
 #
 snippet rce "react class exported" b
-import React, { Component } from "react"
+import { Component } from "react"
 
 export default class ${1:`!v expand('%:t:r')`} extends Component {
 	public render() {
@@ -185,7 +184,7 @@ export default class ${1:`!v expand('%:t:r')`} extends Component {
 endsnippet
 
 snippet rcep "react class exported (with prop interface)" b
-import React, { Component } from "react"
+import { Component } from "react"
 
 export interface $1Props {
 }
@@ -198,7 +197,7 @@ export default class ${1:`!v expand('%:t:r')`} extends Component<$1Props> {
 endsnippet
 
 snippet rceps "react class exported (with prop and state interfaces)" b
-import React, { Component } from "react"
+import { Component } from "react"
 
 export interface $1Props {
 }
@@ -236,7 +235,7 @@ constructor(props: ${1:`!v expand('%:t:r')`}Props) {
 endsnippet
 
 snippet fce "function component export (with prop interface)" b
-import React, { ReactElement } from "react"
+import type { ReactElement } from "react"
 
 export interface $1Props {
 	$3
@@ -248,7 +247,7 @@ export function ${1:`!v expand('%:t:r')`}(${2:props}: $1Props): ReactElement | n
 endsnippet
 
 snippet fcde "function component default export (with prop interface)" b
-import React, { ReactElement } from "react"
+import type { ReactElement } from "react"
 
 export interface $1Props {
 	$3
@@ -260,7 +259,7 @@ export default function ${1:`!v expand('%:t:r')`}(${2:props}: $1Props): ReactEle
 endsnippet
 
 snippet sfce "simple function component export (no prop interface)" b
-import React, { ReactElement } from "react"
+import type { ReactElement } from "react"
 
 export function ${1:`!v expand('%:t:r')`}(): ReactElement | null {
 	return ${2:null}
@@ -268,7 +267,7 @@ export function ${1:`!v expand('%:t:r')`}(): ReactElement | null {
 endsnippet
 
 snippet sfcde "simple function component default export (no prop interface)" b
-import React, { ReactElement } from "react"
+import type { ReactElement } from "react"
 
 export default function ${1:`!v expand('%:t:r')`}(): ReactElement | null {
 	return ${2:null}
@@ -276,7 +275,7 @@ export default function ${1:`!v expand('%:t:r')`}(): ReactElement | null {
 endsnippet
 
 snippet ffce "forwarded function component export"
-import React, { forwardRef } from "react"
+import { forwardRef } from "react"
 
 export interface ${1:`!v expand('%:t:r')`}Props {
 	$3
@@ -291,7 +290,7 @@ export const $1 = forwardRef<HTML${2:Div}Element, $1Props>(function $1(props, re
 endsnippet
 
 snippet ffcde "forwarded function component default export"
-import React, { forwardRef } from "react"
+import { forwardRef } from "react"
 
 export interface ${1:`!v expand('%:t:r')`}Props {
 	$3

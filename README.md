@@ -212,7 +212,7 @@ something else follows it).
 `rce` ->
 
 ```jsx
-import React, { Component } from "react"
+import { Component } from "react"
 
 export default class $CFN extends Component {
   constuctor(props) {
@@ -288,8 +288,6 @@ $TABSTOP = ($TABSTOP) => {
 `fce` ->
 
 ```jsx
-import React from "react"
-
 const $CFN = (props) => {
   return null
 }
@@ -302,8 +300,6 @@ export default $CFN
 `sfce` ->
 
 ```jsx
-import React from "react"
-
 const $CFN = () => {
   return null
 }
@@ -316,7 +312,7 @@ export default $CFN
 `ffce` ->
 
 ```jsx
-import React, { forwardRef } from "react"
+import { forwardRef } from "react"
 
 const $CFN = forwardRef(function $CFN(props, ref) {
   return <div ref={ref}></div>
@@ -686,7 +682,7 @@ export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
 `rce` ->
 
 ```tsx
-import React, { Component } from "react"
+import { Component } from "react"
 
 export default class $CFN extends Component {
   public render() {
@@ -700,7 +696,7 @@ export default class $CFN extends Component {
 `rcep` ->
 
 ```tsx
-import React, { Component } from "react"
+import { Component } from "react"
 
 export interface $CFN_Props {}
 
@@ -716,7 +712,7 @@ export default class $CFN extends Component<$CFN_Props> {
 `rceps` ->
 
 ```tsx
-import React, { Component } from "react"
+import { Component } from "react"
 
 export interface $CFN_Props {}
 
@@ -809,7 +805,7 @@ Note: These are different than the Javascript versions on purpose and use the
 `fce` ->
 
 ```tsx
-import React, { ReactElement } from "react"
+import type { ReactElement } from "react"
 
 export interface $CFN_Props {}
 
@@ -823,7 +819,7 @@ export function $CFN(props: $CFN_Props): ReactElement | null {
 `fcde` ->
 
 ```tsx
-import React, { ReactElement } from "react"
+import type { ReactElement } from "react"
 
 export interface $CFN_Props {}
 
@@ -837,7 +833,7 @@ export default function $CFN(props: $CFN_Props): ReactElement | null {
 `sfce` ->
 
 ```tsx
-import React, { ReactElement } from "react"
+import type { ReactElement } from "react"
 
 export function $CFN(): ReactElement | null {
   return null
@@ -849,7 +845,7 @@ export function $CFN(): ReactElement | null {
 `sfcde` ->
 
 ```tsx
-import React, { ReactElement } from "react"
+import type { ReactElement } from "react"
 
 export default function $CFN(): ReactElement | null {
   return null
@@ -861,7 +857,7 @@ export default function $CFN(): ReactElement | null {
 `ffce` ->
 
 ```tsx
-import React, { forwardRef } from "react"
+import { forwardRef } from "react"
 
 export interface $CFNProps {
   $TABSTOP
@@ -880,7 +876,7 @@ export const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
 `ffcde` ->
 
 ```tsx
-import React, { forwardRef } from "react"
+import { forwardRef } from "react"
 
 export interface $CFNProps {
   $TABSTOP
@@ -1427,7 +1423,6 @@ reduce<$TABSTOP>(($RESULT, $VALUE) => {
 `rtf` ->
 
 ```tsx
-import React from "react"
 import { render } from "@testing-library/react"
 
 import $CFN from "../$CFN"
@@ -1447,7 +1442,6 @@ describe("$CFN", () => {
 `rhtf` ->
 
 ```tsx
-import React from "react"
 import { renderHook } from "@testing-library/react-hooks"
 
 import $TABSTOP from "../$CFN"
