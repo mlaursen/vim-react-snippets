@@ -132,7 +132,6 @@ and setup.
     - [useEffect async](#useeffect-async-1)
     - [useContext](#usecontext-1)
     - [useReducer](#usereducer-1)
-    - [useReducer Untyped](#usereducer-untyped)
     - [useCallback](#usecallback-1)
     - [useMemo](#usememo-1)
     - [useRef](#useref-1)
@@ -487,7 +486,9 @@ return useContext($TABSTOP)
 `useRed` ->
 
 ```js
-const [$STATE, $DISPATCH] = useReducer($REDUCER, $NULL)
+const [$STATE, $DISPATCH] = useReducer(function reducer(state, action) {
+  return state
+}, $NULL)
 ```
 
 #### useCallback
@@ -1273,15 +1274,13 @@ return useContext$TABSTOP($TABSTOP)
 `useRed` ->
 
 ```ts
-const [$STATE, $DISPATCH] = useReducer<typeof $REDUCER>($REDUCER, $NULL)
-```
-
-#### useReducer Untyped
-
-`useRedUT` ->
-
-```ts
-const [$STATE, $DISPATCH] = useReducer($REDUCER, $NULL)
+const [$STATE, $DISPATCH] = useReducer(function reducer(
+  state: $TABSTOP,
+  action: $TABSTOP
+): $TABSTOP {
+  return state
+},
+$NULL)
 ```
 
 #### useCallback

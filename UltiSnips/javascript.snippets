@@ -356,8 +356,10 @@ snippet useC "useContext()" b
 const ${1:context} = useContext($2)
 endsnippet
 
-snippet useRed "useReducer(reducer, initialValue)" b
-const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null})
+snippet useRed "useReducer(reducer, initialState, getInitialState)" b
+const [${1:state}, ${2:dispatch}] = useReducer(function reducer(state, action) {
+	return state
+}, ${3:null})
 endsnippet
 
 snippet useCB "useCallback(fn, inputs)" b

@@ -473,12 +473,10 @@ snippet useC "useContext()" b
 ${5:const ${1:context} =} useContext$3($2)$0
 endsnippet
 
-snippet useRed "useReducer(reducer, initialValue)" b
-const [${4:state}, ${5:dispatch}] = useReducer<typeof $2>(${2:reducer}, ${3:null})
-endsnippet
-
-snippet useRedUT "use reducer untyped" b
-const [${3:state}, ${4:dispatch}] = useReducer($1, ${2:{}})
+snippet useRed "useReducer(reducer, initialState, getInitialState)" b
+const [${4:state}, ${5:dispatch}] = useReducer(function reducer(state: $1, action: $2): $1 {
+	return state
+}, ${3:null})
 endsnippet
 
 snippet useCB "useCallback(fn, inputs)" b
