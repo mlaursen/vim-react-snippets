@@ -229,8 +229,8 @@ export interface $1Props {
 	$3
 }
 
-export function ${1:`!v expand('%:t:r')`}(${2:props}: $1Props): ReactElement | null {
-	return ${4:null}$0
+export function ${1:`!v expand('%:t:r')`}(${2:props}: $1Props): ReactElement {
+	return ${4:<></>}$0
 }
 endsnippet
 
@@ -241,24 +241,24 @@ export interface $1Props {
 	$3
 }
 
-export default function ${1:`!v expand('%:t:r')`}(${2:props}: $1Props): ReactElement | null {
-	return ${4:null}$0
+export default function ${1:`!v expand('%:t:r')`}(${2:props}: $1Props): ReactElement {
+	return ${4:<></>}$0
 }
 endsnippet
 
 snippet sfce "simple function component export (no prop interface)" b
 import type { ReactElement } from "react"
 
-export function ${1:`!v expand('%:t:r')`}(): ReactElement | null {
-	return ${2:null}
+export function ${1:`!v expand('%:t:r')`}(): ReactElement {
+	return ${2:<></>}
 }
 endsnippet
 
 snippet sfcde "simple function component default export (no prop interface)" b
 import type { ReactElement } from "react"
 
-export default function ${1:`!v expand('%:t:r')`}(): ReactElement | null {
-	return ${2:null}
+export default function ${1:`!v expand('%:t:r')`}(): ReactElement {
+	return ${2:<></>}
 }
 endsnippet
 

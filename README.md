@@ -809,8 +809,8 @@ import type { ReactElement } from "react"
 
 export interface $CFN_Props {}
 
-export function $CFN(props: $CFN_Props): ReactElement | null {
-  return null
+export function $CFN(props: $CFN_Props): ReactElement {
+  return <></>
 }
 ```
 
@@ -823,8 +823,8 @@ import type { ReactElement } from "react"
 
 export interface $CFN_Props {}
 
-export default function $CFN(props: $CFN_Props): ReactElement | null {
-  return null
+export default function $CFN(props: $CFN_Props): ReactElement {
+  return <></>
 }
 ```
 
@@ -835,8 +835,8 @@ export default function $CFN(props: $CFN_Props): ReactElement | null {
 ```tsx
 import type { ReactElement } from "react"
 
-export function $CFN(): ReactElement | null {
-  return null
+export function $CFN(): ReactElement {
+  return <></>
 }
 ```
 
@@ -847,8 +847,8 @@ export function $CFN(): ReactElement | null {
 ```tsx
 import type { ReactElement } from "react"
 
-export default function $CFN(): ReactElement | null {
-  return null
+export default function $CFN(): ReactElement {
+  return <></>
 }
 ```
 
