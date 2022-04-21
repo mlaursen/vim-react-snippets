@@ -1398,14 +1398,17 @@ reduce<$TABSTOP>(($RESULT, $VALUE) => {
 | Shortcut | Expands to                              |
 | -------- | --------------------------------------- |
 | `cl`     | `console.log($TABSTOP)`                 |
-| `clv`    | `console.log('variable: ', variable)`   |
+| `clv`    | `console.log('$TABSTOP: ', $TABSTOP)`   |
 | `ce`     | `console.error($TABSTOP)`               |
-| `cev`    | `console.error('variable: ', $TABSTOP)` |
+| `cev`    | `console.error('$TABSTOP: ', $TABSTOP)` |
 | `cw`     | `console.warn($TABSTOP)`                |
-| `cwv`    | `console.warn('variable: ', $TABSTOP)`  |
+| `cwv`    | `console.warn('$TABSTOP: ', $TABSTOP)`  |
 | `ct`     | `console.table($TABSTOP)`               |
 | `cd`     | `console.debug($TABSTOP)`               |
-| `cdv`    | `console.debug('variable: ', $TABSTOP)` |
+| `cdv`    | `console.debug('$TABSTOP: ', $TABSTOP)` |
+
+> Note: The logging commands that end in a `v` will have the cursor at the
+> second `$TABSTOP` instead of the first so that autocompletion will work.
 
 ### NODE_ENV
 
