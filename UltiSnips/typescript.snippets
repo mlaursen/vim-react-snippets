@@ -511,6 +511,10 @@ snippet useDV "useDebugValue(value)" b
 useDebugValue(${1:null})
 endsnippet
 
+snippet useT "useTransition" b
+const [${1:isPending}, ${2:startTransition}] = useTransition()
+endsnippet
+
 # ==========================================
 # "Inline" versions of hooks
 #

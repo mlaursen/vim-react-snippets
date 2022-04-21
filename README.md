@@ -71,6 +71,7 @@ and setup.
     - [useImperitiveHandle](#useimperitivehandle)
     - [useLayoutEffect](#uselayouteffect)
     - [useDebugValue](#usedebugvalue)
+    - [useTransition](#usetransition)
   - [General Redux (Javascript)](#general-redux-javascript)
     - [mirrored const](#mirrored-const)
     - [useDispatch](#usedispatch)
@@ -138,6 +139,7 @@ and setup.
     - [useImperitiveHandle](#useimperitivehandle-1)
     - [useLayoutEffect](#uselayouteffect-1)
     - [useDebugValue](#usedebugvalue-1)
+    - [useTransition](#usetransition-1)
   - [General Built-Ins (Typescript)](#general-built-ins-typescript)
     - [reduce to type (Typescript Only)](#reduce-to-type-typescript-only)
     - [jsdoc comment](#jsdoc-comment-1)
@@ -548,6 +550,14 @@ useLayoutEffect(() => {
 
 ```js
 useDebugValue($NULL)
+```
+
+#### useTransition
+
+`useT` ->
+
+```js
+const [$isPending, $startTransition] = useTransition()
 ```
 
 ### General Redux (Javascript)
@@ -1340,6 +1350,14 @@ useLayoutEffect(() => {
 
 ```ts
 useDebugValue($NULL)
+```
+
+#### useTransition
+
+`useT` ->
+
+```ts
+const [$isPending, $startTransition] = useTransition()
 ```
 
 ### General Built-Ins (Typescript)
