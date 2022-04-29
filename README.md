@@ -68,7 +68,7 @@ and setup.
     - [useCallback](#usecallback)
     - [useMemo](#usememo)
     - [useRef](#useref)
-    - [useImperitiveHandle](#useimperitivehandle)
+    - [useImperativeHandle](#useimperativehandle)
     - [useLayoutEffect](#uselayouteffect)
     - [useDebugValue](#usedebugvalue)
     - [useTransition](#usetransition)
@@ -136,7 +136,7 @@ and setup.
     - [useCallback](#usecallback-1)
     - [useMemo](#usememo-1)
     - [useRef](#useref-1)
-    - [useImperitiveHandle](#useimperitivehandle-1)
+    - [useImperativeHandle](#useimperativehandle-1)
     - [useLayoutEffect](#uselayouteffect-1)
     - [useDebugValue](#usedebugvalue-1)
     - [useTransition](#usetransition-1)
@@ -523,13 +523,13 @@ const $MEMOIZED = useMemo(() => {
 const $REF = useRef($TABSTOP)
 ```
 
-#### useImperitiveHandle
+#### useImperativeHandle
 
 `useI` ->
 
 <!-- prettier-ignore -->
 ```js
-useImperitiveHandle($REF, () => ({
+useImperativeHandle($REF, () => ({
   $TABSTOP,
 }), [$TABSTOP])
 ```
@@ -1323,13 +1323,13 @@ const $MEMOIZED = useMemo(() => {
 const $REF = useRef$TABSTOP(TABSTOP)
 ```
 
-#### useImperitiveHandle
+#### useImperativeHandle
 
 `useI` ->
 
 <!-- prettier-ignore -->
 ```ts
-useImperitiveHandle($REF, () => ({
+useImperativeHandle($REF, () => ({
   $TABSTOP,
 }), [$TABSTOP])
 ```
