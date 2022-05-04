@@ -1557,6 +1557,6 @@ expect($TABSTOP_container).toMatchSnapshot()
 [react]: https://reactjs.org/
 [ultisnips]: https://github.com/SirVer/ultisnips
 [ultisnips folder]:
-  https://github.com/mlaursen/vim-react-snippets/tree/master/UltiSnips
+  https://github.com/mlaursen/vim-react-snippets/tree/main/UltiSnips
 [vim-plug]: https://github.com/junegunn/vim-plug
-[full .vimrc]: https://github.com/mlaursen/dotfiles/tree/master/.vimrc
+[full .vimrc]: https://github.com/mlaursen/dotfiles/tree/main/.vimrc
