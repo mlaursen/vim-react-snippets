@@ -486,9 +486,9 @@ const ${1:callback} = useCallback(($2) => {
 endsnippet
 
 snippet useM "useMemo(fn, inputs)" b
-const ${1:memoized} = useMemo(() => ${2:{
-	$3
-}}, [$4])
+const ${1:memoized} = useMemo(() => {
+	$0
+}, [])
 endsnippet
 
 snippet useR "useRef(defaultValue)" b
@@ -531,9 +531,9 @@ useCallback(($1) => {
 endsnippet
 
 snippet useM "useMemo(fn, inputs)" w
-useMemo(() => ${1:{
-	$2
-}}, [$3])
+useMemo(() => {
+	$0
+}, [])
 endsnippet
 
 snippet useR "useRef(defaultValue)" w
