@@ -288,7 +288,7 @@ const [$STATE, set$STATE] = useState$TABSTOP($TABSTOP)
 ```ts
 useEffect(() => {
   $TABSTOP
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useEffect async
@@ -312,7 +312,7 @@ useEffect(() => {
   return () => {
     cancelled = true
   }
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useContext
@@ -353,7 +353,7 @@ $NULL)
 ```ts
 const $CALLBACK = useCallback(($TABSTOP) => {
   $TABSTOP
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useMemo
@@ -364,7 +364,7 @@ const $CALLBACK = useCallback(($TABSTOP) => {
 ```ts
 const $MEMOIZED = useMemo(() => {
   $TABSTOP
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useRef
@@ -393,7 +393,7 @@ useImperativeHandle($REF, () => ({
 ```ts
 useLayoutEffect(() => {
   $TABSTOP
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useDebugValue
@@ -955,7 +955,7 @@ const [$STATE, set$STATE] = useState($TABSTOP)
 ```js
 useEffect(() => {
   $TABSTOP
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useEffect async
@@ -979,7 +979,7 @@ useEffect(() => {
   return () => {
     cancelled = true
   }
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useContext
@@ -1016,7 +1016,7 @@ const [$STATE, $DISPATCH] = useReducer(function reducer(state, action) {
 ```js
 const $CALLBACK = useCallback(($TABSTOP) => {
   $TABSTOP
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useMemo
@@ -1027,7 +1027,7 @@ const $CALLBACK = useCallback(($TABSTOP) => {
 ```js
 const $MEMOIZED = useMemo(() => {
   $TABSTOP
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useRef
@@ -1056,7 +1056,7 @@ useImperativeHandle($REF, () => ({
 ```js
 useLayoutEffect(() => {
   $TABSTOP
-}, [$TABSTOP])
+}, [])
 ```
 
 #### useDebugValue
