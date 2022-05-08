@@ -21,15 +21,21 @@ and setup.
 
 ## Typescript Example
 
-![Typescript Example](https://user-images.githubusercontent.com/3920850/55372579-79c5be80-54bf-11e9-92d3-3122879aaa61.gif)
+https://user-images.githubusercontent.com/3920850/167317421-45035822-9ced-40ec-8d85-9b3db5d42651.mov
 
-## Javascript Example
 
-![Javascript Example](https://user-images.githubusercontent.com/3920850/55372575-75010a80-54bf-11e9-97ce-3557ba3f044e.gif)
+## Previewing Snippets with [coc-snippets](https://github.com/neoclide/coc-snippets)
 
-## Hooks Example
+https://user-images.githubusercontent.com/3920850/167317372-6165c118-99da-4a31-88e6-57b6c7086ed5.mov
 
-![Hooks Example](https://user-images.githubusercontent.com/3920850/55372583-7c281880-54bf-11e9-94ab-c8fb1bba411b.gif)
+## Using Log Helpers
+
+https://user-images.githubusercontent.com/3920850/167317795-63e74576-f0e6-4787-817f-b699e88d10e7.mov
+
+## Writing Tests
+
+https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9eab-ee3dc79771e9.mov
+
 
 ## Table of Contents
 
