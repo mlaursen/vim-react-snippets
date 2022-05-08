@@ -383,7 +383,7 @@ const $REF = useRef$TABSTOP(TABSTOP)
 ```ts
 useImperativeHandle($REF, () => ({
   $TABSTOP,
-}), [$TABSTOP])
+}), [])
 ```
 
 #### useLayoutEffect
@@ -1046,7 +1046,7 @@ const $REF = useRef($TABSTOP)
 ```js
 useImperativeHandle($REF, () => ({
   $TABSTOP,
-}), [$TABSTOP])
+}), [])
 ```
 
 #### useLayoutEffect

@@ -379,9 +379,9 @@ const ${1:ref} = useRef(${2:null})
 endsnippet
 
 snippet useI "useImperativeHandle(ref, createHandle, [inputs])" b
-useImperativeHandle(${1:ref}, ${4:() => ({
-	$2
-})}, ${5:[$3]})
+useImperativeHandle(${1:ref}, () => ({
+	$0
+}), [])
 endsnippet
 
 snippet useL "useLayoutEffect()" b
