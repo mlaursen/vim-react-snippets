@@ -250,7 +250,7 @@ snippet sfce "simple function component export (no prop interface)" b
 import type { ReactElement } from "react"
 
 export function ${1:`!v expand('%:t:r')`}(): ReactElement {
-	return ${2:<></>}
+	return ${2:<></>}$0
 }
 endsnippet
 
@@ -258,7 +258,7 @@ snippet sfcde "simple function component default export (no prop interface)" b
 import type { ReactElement } from "react"
 
 export default function ${1:`!v expand('%:t:r')`}(): ReactElement {
-	return ${2:<></>}
+	return ${2:<></>}$0
 }
 endsnippet
 
