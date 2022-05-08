@@ -119,7 +119,7 @@ import { ${1:`!v expand('%:t:r')`} } from "../$1"
 
 describe("$1", () => {
 	it("should $2", () => {
-		$3
+		$0
 	})
 })
 endsnippet
@@ -127,20 +127,20 @@ endsnippet
 snippet desc "describe a test" b
 describe("$1", () => {
 	it("should $2", () => {
-		$3
+		$0
 	})
 })
 endsnippet
 
 snippet it "create a test block" b
 it("should $1", () => {
-	$2
+	$0
 })
 endsnippet
 
 snippet ait "create an async test block" b
 it('should $1', async () => {
-	$2
+	$0
 })
 endsnippet
 
