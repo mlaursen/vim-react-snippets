@@ -447,14 +447,14 @@ endsnippet
 snippet useE "useEffect()" b
 useEffect(() => {
 	$0
-}, [$1])
+}, [])
 endsnippet
 
 snippet useEA "useEffect() async" b
 useEffect(() => {
 	let cancelled = false
 
-	;(async function ${4:doWork}(): Promise<${5:void}> {
+	;(async function ${3:doWork}(): Promise<${4:void}> {
 		${1:// async work here}
 		if (cancelled) {
 			return
@@ -466,7 +466,7 @@ useEffect(() => {
 	return () => {
 		cancelled = true
 	}
-}, [$3])
+}, [])
 endsnippet
 
 snippet useC "useContext()" b
@@ -504,7 +504,7 @@ endsnippet
 snippet useL "useLayoutEffect()" b
 useLayoutEffect(() => {
 	$0
-}, [$1])
+}, [])
 endsnippet
 
 snippet useDV "useDebugValue(value)" b
