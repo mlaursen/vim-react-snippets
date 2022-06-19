@@ -23,7 +23,6 @@ and setup.
 
 https://user-images.githubusercontent.com/3920850/167317421-45035822-9ced-40ec-8d85-9b3db5d42651.mov
 
-
 ## Previewing Snippets with [coc-snippets](https://github.com/neoclide/coc-snippets)
 
 https://user-images.githubusercontent.com/3920850/167317372-6165c118-99da-4a31-88e6-57b6c7086ed5.mov
@@ -35,7 +34,6 @@ https://user-images.githubusercontent.com/3920850/167317795-63e74576-f0e6-4787-8
 ## Writing Tests
 
 https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9eab-ee3dc79771e9.mov
-
 
 ## Table of Contents
 
