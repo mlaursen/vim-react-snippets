@@ -1403,6 +1403,7 @@ export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
 | `impa`   | `import * as Thing from 'package-or/path'`    |
 | `impp`   | `import './file'`                             |
 | `icn`    | `import cn from 'classnames'`                 |
+| `icnb`   | `import { cnb } from 'cnbuilder'`             |
 | `ism`    | `import styles from './$CFN.module.scss'`     |
 
 ### Exporting
