@@ -98,6 +98,7 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [create prepare reducer](#create-prepare-reducer)
     - [createAsyncThunk](#createasyncthunk)
   - [General Built-Ins (Typescript)](#general-built-ins-typescript)
+    - [interface (Typescript Only)](#interface-typescript-only)
     - [reduce to type (Typescript Only)](#reduce-to-type-typescript-only)
     - [jsdoc comment](#jsdoc-comment)
   - [Function Components (Javascript)](#function-components-javascript)
@@ -856,6 +857,14 @@ export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
 ```
 
 ### General Built-Ins (Typescript)
+
+#### interface (Typescript Only)
+
+`intf` ->
+
+```ts
+export interface $CFN_$TABSTOP {}
+```
 
 #### reduce to type (Typescript Only)
 

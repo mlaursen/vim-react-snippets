@@ -156,12 +156,6 @@ snippet es "expect(container).toMatchSnapshot()" b
 expect(${1:container}).toMatchSnapshot()$0
 endsnippet
 
-snippet intf "create interface for file" b
-export interface ${1:`!v expand('%:t:r')`}$2 {
-	$0
-}
-endsnippet
-
 # ==========================================
 # React Snippets
 #
@@ -646,6 +640,12 @@ priority 0
 # ==========================================
 # General Built-Ins
 #
+
+snippet intf "create interface for file" b
+export interface ${1:`!v expand('%:t:r')`}$2 {
+	$0
+}
+endsnippet
 
 snippet re "reduce<Type>" w
 reduce<$1>((${2:result}, ${3:value}) => {
