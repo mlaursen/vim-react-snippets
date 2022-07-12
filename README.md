@@ -324,7 +324,7 @@ useEffect(() => {
 `useC` ->
 
 ```ts
-const context = useContext$TABSTOP($TABSTOP)
+const context = useContext($TABSTOP)
 ```
 
 or inline:
@@ -332,7 +332,7 @@ or inline:
 `return useC` ->
 
 ```ts
-return useContext$TABSTOP($TABSTOP)
+return useContext($TABSTOP)
 ```
 
 #### useReducer
