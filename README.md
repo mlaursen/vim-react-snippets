@@ -98,6 +98,7 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [create prepare reducer](#create-prepare-reducer)
     - [createAsyncThunk](#createasyncthunk)
   - [General Built-Ins (Typescript)](#general-built-ins-typescript)
+    - [noop](#noop)
     - [interface (Typescript Only)](#interface-typescript-only)
     - [reduce to type (Typescript Only)](#reduce-to-type-typescript-only)
     - [jsdoc comment](#jsdoc-comment)
@@ -147,6 +148,7 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [createAsyncThunk](#createasyncthunk-1)
   - [General Built-Ins (Javascript)](#general-built-ins-javascript)
     - [jsdoc comment](#jsdoc-comment-1)
+    - [noop](#noop-1)
   - [PropTypes](#proptypes)
   - [Importing](#importing)
   - [Exporting](#exporting)
@@ -858,6 +860,16 @@ export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
 
 ### General Built-Ins (Typescript)
 
+#### noop
+
+`noop` ->
+
+```ts
+const noop = (): void => {
+  // do nothing
+}
+```
+
 #### interface (Typescript Only)
 
 `intf` ->
@@ -1369,6 +1381,14 @@ export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
 /**
  * $TABEND
  */
+```
+
+#### noop
+
+`noop` ->
+
+```js
+const noop = () > {}
 ```
 
 ### PropTypes
