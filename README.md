@@ -55,6 +55,7 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [useReducer](#usereducer)
     - [useCallback](#usecallback)
     - [useMemo](#usememo)
+    - [useMemo return (manual return required)](#usememo-return-manual-return-required)
     - [useRef](#useref)
     - [useImperativeHandle](#useimperativehandle)
     - [useLayoutEffect](#uselayouteffect)
@@ -116,6 +117,7 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [useReducer](#usereducer-1)
     - [useCallback](#usecallback-1)
     - [useMemo](#usememo-1)
+    - [useMemo return (manual return required)](#usememo-return-manual-return-required-1)
     - [useRef](#useref-1)
     - [useImperativeHandle](#useimperativehandle-1)
     - [useLayoutEffect](#uselayouteffect-1)
@@ -366,6 +368,17 @@ const $CALLBACK = useCallback(($TABSTOP) => {
 #### useMemo
 
 `useM` ->
+
+<!-- prettier-ignore -->
+```ts
+const $MEMOIZED = useMemo(() => ({
+  $TABSTOP
+}), [])
+```
+
+#### useMemo return (manual return required)
+
+`useMR` ->
 
 <!-- prettier-ignore -->
 ```ts
@@ -1047,6 +1060,17 @@ const $CALLBACK = useCallback(($TABSTOP) => {
 #### useMemo
 
 `useM` ->
+
+<!-- prettier-ignore -->
+```js
+const $MEMOIZED = useMemo(() => ({
+  $TABSTOP
+}), [])
+```
+
+#### useMemo return (manual return required)
+
+`useMR` ->
 
 <!-- prettier-ignore -->
 ```js
