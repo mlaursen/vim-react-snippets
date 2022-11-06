@@ -540,7 +540,13 @@ useCallback(($1) => {
 }, [])
 endsnippet
 
-snippet useM "useMemo(fn, inputs)" w
+snippet useM "useMemo" w
+useMemo(() => ({
+	$0
+}), [])
+endsnippet
+
+snippet useMR "useMemo return" w
 useMemo(() => {
 	$0
 }, [])
