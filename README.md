@@ -158,11 +158,19 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
   - [NODE_ENV](#node_env)
   - [Tests](#tests)
     - [React Test File](#react-test-file)
+    - [Screen React Test File](#screen-react-test-file)
     - [Describe a test](#describe-a-test)
     - [it should...](#it-should)
     - [it should (async)...](#it-should-async)
     - [Test todo](#test-todo)
     - [expect snapshot](#expect-snapshot)
+    - [getByRole](#getbyrole)
+    - [findByRole](#findbyrole)
+    - [screen.getByRole](#screengetbyrole)
+    - [screen.findByRole](#screenfindbyrole)
+    - [waitFor](#waitfor)
+    - [expect to throw](#expect-to-throw)
+    - [expect not to throw](#expect-not-to-throw)
 - [SCSS Snippets](#scss-snippets)
   - [New Sass Module System](#new-sass-module-system)
     - [Use file](#use-file)
@@ -1514,6 +1522,25 @@ describe("$CFN", () => {
 > Note: typescript will do `import { $CFN } from "./$CFN"` since I prefer
 > non-default exports in typescript
 
+#### Screen React Test File
+
+`srtf` ->
+
+```tsx
+import { render, screen } from "@testing-library/react"
+
+import $CFN from "../$CFN"
+
+describe("$CFN", () => {
+  it("should $TABSTOP", () => {
+    $TABSTOP
+  })
+})
+```
+
+> Note: typescript will do `import { $CFN } from "./$CFN"` since I prefer
+> non-default exports in typescript
+
 #### Describe a test
 
 `desc` ->
@@ -1560,6 +1587,96 @@ it.todo("should $TABSTOP")
 
 ```ts
 expect($TABSTOP_container).toMatchSnapshot()
+```
+
+#### getByRole
+
+`gbr` ->
+
+```tsx
+const $TABSTOP = getByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+or inline:
+
+`const button = gbr` ->
+
+```tsx
+const button = screen.getByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### findByRole
+
+`fbr` ->
+
+```tsx
+const $TABSTOP = await findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+or inline:
+
+`cy.fbr` ->
+
+```tsx
+cy.findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### screen.getByRole
+
+`sgbr` ->
+
+```tsx
+const $TABSTOP = screen.getByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+or inline:
+
+`const button = sgbr` ->
+
+```tsx
+const button = screen.getByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### screen.findByRole
+
+`sfbr` ->
+
+```tsx
+const $TABSTOP = await screen.findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+or inline:
+
+`const button = await sfbr` ->
+
+```tsx
+const button = await screen.findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### waitFor
+
+`wf` ->
+
+```tsx
+await waitFor(() => {
+  $TABSTOP
+})
+```
+
+#### expect to throw
+
+`ett` ->
+
+```ts
+expect(() => $TABSTOP).toThrow()
+```
+
+#### expect not to throw
+
+`entt` ->
+
+```ts
+expect(() => $TABSTOP).not.toThrow()
 ```
 
 ## SCSS Snippets

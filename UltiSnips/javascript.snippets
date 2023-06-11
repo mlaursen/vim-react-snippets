@@ -132,6 +132,18 @@ describe('$1', () => {
 })
 endsnippet
 
+snippet srtf "Screen React Test File" b
+import { render, screen } from '@testing-library/react'
+
+import ${1:`!v expand('%:t:r')`} from '../$1'
+
+describe('$1', () => {
+	it('should $2', () => {
+		$0
+	})
+})
+endsnippet
+
 snippet desc "describe a test" b
 describe('$1', () => {
 	it('should $2', () => {
@@ -159,6 +171,59 @@ endsnippet
 snippet es "expect(container).toMatchSnapshot()" b
 expect(${1:container}).toMatchSnapshot()$0
 endsnippet
+
+snippet gbr "getByRole" b
+const $1 = getByRole("${2:button}", { name: "$3" })
+endsnippet
+
+snippet fbr "findByRole" b
+const $1 = await findByRole("${2:button}", { name: "$3" })
+endsnippet
+
+snippet sgbr "screen.getByRole" b
+const $1 = screen.getByRole("${2:button}", { name: "$3" })
+endsnippet
+
+snippet sfbr "screen.findByRole" b
+const $1 = await screen.findByRole("${2:button}", { name: "$3" })
+endsnippet
+
+snippet wf "wait for" b
+await waitFor(() => {
+	$0
+})
+endsnippet
+
+snippet ett "expect to throw" w
+expect(() => $1).toThrow()
+endsnippet
+
+snippet entt "expect not to throw" w
+expect(() => $1).not.toThrow()
+endsnippet
+
+# ==========================================
+# "Inline" versions of test snippets
+#
+priority -1
+
+snippet gbr "getByRole" w
+getByRole("${1:button}", { name: "$2" })
+endsnippet
+
+snippet fbr "findByRole" w
+getByRole("${1:button}", { name: "$2" })
+endsnippet
+
+snippet sgbr "screen.getByRole" w
+screen.getByRole("${1:button}", { name: "$2" })
+endsnippet
+
+snippet sfbr "screen.findByRole" w
+screen.getByRole("${1:button}", { name: "$2" })
+endsnippet
+
+priority 0
 
 # ==========================================
 # React Snippets
