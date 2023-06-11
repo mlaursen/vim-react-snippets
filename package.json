@@ -12,8 +12,8 @@
     "toc": "markdown-toc -i README.md"
   },
   "devDependencies": {
-    "husky": "^8.0.1",
+    "husky": "^8.0.3",
     "markdown-toc": "^1.2.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.8"
   }
 }
