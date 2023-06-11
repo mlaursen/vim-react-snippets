@@ -1538,7 +1538,7 @@ it("should $TABSTOP", () => {
 
 #### it should (async)...
 
-`ait` ->
+`ita` ->
 
 ```ts
 it("should $TABSTOP", async () => {
