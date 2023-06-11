@@ -1602,7 +1602,7 @@ or inline:
 `const button = gbr` ->
 
 ```tsx
-const button = screen.getByRole("$BUTTON", { name: "$TABSTOP" })
+const button = getByRole("$BUTTON", { name: "$TABSTOP" })
 ```
 
 #### findByRole
