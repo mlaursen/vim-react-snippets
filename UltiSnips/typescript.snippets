@@ -190,6 +190,14 @@ snippet sfbr "screen.findByRole" b
 const $1 = await screen.findByRole("${2:button}", { name: "$3" })
 endsnippet
 
+snippet sgbi "screen.getByTestId" b
+const $1 = screen.getByTestId("$2")
+endsnippet
+
+snippet sgbt "screen.getByText" b
+const $1 = screen.getByText("$2")
+endsnippet
+
 snippet wf "wait for" b
 await waitFor(() => {
 	$0
@@ -223,6 +231,14 @@ endsnippet
 
 snippet sfbr "screen.findByRole" w
 screen.findByRole("${1:button}", { name: "$2" })
+endsnippet
+
+snippet sgbi "screen.getByTestId" b
+screen.getByTestId("$1")
+endsnippet
+
+snippet sgbt "screen.getByText" b
+screen.getByText("$1")
 endsnippet
 
 priority 0

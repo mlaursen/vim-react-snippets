@@ -168,6 +168,8 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [findByRole](#findbyrole)
     - [screen.getByRole](#screengetbyrole)
     - [screen.findByRole](#screenfindbyrole)
+    - [screen.getByTestId](#screengetbytestid)
+    - [screen.getByText](#screengetbytext)
     - [waitFor](#waitfor)
     - [expect to throw](#expect-to-throw)
     - [expect not to throw](#expect-not-to-throw)
@@ -1651,6 +1653,38 @@ or inline:
 
 ```tsx
 const button = await screen.findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### screen.getByTestId
+
+`sgbi` ->
+
+```tsx
+const $TABSTOP = screen.getByTestId("$TABSTOP")
+```
+
+or inline:
+
+`const element = sgbi` ->
+
+```tsx
+const element = screen.getByTestId("$TABSTOP")
+```
+
+#### screen.getByText
+
+`sgbt` ->
+
+```tsx
+const $TABSTOP = screen.getByText("$TABSTOP")
+```
+
+or inline:
+
+`const element = sgbt` ->
+
+```tsx
+const element = screen.getByText("$TABSTOP")
 ```
 
 #### waitFor
