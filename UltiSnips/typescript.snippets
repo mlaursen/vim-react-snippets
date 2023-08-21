@@ -14,7 +14,7 @@ const $1 = require("$2`!p snip.rv=lowerdash(t[1])`")
 endsnippet
 
 snippet rcn "const { nested } = require('package')" b
-const { $1 } = require("$2");
+const { $1 } = require("$2")
 endsnippet
 
 snippet imp "import package that converts from camelCase or PascalCase to kebab-cased" b
@@ -212,6 +212,14 @@ snippet entt "expect not to throw" b
 expect(() => $1).not.toThrow()
 endsnippet
 
+snippet ecw "expect toHaveBeenCalledWith" b
+expect($1).toHaveBeenCalledWith($2)
+endsnippet
+
+snippet ect "expect toHaveBeenCalledTimes" b
+expect($1).toHaveBeenCalledTimes($2)
+endsnippet
+
 # ==========================================
 # "Inline" versions of test snippets
 #
@@ -239,6 +247,14 @@ endsnippet
 
 snippet sgbt "screen.getByText" w
 screen.getByText("$1")
+endsnippet
+
+snippet cw "expect toHaveBeenCalledWith" w
+toHaveBeenCalledWith($1)
+endsnippet
+
+snippet ct "expect toHaveBeenCalledTimes" w
+toHaveBeenCalledTimes($1)
 endsnippet
 
 priority 0

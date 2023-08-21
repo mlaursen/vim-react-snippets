@@ -173,6 +173,8 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [waitFor](#waitfor)
     - [expect to throw](#expect-to-throw)
     - [expect not to throw](#expect-not-to-throw)
+    - [expect called with](#expect-called-with)
+    - [expect called times](#expect-called-times)
 - [SCSS Snippets](#scss-snippets)
   - [New Sass Module System](#new-sass-module-system)
     - [Use file](#use-file)
@@ -1711,6 +1713,38 @@ expect(() => $TABSTOP).toThrow()
 
 ```ts
 expect(() => $TABSTOP).not.toThrow()
+```
+
+#### expect called with
+
+`ecw` ->
+
+```tsx
+expect($TABSTOP).toHaveBeenCalledWith($TABSTOP)
+```
+
+or inline:
+
+`expect(myFunc).cw` ->
+
+```tsx
+expect(myFunc).toHaveBeenCalledWith($TABSTOP)
+```
+
+#### expect called times
+
+`ect` ->
+
+```tsx
+expect($TABSTOP).toHaveBeenCalledTimes($TABSTOP)
+```
+
+or inline:
+
+`expect(myFunc).ct` ->
+
+```tsx
+expect(myFunc).toHaveBeenCalledTimes($TABSTOP)
 ```
 
 ## SCSS Snippets
