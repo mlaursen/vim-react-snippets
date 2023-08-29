@@ -173,7 +173,8 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [waitFor](#waitfor)
     - [expect to throw](#expect-to-throw)
     - [expect not to throw](#expect-not-to-throw)
-    - [expect called with](#expect-called-with)
+    - [expect not called (toHaveBeenCalled)](#expect-not-called-tohavebeencalled)
+    - [expect called with (toHaveBeenCalledWith)](#expect-called-with-tohavebeencalledwith)
     - [expect called times](#expect-called-times)
 - [SCSS Snippets](#scss-snippets)
   - [New Sass Module System](#new-sass-module-system)
@@ -1715,20 +1716,20 @@ expect(() => $TABSTOP).toThrow()
 expect(() => $TABSTOP).not.toThrow()
 ```
 
-#### expect called with
+#### expect not called (toHaveBeenCalled)
+
+`enc` ->
+
+```tsx
+expect($TABSTOP).not.toHaveBeenCalled()
+```
+
+#### expect called with (toHaveBeenCalledWith)
 
 `ecw` ->
 
 ```tsx
 expect($TABSTOP).toHaveBeenCalledWith($TABSTOP)
-```
-
-or inline:
-
-`expect(myFunc).cw` ->
-
-```tsx
-expect(myFunc).toHaveBeenCalledWith($TABSTOP)
 ```
 
 #### expect called times
@@ -1737,14 +1738,6 @@ expect(myFunc).toHaveBeenCalledWith($TABSTOP)
 
 ```tsx
 expect($TABSTOP).toHaveBeenCalledTimes($TABSTOP)
-```
-
-or inline:
-
-`expect(myFunc).ct` ->
-
-```tsx
-expect(myFunc).toHaveBeenCalledTimes($TABSTOP)
 ```
 
 ## SCSS Snippets

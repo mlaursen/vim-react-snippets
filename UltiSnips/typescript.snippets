@@ -212,11 +212,15 @@ snippet entt "expect not to throw" b
 expect(() => $1).not.toThrow()
 endsnippet
 
-snippet ecw "expect toHaveBeenCalledWith" b
+snippet enc "expect not called (toHaveBeenCalled)" b
+expect($1).not.toHaveBeenCalled()
+endsnippet
+
+snippet ecw "expect called with (toHaveBeenCalledWith)" b
 expect($1).toHaveBeenCalledWith($2)
 endsnippet
 
-snippet ect "expect toHaveBeenCalledTimes" b
+snippet ect "expect called times (toHaveBeenCalledTimes)" b
 expect($1).toHaveBeenCalledTimes($2)
 endsnippet
 
@@ -247,14 +251,6 @@ endsnippet
 
 snippet sgbt "screen.getByText" w
 screen.getByText("$1")
-endsnippet
-
-snippet cw "expect toHaveBeenCalledWith" w
-toHaveBeenCalledWith($1)
-endsnippet
-
-snippet ct "expect toHaveBeenCalledTimes" w
-toHaveBeenCalledTimes($1)
 endsnippet
 
 priority 0
