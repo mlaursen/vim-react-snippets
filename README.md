@@ -266,12 +266,11 @@ export interface $CFNProps {
   $TABSTOP
 }
 
-export const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
-  props,
-  ref
-) {
-  return <div ref={ref}></div>
-})
+export const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(
+  function $CFN(props, ref) {
+    return <div ref={ref}></div>
+  }
+)
 ```
 
 #### Forwarded Function Component Default Export
@@ -285,12 +284,11 @@ export interface $CFNProps {
   $TABSTOP
 }
 
-export default forwardRef<HTML$TABSTOPElement, $CFN_Props>(function $CFN(
-  props,
-  ref
-) {
-  return <div ref={ref}></div>
-})
+export default forwardRef<HTML$TABSTOPElement, $CFN_Props>(
+  function $CFN(props, ref) {
+    return <div ref={ref}></div>
+  }
+)
 ```
 
 ### Hooks and Effects (Typescript)
@@ -363,8 +361,7 @@ const [$STATE, $DISPATCH] = useReducer(function reducer(
   action: $TABSTOP
 ): $TABSTOP {
   return state
-},
-$NULL)
+}, $NULL)
 ```
 
 #### useCallback
