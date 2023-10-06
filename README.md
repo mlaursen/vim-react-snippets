@@ -208,7 +208,7 @@ Note: These are different than the Javascript versions on purpose and use the
 `fce` ->
 
 ```tsx
-import type { ReactElement } from "react"
+import { type ReactElement } from "react"
 
 export interface $CFN_Props {}
 
@@ -222,7 +222,7 @@ export function $CFN(props: $CFN_Props): ReactElement {
 `fcde` ->
 
 ```tsx
-import type { ReactElement } from "react"
+import { type ReactElement } from "react"
 
 export interface $CFN_Props {}
 
@@ -236,7 +236,7 @@ export default function $CFN(props: $CFN_Props): ReactElement {
 `sfce` ->
 
 ```tsx
-import type { ReactElement } from "react"
+import { type ReactElement } from "react"
 
 export function $CFN(): ReactElement {
   return <></>
@@ -248,7 +248,7 @@ export function $CFN(): ReactElement {
 `sfcde` ->
 
 ```tsx
-import type { ReactElement } from "react"
+import { type ReactElement } from "react"
 
 export default function $CFN(): ReactElement {
   return <></>
