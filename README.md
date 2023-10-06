@@ -165,9 +165,13 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [Test todo](#test-todo)
     - [expect snapshot](#expect-snapshot)
     - [getByRole](#getbyrole)
+    - [getByRole unnamed](#getbyrole-unnamed)
     - [findByRole](#findbyrole)
+    - [findByRole unnamed](#findbyrole-unnamed)
     - [screen.getByRole](#screengetbyrole)
+    - [screen.getByRole unnamed](#screengetbyrole-unnamed)
     - [screen.findByRole](#screenfindbyrole)
+    - [screen.findByRole unnamed](#screenfindbyrole-unnamed)
     - [screen.getByTestId](#screengetbytestid)
     - [screen.getByText](#screengetbytext)
     - [waitFor](#waitfor)
@@ -1607,6 +1611,22 @@ or inline:
 const button = getByRole("$BUTTON", { name: "$TABSTOP" })
 ```
 
+#### getByRole unnamed
+
+`gbru` ->
+
+```tsx
+const $TABSTOP = getByRole("$PROGRESSBAR")
+```
+
+or inline:
+
+`const button = gbru` ->
+
+```tsx
+const button = getByRole("$PROGRESSBAR")
+```
+
 #### findByRole
 
 `fbr` ->
@@ -1621,6 +1641,22 @@ or inline:
 
 ```tsx
 cy.findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### findByRole unnamed
+
+`fbru` ->
+
+```tsx
+const $TABSTOP = await findByRole("$PROGRESSBAR")
+```
+
+or inline:
+
+`cy.fbru` ->
+
+```tsx
+cy.findByRole("$PROGRESSBAR")
 ```
 
 #### screen.getByRole
@@ -1639,6 +1675,22 @@ or inline:
 const button = screen.getByRole("$BUTTON", { name: "$TABSTOP" })
 ```
 
+#### screen.getByRole unnamed
+
+`sgbru` ->
+
+```tsx
+const $TABSTOP = screen.getByRole("$PROGRESSBAR")
+```
+
+or inline:
+
+`const button = sgbru` ->
+
+```tsx
+const button = screen.getByRole("$PROGRESSBAR")
+```
+
 #### screen.findByRole
 
 `sfbr` ->
@@ -1653,6 +1705,22 @@ or inline:
 
 ```tsx
 const button = await screen.findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### screen.findByRole unnamed
+
+`sfbru` ->
+
+```tsx
+const $TABSTOP = await screen.findByRole("$PROGRESSBAR")
+```
+
+or inline:
+
+`const button = await sfbru` ->
+
+```tsx
+const button = await screen.findByRole("$PROGRESSBAR")
 ```
 
 #### screen.getByTestId

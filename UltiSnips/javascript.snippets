@@ -176,16 +176,32 @@ snippet gbr "getByRole" b
 const $1 = getByRole("${2:button}", { name: "$3" })
 endsnippet
 
+snippet gbru "getByRole unnamed" b
+const $1 = getByRole("${2:progressbar}")
+endsnippet
+
 snippet fbr "findByRole" b
 const $1 = await findByRole("${2:button}", { name: "$3" })
+endsnippet
+
+snippet fbru "findByRole" b
+const $1 = await findByRole("${2:progressbar}")
 endsnippet
 
 snippet sgbr "screen.getByRole" b
 const $1 = screen.getByRole("${2:button}", { name: "$3" })
 endsnippet
 
+snippet sgbru "screen.getByRole unnamed" b
+const $1 = screen.getByRole("${2:progressbar}")
+endsnippet
+
 snippet sfbr "screen.findByRole" b
 const $1 = await screen.findByRole("${2:button}", { name: "$3" })
+endsnippet
+
+snippet sfbru "screen.findByRole unnamed" b
+const $1 = await screen.findByRole("${2:progressbar}")
 endsnippet
 
 snippet sgbi "screen.getByTestId" b
@@ -231,16 +247,32 @@ snippet gbr "getByRole" w
 getByRole("${1:button}", { name: "$2" })
 endsnippet
 
+snippet gbru "getByRole unnamed" w
+getByRole("${1:progressbar}")
+endsnippet
+
 snippet fbr "findByRole" w
 getByRole("${1:button}", { name: "$2" })
+endsnippet
+
+snippet fbru "findByRole unnamed" w
+findByRole("${1:progressbar}")
 endsnippet
 
 snippet sgbr "screen.getByRole" w
 screen.getByRole("${1:button}", { name: "$2" })
 endsnippet
 
+snippet sgbru "screen.getByRole unnamed" w
+screen.getByRole("${1:progressbar}")
+endsnippet
+
 snippet sfbr "screen.findByRole" w
 screen.getByRole("${1:button}", { name: "$2" })
+endsnippet
+
+snippet sfbru "screen.findByRole unnamed" w
+screen.getByRole("${1:progressbar}")
 endsnippet
 
 snippet sgbi "screen.getByTestId" w
