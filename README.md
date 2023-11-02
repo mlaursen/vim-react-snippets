@@ -103,6 +103,15 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [interface (Typescript Only)](#interface-typescript-only)
     - [reduce to type (Typescript Only)](#reduce-to-type-typescript-only)
     - [jsdoc comment](#jsdoc-comment)
+- [SCSS Snippets](#scss-snippets)
+  - [New Sass Module System](#new-sass-module-system)
+    - [Use file](#use-file)
+    - [Use file as \*](#use-file-as-)
+    - [Forward file with](#forward-file-with)
+  - [Old Sass Module System](#old-sass-module-system)
+    - [Import file](#import-file)
+  - [Utility](#utility)
+    - [`prefers-color-scheme` Media Query](#prefers-color-scheme-media-query)
   - [Function Components (Javascript)](#function-components-javascript)
     - [Function Component Export](#function-component-export-1)
     - [Simple Function Component Export](#simple-function-component-export-1)
@@ -180,15 +189,6 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [expect not called (toHaveBeenCalled)](#expect-not-called-tohavebeencalled)
     - [expect called with (toHaveBeenCalledWith)](#expect-called-with-tohavebeencalledwith)
     - [expect called times](#expect-called-times)
-- [SCSS Snippets](#scss-snippets)
-  - [New Sass Module System](#new-sass-module-system)
-    - [Use file](#use-file)
-    - [Use file as \*](#use-file-as-)
-    - [Forward file with](#forward-file-with)
-  - [Old Sass Module System](#old-sass-module-system)
-    - [Import file](#import-file)
-  - [Utility](#utility)
-    - [`prefers-color-scheme` Media Query](#prefers-color-scheme-media-query)
 
 <!-- tocstop -->
 
@@ -928,6 +928,56 @@ reduce<$TABSTOP>(($RESULT, $VALUE) => {
 /**
  * $TABEND
  */
+```
+
+## SCSS Snippets
+
+### New Sass Module System
+
+#### Use file
+
+`use` =>
+
+```scss
+@use "$TABSTOP";
+```
+
+#### Use file as \*
+
+`use*` ->
+
+```scss
+@use "$TABSTOP" as *;
+```
+
+#### Forward file with
+
+`forw` ->
+
+```scss
+@forward "$TABSTOP" with ($TABSTOP);
+```
+
+### Old Sass Module System
+
+#### Import file
+
+`imp` ->
+
+```scss
+@import "$1";
+```
+
+### Utility
+
+#### `prefers-color-scheme` Media Query
+
+`pcs` ->
+
+```scss
+@media (prefers-color-scheme: $TABSTOP_dark) {
+	$TABSTOP
+}
 ```
 
 ### Function Components (Javascript)
@@ -1803,56 +1853,6 @@ expect($TABSTOP).toHaveBeenCalledWith($TABSTOP)
 
 ```tsx
 expect($TABSTOP).toHaveBeenCalledTimes($TABSTOP)
-```
-
-## SCSS Snippets
-
-### New Sass Module System
-
-#### Use file
-
-`use` =>
-
-```scss
-@use "$TABSTOP";
-```
-
-#### Use file as \*
-
-`use*` ->
-
-```scss
-@use "$TABSTOP" as *;
-```
-
-#### Forward file with
-
-`forw` ->
-
-```scss
-@forward "$TABSTOP" with ($TABSTOP);
-```
-
-### Old Sass Module System
-
-#### Import file
-
-`imp` ->
-
-```scss
-@import "$1";
-```
-
-### Utility
-
-#### `prefers-color-scheme` Media Query
-
-`pcs` ->
-
-```scss
-@media (prefers-color-scheme: $TABSTOP_dark) {
-	$TABSTOP
-}
 ```
 
 [react]: https://reactjs.org/
