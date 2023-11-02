@@ -103,6 +103,35 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [interface](#interface)
     - [reduce to type](#reduce-to-type)
     - [jsdoc comment](#jsdoc-comment)
+  - [PropTypes](#proptypes)
+  - [Importing](#importing)
+  - [Exporting](#exporting)
+  - [Logging](#logging)
+  - [NODE_ENV](#node_env)
+  - [Tests](#tests)
+    - [React Test File](#react-test-file)
+    - [Screen React Test File](#screen-react-test-file)
+    - [Describe a test](#describe-a-test)
+    - [it should...](#it-should)
+    - [it should (async)...](#it-should-async)
+    - [Test todo](#test-todo)
+    - [expect snapshot](#expect-snapshot)
+    - [getByRole](#getbyrole)
+    - [getByRole unnamed](#getbyrole-unnamed)
+    - [findByRole](#findbyrole)
+    - [findByRole unnamed](#findbyrole-unnamed)
+    - [screen.getByRole](#screengetbyrole)
+    - [screen.getByRole unnamed](#screengetbyrole-unnamed)
+    - [screen.findByRole](#screenfindbyrole)
+    - [screen.findByRole unnamed](#screenfindbyrole-unnamed)
+    - [screen.getByTestId](#screengetbytestid)
+    - [screen.getByText](#screengetbytext)
+    - [waitFor](#waitfor)
+    - [expect to throw](#expect-to-throw)
+    - [expect not to throw](#expect-not-to-throw)
+    - [expect not called (toHaveBeenCalled)](#expect-not-called-tohavebeencalled)
+    - [expect called with (toHaveBeenCalledWith)](#expect-called-with-tohavebeencalledwith)
+    - [expect called times](#expect-called-times)
 - [SCSS Snippets](#scss-snippets)
   - [New Sass Module System](#new-sass-module-system)
     - [Use file](#use-file)
@@ -161,35 +190,6 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
   - [General Built-Ins](#general-built-ins-1)
     - [jsdoc comment](#jsdoc-comment-1)
     - [noop](#noop-1)
-  - [PropTypes](#proptypes)
-  - [Importing](#importing)
-  - [Exporting](#exporting)
-  - [Logging](#logging)
-  - [NODE_ENV](#node_env)
-  - [Tests](#tests)
-    - [React Test File](#react-test-file)
-    - [Screen React Test File](#screen-react-test-file)
-    - [Describe a test](#describe-a-test)
-    - [it should...](#it-should)
-    - [it should (async)...](#it-should-async)
-    - [Test todo](#test-todo)
-    - [expect snapshot](#expect-snapshot)
-    - [getByRole](#getbyrole)
-    - [getByRole unnamed](#getbyrole-unnamed)
-    - [findByRole](#findbyrole)
-    - [findByRole unnamed](#findbyrole-unnamed)
-    - [screen.getByRole](#screengetbyrole)
-    - [screen.getByRole unnamed](#screengetbyrole-unnamed)
-    - [screen.findByRole](#screenfindbyrole)
-    - [screen.findByRole unnamed](#screenfindbyrole-unnamed)
-    - [screen.getByTestId](#screengetbytestid)
-    - [screen.getByText](#screengetbytext)
-    - [waitFor](#waitfor)
-    - [expect to throw](#expect-to-throw)
-    - [expect not to throw](#expect-not-to-throw)
-    - [expect not called (toHaveBeenCalled)](#expect-not-called-tohavebeencalled)
-    - [expect called with (toHaveBeenCalledWith)](#expect-called-with-tohavebeencalledwith)
-    - [expect called times](#expect-called-times)
 
 <!-- tocstop -->
 
@@ -931,6 +931,382 @@ reduce<$TABSTOP>(($RESULT, $VALUE) => {
  */
 ```
 
+### PropTypes
+
+| Shortcut | Expands To                              |
+| -------- | --------------------------------------- |
+| `pt.a`   | `React.PropTypes.array`                 |
+| `pt.ar`  | `React.PropTypes.array.isRequired`      |
+| `pt.b`   | `React.PropTypes.bool`                  |
+| `pt.br`  | `React.PropTypes.bool.isRequired`       |
+| `pt.f`   | `React.PropTypes.func`                  |
+| `pt.fr`  | `React.PropTypes.func.isRequired`       |
+| `pt.nu`  | `React.PropTypes.number`                |
+| `pt.nur` | `React.PropTypes.number.isRequired`     |
+| `pt.o`   | `React.PropTypes.object`                |
+| `pt.or`  | `React.PropTypes.object.isRequired`     |
+| `pt.s`   | `React.PropTypes.string`                |
+| `pt.sr`  | `React.PropTypes.string.isRequired`     |
+| `pt.no`  | `React.PropTypes.node`                  |
+| `pt.nor` | `React.PropTypes.node.isRequired`       |
+| `pt.e`   | `React.PropTypes.element`               |
+| `pt.er`  | `React.PropTypes.element.isRequired`    |
+| `pt.ao`  | `React.PropTypes.arrayOf`               |
+| `pt.aor` | `React.PropTypes.arrayOf.isRequired`    |
+| `pt.io`  | `React.PropTypes.instanceOf`            |
+| `pt.ior` | `React.PropTypes.instanceOf.isRequired` |
+| `pt.oo`  | `React.PropTypes.objectOf`              |
+| `pt.oor` | `React.PropTypes.objectOf.isRequired`   |
+| `pt.sh`  | `React.PropTypes.shape`                 |
+| `pt.shr` | `React.PropTypes.shape.isRequired`      |
+
+### Importing
+
+| Shortcut | Expands to                                    |
+| -------- | --------------------------------------------- |
+| `rc`     | `const packageName = require('package-name')` |
+| `rcn`    | `const { nested } = require('package-name')`  |
+| `imp`    | `import packageName from 'package-name'`      |
+| `impf`   | `import File from './File'`                   |
+| `impn`   | `import { nested } from 'package-or/path'`    |
+| `impa`   | `import * as Thing from 'package-or/path'`    |
+| `impp`   | `import './file'`                             |
+| `icn`    | `import cn from 'classnames'`                 |
+| `icnb`   | `import { cnb } from 'cnbuilder'`             |
+| `ism`    | `import styles from './$CFN.module.scss'`     |
+
+### Exporting
+
+| Shortcut | Expands to                                   |
+| -------- | -------------------------------------------- |
+| `exp`    | `export { default } from './CurrentFolder'`  |
+| `expf`   | `export File from './File'`                  |
+| `expn`   | `export { nested } from 'package-or/path`    |
+| `expa`   | `export * from 'package-or/path'`            |
+| `expd`   | `export { default as Thing } from './Thing'` |
+
+### Logging
+
+| Shortcut | Expands to                              |
+| -------- | --------------------------------------- |
+| `cl`     | `console.log($TABSTOP)`                 |
+| `clv`    | `console.log('$TABSTOP: ', $TABSTOP)`   |
+| `ce`     | `console.error($TABSTOP)`               |
+| `cev`    | `console.error('$TABSTOP: ', $TABSTOP)` |
+| `cw`     | `console.warn($TABSTOP)`                |
+| `cwv`    | `console.warn('$TABSTOP: ', $TABSTOP)`  |
+| `ct`     | `console.table($TABSTOP)`               |
+| `cd`     | `console.debug($TABSTOP)`               |
+| `cdv`    | `console.debug('$TABSTOP: ', $TABSTOP)` |
+
+> Note: The logging commands that end in a `v` will have the cursor at the
+> second `$TABSTOP` instead of the first so that autocompletion will work.
+
+### NODE_ENV
+
+| Shortcut | Expands to                              |
+| -------- | --------------------------------------- |
+| `dev`    | `process.env.NODE_ENV !== "production"` |
+| `prod`   | `process.env.NODE_ENV === "production"` |
+
+### Tests
+
+#### React Test File
+
+`rtf` ->
+
+```tsx
+import { render } from "@testing-library/react"
+
+import $CFN from "../$CFN"
+
+describe("$CFN", () => {
+  it("should $TABSTOP", () => {
+    $TABSTOP
+  })
+})
+```
+
+> Note: typescript will do `import { $CFN } from "./$CFN"` since I prefer
+> non-default exports in typescript
+
+#### Screen React Test File
+
+`srtf` ->
+
+```tsx
+import { render, screen } from "@testing-library/react"
+
+import $CFN from "../$CFN"
+
+describe("$CFN", () => {
+  it("should $TABSTOP", () => {
+    $TABSTOP
+  })
+})
+```
+
+> Note: typescript will do `import { $CFN } from "./$CFN"` since I prefer
+> non-default exports in typescript
+
+#### Describe a test
+
+`desc` ->
+
+```ts
+describe('$CFN', () => {
+  it('should $TABSTOP', () => {
+    $TABSTOP
+  )}
+})
+```
+
+#### it should...
+
+`it` ->
+
+```ts
+it("should $TABSTOP", () => {
+  $TABSTOP
+})
+```
+
+#### it should (async)...
+
+`ita` ->
+
+```ts
+it("should $TABSTOP", async () => {
+  $TABSTOP
+})
+```
+
+#### Test todo
+
+`todo` ->
+
+```ts
+it.todo("should $TABSTOP")
+```
+
+#### expect snapshot
+
+`es` ->
+
+```ts
+expect($TABSTOP_container).toMatchSnapshot()
+```
+
+#### getByRole
+
+`gbr` ->
+
+```tsx
+const $TABSTOP = getByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+or inline:
+
+`const button = gbr` ->
+
+```tsx
+const button = getByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### getByRole unnamed
+
+`gbru` ->
+
+```tsx
+const $TABSTOP = getByRole("$PROGRESSBAR")
+```
+
+or inline:
+
+`const button = gbru` ->
+
+```tsx
+const button = getByRole("$PROGRESSBAR")
+```
+
+#### findByRole
+
+`fbr` ->
+
+```tsx
+const $TABSTOP = await findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+or inline:
+
+`cy.fbr` ->
+
+```tsx
+cy.findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### findByRole unnamed
+
+`fbru` ->
+
+```tsx
+const $TABSTOP = await findByRole("$PROGRESSBAR")
+```
+
+or inline:
+
+`cy.fbru` ->
+
+```tsx
+cy.findByRole("$PROGRESSBAR")
+```
+
+#### screen.getByRole
+
+`sgbr` ->
+
+```tsx
+const $TABSTOP = screen.getByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+or inline:
+
+`const button = sgbr` ->
+
+```tsx
+const button = screen.getByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### screen.getByRole unnamed
+
+`sgbru` ->
+
+```tsx
+const $TABSTOP = screen.getByRole("$PROGRESSBAR")
+```
+
+or inline:
+
+`const button = sgbru` ->
+
+```tsx
+const button = screen.getByRole("$PROGRESSBAR")
+```
+
+#### screen.findByRole
+
+`sfbr` ->
+
+```tsx
+const $TABSTOP = await screen.findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+or inline:
+
+`const button = await sfbr` ->
+
+```tsx
+const button = await screen.findByRole("$BUTTON", { name: "$TABSTOP" })
+```
+
+#### screen.findByRole unnamed
+
+`sfbru` ->
+
+```tsx
+const $TABSTOP = await screen.findByRole("$PROGRESSBAR")
+```
+
+or inline:
+
+`const button = await sfbru` ->
+
+```tsx
+const button = await screen.findByRole("$PROGRESSBAR")
+```
+
+#### screen.getByTestId
+
+`sgbi` ->
+
+```tsx
+const $TABSTOP = screen.getByTestId("$TABSTOP")
+```
+
+or inline:
+
+`const element = sgbi` ->
+
+```tsx
+const element = screen.getByTestId("$TABSTOP")
+```
+
+#### screen.getByText
+
+`sgbt` ->
+
+```tsx
+const $TABSTOP = screen.getByText("$TABSTOP")
+```
+
+or inline:
+
+`const element = sgbt` ->
+
+```tsx
+const element = screen.getByText("$TABSTOP")
+```
+
+#### waitFor
+
+`wf` ->
+
+```tsx
+await waitFor(() => {
+  $TABSTOP
+})
+```
+
+#### expect to throw
+
+`ett` ->
+
+```ts
+expect(() => $TABSTOP).toThrow()
+```
+
+#### expect not to throw
+
+`entt` ->
+
+```ts
+expect(() => $TABSTOP).not.toThrow()
+```
+
+#### expect not called (toHaveBeenCalled)
+
+`enc` ->
+
+```tsx
+expect($TABSTOP).not.toHaveBeenCalled()
+```
+
+#### expect called with (toHaveBeenCalledWith)
+
+`ecw` ->
+
+```tsx
+expect($TABSTOP).toHaveBeenCalledWith($TABSTOP)
+```
+
+#### expect called times
+
+`ect` ->
+
+```tsx
+expect($TABSTOP).toHaveBeenCalledTimes($TABSTOP)
+```
+
 ## SCSS Snippets
 
 ### New Sass Module System
@@ -1480,382 +1856,6 @@ export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
 
 ```js
 const noop = () > {}
-```
-
-### PropTypes
-
-| Shortcut | Expands To                              |
-| -------- | --------------------------------------- |
-| `pt.a`   | `React.PropTypes.array`                 |
-| `pt.ar`  | `React.PropTypes.array.isRequired`      |
-| `pt.b`   | `React.PropTypes.bool`                  |
-| `pt.br`  | `React.PropTypes.bool.isRequired`       |
-| `pt.f`   | `React.PropTypes.func`                  |
-| `pt.fr`  | `React.PropTypes.func.isRequired`       |
-| `pt.nu`  | `React.PropTypes.number`                |
-| `pt.nur` | `React.PropTypes.number.isRequired`     |
-| `pt.o`   | `React.PropTypes.object`                |
-| `pt.or`  | `React.PropTypes.object.isRequired`     |
-| `pt.s`   | `React.PropTypes.string`                |
-| `pt.sr`  | `React.PropTypes.string.isRequired`     |
-| `pt.no`  | `React.PropTypes.node`                  |
-| `pt.nor` | `React.PropTypes.node.isRequired`       |
-| `pt.e`   | `React.PropTypes.element`               |
-| `pt.er`  | `React.PropTypes.element.isRequired`    |
-| `pt.ao`  | `React.PropTypes.arrayOf`               |
-| `pt.aor` | `React.PropTypes.arrayOf.isRequired`    |
-| `pt.io`  | `React.PropTypes.instanceOf`            |
-| `pt.ior` | `React.PropTypes.instanceOf.isRequired` |
-| `pt.oo`  | `React.PropTypes.objectOf`              |
-| `pt.oor` | `React.PropTypes.objectOf.isRequired`   |
-| `pt.sh`  | `React.PropTypes.shape`                 |
-| `pt.shr` | `React.PropTypes.shape.isRequired`      |
-
-### Importing
-
-| Shortcut | Expands to                                    |
-| -------- | --------------------------------------------- |
-| `rc`     | `const packageName = require('package-name')` |
-| `rcn`    | `const { nested } = require('package-name')`  |
-| `imp`    | `import packageName from 'package-name'`      |
-| `impf`   | `import File from './File'`                   |
-| `impn`   | `import { nested } from 'package-or/path'`    |
-| `impa`   | `import * as Thing from 'package-or/path'`    |
-| `impp`   | `import './file'`                             |
-| `icn`    | `import cn from 'classnames'`                 |
-| `icnb`   | `import { cnb } from 'cnbuilder'`             |
-| `ism`    | `import styles from './$CFN.module.scss'`     |
-
-### Exporting
-
-| Shortcut | Expands to                                   |
-| -------- | -------------------------------------------- |
-| `exp`    | `export { default } from './CurrentFolder'`  |
-| `expf`   | `export File from './File'`                  |
-| `expn`   | `export { nested } from 'package-or/path`    |
-| `expa`   | `export * from 'package-or/path'`            |
-| `expd`   | `export { default as Thing } from './Thing'` |
-
-### Logging
-
-| Shortcut | Expands to                              |
-| -------- | --------------------------------------- |
-| `cl`     | `console.log($TABSTOP)`                 |
-| `clv`    | `console.log('$TABSTOP: ', $TABSTOP)`   |
-| `ce`     | `console.error($TABSTOP)`               |
-| `cev`    | `console.error('$TABSTOP: ', $TABSTOP)` |
-| `cw`     | `console.warn($TABSTOP)`                |
-| `cwv`    | `console.warn('$TABSTOP: ', $TABSTOP)`  |
-| `ct`     | `console.table($TABSTOP)`               |
-| `cd`     | `console.debug($TABSTOP)`               |
-| `cdv`    | `console.debug('$TABSTOP: ', $TABSTOP)` |
-
-> Note: The logging commands that end in a `v` will have the cursor at the
-> second `$TABSTOP` instead of the first so that autocompletion will work.
-
-### NODE_ENV
-
-| Shortcut | Expands to                              |
-| -------- | --------------------------------------- |
-| `dev`    | `process.env.NODE_ENV !== "production"` |
-| `prod`   | `process.env.NODE_ENV === "production"` |
-
-### Tests
-
-#### React Test File
-
-`rtf` ->
-
-```tsx
-import { render } from "@testing-library/react"
-
-import $CFN from "../$CFN"
-
-describe("$CFN", () => {
-  it("should $TABSTOP", () => {
-    $TABSTOP
-  })
-})
-```
-
-> Note: typescript will do `import { $CFN } from "./$CFN"` since I prefer
-> non-default exports in typescript
-
-#### Screen React Test File
-
-`srtf` ->
-
-```tsx
-import { render, screen } from "@testing-library/react"
-
-import $CFN from "../$CFN"
-
-describe("$CFN", () => {
-  it("should $TABSTOP", () => {
-    $TABSTOP
-  })
-})
-```
-
-> Note: typescript will do `import { $CFN } from "./$CFN"` since I prefer
-> non-default exports in typescript
-
-#### Describe a test
-
-`desc` ->
-
-```ts
-describe('$CFN', () => {
-  it('should $TABSTOP', () => {
-    $TABSTOP
-  )}
-})
-```
-
-#### it should...
-
-`it` ->
-
-```ts
-it("should $TABSTOP", () => {
-  $TABSTOP
-})
-```
-
-#### it should (async)...
-
-`ita` ->
-
-```ts
-it("should $TABSTOP", async () => {
-  $TABSTOP
-})
-```
-
-#### Test todo
-
-`todo` ->
-
-```ts
-it.todo("should $TABSTOP")
-```
-
-#### expect snapshot
-
-`es` ->
-
-```ts
-expect($TABSTOP_container).toMatchSnapshot()
-```
-
-#### getByRole
-
-`gbr` ->
-
-```tsx
-const $TABSTOP = getByRole("$BUTTON", { name: "$TABSTOP" })
-```
-
-or inline:
-
-`const button = gbr` ->
-
-```tsx
-const button = getByRole("$BUTTON", { name: "$TABSTOP" })
-```
-
-#### getByRole unnamed
-
-`gbru` ->
-
-```tsx
-const $TABSTOP = getByRole("$PROGRESSBAR")
-```
-
-or inline:
-
-`const button = gbru` ->
-
-```tsx
-const button = getByRole("$PROGRESSBAR")
-```
-
-#### findByRole
-
-`fbr` ->
-
-```tsx
-const $TABSTOP = await findByRole("$BUTTON", { name: "$TABSTOP" })
-```
-
-or inline:
-
-`cy.fbr` ->
-
-```tsx
-cy.findByRole("$BUTTON", { name: "$TABSTOP" })
-```
-
-#### findByRole unnamed
-
-`fbru` ->
-
-```tsx
-const $TABSTOP = await findByRole("$PROGRESSBAR")
-```
-
-or inline:
-
-`cy.fbru` ->
-
-```tsx
-cy.findByRole("$PROGRESSBAR")
-```
-
-#### screen.getByRole
-
-`sgbr` ->
-
-```tsx
-const $TABSTOP = screen.getByRole("$BUTTON", { name: "$TABSTOP" })
-```
-
-or inline:
-
-`const button = sgbr` ->
-
-```tsx
-const button = screen.getByRole("$BUTTON", { name: "$TABSTOP" })
-```
-
-#### screen.getByRole unnamed
-
-`sgbru` ->
-
-```tsx
-const $TABSTOP = screen.getByRole("$PROGRESSBAR")
-```
-
-or inline:
-
-`const button = sgbru` ->
-
-```tsx
-const button = screen.getByRole("$PROGRESSBAR")
-```
-
-#### screen.findByRole
-
-`sfbr` ->
-
-```tsx
-const $TABSTOP = await screen.findByRole("$BUTTON", { name: "$TABSTOP" })
-```
-
-or inline:
-
-`const button = await sfbr` ->
-
-```tsx
-const button = await screen.findByRole("$BUTTON", { name: "$TABSTOP" })
-```
-
-#### screen.findByRole unnamed
-
-`sfbru` ->
-
-```tsx
-const $TABSTOP = await screen.findByRole("$PROGRESSBAR")
-```
-
-or inline:
-
-`const button = await sfbru` ->
-
-```tsx
-const button = await screen.findByRole("$PROGRESSBAR")
-```
-
-#### screen.getByTestId
-
-`sgbi` ->
-
-```tsx
-const $TABSTOP = screen.getByTestId("$TABSTOP")
-```
-
-or inline:
-
-`const element = sgbi` ->
-
-```tsx
-const element = screen.getByTestId("$TABSTOP")
-```
-
-#### screen.getByText
-
-`sgbt` ->
-
-```tsx
-const $TABSTOP = screen.getByText("$TABSTOP")
-```
-
-or inline:
-
-`const element = sgbt` ->
-
-```tsx
-const element = screen.getByText("$TABSTOP")
-```
-
-#### waitFor
-
-`wf` ->
-
-```tsx
-await waitFor(() => {
-  $TABSTOP
-})
-```
-
-#### expect to throw
-
-`ett` ->
-
-```ts
-expect(() => $TABSTOP).toThrow()
-```
-
-#### expect not to throw
-
-`entt` ->
-
-```ts
-expect(() => $TABSTOP).not.toThrow()
-```
-
-#### expect not called (toHaveBeenCalled)
-
-`enc` ->
-
-```tsx
-expect($TABSTOP).not.toHaveBeenCalled()
-```
-
-#### expect called with (toHaveBeenCalledWith)
-
-`ecw` ->
-
-```tsx
-expect($TABSTOP).toHaveBeenCalledWith($TABSTOP)
-```
-
-#### expect called times
-
-`ect` ->
-
-```tsx
-expect($TABSTOP).toHaveBeenCalledTimes($TABSTOP)
 ```
 
 [react]: https://reactjs.org/
