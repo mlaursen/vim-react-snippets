@@ -40,14 +40,14 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
 <!-- toc -->
 
 - [Cheatsheet](#cheatsheet)
-  - [Function Components (Typescript)](#function-components-typescript)
+  - [Function Components](#function-components)
     - [Function Component Export](#function-component-export)
     - [Function Component Default Export](#function-component-default-export)
     - [Simple Function Component Export](#simple-function-component-export)
     - [Simple Function Component Default Export](#simple-function-component-default-export)
     - [Forwarded Function Component Export](#forwarded-function-component-export)
     - [Forwarded Function Component Default Export](#forwarded-function-component-default-export)
-  - [Hooks and Effects (Typescript)](#hooks-and-effects-typescript)
+  - [Hooks and Effects](#hooks-and-effects)
     - [useState](#usestate)
     - [useEffect](#useeffect)
     - [useEffect async](#useeffect-async)
@@ -61,7 +61,7 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [useLayoutEffect](#uselayouteffect)
     - [useDebugValue](#usedebugvalue)
     - [useTransition](#usetransition)
-  - [Class Components (Typescript)](#class-components-typescript)
+  - [Class Components](#class-components)
     - [React Class Export](#react-class-export)
     - [React Class Export with Prop interface](#react-class-export-with-prop-interface)
     - [React Class Export with Props and State](#react-class-export-with-props-and-state)
@@ -74,7 +74,7 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [Component PropTypes](#component-proptypes)
     - [Component Default Props](#component-default-props)
     - [Component Default Props Typed](#component-default-props-typed)
-  - [React Lifecycle (Typescript)](#react-lifecycle-typescript)
+  - [React Lifecycle](#react-lifecycle)
     - [Get Derived State from props](#get-derived-state-from-props)
     - [Get Derived state from Error](#get-derived-state-from-error)
     - [Component Did Mount](#component-did-mount)
@@ -83,25 +83,25 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [Component Did Update](#component-did-update)
     - [Component Did Catch](#component-did-catch)
     - [Component Will Unmount](#component-will-unmount)
-  - [React Event Types (Typescript Only)](#react-event-types-typescript-only)
-  - [General Redux (Typescript)](#general-redux-typescript)
+  - [React Event Types](#react-event-types)
+  - [General Redux](#general-redux)
     - [mirrored const](#mirrored-const)
     - [useDispatch](#usedispatch)
-    - [useAppDispatch (Typescript Only)](#useappdispatch-typescript-only)
+    - [useAppDispatch](#useappdispatch)
     - [useSelector](#useselector)
-    - [useAppSelector (Typescript Only)](#useappselector-typescript-only)
-    - [Ref (Typescript Only)](#ref-typescript-only)
-    - [MutableRefObject (Typescript Only)](#mutablerefobject-typescript-only)
-    - [RefCallback (Typescript Only)](#refcallback-typescript-only)
-  - [Redux Toolkit (Typescript)](#redux-toolkit-typescript)
+    - [useAppSelector](#useappselector)
+    - [Ref](#ref)
+    - [MutableRefObject](#mutablerefobject)
+    - [RefCallback](#refcallback)
+  - [Redux Toolkit](#redux-toolkit)
     - [createSlice](#createslice)
     - [export createSlice](#export-createslice)
     - [create prepare reducer](#create-prepare-reducer)
     - [createAsyncThunk](#createasyncthunk)
-  - [General Built-Ins (Typescript)](#general-built-ins-typescript)
+  - [General Built-Ins](#general-built-ins)
     - [noop](#noop)
-    - [interface (Typescript Only)](#interface-typescript-only)
-    - [reduce to type (Typescript Only)](#reduce-to-type-typescript-only)
+    - [interface](#interface)
+    - [reduce to type](#reduce-to-type)
     - [jsdoc comment](#jsdoc-comment)
 - [SCSS Snippets](#scss-snippets)
   - [New Sass Module System](#new-sass-module-system)
@@ -112,13 +112,14 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [Import file](#import-file)
   - [Utility](#utility)
     - [`prefers-color-scheme` Media Query](#prefers-color-scheme-media-query)
-  - [Function Components (Javascript)](#function-components-javascript)
+- [Javascript Snippets](#javascript-snippets)
+  - [Function Components](#function-components-1)
     - [Function Component Export](#function-component-export-1)
     - [Simple Function Component Export](#simple-function-component-export-1)
     - [Forwarded Function Component Export](#forwarded-function-component-export-1)
     - [Component PropTypes](#component-proptypes-1)
     - [Component Default Props](#component-default-props-1)
-  - [Hooks and Effects (Javascript)](#hooks-and-effects-javascript)
+  - [Hooks and Effects](#hooks-and-effects-1)
     - [useState](#usestate-1)
     - [useEffect](#useeffect-1)
     - [useEffect async](#useeffect-async-1)
@@ -132,14 +133,14 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [useLayoutEffect](#uselayouteffect-1)
     - [useDebugValue](#usedebugvalue-1)
     - [useTransition](#usetransition-1)
-  - [Class Components (Javascript)](#class-components-javascript)
+  - [Class Components](#class-components-1)
     - [React Class Export](#react-class-export-1)
     - [React Class Component](#react-class-component-1)
     - [React Class Constructor](#react-class-constructor-1)
     - [React Class Function (arrow bound class function)](#react-class-function-arrow-bound-class-function-1)
     - [Static PropTypes](#static-proptypes-1)
     - [Static Default Props](#static-default-props-1)
-  - [React Lifecycle (Javascript)](#react-lifecycle-javascript)
+  - [React Lifecycle](#react-lifecycle-1)
     - [Get Derived State from props](#get-derived-state-from-props-1)
     - [Get Derived state from Error](#get-derived-state-from-error-1)
     - [Component Did Mount](#component-did-mount-1)
@@ -148,16 +149,16 @@ https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9
     - [Component Did Update](#component-did-update-1)
     - [Component Did Catch](#component-did-catch-1)
     - [Component Will Unmount](#component-will-unmount-1)
-  - [General Redux (Javascript)](#general-redux-javascript)
+  - [General Redux](#general-redux-1)
     - [mirrored const](#mirrored-const-1)
     - [useDispatch](#usedispatch-1)
     - [useSelector](#useselector-1)
-  - [Redux Toolkit (Javascript)](#redux-toolkit-javascript)
+  - [Redux Toolkit](#redux-toolkit-1)
     - [createSlice](#createslice-1)
     - [export createSlice](#export-createslice-1)
     - [create prepare reducer](#create-prepare-reducer-1)
     - [createAsyncThunk](#createasyncthunk-1)
-  - [General Built-Ins (Javascript)](#general-built-ins-javascript)
+  - [General Built-Ins](#general-built-ins-1)
     - [jsdoc comment](#jsdoc-comment-1)
     - [noop](#noop-1)
   - [PropTypes](#proptypes)
@@ -202,7 +203,7 @@ you see `$CFN` or `$CFN_`, it will be the Current File Name (the trailing
 underscore will not be included, it is just added to show separation when
 something else follows it).
 
-### Function Components (Typescript)
+### Function Components
 
 Note: These are different than the Javascript versions on purpose and use the
 `function` syntax instead of a "const + arrow function".
@@ -295,7 +296,7 @@ export default forwardRef<HTML$TABSTOPElement, $CFN_Props>(
 )
 ```
 
-### Hooks and Effects (Typescript)
+### Hooks and Effects
 
 #### useState
 
@@ -446,7 +447,7 @@ useDebugValue($NULL)
 const [$isPending, $startTransition] = useTransition()
 ```
 
-### Class Components (Typescript)
+### Class Components
 
 #### React Class Export
 
@@ -598,7 +599,7 @@ const defaultProps: DefaultProps = {
 $CFN.defaultProps = defaultProps
 ```
 
-### React Lifecycle (Typescript)
+### React Lifecycle
 
 #### Get Derived State from props
 
@@ -680,7 +681,7 @@ componentWillUnmount() {
 }
 ```
 
-### React Event Types (Typescript Only)
+### React Event Types
 
 | Shortcut | Expands to                               |
 | -------- | ---------------------------------------- |
@@ -700,7 +701,7 @@ componentWillUnmount() {
 > Note: The `event:` and `Button`/`Input` parts are a tabstop which can be
 > removed or changed.
 
-### General Redux (Typescript)
+### General Redux
 
 #### mirrored const
 
@@ -718,7 +719,7 @@ const $THING = "$THING"
 const dispatch: $AppDispatch = useDispatch()
 ```
 
-#### useAppDispatch (Typescript Only)
+#### useAppDispatch
 
 `useD` ->
 
@@ -750,7 +751,7 @@ or inline:
 const checked = useSelector(($STATE: AppState) => $SELECTOR)
 ```
 
-#### useAppSelector (Typescript Only)
+#### useAppSelector
 
 `useAS` ->
 
@@ -766,7 +767,7 @@ or inline:
 const checked = useAppSelector(($STATE: AppState) => $SELECTOR)
 ```
 
-#### Ref<E | null> (Typescript Only)
+#### Ref<E | null>
 
 `reft` ->
 
@@ -782,7 +783,7 @@ or inline:
 export type SomeRef = Ref<$TABSTOP_Element | null>
 ```
 
-#### MutableRefObject<E | null> (Typescript Only)
+#### MutableRefObject<E | null>
 
 `mro` ->
 
@@ -798,7 +799,7 @@ or inline:
 export type SomeRef = MutableRefObject<$TABSTOP_Element | null>
 ```
 
-#### RefCallback<E | null> (Typescript Only)
+#### RefCallback<E | null>
 
 `refcb` ->
 
@@ -814,7 +815,7 @@ or inline:
 export type SomeRef = RefCallback<$TABSTOP_Element | null>
 ```
 
-### Redux Toolkit (Typescript)
+### Redux Toolkit
 
 #### createSlice
 
@@ -885,7 +886,7 @@ export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
 })
 ```
 
-### General Built-Ins (Typescript)
+### General Built-Ins
 
 #### noop
 
@@ -897,7 +898,7 @@ const noop = (): void => {
 }
 ```
 
-#### interface (Typescript Only)
+#### interface
 
 `intf` ->
 
@@ -905,7 +906,7 @@ const noop = (): void => {
 export interface $CFN_$TABSTOP {}
 ```
 
-#### reduce to type (Typescript Only)
+#### reduce to type
 
 `re` ->
 
@@ -980,7 +981,9 @@ reduce<$TABSTOP>(($RESULT, $VALUE) => {
 }
 ```
 
-### Function Components (Javascript)
+## Javascript Snippets
+
+### Function Components
 
 #### Function Component Export
 
@@ -1040,7 +1043,7 @@ $CFN.defaultProps = {
 }
 ```
 
-### Hooks and Effects (Javascript)
+### Hooks and Effects
 
 #### useState
 
@@ -1188,7 +1191,7 @@ useDebugValue($NULL)
 const [$isPending, $startTransition] = useTransition()
 ```
 
-### Class Components (Javascript)
+### Class Components
 
 #### React Class Export
 
@@ -1264,7 +1267,7 @@ static defaultProps = {
 }
 ```
 
-### React Lifecycle (Javascript)
+### React Lifecycle
 
 #### Get Derived State from props
 
@@ -1346,7 +1349,7 @@ componentWillUnmount() {
 }
 ```
 
-### General Redux (Javascript)
+### General Redux
 
 #### mirrored const
 
@@ -1388,7 +1391,7 @@ or inline:
 const checked = useSelector(($STATE) => $SELECTOR)
 ```
 
-### Redux Toolkit (Javascript)
+### Redux Toolkit
 
 #### createSlice
 
@@ -1459,7 +1462,7 @@ export const doThing = createAsyncThunk("$TABSTOP", async ($TABSTOP) => {
 })
 ```
 
-### General Built-Ins (Javascript)
+### General Built-Ins
 
 #### jsdoc comment
 
