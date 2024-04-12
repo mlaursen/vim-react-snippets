@@ -7,13 +7,17 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "format": "prettier --write README.md",
     "toc": "markdown-toc -i README.md"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
+    "husky": "^9.0.11",
     "markdown-toc": "^1.2.0",
-    "prettier": "^3.0.3"
+    "prettier": "^3.2.5"
+  },
+  "volta": {
+    "node": "20.12.2",
+    "pnpm": "8.15.7"
   }
 }
