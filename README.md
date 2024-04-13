@@ -43,7 +43,8 @@ With [lazy.nvim] and [LuaSnip]:
 
 <details>
   <summary>
-    With [vim-plug] and [UltiSnips]:
+    With <a href="https://github.com/junegunn/vim-plug">vim-plug</a> and
+    <a href="https://github.com/SirVer/ultisnips">UltiSnips</a>:
   </summary>
 
 ```vim
@@ -56,7 +57,7 @@ call plug#end()
 </details>
 
 > NOTE: I no longer use UltiSnips so the snippets might be different. Check out
-> the [UltiSnips](./UltiSnips/) folder to see available snippets.
+> the [UltiSnips folder] to see available snippets.
 
 ## Cheatsheet
 
@@ -420,8 +421,8 @@ it("should $TABSTOP", async () => {
 | -------- | ----------------------------- | ----------------------------------------------------------------------------- |
 | `sgbr`   | Screen Get By Role            | `const $TABSTOP = screen.getByRole("${button}", { name: "$TABSTOP" })`        |
 | `sgbru`  | Screen Get By Role (Unnamed)  | `const $TABSTOP = screen.getByRole("${progressbar}")`                         |
-| `gbi`    | Screen Get By testId          | `const $TABSTOP = screen.getByTestId("$TABSTOP")`                             |
-| `gbt`    | Screen Get By Text            | `const $TABSTOP = screen.getByText("$TABSTOP")`                               |
+| `sgbi`   | Screen Get By testId          | `const $TABSTOP = screen.getByTestId("$TABSTOP")`                             |
+| `sgbt`   | Screen Get By Text            | `const $TABSTOP = screen.getByText("$TABSTOP")`                               |
 | `sfbr`   | Screen Find By Role           | `const $TABSTOP = await screen.findByRole("${button}", { name: "$TABSTOP" })` |
 | `sfbru`  | Screen Find By Role (Unnamed) | `const $TABSTOP = await screen.findByRole("${progressbar}")`                  |
 | `fbi`    | Screen Find By testId         | `const $TABSTOP = await screen.findByTestId("$TABSTOP")`                      |
@@ -572,7 +573,5 @@ local k = require("luasnip.nodes.key_indexer").new_key
 [ultisnips]: https://github.com/SirVer/ultisnips
 [ultisnips folder]:
   https://github.com/mlaursen/vim-react-snippets/tree/main/UltiSnips
-[vim-plug]: https://github.com/junegunn/vim-plug
-[full .vimrc]: https://github.com/mlaursen/dotfiles/tree/main/.vimrc
 [luasnip]: https://github.com/L3MON4D3/LuaSnip
 [lazy.nvim]: https://github.com/folke/lazy.nvim
