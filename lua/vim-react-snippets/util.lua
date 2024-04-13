@@ -97,4 +97,48 @@ M.typescript_tabstop = function(i, typescript)
   }
 end
 
+--- @private
+--- @class LuaSnipConfig
+--- @field trig string
+--- @field name? string
+--- @field desc? string
+
+--- @private
+--- @class ConstSnippetOptions
+--- @field config LuaSnipConfig
+--- @field const_name string
+--- @field const_edit? number
+--- @field create_snippet fun(start: number): unknown[]
+
+--- @param opts ConstSnippetOptions
+--- @return unknown[]
+M.const_snippet = function(opts)
+  local const_name = opts.const_name
+  local const_edit = opts.const_edit or 0
+  local config = opts.config
+  local create_snippet = opts.create_snippet
+
+  local ls = require("luasnip")
+  local conds = require("luasnip.extras.expand_conditions")
+  local s = ls.snippet
+  local t = ls.text_node
+  local i = ls.insert_node
+
+  local start = const_edit + 1
+  local const_statement = {
+    t("const "),
+    t(" = "),
+  }
+  if const_edit > 0 then
+    table.insert(const_statement, 2, i(const_edit, const_name))
+  else
+    table.insert(const_statement, 2, t(const_name))
+  end
+
+  return {
+    s(config, M.merge_lists(const_statement, create_snippet(start)), { condition = conds.line_begin }),
+    s(config, create_snippet(1), { condition = conds.line_end }),
+  }
+end
+
 return M
