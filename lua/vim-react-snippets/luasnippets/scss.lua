@@ -21,4 +21,14 @@ return {
     i(1),
     t('" as *'),
   }),
+  s({
+    trig = "forw",
+    name = "Forward",
+  }, {
+    t('forward "'),
+    i(1),
+    t('" with ('),
+    i(2),
+    t(");"),
+  }),
 }
