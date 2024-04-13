@@ -1,6 +1,6 @@
 local util = require("vim-react-snippets.util")
 
-local helpers = require("vim-react-snippets.helpers")
+local common = require("vim-react-snippets.common")
 local imports = require("vim-react-snippets.imports")
 local logging = require("vim-react-snippets.logging")
 local react_hooks = require("vim-react-snippets.react-hooks")
@@ -11,7 +11,7 @@ local testing = require("vim-react-snippets.testing")
 return util.merge_lists(
   imports(),
   logging(),
-  helpers(false),
+  common(false),
   react_hooks(false),
   redux(false),
   testing(),
