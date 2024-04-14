@@ -30,8 +30,8 @@ local common = function(typescript)
     }),
 
     s({
-      trig = "cd",
-      name = "Const Destructure",
+      trig = "dc",
+      name = "Destructure Const",
     }, {
       t("const { "),
       i(2),

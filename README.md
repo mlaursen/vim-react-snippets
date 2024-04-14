@@ -96,6 +96,7 @@ be omitted. These snippets will be marked with ✨.
   - [useSelector ✨](#useselector-%E2%9C%A8)
   - [useAppSelector ✨](#useappselector-%E2%9C%A8)
 - [Common](#common)
+  - [Destructure Const](#destructure-const)
   - [noop](#noop)
   - [interface](#interface)
 - [Logging](#logging)
@@ -316,6 +317,14 @@ const $VALUE = useAppSelector(($STATE) => $SELECTOR)
 
 ### Common
 
+#### Destructure Const
+
+`dc` ->
+
+```ts
+const { $TABSTOP } = $PROPS
+```
+
 #### noop
 
 `noop` ->
@@ -331,7 +340,9 @@ const noop = (): void => {
 `intf` ->
 
 ```ts
-export interface $CFN_$TABSTOP {}
+export interface $CFN_$TABSTOP {
+  $TABSTOP
+}
 ```
 
 ### Logging
