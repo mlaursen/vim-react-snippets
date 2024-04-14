@@ -13,6 +13,22 @@ M.get_snippet_path = function(extension_name)
   return (snippets:gsub("init.lua", "luasnippets"))
 end
 
+--- @param extension_name? string
+M.create_init = function(extension_name)
+  return {
+    load = function()
+      require("luasnip.loaders.from_lua").load({
+        paths = { M.get_snippet_path(extension_name) },
+      })
+    end,
+    lazy_load = function()
+      require("luasnip.loaders.from_lua").load({
+        paths = { M.get_snippet_path(extension_name) },
+      })
+    end,
+  }
+end
+
 --- @generic T
 --- @param ... T[]
 --- @return T[]
