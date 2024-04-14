@@ -1,10 +1,13 @@
 local M = {}
 
 M.extension_name = "vim-react-snippets"
-M.get_snippet_path = function()
-  local snippets = vim.api.nvim_get_runtime_file("lua/" .. M.extension_name .. "/init.lua", false)[1]
+
+--- @param extension_name? string
+M.get_snippet_path = function(extension_name)
+  extension_name = extension_name or M.extension_name
+  local snippets = vim.api.nvim_get_runtime_file("lua/" .. extension_name .. "/init.lua", false)[1]
   if snippets == nil or snippets == "" then
-    error("Unable to find " .. M.extension_name .. " path")
+    error("Unable to find " .. extension_name .. " path")
   end
 
   return (snippets:gsub("init.lua", "luasnippets"))
