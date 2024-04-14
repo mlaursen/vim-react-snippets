@@ -41,7 +41,7 @@ local logging = function()
   local snippets = {}
   for _, mirror in pairs(false_true) do
     for _, type in pairs(types) do
-      if type == "table" or not mirror then
+      if type ~= "table" or not mirror then
         table.insert(snippets, console(type, mirror))
       end
     end
