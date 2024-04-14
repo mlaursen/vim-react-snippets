@@ -38,6 +38,60 @@ local use_state = function(typescript)
 end
 
 --- @param typescript boolean
+--- @return unknown[]
+local use_reducer = function(typescript)
+  local state = { t("state") }
+  local action = { t("action") }
+  local return_type = {}
+  local start = 3
+  if typescript then
+    start = 5
+    table.insert(state, t(": "))
+    table.insert(state, i(3, "State"))
+    table.insert(action, t(": "))
+    table.insert(action, i(4, "Action"))
+    table.insert(return_type, t(": "))
+    table.insert(return_type, util.mirror_node(3))
+  end
+
+  return {
+    s(
+      {
+        trig = "useRed",
+        name = "useReducer",
+      },
+      util.merge_lists(
+        {
+          t("const ["),
+          i(1, "state"),
+          t(", "),
+          i(2, "dispatch"),
+          t("] = useReducer(function reducer("),
+        },
+        state,
+        { t(", ") },
+        action,
+        { t(")") },
+        return_type,
+        {
+          t({
+            " {",
+            "\tswitch (action.type) {",
+            "\t\tdefault:",
+            "\t\t\treturn state",
+            "\t}",
+            "",
+          }),
+          t("}, "),
+          i(start, "initialState"),
+          t(")"),
+        }
+      )
+    ),
+  }
+end
+
+--- @param typescript boolean
 local react_hooks = function(typescript)
   return util.merge_lists(
     {
@@ -52,6 +106,7 @@ local react_hooks = function(typescript)
     },
 
     use_state(typescript),
+    use_reducer(typescript),
 
     util.const_snippet({
       config = {

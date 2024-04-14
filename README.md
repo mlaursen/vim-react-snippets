@@ -85,6 +85,7 @@ be omitted. These snippets will be marked with ✨.
   - [Forwarded Function Component Default Export](#forwarded-function-component-default-export)
 - [Hooks and Effects](#hooks-and-effects)
   - [useState](#usestate)
+  - [useReducer](#usereducer)
   - [useEffect](#useeffect)
   - [useContext ✨](#usecontext-%E2%9C%A8)
   - [useCallback ✨](#usecallback-%E2%9C%A8)
@@ -229,6 +230,18 @@ export default forwardRef<HTML$TABSTOPElement, $CFN_Props>(
 
 ```ts
 const [$STATE, set$STATE] = useState$TABSTOP($TABSTOP)
+```
+
+#### useReducer
+
+`useRed` ->
+
+```tsx
+const [$STATE, $DISPATCH] = useReducer(function reducer(state: $STATE, action: $ACTION): $STATE {
+  switch (action.type):
+    default:
+      return state
+}, $INITIAL_STATE)
 ```
 
 #### useEffect
