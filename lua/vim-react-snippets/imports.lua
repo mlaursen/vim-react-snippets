@@ -24,9 +24,21 @@ local imports = function()
       t('"'),
     }),
     s({
+      trig = "impf",
+      name = "Import File",
+    }, {
+      t("import "),
+      i(1),
+      t(' from "'),
+      d(2, function(args)
+        return sn(nil, { i(1, "./"), i(2, args[1]) })
+      end, { 1 }),
+      t('"'),
+    }),
+    s({
       trig = "impd",
-      name = "Import Desctuctured",
-      desc = "import { desctutured } from package",
+      name = "Import Destructured",
+      desc = "import { destructured } from package",
     }, {
       t("import { "),
       i(1),
