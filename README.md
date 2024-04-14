@@ -99,6 +99,7 @@ be omitted. These snippets will be marked with ✨.
   - [Destructure Const](#destructure-const)
   - [noop](#noop)
   - [interface](#interface)
+  - [jsdoc comment](#jsdoc-comment)
 - [Logging](#logging)
 - [Importing](#importing)
 - [NODE_ENV](#node_env)
@@ -343,6 +344,16 @@ const noop = (): void => {
 export interface $CFN_$TABSTOP {
   $TABSTOP
 }
+```
+
+#### jsdoc comment
+
+`/**` ->
+
+```ts
+/**
+ * $TABSTOP
+ */
 ```
 
 ### Logging
