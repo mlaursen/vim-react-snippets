@@ -92,6 +92,7 @@ be omitted. These snippets will be marked with ✨.
   - [useMemo ✨](#usememo-%E2%9C%A8)
   - [useMemo return (manual return required) ✨](#usememo-return-manual-return-required-%E2%9C%A8)
   - [useRef ✨](#useref-%E2%9C%A8)
+  - [Create Context Provider](#create-context-provider)
 - [Redux](#redux)
   - [useAppDispatch ✨](#useappdispatch-%E2%9C%A8)
   - [useSelector ✨](#useselector-%E2%9C%A8)
@@ -301,6 +302,28 @@ const $MEMOIZED = useMemo(() => {
 
 ```ts
 const $REF = useRef$TABSTOP(TABSTOP)
+```
+
+#### Create Context Provider
+
+`ccp` ->
+
+```tsx
+import { createContext, useContext } from "react"
+
+export interface $CFN_Context {}
+
+const context = createContext<$CFN_Context | null>(null)
+const { Provider } = context
+
+export function use$CFN_Context(): $CFN_Context {
+  const value = useContext(context)
+  if (!value) {
+    throw new Error("$CFN_Context must be initialized.")
+  }
+
+  return value
+}
 ```
 
 ### Redux

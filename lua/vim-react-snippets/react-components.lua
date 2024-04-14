@@ -9,12 +9,16 @@ local i = ls.insert_node
 --- @private
 --- @class FunctionComponentOptions
 --- @field props boolean
---- @field default boolean
+--- @field export boolean | "default"
 --- @field forward boolean
 --- @field typescript boolean
 
 --- @param opts FunctionComponentOptions
 local react_imports = function(opts)
+  if not opts.export then
+    return {}
+  end
+
   local parts = {}
   if opts.forward then
     table.insert(parts, "forwardRef")
@@ -42,8 +46,10 @@ local component_props = function(opts)
     return {}
   end
 
+  local export = opts.export ~= false
+
   return {
-    t("export interface "),
+    t((export and "export " or "") .. "interface "),
     util.mirror_node(1),
     t({ "Props {", "\t" }),
     i(2),
@@ -103,7 +109,8 @@ end
 
 --- @param opts FunctionComponentOptions
 local component_export_line = function(opts)
-  local default = opts.default
+  local export = opts.export ~= false
+  local default = opts.export == "default"
   local forward = opts.forward
   local maybe_const = (not default and forward and {
     t("const "),
@@ -112,7 +119,7 @@ local component_export_line = function(opts)
   }) or {}
 
   return util.merge_lists({
-    t("export " .. (default and "default " or "")),
+    t((export and "export " or "") .. (default and "default " or "")),
   }, maybe_const, forward_ref(opts), component_func(opts))
 end
 
@@ -137,17 +144,22 @@ end
 --- @param opts FunctionComponentOptions
 local function_component = function(opts)
   local props = opts.props
-  local default = opts.default
+  local export = opts.export ~= false
+  local default = opts.export == "default"
   local forward = opts.forward
 
   local simple = not props and not forward
-  local trig = (simple and "s" or "") .. (forward and "f" or "") .. "fc" .. (default and "d" or "") .. "e"
+  local trig = (simple and "s" or "")
+    .. (forward and "f" or "")
+    .. "fc"
+    .. (default and "d" or "")
+    .. (export and "e" or "")
 
   local desc = (simple and "Simple " or "")
     .. (forward and "Forwarded" or "")
     .. "Function Component "
     .. (default and "Default " or "")
-    .. "Export"
+    .. (export and "Export" or "")
   return s(
     {
       trig = trig,
@@ -163,44 +175,68 @@ end
 --- @param typescript boolean
 local react_components = function(typescript)
   return {
-    -- fce
+    -- fc
     function_component({
-      props = false,
-      default = true,
+      props = true,
+      export = false,
       forward = false,
       typescript = typescript,
     }),
+    -- fce
     function_component({
       props = true,
-      default = true,
+      export = true,
+      forward = false,
+      typescript = typescript,
+    }),
+    -- fcde
+    function_component({
+      props = true,
+      export = "default",
       forward = false,
       typescript = typescript,
     }),
 
+    -- sfc
+    function_component({
+      props = false,
+      export = false,
+      forward = false,
+      typescript = typescript,
+    }),
     -- sfce
     function_component({
       props = false,
-      default = false,
+      export = true,
       forward = false,
       typescript = typescript,
     }),
+    -- sfcde
     function_component({
-      props = true,
-      default = false,
+      props = false,
+      export = "default",
       forward = false,
       typescript = typescript,
     }),
 
-    -- ffce
+    -- ffc
     function_component({
       props = true,
-      default = false,
+      export = false,
       forward = true,
       typescript = typescript,
     }),
+    -- ffce
     function_component({
       props = true,
-      default = true,
+      export = true,
+      forward = true,
+      typescript = typescript,
+    }),
+    -- ffcde
+    function_component({
+      props = true,
+      export = "default",
       forward = true,
       typescript = typescript,
     }),

@@ -116,6 +116,18 @@ M.typescript_tabstop = function(i, typescript)
   }
 end
 
+--- @param i number
+--- @param typescript boolean
+M.typescript_mirror_node = function(i, typescript)
+  if not typescript then
+    return {}
+  end
+
+  return {
+    M.mirror_node(i),
+  }
+end
+
 --- @private
 --- @class LuaSnipConfig
 --- @field trig string

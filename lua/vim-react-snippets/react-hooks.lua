@@ -3,6 +3,8 @@ local util = require("vim-react-snippets.util")
 local ls = require("luasnip")
 
 local s = ls.snippet
+local sn = ls.snippet_node
+local d = ls.dynamic_node
 local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
@@ -85,6 +87,85 @@ local use_reducer = function(typescript)
           t("}, "),
           i(start, "initialState"),
           t(")"),
+        }
+      )
+    ),
+  }
+end
+
+--- @param typescript boolean
+--- @return unknown[]
+local create_context_provider = function(typescript)
+  local start = 1
+  local interface = {}
+  local context_typedef = {}
+  if typescript then
+    start = start + 2
+    table.insert(interface, t({ "", "export interface " }))
+    table.insert(
+      interface,
+      d(1, function()
+        return sn(nil, {
+          -- current filename without use prefix and Context suffix
+          i(1, util.upper_first(vim.fn.expand("%:t:r"):gsub("^use", ""):gsub("Context$", ""))),
+          i(2, "Context"),
+        })
+      end)
+    )
+    table.insert(interface, t({ " {", "", "}", "", "" }))
+
+    table.insert(context_typedef, t("<"))
+    table.insert(context_typedef, util.mirror_node(1))
+    table.insert(context_typedef, i(2, " | null"))
+    table.insert(context_typedef, t(">"))
+  end
+
+  return {
+    s(
+      {
+        trig = "ccp",
+        name = "Create Context Provider",
+      },
+      util.merge_lists(
+        {
+          t({ 'import { createContext, useContext } from "react"', "", "" }),
+        },
+        interface,
+        {
+          t("const context = createContext"),
+        },
+        context_typedef,
+        {
+          t("("),
+          i(start, "null"),
+          t(")"),
+          t({ "", "const { Provider } = context", "", "" }),
+          t("export function use"),
+        },
+        util.typescript_mirror_node(1, typescript),
+        {
+          t("()"),
+          t(typescript and ": " or ""),
+        },
+        util.typescript_mirror_node(1, typescript),
+        {
+          t(typescript and " " or ""),
+          t({
+            "{",
+            "\tconst value = useContext(context)",
+            "\tif (!value) {",
+            "\t\t",
+          }),
+          t('throw new Error("'),
+          util.mirror_node(1),
+          t(' must be initialized.")'),
+          t({
+            "",
+            "\t}",
+            "",
+            "\treturn value",
+            "}",
+          }),
         }
       )
     ),
@@ -192,7 +273,8 @@ local react_hooks = function(typescript)
           t({ "", "}, [])" }),
         }
       end,
-    })
+    }),
+    create_context_provider(typescript)
   )
 end
 
