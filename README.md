@@ -104,6 +104,7 @@ be omitted. These snippets will be marked with ✨.
   - [jsdoc comment](#jsdoc-comment)
 - [Logging](#logging)
 - [Importing](#importing)
+- [Exporting](#exporting)
 - [NODE_ENV](#node_env)
 - [Tests](#tests)
   - [Describe a test](#describe-a-test)
@@ -397,14 +398,14 @@ export interface $CFN_$TABSTOP {
 | Shortcut | Nane                   | Expands to                              |
 | -------- | ---------------------- | --------------------------------------- |
 | `cl`     | Console Log            | `console.log($TABSTOP)`                 |
-| `clv`    | Console Log Variable   | `console.log('$TABSTOP: ', $TABSTOP)`   |
+| `clv`    | Console Log Variable   | `console.log("$TABSTOP: ", $TABSTOP)`   |
 | `ce`     | Console Error          | `console.error($TABSTOP)`               |
-| `cev`    | Console Error Variable | `console.error('$TABSTOP: ', $TABSTOP)` |
+| `cev`    | Console Error Variable | `console.error("$TABSTOP: ", $TABSTOP)` |
 | `cw`     | Console Warn           | `console.warn($TABSTOP)`                |
-| `cwv`    | Console Warn Variable  | `console.warn('$TABSTOP: ', $TABSTOP)`  |
+| `cwv`    | Console Warn Variable  | `console.warn("$TABSTOP: ", $TABSTOP)`  |
 | `ct`     | Console Table          | `console.table($TABSTOP)`               |
 | `cd`     | Console Debug          | `console.debug($TABSTOP)`               |
-| `cdv`    | Console Debug Variable | `console.debug('$TABSTOP: ', $TABSTOP)` |
+| `cdv`    | Console Debug Variable | `console.debug("$TABSTOP: ", $TABSTOP)` |
 
 > Note: The logging commands that end in a `v` will have the cursor at the
 > second `$TABSTOP` instead of the first so that autocompletion will work.
@@ -413,13 +414,22 @@ export interface $CFN_$TABSTOP {
 
 | Shortcut | Name                 | Expands to                                       |
 | -------- | -------------------- | ------------------------------------------------ |
-| `imp`    | Import               | `import packageName from 'package-name'`         |
-| `impf`   | Import File          | `import File from './File'`                      |
-| `impd`   | Import Destructured  | `import { destructured } from 'package-or/path'` |
-| `impp`   | Import (Please?)     | `import './file'`                                |
-| `icn`    | Import Classnames    | `import cn from 'classnames'`                    |
-| `icnb`   | Import Cnbuilder     | `import { cnb } from 'cnbuilder'`                |
-| `ism`    | Import Styles Module | `import styles from './$CFN.module.scss'`        |
+| `imp`    | Import               | `import packageName from "package-name"`         |
+| `impf`   | Import File          | `import File from "./File"`                      |
+| `impd`   | Import Destructured  | `import { destructured } from "package-or/path"` |
+| `impp`   | Import (Please?)     | `import "./file"`                                |
+| `icn`    | Import Classnames    | `import cn from "classnames"`                    |
+| `icnb`   | Import Cnbuilder     | `import { cnb } from "cnbuilder"`                |
+| `ism`    | Import Styles Module | `import styles from "./$CFN.module.scss"`        |
+
+### Exporting
+
+| Shortcut | Name                | Expands to                              |
+| -------- | ------------------- | --------------------------------------- |
+| `exp`    | Export              | `export { default } from "./$CFN"`      |
+| `expf`   | Export File         | `export $TABSTOP from "./$TABSTOP"`     |
+| `expd`   | Export Destructured | `export { $TABSTOP } from "./$TABSTOP"` |
+| `expa`   | Export All          | `export * from "$TABSTOP"`              |
 
 ### NODE_ENV
 
