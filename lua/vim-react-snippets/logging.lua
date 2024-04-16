@@ -9,7 +9,7 @@ local i = ls.insert_node
 --- @private
 --- @alias vim-react-snippets.ConsoleType 'log' | 'error' | 'warn' | 'debug' | 'table'
 
---- @param type ConsoleType
+--- @param type vim-react-snippets.ConsoleType
 --- @param mirror boolean
 local console = function(type, mirror)
   local trig = "c" .. type:sub(1, 1) .. (mirror and "v" or "")

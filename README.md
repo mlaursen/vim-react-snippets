@@ -102,8 +102,10 @@ be omitted. These snippets will be marked with ✨.
   - [Export Destructured Const](#export-destructured-const)
   - [noop](#noop)
   - [interface](#interface)
-  - [jsdoc comment](#jsdoc-comment)
+- [JSDoc/TSDoc](#jsdoctsdoc)
+  - [Block Comment](#block-comment)
   - [@example](#example)
+  - [@defaultValue](#defaultvalue)
 - [Logging](#logging)
 - [Importing](#importing)
 - [Exporting](#exporting)
@@ -393,7 +395,9 @@ export interface $CFN_$TABSTOP {
 }
 ```
 
-#### jsdoc comment
+### JSDoc/TSDoc
+
+#### Block Comment
 
 `/**` ->
 
@@ -412,6 +416,14 @@ export interface $CFN_$TABSTOP {
 \`\`\`$TSX
 $TABSTOP
 \`\`\`
+```
+
+#### @defaultValue
+
+`@d` ->
+
+```ts
+@defaultValue \`$TABSTOP\`
 ```
 
 ### Logging
