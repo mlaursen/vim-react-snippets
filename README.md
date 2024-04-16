@@ -103,6 +103,7 @@ be omitted. These snippets will be marked with ✨.
   - [noop](#noop)
   - [interface](#interface)
   - [jsdoc comment](#jsdoc-comment)
+  - [@example](#example)
 - [Logging](#logging)
 - [Importing](#importing)
 - [Exporting](#exporting)
@@ -400,6 +401,17 @@ export interface $CFN_$TABSTOP {
 /**
  * $TABSTOP
  */
+```
+
+#### @example
+
+`@e` ->
+
+```ts
+@example $EXAMPLE_NAME
+\`\`\`$TSX
+$TABSTOP
+\`\`\`
 ```
 
 ### Logging
