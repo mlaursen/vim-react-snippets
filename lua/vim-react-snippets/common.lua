@@ -32,9 +32,19 @@ local common = function(typescript)
 
     s({
       trig = "dc",
-      name = "Destructure Const",
+      name = "Destructured Const",
     }, {
       t("const { "),
+      i(2),
+      t(" } = "),
+      i(1, "props"),
+    }),
+
+    s({
+      trig = "edc",
+      name = "Export Destructured Const",
+    }, {
+      t("export const { "),
       i(2),
       t(" } = "),
       i(1, "props"),

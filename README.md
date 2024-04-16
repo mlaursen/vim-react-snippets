@@ -98,7 +98,8 @@ be omitted. These snippets will be marked with ✨.
   - [useSelector ✨](#useselector-%E2%9C%A8)
   - [useAppSelector ✨](#useappselector-%E2%9C%A8)
 - [Common](#common)
-  - [Destructure Const](#destructure-const)
+  - [Destructured Const](#destructured-const)
+  - [Export Destructured Const](#export-destructured-const)
   - [noop](#noop)
   - [interface](#interface)
   - [jsdoc comment](#jsdoc-comment)
@@ -355,9 +356,17 @@ const $VALUE = useAppSelector(($STATE) => $SELECTOR)
 
 ### Common
 
-#### Destructure Const
+#### Destructured Const
 
 `dc` ->
+
+```ts
+const { $TABSTOP } = $PROPS
+```
+
+#### Export Destructured Const
+
+`edc` ->
 
 ```ts
 const { $TABSTOP } = $PROPS
