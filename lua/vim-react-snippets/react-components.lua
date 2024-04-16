@@ -7,13 +7,13 @@ local t = ls.text_node
 local i = ls.insert_node
 
 --- @private
---- @class FunctionComponentOptions
+--- @class vim-react-snippets.FunctionComponentOptions
 --- @field props boolean
 --- @field export boolean | "default"
 --- @field forward boolean
 --- @field typescript boolean
 
---- @param opts FunctionComponentOptions
+--- @param opts vim-react-snippets.FunctionComponentOptions
 local react_imports = function(opts)
   if not opts.export then
     return {}
@@ -40,7 +40,7 @@ local react_imports = function(opts)
   }
 end
 
---- @param opts FunctionComponentOptions
+--- @param opts vim-react-snippets.FunctionComponentOptions
 local component_props = function(opts)
   if not opts.typescript or (not opts.props and not opts.forward) then
     return {}
@@ -57,7 +57,7 @@ local component_props = function(opts)
   }
 end
 
---- @param opts FunctionComponentOptions
+--- @param opts vim-react-snippets.FunctionComponentOptions
 --- @return unknown[]
 local component_func = function(opts)
   local props = opts.props
@@ -89,7 +89,7 @@ local component_func = function(opts)
   return parts
 end
 
---- @param opts FunctionComponentOptions
+--- @param opts vim-react-snippets.FunctionComponentOptions
 local forward_ref = function(opts)
   if not opts.forward then
     return {}
@@ -107,7 +107,7 @@ local forward_ref = function(opts)
   return util.merge_lists({ t("forwardRef") }, types, { t("(") })
 end
 
---- @param opts FunctionComponentOptions
+--- @param opts vim-react-snippets.FunctionComponentOptions
 local component_export_line = function(opts)
   local export = opts.export ~= false
   local default = opts.export == "default"
@@ -123,7 +123,7 @@ local component_export_line = function(opts)
   }, maybe_const, forward_ref(opts), component_func(opts))
 end
 
---- @param opts FunctionComponentOptions
+--- @param opts vim-react-snippets.FunctionComponentOptions
 local component_body = function(opts)
   if opts.forward then
     return {
@@ -141,7 +141,7 @@ local component_body = function(opts)
   }
 end
 
---- @param opts FunctionComponentOptions
+--- @param opts vim-react-snippets.FunctionComponentOptions
 local function_component = function(opts)
   local props = opts.props
   local export = opts.export ~= false

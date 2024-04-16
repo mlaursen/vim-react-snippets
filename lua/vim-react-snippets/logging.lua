@@ -7,7 +7,7 @@ local t = ls.text_node
 local i = ls.insert_node
 
 --- @private
---- @alias ConsoleType 'log' | 'error' | 'warn' | 'debug' | 'table'
+--- @alias vim-react-snippets.ConsoleType 'log' | 'error' | 'warn' | 'debug' | 'table'
 
 --- @param type ConsoleType
 --- @param mirror boolean
@@ -34,7 +34,7 @@ local console = function(type, mirror)
 end
 
 local logging = function()
-  -- @type ConsoleType[]
+  --- @type vim-react-snippets.ConsoleType[]
   local types = { "log", "error", "warn", "debug", "table" }
   local false_true = { false, true }
 

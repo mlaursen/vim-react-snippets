@@ -7,13 +7,13 @@ local t = ls.text_node
 local i = ls.insert_node
 
 --- @private
---- @class ByTypeOptions
+--- @class vim-react-snippets.ByTypeOptions
 --- @field type "role" | "role unnamed" | "testid" | "text"
 --- @field find boolean
 --- @field inline boolean
 --- @field screen boolean
 
---- @param opts ByTypeOptions
+--- @param opts vim-react-snippets.ByTypeOptions
 local by_type = function(opts)
   local type = opts["type"]
   local find = opts["find"]

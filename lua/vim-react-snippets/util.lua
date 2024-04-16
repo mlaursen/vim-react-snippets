@@ -129,19 +129,19 @@ M.typescript_mirror_node = function(i, typescript)
 end
 
 --- @private
---- @class LuaSnipConfig
+--- @class vim-react-snippets.LuaSnipConfig
 --- @field trig string
 --- @field name? string
 --- @field desc? string
 
 --- @private
---- @class ConstSnippetOptions
+--- @class vim-react-snippets.ConstSnippetOptions
 --- @field config LuaSnipConfig
 --- @field const_name string
 --- @field const_edit? number
 --- @field create_snippet fun(start: number): unknown[]
 
---- @param opts ConstSnippetOptions
+--- @param opts vim-react-snippets.ConstSnippetOptions
 --- @return unknown[]
 M.const_snippet = function(opts)
   local const_name = opts.const_name
