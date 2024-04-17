@@ -100,6 +100,11 @@ be omitted. These snippets will be marked with ✨.
 - [Common](#common)
   - [Destructured Const](#destructured-const)
   - [Export Destructured Const](#export-destructured-const)
+  - [if](#if)
+  - [else](#else)
+  - [switch](#switch)
+  - [for loop](#for-loop)
+  - [reduce](#reduce)
   - [noop](#noop)
   - [interface](#interface)
 - [JSDoc/TSDoc](#jsdoctsdoc)
@@ -373,6 +378,78 @@ const { $TABSTOP } = $PROPS
 
 ```ts
 const { $TABSTOP } = $PROPS
+```
+
+#### if
+
+`if` ->
+
+```ts
+if ($CONDITION) {
+  $TABSTOP
+}
+```
+
+#### else
+
+`else` ->
+
+```ts
+else $TABSTOP{
+  $TABSTOP
+}
+```
+
+The `if` snippet can be triggered from the first tabstop to generate:
+
+```ts
+else if{
+  $TABSTOP
+}
+```
+
+into:
+
+```ts
+else if ($CONDITION) {
+  $TABSTOP
+}
+```
+
+#### switch
+
+`switch` ->
+
+```ts
+switch ($KEY) {
+  case $VALUE:
+    $TABSTOP
+    break
+  default:
+    $TABSTOP
+}
+```
+
+#### for loop
+
+`for` ->
+
+```ts
+for (let $I = $0, $I < $LIST.length; $I++) {
+  const $ITEM = $LIST[$I]
+  $TABSTOP
+}
+```
+
+#### reduce
+
+`reduce` ->
+
+```ts
+const $VALUE = $LIST.reduce<$TYPE_DEF>(($result, $item) => {
+  $TABSTOP
+  return $RESULT
+}, $INITIAL)
 ```
 
 #### noop
