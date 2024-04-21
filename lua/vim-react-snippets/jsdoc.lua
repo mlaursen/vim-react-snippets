@@ -1,9 +1,7 @@
 local ls = require("luasnip")
-local conds = require("luasnip.extras.expand_conditions")
 
 local s = ls.snippet
 local sn = ls.snippet_node
-local isn = ls.indent_snippet_node
 local t = ls.text_node
 local i = ls.insert_node
 
@@ -43,6 +41,18 @@ local jsdoc = function(typescript)
       t("@default" .. (typescript and "Value" or "") .. " `"),
       i(1),
       t("`"),
+    }),
+
+    s({
+      trig = "@s",
+      name = "@since major.minor.patch",
+    }, {
+      t("@since "),
+      i(1, "1"),
+      t("."),
+      i(2, "0"),
+      t("."),
+      i(3, "0"),
     }),
   }
 end

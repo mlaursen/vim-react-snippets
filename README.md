@@ -111,6 +111,7 @@ be omitted. These snippets will be marked with ✨.
   - [Block Comment](#block-comment)
   - [@example](#example)
   - [@defaultValue](#defaultvalue)
+  - [@since](#since)
 - [Logging](#logging)
 - [Importing](#importing)
 - [Exporting](#exporting)
@@ -501,6 +502,14 @@ $TABSTOP
 
 ```ts
 @defaultValue \`$TABSTOP\`
+```
+
+#### @since
+
+`@s` ->
+
+```ts
+@since $MAJOR.$MINOR.$PATCH
 ```
 
 ### Logging
