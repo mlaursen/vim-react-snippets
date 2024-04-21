@@ -18,9 +18,7 @@ local imports = function()
       t("import "),
       i(1),
       t(' from "'),
-      d(2, function(args)
-        return sn(nil, { i(1, args[1]) })
-      end, { 1 }),
+      util.editable_mirror_node(2, { 1 }),
       t('"'),
     }),
     s({

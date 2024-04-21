@@ -64,7 +64,7 @@ local testing = function()
       trig = "ett",
       name = "expect to throw",
     }, {
-      t("expect(() =>"),
+      t("expect(() => "),
       i(1),
       t(").toThrow()"),
     }),
@@ -72,7 +72,7 @@ local testing = function()
       trig = "entt",
       name = "expect not to throw",
     }, {
-      t("expect(() =>"),
+      t("expect(() => "),
       i(1),
       t(").not.toThrow()"),
     }),

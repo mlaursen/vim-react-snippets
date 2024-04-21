@@ -102,6 +102,16 @@ M.mirror_node = function(i)
   end, { i })
 end
 
+--- @param index number The insert index
+--- @param reference_index number[] A list containing a single insert node index to mirror as the default value
+M.editable_mirror_node = function(index, reference_index)
+  local ls = require("luasnip")
+
+  return ls.dynamic_node(index, function(args)
+    return ls.snippet_node(nil, { ls.insert_node(1, args[1]) })
+  end, reference_index)
+end
+
 --- @param i number
 --- @param typescript boolean
 M.typescript_tabstop = function(i, typescript)
@@ -168,7 +178,7 @@ M.const_snippet = function(opts)
 
   return {
     s(config, M.merge_lists(const_statement, create_snippet(start)), { condition = conds.line_begin }),
-    s(config, create_snippet(1), { condition = conds.line_end }),
+    s(config, create_snippet(1)),
   }
 end
 

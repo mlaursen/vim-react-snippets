@@ -51,7 +51,7 @@ local by_type = function(opts)
     .. " By "
     .. by_type
     .. (is_role_unnamed and " Unnamed" or "")
-  local condition = inline and conds.line_end or conds.line_begin
+  local condition = not inline and conds.line_begin or nil
 
   return s(
     {
@@ -62,7 +62,7 @@ local by_type = function(opts)
       prefix,
       {
         t(query .. '("'),
-        i(start, role),
+        (not inline and type == "testid" and util.editable_mirror_node(start, { 1 })) or i(start, role),
         t('"'),
       },
       trailing,
@@ -70,9 +70,7 @@ local by_type = function(opts)
         t(")"),
       }
     ),
-    {
-      condition = condition,
-    }
+    { condition = condition }
   )
 end
 
