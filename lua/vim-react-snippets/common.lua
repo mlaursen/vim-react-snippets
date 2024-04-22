@@ -148,7 +148,7 @@ local common = function(typescript)
     }, {
       t("switch ("),
       i(1, "key"),
-      t({ ") {", "\t case " }),
+      t({ ") {", "\tcase " }),
       i(2, "value"),
       t({ ":", "\t\t" }),
       i(3),
