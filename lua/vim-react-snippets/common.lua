@@ -90,7 +90,7 @@ local common = function(typescript)
       t(" } = "),
       i(1, "props"),
     }, {
-      condition = conds.line_begin,
+      condition = conds.line_end,
     }),
 
     s({
