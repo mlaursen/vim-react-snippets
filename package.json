@@ -9,7 +9,7 @@
   "scripts": {
     "prepare": "husky",
     "format": "prettier --write README.md",
-    "toc": "markdown-toc -i README.md"
+    "toc": "markdown-toc -i README.md && sed -i 's/-%E2%9C%A8//g' README.md"
   },
   "devDependencies": {
     "husky": "^9.0.11",
@@ -18,6 +18,6 @@
   },
   "volta": {
     "node": "20.12.2",
-    "pnpm": "8.15.7"
+    "pnpm": "9.0.5"
   }
 }
