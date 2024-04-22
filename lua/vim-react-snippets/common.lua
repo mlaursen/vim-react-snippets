@@ -89,6 +89,17 @@ local common = function(typescript)
       i(2),
       t(" } = "),
       i(1, "props"),
+    }, {
+      condition = conds.line_begin,
+    }),
+
+    s({
+      trig = "dc",
+      name = "Destructured Const",
+    }, {
+      t("const { "),
+      i(1),
+      t(" } = "),
     }),
 
     s({

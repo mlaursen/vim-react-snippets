@@ -373,6 +373,13 @@ const $VALUE = useAppSelector(($STATE) => $SELECTOR)
 const { $TABSTOP } = $PROPS
 ```
 
+```ts
+dcuseSomeHook()
+ ^ trigger completion here
+
+const { $TABSTOP } = useSomeHook()
+```
+
 #### Export Destructured Const
 
 `edc` ->
