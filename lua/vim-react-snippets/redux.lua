@@ -1,9 +1,7 @@
 local util = require("vim-react-snippets.util")
 
 local ls = require("luasnip")
-local conds = require("luasnip.extras.expand_conditions")
 
-local s = ls.snippet
 local sn = ls.snippet_node
 local t = ls.text_node
 local i = ls.insert_node
@@ -15,7 +13,24 @@ local use_app_selector = function(typescript)
     return {}
   end
 
-  return {}
+  return util.const_snippet({
+    config = {
+      trig = "useAS",
+      name = "useAppSelector",
+    },
+    const_name = "value",
+    create_snippet = function(start)
+      return {
+        t("useAppSelector("),
+        sn(start, {
+          i(1, "state"),
+          t(" => "),
+          i(2),
+        }),
+        t(")"),
+      }
+    end,
+  })
 end
 
 --- @param typescript boolean
