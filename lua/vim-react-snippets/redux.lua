@@ -43,6 +43,7 @@ local redux = function(typescript)
         name = "useDispatch",
       },
       const_name = "dispatch",
+      const_edit = 1,
       create_snippet = function()
         return {
           t("use" .. (typescript and "App" or "") .. "Dispatch()"),
