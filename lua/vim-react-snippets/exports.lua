@@ -40,7 +40,7 @@ local exports = function()
       trig = "expa",
       name = "Export All",
     }, {
-      t("export * from "),
+      t('export * from "'),
       i(1),
       t('"'),
     }),
