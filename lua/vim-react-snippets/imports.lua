@@ -22,6 +22,17 @@ local imports = function()
       t('"'),
     }),
     s({
+      trig = "impa",
+      name = "Import All",
+      desc = "import * as something from package",
+    }, {
+      t("import * as "),
+      i(1),
+      t(' from "'),
+      util.editable_mirror_node(2, { 1 }),
+      t('"'),
+    }),
+    s({
       trig = "impf",
       name = "Import File",
     }, {
