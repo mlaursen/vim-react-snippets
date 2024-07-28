@@ -1,5 +1,6 @@
 {
   "name": "vim-react-snippets",
+  "type": "module",
   "version": "0.0.1",
   "description": "Reusable Javascript and Typescript vim snippets for UltiSnips and developing React apps.",
   "repository": "git@github.com:mlaursen/vim-react-snippets.git",
@@ -8,16 +9,27 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "format": "prettier --write README.md",
-    "toc": "markdown-toc -i README.md && sed -i '' 's/%E2%9C%A8//g' README.md"
+    "create-toc": "tsx scripts/create-toc.ts"
   },
   "devDependencies": {
+    "@types/node": "^22.0.0",
     "husky": "^9.1.3",
+    "lint-staged": "^15.2.7",
     "markdown-toc": "^1.2.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4"
   },
   "volta": {
     "node": "20.12.2",
     "pnpm": "9.6.0"
+  },
+  "lint-staged": {
+    "README.md": [
+      "pnpm run create-toc"
+    ],
+    "**/*.{ts,js}": [
+      "prettier --write"
+    ]
   }
 }

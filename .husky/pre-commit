@@ -1,3 +1,1 @@
-pnpm toc
-pnpm format
-git add README.md
+pnpm lint-staged
