@@ -22,7 +22,7 @@ return {
     t('" as *;'),
   }),
   s({
-    trig = "forw",
+    trig = "for",
     name = "Forward",
   }, {
     t('@forward "'),

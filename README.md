@@ -727,7 +727,7 @@ await waitFor(() => {
 | -------- | ------- | -------------------------------------- |
 | `use`    | Use     | `@use "$TABSTOP";`                     |
 | `use*`   | Use \*  | `@use "$TABSTOP" as *;`                |
-| `forw`   | Forward | `@forward "$TABSTOP" with ($TABSTOP);` |
+| `for`    | Forward | `@forward "$TABSTOP" with ($TABSTOP);` |
 
 ## Contributing
 
