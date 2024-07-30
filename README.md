@@ -723,11 +723,12 @@ await waitFor(() => {
 
 ## SCSS Snippets
 
-| Shortcut | Name    | Expands to                             |
-| -------- | ------- | -------------------------------------- |
-| `use`    | Use     | `@use "$TABSTOP";`                     |
-| `use*`   | Use \*  | `@use "$TABSTOP" as *;`                |
-| `for`    | Forward | `@forward "$TABSTOP" with ($TABSTOP);` |
+| Shortcut | Name                 | Expands to                                          |
+| -------- | -------------------- | --------------------------------------------------- |
+| `use`    | Use                  | `@use "$TABSTOP";`                                  |
+| `use*`   | Use \*               | `@use "$TABSTOP" as *;`                             |
+| `for`    | Forward              | `@forward "$TABSTOP" with ($TABSTOP);`              |
+| `pcs`    | Prefers Color Scheme | `@media (prefers-color-scheme: $DARK) { $TABSTOP }` |
 
 ## Contributing
 

@@ -32,6 +32,18 @@ return {
     t({ "", ");" }),
   }),
 
+  -- not used often
+  s({
+    trig = "pcs",
+    name = "Prefers Color Scheme",
+  }, {
+    t("@media (prefers-color-scheme: "),
+    i(1, "dark"),
+    t({ ") {", "\t" }),
+    i(2),
+    t({ "", "}" }),
+  }),
+
   -- legacy
   s({
     trig = "imp",
