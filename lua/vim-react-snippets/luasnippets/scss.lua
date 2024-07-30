@@ -9,26 +9,26 @@ return {
     trig = "use",
     name = "Use File or Package",
   }, {
-    t('use "'),
+    t('@use "'),
     i(1),
-    t('"'),
+    t('";'),
   }),
   s({
     trig = "use*",
     name = "Use File or Package as *",
   }, {
-    t('use "'),
+    t('@use "'),
     i(1),
-    t('" as *'),
+    t('" as *;'),
   }),
   s({
     trig = "forw",
     name = "Forward",
   }, {
-    t('forward "'),
+    t('@forward "'),
     i(1),
-    t('" with ('),
+    t({ '" with (', "\t" }),
     i(2),
-    t(");"),
+    t({ "", ");" }),
   }),
 }
