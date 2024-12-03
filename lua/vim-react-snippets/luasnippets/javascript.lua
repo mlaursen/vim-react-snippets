@@ -6,6 +6,8 @@ local imports = require("vim-react-snippets.imports")
 local jsdoc = require("vim-react-snippets.jsdoc")
 local logging = require("vim-react-snippets.logging")
 local react_hooks = require("vim-react-snippets.react-hooks")
+local react_components = require("vim-react-snippets.react-components")
+local react_testing = require("vim-react-snippets.react-testing")
 local redux = require("vim-react-snippets.redux")
 local test_queries = require("vim-react-snippets.test-queries")
 local testing = require("vim-react-snippets.testing")
@@ -19,5 +21,7 @@ return util.merge_lists(
   react_hooks(false),
   redux(false),
   testing(),
-  test_queries()
+  test_queries(),
+  react_components(false),
+  react_testing(false)
 )
