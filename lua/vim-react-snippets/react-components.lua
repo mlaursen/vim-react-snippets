@@ -10,6 +10,7 @@ local i = ls.insert_node
 --- @class vim-react-snippets.FunctionComponentOptions
 --- @field props boolean
 --- @field export boolean | "default"
+--- @field server boolean
 --- @field forward boolean
 --- @field typescript boolean
 
@@ -61,15 +62,19 @@ end
 --- @return unknown[]
 local component_func = function(opts)
   local props = opts.props
+  local server = opts.server
   local forward = opts.forward
   local typescript = opts.typescript
 
   --- @type unknown[]
-  local parts = {
-    t("function "),
-    util.current_filename(1),
-    t("("),
-  }
+  local parts = {}
+  if server then
+    table.insert(parts, t("async "))
+  end
+  table.insert(parts, t("function "))
+  table.insert(parts, util.current_filename(1))
+  table.insert(parts, t("("))
+
   if forward then
     table.insert(parts, t("props, ref) {"))
   elseif typescript then
@@ -78,7 +83,7 @@ local component_func = function(opts)
       table.insert(parts, util.mirror_node(1))
       table.insert(parts, t("Props"))
     end
-    table.insert(parts, t("): ReactElement {"))
+    table.insert(parts, t("): " .. (server and "Promise<" or "") .. "ReactElement" .. (server and ">" or "") .. " {"))
   elseif props then
     table.insert(parts, t("props) {"))
   else
@@ -171,14 +176,48 @@ local function_component = function(opts)
   )
 end
 
---- @private
+local server_component = function(opts)
+  local props = opts.props
+  local export = opts.export
+  local default = export == "default"
+  local simple = not props
+
+  --- @type vim-react-snippets.FunctionComponentOptions
+  local shared_opts = {
+    props = props,
+    export = export,
+    server = true,
+    forward = false,
+    typescript = true,
+  }
+  local trig = (simple and "s" or "") .. "sc" .. (default and "d" or "") .. (export and "e" or "")
+  local desc = (simple and "Simple " or "")
+    .. "Server Component "
+    .. (default and "Default " or "")
+    .. (export and "Export" or "")
+  return s(
+    {
+      trig = trig,
+      desc = desc,
+    },
+    util.merge_lists(
+      react_imports(shared_opts),
+      component_props(shared_opts),
+      component_export_line(shared_opts),
+      component_body(shared_opts),
+      { t("}") }
+    )
+  )
+end
+
 --- @param typescript boolean
-local react_components = function(typescript)
+local function_components = function(typescript)
   return {
     -- fc
     function_component({
       props = true,
       export = false,
+      server = false,
       forward = false,
       typescript = typescript,
     }),
@@ -186,6 +225,7 @@ local react_components = function(typescript)
     function_component({
       props = true,
       export = true,
+      server = false,
       forward = false,
       typescript = typescript,
     }),
@@ -193,6 +233,7 @@ local react_components = function(typescript)
     function_component({
       props = true,
       export = "default",
+      server = false,
       forward = false,
       typescript = typescript,
     }),
@@ -201,6 +242,7 @@ local react_components = function(typescript)
     function_component({
       props = false,
       export = false,
+      server = false,
       forward = false,
       typescript = typescript,
     }),
@@ -208,6 +250,7 @@ local react_components = function(typescript)
     function_component({
       props = false,
       export = true,
+      server = false,
       forward = false,
       typescript = typescript,
     }),
@@ -215,6 +258,7 @@ local react_components = function(typescript)
     function_component({
       props = false,
       export = "default",
+      server = false,
       forward = false,
       typescript = typescript,
     }),
@@ -223,6 +267,7 @@ local react_components = function(typescript)
     function_component({
       props = true,
       export = false,
+      server = false,
       forward = true,
       typescript = typescript,
     }),
@@ -230,6 +275,7 @@ local react_components = function(typescript)
     function_component({
       props = true,
       export = true,
+      server = false,
       forward = true,
       typescript = typescript,
     }),
@@ -237,10 +283,47 @@ local react_components = function(typescript)
     function_component({
       props = true,
       export = "default",
+      server = false,
       forward = true,
       typescript = typescript,
     }),
   }
+end
+
+local server_components = function(typescript)
+  if not typescript then
+    return {}
+  end
+
+  return {
+    -- scde
+    server_component({
+      props = true,
+      export = "default",
+    }),
+    -- sscde
+    server_component({
+      props = false,
+      export = "default",
+    }),
+
+    -- sce
+    server_component({
+      props = true,
+      export = true,
+    }),
+    -- ssce
+    server_component({
+      props = false,
+      export = true,
+    }),
+  }
+end
+
+--- @private
+--- @param typescript boolean
+local react_components = function(typescript)
+  return util.merge_lists(function_components(typescript), server_components(typescript))
 end
 
 return react_components

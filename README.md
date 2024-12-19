@@ -83,6 +83,11 @@ be omitted. These snippets will be marked with ✨.
   - [Simple Function Component Default Export](#simple-function-component-default-export)
   - [Forwarded Function Component Export](#forwarded-function-component-export)
   - [Forwarded Function Component Default Export](#forwarded-function-component-default-export)
+- [Server Components](#server-components)
+  - [Server Component Export](#server-component-export)
+  - [Server Component Default Export](#server-component-default-export)
+  - [Simple Server Component Export](#simple-server-component-export)
+  - [Simple Server Component Default Export](#simple-server-component-default-export)
 - [Hooks and Effects](#hooks-and-effects)
   - [useState](#usestate)
   - [useReducer](#usereducer)
@@ -232,6 +237,66 @@ export default forwardRef<HTML$TABSTOPElement, $CFN_Props>(
     return <div ref={ref}></div>
   }
 )
+```
+
+### Server Components
+
+#### Server Component Export
+
+`sce` ->
+
+```tsx
+import { type ReactElement, type ReactNode } from "react"
+
+export interface $CFN_Props {
+  $TABSTOP
+  children: ReactNode
+}
+
+export function $CFN(props: $CFN_Props): Promise<ReactElement> {
+  return <></>
+}
+```
+
+#### Server Component Default Export
+
+`scde` ->
+
+```tsx
+import { type ReactElement, type ReactNode } from "react"
+
+export interface $CFN_Props {
+  $TABSTOP
+  children: ReactNode
+}
+
+export default function $CFN(props: $CFN_Props): Promise<ReactElement> {
+  return <></>
+}
+```
+
+#### Simple Server Component Export
+
+`sfce` ->
+
+```tsx
+import { type ReactElement } from "react"
+
+export function $CFN(): Promise<ReactElement> {
+  return <></>
+}
+```
+
+#### Simple Server Component Default Export
+
+`sscde` ->
+
+```tsx
+import { type ReactElement } from "react"
+
+export default function $CFN(): Promise<ReactElement> {
+  return <></>
+}
 ```
 
 ### Hooks and Effects
