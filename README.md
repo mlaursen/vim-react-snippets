@@ -831,6 +831,7 @@ local k = require("luasnip.nodes.key_indexer").new_key
 
 [react]: https://reactjs.org/
 [ultisnips]: https://github.com/SirVer/ultisnips
-[ultisnips folder]: https://github.com/mlaursen/vim-react-snippets/tree/main/UltiSnips
+[ultisnips folder]:
+  https://github.com/mlaursen/vim-react-snippets/tree/main/UltiSnips
 [luasnip]: https://github.com/L3MON4D3/LuaSnip
 [lazy.nvim]: https://github.com/folke/lazy.nvim
