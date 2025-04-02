@@ -36,6 +36,10 @@ With [lazy.nvim] and [LuaSnip]:
     opts = function()
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 +     require("vim-react-snippets").lazy_load()
++
++     -- if you do not want to wrap all props in `Readonly<T>`
++     local config = require("vim-react-snippets.config")
++     config.readonly_props = false
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       local compare = cmp.config.compare
@@ -155,7 +159,7 @@ export interface $CFN_Props {
   children: ReactNode
 }
 
-export function $CFN(props: $CFN_Props): ReactElement {
+export function $CFN(props: Readonly<$CFN_Props>): ReactElement {
   return <></>
 }
 ```
@@ -172,7 +176,7 @@ export interface $CFN_Props {
   children: ReactNode
 }
 
-export default function $CFN(props: $CFN_Props): ReactElement {
+export default function $CFN(props: Readonly<$CFN_Props>): ReactElement {
   return <></>
 }
 ```
@@ -213,7 +217,7 @@ export interface $CFNProps {
   children: ReactNode
 }
 
-export const $CFN = forwardRef<HTML$TABSTOPElement, $CFN_Props>(
+export const $CFN = forwardRef<HTML$TABSTOPElement, Readonly<$CFN_Props>>(
   function $CFN(props, ref) {
     return <div ref={ref}></div>
   }
@@ -232,7 +236,7 @@ export interface $CFNProps {
   children: ReactNode
 }
 
-export default forwardRef<HTML$TABSTOPElement, $CFN_Props>(
+export default forwardRef<HTML$TABSTOPElement, Readonly<$CFN_Props>>(
   function $CFN(props, ref) {
     return <div ref={ref}></div>
   }
@@ -253,7 +257,7 @@ export interface $CFN_Props {
   children: ReactNode
 }
 
-export function $CFN(props: $CFN_Props): Promise<ReactElement> {
+export function $CFN(props: Readonly<$CFN_Props>): Promise<ReactElement> {
   return <></>
 }
 ```
@@ -270,7 +274,9 @@ export interface $CFN_Props {
   children: ReactNode
 }
 
-export default function $CFN(props: $CFN_Props): Promise<ReactElement> {
+export default function $CFN(
+  props: Readonly<$CFN_Props>
+): Promise<ReactElement> {
   return <></>
 }
 ```
@@ -831,7 +837,6 @@ local k = require("luasnip.nodes.key_indexer").new_key
 
 [react]: https://reactjs.org/
 [ultisnips]: https://github.com/SirVer/ultisnips
-[ultisnips folder]:
-  https://github.com/mlaursen/vim-react-snippets/tree/main/UltiSnips
+[ultisnips folder]: https://github.com/mlaursen/vim-react-snippets/tree/main/UltiSnips
 [luasnip]: https://github.com/L3MON4D3/LuaSnip
 [lazy.nvim]: https://github.com/folke/lazy.nvim

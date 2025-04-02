@@ -1,4 +1,5 @@
 local util = require("vim-react-snippets.util")
+local config = require("vim-react-snippets.config")
 
 local ls = require("luasnip")
 
@@ -79,9 +80,9 @@ local component_func = function(opts)
     table.insert(parts, t("props, ref) {"))
   elseif typescript then
     if props then
-      table.insert(parts, t("props: "))
+      table.insert(parts, t("props: " .. (config.readonly_props and "Readony<" or "")))
       table.insert(parts, util.mirror_node(1))
-      table.insert(parts, t("Props"))
+      table.insert(parts, t("Props" .. (config.readonly_props and ">" or "")))
     end
     table.insert(parts, t("): " .. (server and "Promise<" or "") .. "ReactElement" .. (server and ">" or "") .. " {"))
   elseif props then
