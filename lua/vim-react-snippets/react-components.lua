@@ -80,7 +80,7 @@ local component_func = function(opts)
     table.insert(parts, t("props, ref) {"))
   elseif typescript then
     if props then
-      table.insert(parts, t("props: " .. (config.readonly_props and "Readony<" or "")))
+      table.insert(parts, t("props: " .. (config.readonly_props and "Readonly<" or "")))
       table.insert(parts, util.mirror_node(1))
       table.insert(parts, t("Props" .. (config.readonly_props and ">" or "")))
     end
