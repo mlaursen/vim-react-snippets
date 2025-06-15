@@ -22,11 +22,7 @@ local use_app_selector = function(typescript)
     create_snippet = function(start)
       return {
         t("useAppSelector("),
-        sn(start, {
-          i(1, "state"),
-          t(" => "),
-          i(2),
-        }),
+        i(start, "state"),
         t(")"),
       }
     end,

@@ -431,7 +431,7 @@ const $VALUE = useSelector(($STATE: AppState) => $SELECTOR)
 `useAS` ->
 
 ```ts
-const $VALUE = useAppSelector(($STATE) => $SELECTOR)
+const $VALUE = useAppSelector($STATE)
 ```
 
 ### Common
