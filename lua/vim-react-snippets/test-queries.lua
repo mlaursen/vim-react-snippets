@@ -8,7 +8,7 @@ local i = ls.insert_node
 
 --- @private
 --- @class vim-react-snippets.ByTypeOptions
---- @field type "role" | "role unnamed" | "testid" | "text"
+--- @field type "role" | "role unnamed" | "testid" | "text" | "label"
 --- @field find boolean
 --- @field inline boolean
 --- @field screen boolean
@@ -26,7 +26,10 @@ local by_type = function(opts)
   local get_or_find = find and "find" or "get"
   local maybe_screen = screen and "screen." or ""
   local maybe_await = find and "await " or ""
-  local by_type = (type == "testid" and "TestId") or (type == "text" and "Text") or "Role"
+  local by_type = (type == "testid" and "TestId")
+    or (type == "text" and "Text")
+    or (type == "label" and "LabelText")
+    or "Role"
   local query = maybe_await .. maybe_screen .. get_or_find .. "By" .. by_type
 
   local start = 1
@@ -75,7 +78,7 @@ local by_type = function(opts)
 end
 
 local test_queries = function()
-  local types = { "role", "role unnamed", "testid", "text" }
+  local types = { "role", "role unnamed", "testid", "text", "label" }
   local false_true = { false, true }
 
   local snippets = {}
