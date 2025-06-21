@@ -23,6 +23,8 @@ local typescript = function()
     }),
     s({
       trig = "<T",
+      regTrig = true,
+      wordTrig = false,
       name = "T typeparam",
       desc = "<T extends >",
     }, {
@@ -35,6 +37,8 @@ local typescript = function()
     }),
     s({
       trig = "<E",
+      regTrig = true,
+      wordTrig = false,
       name = "E typeparam",
       desc = "<E extends HTMLElement = HTMLElement>",
     }, {
