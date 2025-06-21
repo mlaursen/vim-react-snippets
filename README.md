@@ -27,22 +27,27 @@ With [lazy.nvim] and [LuaSnip]:
 ```diff
   {
     "hrsh7th/nvim-cmp",
+    version = "v2.*",
     dependencies = {
       "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
 +     "mlaursen/vim-react-snippets",
     },
     ---@param opts cmp.ConfigSchema
     opts = function()
-      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 +     require("vim-react-snippets").lazy_load()
 +
-+     -- if you do not want to wrap all props in `Readonly<T>`
 +     local config = require("vim-react-snippets.config")
++
++     -- if you do not want to wrap all props in `Readonly<T>`
 +     config.readonly_props = false
-      local cmp = require("cmp")
-      local luasnip = require("luasnip")
-      local compare = cmp.config.compare
++
++     -- if you want to use vitest instead of `@jest/globals`
++     config.test_framework = "vitest"
++
++     -- if you want to use a custom test renderer path instead of
++     -- `@testing-library/react`
++     config.test_renderer_path = "@/test-utils"
+    end
 ```
 
 <details>
@@ -116,32 +121,8 @@ be omitted. These snippets will be marked with ✨.
   - [reduce](#reduce)
   - [noop](#noop)
   - [interface](#interface)
-- [JSDoc/TSDoc](#jsdoctsdoc)
-  - [Block Comment](#block-comment)
-  - [@example](#example)
-  - [@defaultValue](#defaultvalue)
-  - [@since](#since)
-- [Logging](#logging)
-- [Importing](#importing)
-- [Exporting](#exporting)
-- [NODE_ENV](#node_env)
-- [Tests](#tests)
-  - [Describe a test](#describe-a-test)
-  - [it should...](#it-should)
-  - [it should (async)...](#it-should-async)
-  - [Test Expect](#test-expect)
-  - [Test Queries ✨](#test-queries-)
-- [React Testing](#react-testing)
-  - [React Test File](#react-test-file)
-  - [React Test File (ESM)](#react-test-file-esm)
-  - [Global Test File](#global-test-file)
-  - [Global Test File (ESM)](#global-test-file-esm)
-  - [User Event Test](#user-event-test)
-  - [waitFor](#waitfor)
-
-* [SCSS Snippets](#scss-snippets)
-* [Contributing](#contributing)
-  - [LuaSnip Template](#luasnip-template)
+  - [T generic](#t-generic)
+  - [E extends HTMLElement](#e-extends-htmlelement)
 
 <!-- tocstop -->
 
@@ -551,6 +532,19 @@ export interface $CFN_$TABSTOP {
 }
 ```
 
+#### T generic
+
+`<T` -> `<E $EXTENDS $TABSTOP>`
+
+#### E extends HTMLElement
+
+`<E` -> `<E extends HTMLElement = $HTMLElement>`
+
+````ts
+export interface $CFN_$TABSTOP {
+  $TABSTOP
+}
+
 ### JSDoc/TSDoc
 
 #### Block Comment
@@ -842,3 +836,4 @@ local k = require("luasnip.nodes.key_indexer").new_key
 [ultisnips folder]: https://github.com/mlaursen/vim-react-snippets/tree/main/UltiSnips
 [luasnip]: https://github.com/L3MON4D3/LuaSnip
 [lazy.nvim]: https://github.com/folke/lazy.nvim
+````

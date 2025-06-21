@@ -1,7 +1,6 @@
 local util = require("vim-react-snippets.util")
 
 local ls = require("luasnip")
-local conds = require("luasnip.extras.expand_conditions")
 
 local s = ls.snippet
 local sn = ls.snippet_node
@@ -33,8 +32,6 @@ local typescript = function()
       end),
       i(1),
       t(">"),
-    }, {
-      condition = conds.line_end,
     }),
     s({
       trig = "<E",
@@ -44,8 +41,6 @@ local typescript = function()
       t("<E extends HTMLElement = "),
       i(1, "HTMLElement"),
       t(">"),
-    }, {
-      condition = conds.line_end,
     }),
   }
 end
