@@ -1,4 +1,5 @@
 local util = require("vim-react-snippets.util")
+local config = require("vim-react-snippets.config")
 
 local ls = require("luasnip")
 
@@ -14,7 +15,7 @@ local react_test_file = function(esm, globals)
   local globals_import = globals
       and {
         t('import { describe, expect, it } from "'),
-        i(1, "@jest/globals"),
+        i(1, config.test_framework),
         t({ '"', "" }),
       }
     or {}
@@ -29,7 +30,7 @@ local react_test_file = function(esm, globals)
     },
     util.merge_lists(globals_import, {
       t('import { render, screen, userEvent } from "'),
-      i(rtl_index, "@testing-library/react"),
+      i(rtl_index, config.test_renderer_path),
       t({ '"', "" }),
       t("import { "),
       util.current_filename(filename_index),
