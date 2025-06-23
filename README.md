@@ -123,6 +123,32 @@ be omitted. These snippets will be marked with ✨.
   - [interface](#interface)
   - [T generic](#t-generic)
   - [E extends HTMLElement](#e-extends-htmlelement)
+- [JSDoc/TSDoc](#jsdoctsdoc)
+  - [Block Comment](#block-comment)
+  - [@example](#example)
+  - [@defaultValue](#defaultvalue)
+  - [@since](#since)
+- [Logging](#logging)
+- [Importing](#importing)
+- [Exporting](#exporting)
+- [NODE_ENV](#node_env)
+- [Tests](#tests)
+  - [Describe a test](#describe-a-test)
+  - [it should...](#it-should)
+  - [it should (async)...](#it-should-async)
+  - [Test Expect](#test-expect)
+  - [Test Queries ✨](#test-queries-)
+- [React Testing](#react-testing)
+  - [React Test File](#react-test-file)
+  - [React Test File (ESM)](#react-test-file-esm)
+  - [Global Test File](#global-test-file)
+  - [Global Test File (ESM)](#global-test-file-esm)
+  - [User Event Test](#user-event-test)
+  - [waitFor](#waitfor)
+
+* [SCSS Snippets](#scss-snippets)
+* [Contributing](#contributing)
+  - [LuaSnip Template](#luasnip-template)
 
 <!-- tocstop -->
 
@@ -540,11 +566,6 @@ export interface $CFN_$TABSTOP {
 
 `<E` -> `<E extends HTMLElement = $HTMLElement>`
 
-````ts
-export interface $CFN_$TABSTOP {
-  $TABSTOP
-}
-
 ### JSDoc/TSDoc
 
 #### Block Comment
@@ -836,4 +857,3 @@ local k = require("luasnip.nodes.key_indexer").new_key
 [ultisnips folder]: https://github.com/mlaursen/vim-react-snippets/tree/main/UltiSnips
 [luasnip]: https://github.com/L3MON4D3/LuaSnip
 [lazy.nvim]: https://github.com/folke/lazy.nvim
-````
