@@ -19,6 +19,7 @@ local use_app_selector = function(typescript)
       name = "useAppSelector",
     },
     const_name = "value",
+    const_edit = 1,
     create_snippet = function(start)
       return {
         t("useAppSelector("),
