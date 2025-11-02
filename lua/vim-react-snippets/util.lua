@@ -14,19 +14,10 @@ M.get_snippet_path = function(extension_name)
 end
 
 --- @param extension_name? string
-M.create_init = function(extension_name)
-  return {
-    load = function()
-      require("luasnip.loaders.from_lua").load({
-        paths = { M.get_snippet_path(extension_name) },
-      })
-    end,
-    lazy_load = function()
-      require("luasnip.loaders.from_lua").load({
-        paths = { M.get_snippet_path(extension_name) },
-      })
-    end,
-  }
+M.load = function(extension_name)
+  require("luasnip.loaders.from_lua").load({
+    paths = { M.get_snippet_path(extension_name) },
+  })
 end
 
 --- @generic T

@@ -6,19 +6,19 @@ A collection of common Javascript and Typescript vim snippets for developing
 
 ## Typescript Example
 
-https://user-images.githubusercontent.com/3920850/167317421-45035822-9ced-40ec-8d85-9b3db5d42651.mov
+<https://user-images.githubusercontent.com/3920850/167317421-45035822-9ced-40ec-8d85-9b3db5d42651.mov>
 
 ## Previewing Snippets with [coc-snippets](https://github.com/neoclide/coc-snippets)
 
-https://user-images.githubusercontent.com/3920850/167317372-6165c118-99da-4a31-88e6-57b6c7086ed5.mov
+<https://user-images.githubusercontent.com/3920850/167317372-6165c118-99da-4a31-88e6-57b6c7086ed5.mov>
 
 ## Using Log Helpers
 
-https://user-images.githubusercontent.com/3920850/167317795-63e74576-f0e6-4787-817f-b699e88d10e7.mov
+<https://user-images.githubusercontent.com/3920850/167317795-63e74576-f0e6-4787-817f-b699e88d10e7.mov>
 
 ## Writing Tests
 
-https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9eab-ee3dc79771e9.mov
+<https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9eab-ee3dc79771e9.mov>
 
 ## Installation
 
@@ -26,28 +26,29 @@ With [lazy.nvim] and [LuaSnip]:
 
 ```diff
   {
-    "hrsh7th/nvim-cmp",
+    "L3MON4D3/LuaSnip",
     version = "v2.*",
     dependencies = {
-      "L3MON4D3/LuaSnip",
-+     "mlaursen/vim-react-snippets",
++     { "mlaursen/vim-react-snippets", opts = {} },
     },
-    ---@param opts cmp.ConfigSchema
-    opts = function()
-+     require("vim-react-snippets").lazy_load()
-+
-+     local config = require("vim-react-snippets.config")
-+
-+     -- if you do not want to wrap all props in `Readonly<T>`
-+     config.readonly_props = false
-+
-+     -- if you want to use vitest instead of `@jest/globals`
-+     config.test_framework = "vitest"
-+
-+     -- if you want to use a custom test renderer path instead of
-+     -- `@testing-library/react`
-+     config.test_renderer_path = "@/test-utils"
-    end
+```
+
+Or with additional options:
+
+```diff
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    dependencies = {
++     {
++       "mlaursen/vim-react-snippets",
++       opts = {
++         readonly_props = true, -- Set to `false` if all props should no longer be wrapped in `Readonly<T>`.
++         test_framework = "@jest/globals", -- Set to "vitest" if you use vitest
++         test_renderer_path = "@testing-library/user-event", -- Set to a custom test renderer. For example "@/test-utils"
++       }
++     },
+    },
 ```
 
 <details>
@@ -75,7 +76,7 @@ code. Tabstops will be indicated with `$TABSTOP` or `$NAME` where `$NAME` is
 replaceable. `$CFN` or `$CFN_` will indicate a snippet that uses the current
 file name to generate the code.
 
-Some snippets support an "inline" version as where the `const whatever = ` will
+Some snippets support an "inline" version as where the `const whatever =` will
 be omitted. These snippets will be marked with ✨.
 
 > Javascript snippets are not shown since I really only use Typescript now, but
@@ -83,7 +84,7 @@ be omitted. These snippets will be marked with ✨.
 
 ## Table of Contents
 
-<!-- toc -->
+<!-- toc:start -->
 
 - [Function Components](#function-components)
   - [Function Component Export](#function-component-export)
@@ -134,8 +135,8 @@ be omitted. These snippets will be marked with ✨.
 - [NODE_ENV](#node_env)
 - [Tests](#tests)
   - [Describe a test](#describe-a-test)
-  - [it should...](#it-should)
-  - [it should (async)...](#it-should-async)
+  - [it should](#it-should)
+  - [it should (async)](#it-should-async)
   - [Test Expect](#test-expect)
   - [Test Queries ✨](#test-queries-)
 - [React Testing](#react-testing)
@@ -145,12 +146,10 @@ be omitted. These snippets will be marked with ✨.
   - [Global Test File (ESM)](#global-test-file-esm)
   - [User Event Test](#user-event-test)
   - [waitFor](#waitfor)
-
-* [SCSS Snippets](#scss-snippets)
-* [Contributing](#contributing)
+- [SCSS Snippets](#scss-snippets)
+- [Contributing](#contributing)
   - [LuaSnip Template](#luasnip-template)
-
-<!-- tocstop -->
+  <!-- toc:end -->
 
 ### Function Components
 
@@ -664,7 +663,7 @@ describe('$CFN', () => {
 })
 ```
 
-#### it should...
+#### it should
 
 `it` ->
 
@@ -674,7 +673,7 @@ it("should $TABSTOP", () => {
 })
 ```
 
-#### it should (async)...
+#### it should (async)
 
 `ita` ->
 
