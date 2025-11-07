@@ -32,7 +32,7 @@ local typescript = function()
       d(1, function()
         return sn(nil, { i(1, "extends "), i(2) })
       end),
-      i(1),
+      i(2),
       t(">"),
     }),
     s({
