@@ -21,8 +21,8 @@
     "typescript": "^5.8.2"
   },
   "volta": {
-    "node": "22.14.0",
-    "pnpm": "10.7.1"
+    "node": "24.12.0",
+    "pnpm": "10.27.0"
   },
   "lint-staged": {
     "README.md": [
