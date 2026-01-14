@@ -1,10 +1,12 @@
 local ls = require("luasnip")
+local config = require("vim-react-snippets.config")
 
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 
 local testing = function()
+  local throwSuffix = config.test_framework == "vitest" and "Error" or ""
   return {
     s({
       trig = "desc",
@@ -66,7 +68,7 @@ local testing = function()
     }, {
       t("expect(() => "),
       i(1),
-      t(").toThrow()"),
+      t(").toThrow" .. throwSuffix .. "()"),
     }),
     s({
       trig = "entt",
@@ -74,7 +76,7 @@ local testing = function()
     }, {
       t("expect(() => "),
       i(1),
-      t(").not.toThrow()"),
+      t(").not.toThrow" .. throwSuffix .. "()"),
     }),
 
     s({
