@@ -110,6 +110,17 @@ local testing = function()
       i(2),
       t(")"),
     }),
+    s({
+      trig = "ect",
+      name = "expect called times",
+      desc = "expect toHaveBeenCalledTimes",
+    }, {
+      t("expect("),
+      i(1),
+      t(").toHaveBeenCalledTimes("),
+      i(2),
+      t(")"),
+    }),
   }
 end
 

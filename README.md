@@ -685,14 +685,18 @@ it("should $TABSTOP", async () => {
 
 #### Test Expect
 
-| Shortcut | Name                | Expands to                                         |
-| -------- | ------------------- | -------------------------------------------------- |
-| `es`     | Expect Snapshot     | `expect(${container}).toMatchSnapshot()`           |
-| `ett`    | Expect To Throw     | `expect(() => $TABSTOP).toThrow()`                 |
-| `entt`   | Expect Not To Throw | `expect(() => $TABSTOP).not.toThrow()`             |
-| `enc`    | Expect Not Called   | `expect($TABSTOP).not.toHaveBeenCalled()`          |
-| `ecw`    | Expect Called With  | `expect($TABSTOP).toHaveBeenCalledWith($TABSTOP)`  |
-| `ect`    | Expect Called Times | `expect($TABSTOP).toHaveBeenCalledTimes($TABSTOP)` |
+> NOTE: when using `vitest`, `toThrowError()` will be used instead of
+> `toThrow()`
+
+| Shortcut | Name                   | Expands to                                            |
+| -------- | ---------------------- | ----------------------------------------------------- |
+| `es`     | Expect Snapshot        | `expect(${container}).toMatchSnapshot()`              |
+| `ett`    | Expect To Throw        | `expect(() => $TABSTOP).toThrow()`                    |
+| `entt`   | Expect Not To Throw    | `expect(() => $TABSTOP).not.toThrow()`                |
+| `enc`    | Expect Not Called      | `expect($TABSTOP).not.toHaveBeenCalled()`             |
+| `ecw`    | Expect Called With     | `expect($TABSTOP).toHaveBeenCalledWith($TABSTOP)`     |
+| `encw`   | Expect Not Called With | `expect($TABSTOP).not.toHaveBeenCalledWith($TABSTOP)` |
+| `ect`    | Expect Called Times    | `expect($TABSTOP).toHaveBeenCalledTimes($TABSTOP)`    |
 
 #### Test Queries ✨
 
