@@ -45,6 +45,15 @@ local typescript = function()
       i(2, "HTMLElement"),
       t(">"),
     }),
+
+    s({
+      trig = "ro",
+      name = "Readonly<T>",
+    }, {
+      t("Readonly<"),
+      i(1, "T"),
+      t(">"),
+    }),
   }
 end
 

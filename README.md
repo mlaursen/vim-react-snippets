@@ -111,6 +111,7 @@ be omitted. These snippets will be marked with ✨.
       - [for loop](#for-loop)
       - [reduce](#reduce)
       - [noop](#noop)
+      - [Readonly](#readonly)
       - [interface](#interface)
       - [Typeparam Extends](#typeparam-extends)
       - [Typeparam Extends htmlElement](#typeparam-extends-htmlelement)
@@ -542,6 +543,14 @@ const $VALUE = $LIST.reduce<$TYPE_DEF>(($result, $item) => {
 const noop = (): void => {
   // do nothing
 }
+```
+
+#### Readonly
+
+`ro` ->
+
+```ts
+Readonly<$T>
 ```
 
 #### interface
