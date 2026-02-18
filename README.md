@@ -147,6 +147,8 @@ be omitted. These snippets will be marked with ✨.
     - [set arg](#set-arg-1)
     - [inline if](#inline-if)
     - [Sass Built-in Modules](#sass-built-in-modules)
+  - [Material UI](#material-ui)
+    - [sx function](#sx-function)
   - [Contributing](#contributing) - [LuaSnip Template](#luasnip-template)
   <!--toc:end-->
 
@@ -924,6 +926,18 @@ if(sass($CONDITION): $THEN; else: $THAT)
 | `sl`     | String Length  | `string.length($$TABSTOP)`                    |
 | `sn`     | String Slice   | `string.slice($$TABSTOP, $TABSTOP, $TABSTOP)` |
 | `su`     | String Unquote | `string.unquote($TABSTOP)`                    |
+
+## Material UI
+
+### sx function
+
+`sx` ->
+
+```tsx
+sx={(theme) => ({
+  $TABSTOP
+})}
+```
 
 ## Contributing
 
