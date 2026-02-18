@@ -89,6 +89,17 @@ local imports = function()
       util.current_filename(1),
       t('.module.scss"'),
     }),
+    s({
+      trig = "icm",
+      name = "Import CSS Module",
+      desc = "import css module",
+    }, {
+      t("import "),
+      i(2, "styles"),
+      t(' from "./'),
+      util.current_filename(1),
+      t('.module.css"'),
+    }),
   }
 end
 

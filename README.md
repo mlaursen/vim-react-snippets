@@ -620,15 +620,16 @@ $TABSTOP
 
 ### Importing
 
-| Shortcut | Name                 | Expands to                                       |
-| -------- | -------------------- | ------------------------------------------------ |
-| `imp`    | Import               | `import packageName from "package-name"`         |
-| `impf`   | Import File          | `import File from "./File"`                      |
-| `impd`   | Import Destructured  | `import { destructured } from "package-or/path"` |
-| `impp`   | Import (Please?)     | `import "./file"`                                |
-| `icn`    | Import Classnames    | `import cn from "classnames"`                    |
-| `icnb`   | Import Cnbuilder     | `import { cnb } from "cnbuilder"`                |
-| `ism`    | Import Styles Module | `import styles from "./$CFN.module.scss"`        |
+| Shortcut | Name                | Expands to                                       |
+| -------- | ------------------- | ------------------------------------------------ |
+| `imp`    | Import              | `import packageName from "package-name"`         |
+| `impf`   | Import File         | `import File from "./File"`                      |
+| `impd`   | Import Destructured | `import { destructured } from "package-or/path"` |
+| `impp`   | Import (Please?)    | `import "./file"`                                |
+| `icn`    | Import Classnames   | `import cn from "classnames"`                    |
+| `icnb`   | Import Cnbuilder    | `import { cnb } from "cnbuilder"`                |
+| `ism`    | Import SCSS Module  | `import styles from "./$CFN.module.scss"`        |
+| `icm`    | Import CSS Module   | `import styles from "./$CFN.module.css"`         |
 
 ### Exporting
 
