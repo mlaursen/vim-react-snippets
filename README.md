@@ -1,8 +1,8 @@
 # vim-react-snippets
 
 A collection of common Javascript and Typescript vim snippets for developing
-[React] applications. The snippets within this repo rely on [LuaSnip] or
-[UltiSnips] as the snippet provider.
+[React] applications. The snippets within this repo rely on [LuaSnip] as the
+snippet provider.
 
 ## Typescript Example
 
@@ -50,24 +50,6 @@ Or with additional options:
 +     },
     },
 ```
-
-<details>
-  <summary>
-    With <a href="https://github.com/junegunn/vim-plug">vim-plug</a> and
-    <a href="https://github.com/SirVer/ultisnips">UltiSnips</a>:
-  </summary>
-
-```vim
-call plug#begin('~/.vim/plugged')
-Plug 'SirVer/ultisnips'
-Plug 'mlaursen/vim-react-snippets'
-call plug#end()
-```
-
-</details>
-
-> NOTE: I no longer use UltiSnips so the snippets might be different. Check out
-> the [UltiSnips folder] to see available snippets.
 
 ## Cheatsheet
 
@@ -856,7 +838,5 @@ local k = require("luasnip.nodes.key_indexer").new_key
 ```
 
 [react]: https://reactjs.org/
-[ultisnips]: https://github.com/SirVer/ultisnips
-[ultisnips folder]: https://github.com/mlaursen/vim-react-snippets/tree/main/UltiSnips
 [luasnip]: https://github.com/L3MON4D3/LuaSnip
 [lazy.nvim]: https://github.com/folke/lazy.nvim
