@@ -113,6 +113,7 @@ be omitted. These snippets will be marked with ✨.
       - [noop](#noop)
       - [Readonly](#readonly)
       - [interface](#interface)
+      - [optional property](#optional-property)
       - [Typeparam Extends](#typeparam-extends)
       - [Typeparam Extends htmlElement](#typeparam-extends-htmlelement)
     - [JSDoc/TSDoc](#jsdoctsdoc)
@@ -561,6 +562,14 @@ Readonly<$T>
 export interface $CFN_$TABSTOP {
   $TABSTOP
 }
+```
+
+#### optional property
+
+`op` ->
+
+```ts
+$NAME?: $STRING
 ```
 
 #### Typeparam Extends

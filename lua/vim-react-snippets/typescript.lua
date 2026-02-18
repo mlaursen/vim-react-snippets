@@ -54,6 +54,16 @@ local typescript = function()
       i(1, "T"),
       t(">"),
     }),
+
+    s({
+      trig = "op",
+      name = "optional property",
+      desc = "name?: type",
+    }, {
+      i(1, "name"),
+      t("?: "),
+      i(2, "string"),
+    }),
   }
 end
 
