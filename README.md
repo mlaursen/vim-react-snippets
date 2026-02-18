@@ -66,72 +66,87 @@ be omitted. These snippets will be marked with ✨.
 
 ## Table of Contents
 
-<!-- toc:start -->
+<!--toc:start-->
 
-- [Function Components](#function-components)
-  - [Function Component Export](#function-component-export)
-  - [Function Component Default Export](#function-component-default-export)
-  - [Simple Function Component Export](#simple-function-component-export)
-  - [Simple Function Component Default Export](#simple-function-component-default-export)
-  - [Forwarded Function Component Export](#forwarded-function-component-export)
-  - [Forwarded Function Component Default Export](#forwarded-function-component-default-export)
-- [Server Components](#server-components)
-  - [Server Component Export](#server-component-export)
-  - [Server Component Default Export](#server-component-default-export)
-  - [Simple Server Component Export](#simple-server-component-export)
-  - [Simple Server Component Default Export](#simple-server-component-default-export)
-- [Hooks and Effects](#hooks-and-effects)
-  - [useState](#usestate)
-  - [useReducer](#usereducer)
-  - [useEffect](#useeffect)
-  - [useContext ✨](#usecontext-)
-  - [useCallback ✨](#usecallback-)
-  - [useMemo ✨](#usememo-)
-  - [useMemo return (manual return required) ✨](#usememo-return-manual-return-required-)
-  - [useRef ✨](#useref-)
-  - [Create Context Provider](#create-context-provider)
-- [Redux](#redux)
-  - [useAppDispatch ✨](#useappdispatch-)
-  - [useSelector ✨](#useselector-)
-  - [useAppSelector ✨](#useappselector-)
-- [Common](#common)
-  - [Destructured Const](#destructured-const)
-  - [Export Destructured Const](#export-destructured-const)
-  - [if](#if)
-  - [else](#else)
-  - [switch](#switch)
-  - [for loop](#for-loop)
-  - [reduce](#reduce)
-  - [noop](#noop)
-  - [interface](#interface)
-  - [T generic](#t-generic)
-  - [E extends HTMLElement](#e-extends-htmlelement)
-- [JSDoc/TSDoc](#jsdoctsdoc)
-  - [Block Comment](#block-comment)
-  - [@example](#example)
-  - [@defaultValue](#defaultvalue)
-  - [@since](#since)
-- [Logging](#logging)
-- [Importing](#importing)
-- [Exporting](#exporting)
-- [NODE_ENV](#node_env)
-- [Tests](#tests)
-  - [Describe a test](#describe-a-test)
-  - [it should](#it-should)
-  - [it should (async)](#it-should-async)
-  - [Test Expect](#test-expect)
-  - [Test Queries ✨](#test-queries-)
-- [React Testing](#react-testing)
-  - [React Test File](#react-test-file)
-  - [React Test File (ESM)](#react-test-file-esm)
-  - [Global Test File](#global-test-file)
-  - [Global Test File (ESM)](#global-test-file-esm)
-  - [User Event Test](#user-event-test)
-  - [waitFor](#waitfor)
-- [SCSS Snippets](#scss-snippets)
-- [Contributing](#contributing)
-  - [LuaSnip Template](#luasnip-template)
-  <!-- toc:end -->
+- [vim-react-snippets](#vim-react-snippets)
+  - [Typescript Example](#typescript-example)
+  - [Previewing Snippets with [coc-snippets](https://github.com/neoclide/coc-snippets)](#previewing-snippets-with-coc-snippetshttpsgithubcomneoclidecoc-snippets)
+  - [Using Log Helpers](#using-log-helpers)
+  - [Writing Tests](#writing-tests)
+  - [Installation](#installation)
+  - [Cheatsheet](#cheatsheet)
+  - [Table of Contents](#table-of-contents)
+    - [Function Components](#function-components)
+      - [Function Component Export](#function-component-export)
+      - [Function Component Default Export](#function-component-default-export)
+      - [Simple Function Component Export](#simple-function-component-export)
+      - [Simple Function Component Default Export](#simple-function-component-default-export)
+      - [Forwarded Function Component Export](#forwarded-function-component-export)
+      - [Forwarded Function Component Default Export](#forwarded-function-component-default-export)
+    - [Server Components](#server-components)
+      - [Server Component Export](#server-component-export)
+      - [Server Component Default Export](#server-component-default-export)
+      - [Simple Server Component Export](#simple-server-component-export)
+      - [Simple Server Component Default Export](#simple-server-component-default-export)
+    - [Hooks and Effects](#hooks-and-effects)
+      - [useState](#usestate)
+      - [useReducer](#usereducer)
+      - [useEffect](#useeffect)
+      - [useContext ✨](#usecontext)
+      - [useCallback ✨](#usecallback)
+      - [useMemo ✨](#usememo)
+      - [useMemo return (manual return required) ✨](#usememo-return-manual-return-required)
+      - [useRef ✨](#useref)
+      - [Create Context Provider](#create-context-provider)
+    - [Redux](#redux)
+      - [useAppDispatch ✨](#useappdispatch)
+      - [useSelector ✨](#useselector)
+      - [useAppSelector ✨](#useappselector)
+    - [Common](#common)
+      - [Destructured Const](#destructured-const)
+      - [Export Destructured Const](#export-destructured-const)
+      - [if](#if)
+      - [else](#else)
+      - [switch](#switch)
+      - [for loop](#for-loop)
+      - [reduce](#reduce)
+      - [noop](#noop)
+      - [interface](#interface)
+      - [T generic](#t-generic)
+      - [E extends HTMLElement](#e-extends-htmlelement)
+    - [JSDoc/TSDoc](#jsdoctsdoc)
+      - [Block Comment](#block-comment)
+      - [@example](#example)
+      - [@defaultValue](#defaultvalue)
+      - [@since](#since)
+    - [Logging](#logging)
+    - [Importing](#importing)
+    - [Exporting](#exporting)
+    - [NODE_ENV](#nodeenv)
+    - [Tests](#tests)
+      - [Describe a test](#describe-a-test)
+      - [it should](#it-should)
+      - [it should (async)](#it-should-async)
+      - [Test Expect](#test-expect)
+      - [Test Queries ✨](#test-queries)
+    - [React Testing](#react-testing)
+      - [React Test File](#react-test-file)
+      - [React Test File (ESM)](#react-test-file-esm)
+      - [Global Test File](#global-test-file)
+      - [Global Test File (ESM)](#global-test-file-esm)
+      - [User Event Test](#user-event-test)
+      - [waitFor](#waitfor)
+  - [SCSS Snippets](#scss-snippets)
+    - [@function](#function)
+    - [@mixin](#mixin)
+    - [@mixin configure](#mixin-configure)
+    - [set global](#set-global)
+    - [set arg](#set-arg)
+    - [set arg](#set-arg-1)
+    - [inline if](#inline-if)
+    - [Sass Built-in Modules](#sass-built-in-modules)
+  - [Contributing](#contributing) - [LuaSnip Template](#luasnip-template)
+  <!--toc:end-->
 
 ### Function Components
 
@@ -823,6 +838,73 @@ await waitFor(() => {
   $TABSTOP
 }
 ```
+
+### @mixin configure
+
+`conf` ->
+
+```scss
+@mixin configure($$TABSTOP: null) {
+  @if $1 {
+    $-$1: $1 !global;
+  }
+
+  $TABSTOP
+}
+```
+
+### set global
+
+`sg` ->
+
+```scss
+@if $$TABSTOP {
+  $-$1: $1 !global;
+}
+```
+
+### set arg
+
+`sa` ->
+
+```scss
+$$name: $NULL;
+```
+
+### set arg
+
+`sa` ->
+
+```scss
+$$name: $NULL;
+```
+
+### inline if
+
+`if` ->
+
+```scss
+if(sass($CONDITION): $THEN; else: $THAT)
+```
+
+### Sass Built-in Modules
+
+| Shortcut | Name           | Expands To                                    |
+| -------- | -------------- | --------------------------------------------- |
+| `mg`     | Map Get        | `map.get($$TABSTOP, $TABSTOP)`                |
+| `ms`     | Map Set        | `map.set($$TABSTOP, $TABSTOP)`                |
+| `mr`     | Map Remove     | `map.remove($$TABSTOP, $TABSTOP)`             |
+| `mm`     | Map Merge      | `map.merge($$TABSTOP, $TABSTOP)`              |
+| `mdm`    | Map Deep Merge | `map.deep-merge($$TABSTOP, $TABSTOP)`         |
+| `la`     | List Append    | `list.append($$TABSTOP, $TABSTOP)`            |
+| `li`     | List Index     | `list.index($$TABSTOP, $TABSTOP)`             |
+| `ll`     | List Length    | `list.length($$TABSTOP)`                      |
+| `ln`     | List Nth       | `list.nth($$TABSTOP, $TABSTOP)`               |
+| `to`     | Meta type-of   | `meta.type-of($$TABSTOP)`                     |
+| `si`     | String Index   | `string.index($$TABSTOP, $TABSTOP)`           |
+| `sl`     | String Length  | `string.length($$TABSTOP)`                    |
+| `sn`     | String Slice   | `string.slice($$TABSTOP, $TABSTOP, $TABSTOP)` |
+| `su`     | String Unquote | `string.unquote($TABSTOP)`                    |
 
 ## Contributing
 
