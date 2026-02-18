@@ -32,6 +32,35 @@ return {
     t({ "", ");" }),
   }),
 
+  s({
+    trig = "fun",
+    name = "@function",
+  }, {
+    t("@function "),
+    i(1, "name"),
+    t("("),
+    i(2),
+    t({ ") {", "\t" }),
+    i(0),
+    t({ "", "\t@return " }),
+    i(3, "null"),
+    t({ ";" }),
+    t({ "", "}" }),
+  }),
+
+  s({
+    trig = "mix",
+    name = "@mixin",
+  }, {
+    t("@mixin "),
+    i(1, "name"),
+    t("("),
+    i(2),
+    t({ ") {", "\t" }),
+    i(0),
+    t({ "", "}" }),
+  }),
+
   -- not used often
   s({
     trig = "pcs",

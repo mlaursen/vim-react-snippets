@@ -803,6 +803,27 @@ await waitFor(() => {
 | `for`    | Forward              | `@forward "$TABSTOP" with ($TABSTOP);`              |
 | `pcs`    | Prefers Color Scheme | `@media (prefers-color-scheme: $DARK) { $TABSTOP }` |
 
+### @function
+
+`fun` ->
+
+```scss
+@function $TABSTOP($TABSTOP) {
+  $TABSTOP
+  @return $TABSTOP;
+}
+```
+
+### @mixin
+
+`mix` ->
+
+```scss
+@mixin $TABSTOP($TABSTOP) {
+  $TABSTOP
+}
+```
+
 ## Contributing
 
 ### LuaSnip Template
