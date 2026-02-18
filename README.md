@@ -112,8 +112,8 @@ be omitted. These snippets will be marked with ✨.
       - [reduce](#reduce)
       - [noop](#noop)
       - [interface](#interface)
-      - [T generic](#t-generic)
-      - [E extends HTMLElement](#e-extends-htmlelement)
+      - [Typeparam Extends](#typeparam-extends)
+      - [Typeparam Extends htmlElement](#typeparam-extends-htmlelement)
     - [JSDoc/TSDoc](#jsdoctsdoc)
       - [Block Comment](#block-comment)
       - [@example](#example)
@@ -554,13 +554,13 @@ export interface $CFN_$TABSTOP {
 }
 ```
 
-#### T generic
+#### Typeparam Extends
 
-`<T` -> `<E $EXTENDS $TABSTOP>`
+`te` -> `<T $EXTENDS $TABSTOP>`
 
-#### E extends HTMLElement
+#### Typeparam Extends htmlElement
 
-`<E` -> `<E extends HTMLElement = $HTMLElement>`
+`tee` -> `<E extends HTMLElement = $HTMLElement>`
 
 ### JSDoc/TSDoc
 

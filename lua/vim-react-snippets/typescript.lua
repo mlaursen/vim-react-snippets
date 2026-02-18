@@ -22,28 +22,27 @@ local typescript = function()
       t({ "", "}" }),
     }),
     s({
-      trig = "<T",
-      regTrig = true,
-      wordTrig = false,
-      name = "T typeparam",
+      trig = "te",
+      name = "Typeparam Extends",
       desc = "<T extends >",
     }, {
-      t("<T "),
-      d(1, function()
+      t("<"),
+      i(1, "T"),
+      d(2, function()
         return sn(nil, { i(1, "extends "), i(2) })
       end),
-      i(2),
+      i(3),
       t(">"),
     }),
     s({
-      trig = "<E",
-      regTrig = true,
-      wordTrig = false,
-      name = "E typeparam",
+      trig = "tee",
+      name = "Typeparam Extends htmlElement",
       desc = "<E extends HTMLElement = HTMLElement>",
     }, {
-      t("<E extends HTMLElement = "),
-      i(1, "HTMLElement"),
+      t("<"),
+      i(1, "E"),
+      t(" extends HTMLElement = "),
+      i(2, "HTMLElement"),
       t(">"),
     }),
   }
