@@ -43,14 +43,4 @@ return {
     i(2),
     t({ "", "}" }),
   }),
-
-  -- legacy
-  s({
-    trig = "imp",
-    name = "Import Package (Legacy)",
-  }, {
-    t('@import "'),
-    i(1),
-    t('";'),
-  }),
 }
