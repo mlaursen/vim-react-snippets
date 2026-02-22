@@ -13,10 +13,10 @@
     "check-format": "prettier --check ."
   },
   "devDependencies": {
-    "@types/node": "^22.19.3",
+    "@types/node": "^24.10.13",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
-    "prettier": "^3.7.4",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
