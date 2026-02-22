@@ -1,10 +1,13 @@
 local util = require("vim-react-snippets.util")
 
 local ls = require("luasnip")
+local conds = require("luasnip.extras.expand_conditions")
 
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
+
+local line_begin = { condition = conds.line_begin }
 
 local use_modules = function()
   return {
@@ -15,7 +18,7 @@ local use_modules = function()
       t('@use "'),
       i(1),
       t('";'),
-    }),
+    }, line_begin),
     s({
       trig = "use*",
       name = "Use File or Package as *",
@@ -23,7 +26,7 @@ local use_modules = function()
       t('@use "'),
       i(1),
       t('" as *;'),
-    }),
+    }, line_begin),
     s({
       trig = "for",
       name = "Forward",
@@ -33,7 +36,7 @@ local use_modules = function()
       t({ '" with (', "\t" }),
       i(2),
       t({ "", ");" }),
-    }),
+    }, line_begin),
   }
 end
 
@@ -53,7 +56,7 @@ local at_rules = function()
       i(3, "null"),
       t({ ";" }),
       t({ "", "}" }),
-    }),
+    }, line_begin),
 
     s({
       trig = "mix",
@@ -66,7 +69,7 @@ local at_rules = function()
       t({ ") {", "\t" }),
       i(0),
       t({ "", "}" }),
-    }),
+    }, line_begin),
 
     -- not used often
     s({
@@ -78,7 +81,7 @@ local at_rules = function()
       t({ ") {", "\t" }),
       i(2),
       t({ "", "}" }),
-    }),
+    }, line_begin),
   }
 end
 
@@ -102,7 +105,7 @@ local libraries = function()
       t({ "\t}", "" }),
       i(0),
       t({ "", "}" }),
-    }),
+    }, line_begin),
 
     s({
       trig = "sg",
@@ -118,7 +121,7 @@ local libraries = function()
       t({ " !global;", "" }),
       t({ "}", "" }),
       i(0),
-    }),
+    }, line_begin),
   }
 end
 
