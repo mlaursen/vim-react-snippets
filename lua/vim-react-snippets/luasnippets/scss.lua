@@ -9,8 +9,22 @@ local i = ls.insert_node
 
 local line_begin = { condition = conds.line_begin }
 
+local use = function(trig, name)
+  return s({
+    trig = trig,
+    name = "use sass:" .. name,
+  }, {
+    t({ '@use "sass:' .. name .. '";', "" }),
+  }, line_begin)
+end
+
 local use_modules = function()
   return {
+    use("usm", "map"),
+    use("usme", "meta"),
+    use("usma", "math"),
+    use("usl", "list"),
+    use("uss", "string"),
     s({
       trig = "use",
       name = "Use File or Package",

@@ -79,6 +79,7 @@ snippet provider.
       - [User Event Test](#user-event-test)
       - [waitFor](#waitfor)
   - [SCSS Snippets](#scss-snippets)
+    - [@if ✨](#if-1)
     - [@function](#function)
     - [@mixin](#mixin)
     - [@mixin configure](#mixin-configure)
@@ -837,24 +838,28 @@ await waitFor(() => {
 | `use*`   | Use \*               | `@use "$TABSTOP" as *;`                             |
 | `for`    | Forward              | `@forward "$TABSTOP" with ($TABSTOP);`              |
 | `pcs`    | Prefers Color Scheme | `@media (prefers-color-scheme: $DARK) { $TABSTOP }` |
+| `usm`    | Use Sass Map         | `@use "sass:map";`                                  |
+| `usma`   | Use Sass Math        | `@use "sass:math";`                                 |
+| `usme`   | Use Sass Meta        | `@use "sass:meta";`                                 |
+| `usl`    | Use Sass List        | `@use "sass:list";`                                 |
+| `uss`    | Use Sass String      | `@use "sass:string";`                               |
 | `mg`     | Map Get              | `map.get($$TABSTOP, $TABSTOP)`                      |
 | `ms`     | Map Set              | `map.set($$TABSTOP, $TABSTOP)`                      |
 | `mr`     | Map Remove           | `map.remove($$TABSTOP, $TABSTOP)`                   |
 | `mm`     | Map Merge            | `map.merge($$TABSTOP, $TABSTOP)`                    |
 | `mdm`    | Map Deep Merge       | `map.deep-merge($$TABSTOP, $TABSTOP)`               |
+| `to`     | Meta type-of         | `meta.type-of($$TABSTOP)`                           |
 | `la`     | List Append          | `list.append($$TABSTOP, $TABSTOP)`                  |
 | `li`     | List Index           | `list.index($$TABSTOP, $TABSTOP)`                   |
 | `ll`     | List Length          | `list.length($$TABSTOP)`                            |
 | `ln`     | List Nth             | `list.nth($$TABSTOP, $TABSTOP)`                     |
-| `to`     | Meta type-of         | `meta.type-of($$TABSTOP)`                           |
 | `si`     | String Index         | `string.index($$TABSTOP, $TABSTOP)`                 |
 | `sl`     | String Length        | `string.length($$TABSTOP)`                          |
 | `sn`     | String Slice         | `string.slice($$TABSTOP, $TABSTOP, $TABSTOP)`       |
 | `su`     | String Unquote       | `string.unquote($TABSTOP)`                          |
 | `sa`     | Set Arg              | `$$TABSTOP: $NULL`                                  |
-| `if`     | if (inline)          | `if(sass($CONDITION): $THEN; else: $THAT)`          |
 
-### @if
+### @if ✨
 
 `if` ->
 
@@ -862,6 +867,16 @@ await waitFor(() => {
 @if $TABSTOP {
   $TABSTOP
 }
+```
+
+or inline:
+
+`$something: if` ->
+
+```scss
+$something: if(
+  sass($CONDITION): $THEN; else: $THAT,
+);
 ```
 
 ### @function
