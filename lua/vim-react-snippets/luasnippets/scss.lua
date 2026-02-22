@@ -139,6 +139,17 @@ local utils = function()
 
     s({
       trig = "if",
+      name = "@if $condition",
+    }, {
+      t("@if "),
+      i(1, "$condition"),
+      t({ " {", "\t" }),
+      i(0),
+      t({ "", "}" }),
+    }, line_begin),
+
+    s({
+      trig = "if",
       name = "if(sass($condition): $then; else: $that)",
     }, {
       t("if(sass("),

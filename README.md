@@ -854,6 +854,16 @@ await waitFor(() => {
 | `sa`     | Set Arg              | `$$TABSTOP: $NULL`                                  |
 | `if`     | if (inline)          | `if(sass($CONDITION): $THEN; else: $THAT)`          |
 
+### @if
+
+`if` ->
+
+```scss
+@if $TABSTOP {
+  $TABSTOP
+}
+```
+
 ### @function
 
 `fun` ->
