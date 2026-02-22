@@ -2,20 +2,20 @@
   "name": "vim-react-snippets",
   "type": "module",
   "version": "0.0.1",
-  "description": "Reusable Javascript and Typescript vim snippets for UltiSnips and developing React apps.",
+  "description": "Reusable Typescript, SCSS, and MDX vim snippets for LuaSnips and developing React apps.",
   "repository": "git@github.com:mlaursen/vim-react-snippets.git",
   "author": "Mikkel Laursen <mlaursen03@gmail.com>",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "create-toc": "tsx scripts/create-toc.ts"
+    "format": "prettier --write .",
+    "check-format": "prettier --check ."
   },
   "devDependencies": {
     "@types/node": "^22.19.3",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
-    "markdown-toc": "^1.2.0",
     "prettier": "^3.7.4",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
@@ -25,10 +25,7 @@
     "pnpm": "10.27.0"
   },
   "lint-staged": {
-    "README.md": [
-      "pnpm run create-toc"
-    ],
-    "**/*.{ts,js}": [
+    "**/*.{ts,js,md,json}": [
       "prettier --write"
     ]
   }
