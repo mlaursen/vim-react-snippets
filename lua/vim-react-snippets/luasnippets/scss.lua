@@ -149,6 +149,22 @@ local utils = function()
       i(3, "that"),
       t(")"),
     }),
+
+    s({
+      trig = "ft",
+      name = "for through",
+      desc = "@for $i from $start through $end",
+    }, {
+      t("@for $"),
+      i(1, "i"),
+      t(" from "),
+      i(2, "$start"),
+      t(" through "),
+      i(3, "$end"),
+      t({ " {", "\t" }),
+      i(0),
+      t({ "", "}" }),
+    }, line_begin),
   }
 end
 
@@ -239,6 +255,22 @@ local map_module = function()
       trig = "map.d",
       second_arg = true,
     }),
+
+    s({
+      trig = "em",
+      name = "each map",
+      desc = "@each $key, $value in $map",
+    }, {
+      t("@each $"),
+      i(1, "key"),
+      t(", $"),
+      i(2, "value"),
+      t(" in $"),
+      i(3, "map"),
+      t({ " {", "\t" }),
+      i(0),
+      t({ "", "}" }),
+    }, line_begin),
   }
 end
 
@@ -284,6 +316,20 @@ local list_module = function()
       trig = "list.n",
       second_arg = true,
     }),
+
+    s({
+      trig = "el",
+      name = "each list",
+      desc = "@each $value in $list",
+    }, {
+      t("@each $"),
+      i(1, "value"),
+      t(" in $"),
+      i(2, "list"),
+      t({ " {", "\t" }),
+      i(0),
+      t({ "", "}" }),
+    }, line_begin),
   }
 end
 

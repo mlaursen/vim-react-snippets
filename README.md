@@ -4,78 +4,18 @@ A collection of common Javascript and Typescript vim snippets for developing
 [React] applications. The snippets within this repo rely on [LuaSnip] as the
 snippet provider.
 
-## Typescript Example
-
-<https://user-images.githubusercontent.com/3920850/167317421-45035822-9ced-40ec-8d85-9b3db5d42651.mov>
-
-## Previewing Snippets with [coc-snippets](https://github.com/neoclide/coc-snippets)
-
-<https://user-images.githubusercontent.com/3920850/167317372-6165c118-99da-4a31-88e6-57b6c7086ed5.mov>
-
-## Using Log Helpers
-
-<https://user-images.githubusercontent.com/3920850/167317795-63e74576-f0e6-4787-817f-b699e88d10e7.mov>
-
-## Writing Tests
-
-<https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9eab-ee3dc79771e9.mov>
-
-## Installation
-
-With [lazy.nvim] and [LuaSnip]:
-
-```diff
-  {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-    dependencies = {
-+     { "mlaursen/vim-react-snippets", opts = {} },
-    },
-```
-
-Or with additional options:
-
-```diff
-  {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-    dependencies = {
-+     {
-+       "mlaursen/vim-react-snippets",
-+       opts = {
-+         readonly_props = true, -- Set to `false` if all props should no longer be wrapped in `Readonly<T>`.
-+         test_framework = "@jest/globals", -- Set to "vitest" if you use vitest
-+         test_renderer_path = "@testing-library/user-event", -- Set to a custom test renderer. For example "@/test-utils"
-+       }
-+     },
-    },
-```
-
-## Cheatsheet
-
-Most of the available snippets will be listed below to showcase the generated
-code. Tabstops will be indicated with `$TABSTOP` or `$NAME` where `$NAME` is
-replaceable. `$CFN` or `$CFN_` will indicate a snippet that uses the current
-file name to generate the code.
-
-Some snippets support an "inline" version as where the `const whatever =` will
-be omitted. These snippets will be marked with ✨.
-
-> Javascript snippets are not shown since I really only use Typescript now, but
-> they are generally the same without the type definitions included.
-
 ## Table of Contents
 
 <!--toc:start-->
 
 - [vim-react-snippets](#vim-react-snippets)
+  - [Table of Contents](#table-of-contents)
   - [Typescript Example](#typescript-example)
-  - [Previewing Snippets with [coc-snippets](https://github.com/neoclide/coc-snippets)](#previewing-snippets-with-coc-snippetshttpsgithubcomneoclidecoc-snippets)
+  - [Previewing Snippets](#previewing-snippets)
   - [Using Log Helpers](#using-log-helpers)
   - [Writing Tests](#writing-tests)
   - [Installation](#installation)
   - [Cheatsheet](#cheatsheet)
-  - [Table of Contents](#table-of-contents)
     - [Function Components](#function-components)
       - [Function Component Export](#function-component-export)
       - [Function Component Default Export](#function-component-default-export)
@@ -143,14 +83,73 @@ be omitted. These snippets will be marked with ✨.
     - [@mixin](#mixin)
     - [@mixin configure](#mixin-configure)
     - [set global](#set-global)
-    - [set arg](#set-arg)
-    - [set arg](#set-arg-1)
-    - [inline if](#inline-if)
-    - [Sass Built-in Modules](#sass-built-in-modules)
+    - [@for $i from $start through $end](#for-i-from-start-through-end)
+    - [@each $value in $list](#each-value-in-list)
+    - [@each $key, $value in $map](#each-key-value-in-map)
   - [Material UI](#material-ui)
     - [sx function](#sx-function)
   - [Contributing](#contributing) - [LuaSnip Template](#luasnip-template)
   <!--toc:end-->
+
+## Typescript Example
+
+<https://user-images.githubusercontent.com/3920850/167317421-45035822-9ced-40ec-8d85-9b3db5d42651.mov>
+
+## Previewing Snippets
+
+<https://user-images.githubusercontent.com/3920850/167317372-6165c118-99da-4a31-88e6-57b6c7086ed5.mov>
+
+## Using Log Helpers
+
+<https://user-images.githubusercontent.com/3920850/167317795-63e74576-f0e6-4787-817f-b699e88d10e7.mov>
+
+## Writing Tests
+
+<https://user-images.githubusercontent.com/3920850/167318157-70692488-b126-47b2-9eab-ee3dc79771e9.mov>
+
+## Installation
+
+With [lazy.nvim] and [LuaSnip]:
+
+```diff
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    dependencies = {
++     { "mlaursen/vim-react-snippets", opts = {} },
+    },
+```
+
+Or with additional options:
+
+```diff
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    dependencies = {
++     {
++       "mlaursen/vim-react-snippets",
++       opts = {
++         readonly_props = true, -- Set to `false` if all props should no longer be wrapped in `Readonly<T>`.
++         test_framework = "@jest/globals", -- Set to "vitest" if you use vitest
++         test_renderer_path = "@testing-library/user-event", -- Set to a custom test renderer. For example "@/test-utils"
++       }
++     },
+    },
+```
+
+## Cheatsheet
+
+Most of the available snippets will be listed below to showcase the generated
+code. Tabstops will be indicated with `$TABSTOP` or `$NAME` where `$NAME` is
+replaceable. `$CFN` or `$CFN_` will indicate a snippet that uses the current
+file name to generate the code.
+
+Some snippets support an "inline" version as where the `const whatever =` will
+be omitted. These snippets will be marked with ✨.
+
+> Javascript snippets are not shown since I really only use Typescript now, but
+> they are generally the same without the type definitions included.
 
 ### Function Components
 
@@ -838,6 +837,22 @@ await waitFor(() => {
 | `use*`   | Use \*               | `@use "$TABSTOP" as *;`                             |
 | `for`    | Forward              | `@forward "$TABSTOP" with ($TABSTOP);`              |
 | `pcs`    | Prefers Color Scheme | `@media (prefers-color-scheme: $DARK) { $TABSTOP }` |
+| `mg`     | Map Get              | `map.get($$TABSTOP, $TABSTOP)`                      |
+| `ms`     | Map Set              | `map.set($$TABSTOP, $TABSTOP)`                      |
+| `mr`     | Map Remove           | `map.remove($$TABSTOP, $TABSTOP)`                   |
+| `mm`     | Map Merge            | `map.merge($$TABSTOP, $TABSTOP)`                    |
+| `mdm`    | Map Deep Merge       | `map.deep-merge($$TABSTOP, $TABSTOP)`               |
+| `la`     | List Append          | `list.append($$TABSTOP, $TABSTOP)`                  |
+| `li`     | List Index           | `list.index($$TABSTOP, $TABSTOP)`                   |
+| `ll`     | List Length          | `list.length($$TABSTOP)`                            |
+| `ln`     | List Nth             | `list.nth($$TABSTOP, $TABSTOP)`                     |
+| `to`     | Meta type-of         | `meta.type-of($$TABSTOP)`                           |
+| `si`     | String Index         | `string.index($$TABSTOP, $TABSTOP)`                 |
+| `sl`     | String Length        | `string.length($$TABSTOP)`                          |
+| `sn`     | String Slice         | `string.slice($$TABSTOP, $TABSTOP, $TABSTOP)`       |
+| `su`     | String Unquote       | `string.unquote($TABSTOP)`                          |
+| `sa`     | Set Arg              | `$$TABSTOP: $NULL`                                  |
+| `if`     | if (inline)          | `if(sass($CONDITION): $THEN; else: $THAT)`          |
 
 ### @function
 
@@ -884,48 +899,35 @@ await waitFor(() => {
 }
 ```
 
-### set arg
+### @for $i from $start through $end
 
-`sa` ->
-
-```scss
-$$name: $NULL;
-```
-
-### set arg
-
-`sa` ->
+`ft` ->
 
 ```scss
-$$name: $NULL;
+@for $$I from $$START through $$END {
+  $TABSTOP
+}
 ```
 
-### inline if
+### @each $value in $list
 
-`if` ->
+`el` ->
 
 ```scss
-if(sass($CONDITION): $THEN; else: $THAT)
+@each $$VALUE in $$LIST {
+  $TABSTOP
+}
 ```
 
-### Sass Built-in Modules
+### @each $key, $value in $map
 
-| Shortcut | Name           | Expands To                                    |
-| -------- | -------------- | --------------------------------------------- |
-| `mg`     | Map Get        | `map.get($$TABSTOP, $TABSTOP)`                |
-| `ms`     | Map Set        | `map.set($$TABSTOP, $TABSTOP)`                |
-| `mr`     | Map Remove     | `map.remove($$TABSTOP, $TABSTOP)`             |
-| `mm`     | Map Merge      | `map.merge($$TABSTOP, $TABSTOP)`              |
-| `mdm`    | Map Deep Merge | `map.deep-merge($$TABSTOP, $TABSTOP)`         |
-| `la`     | List Append    | `list.append($$TABSTOP, $TABSTOP)`            |
-| `li`     | List Index     | `list.index($$TABSTOP, $TABSTOP)`             |
-| `ll`     | List Length    | `list.length($$TABSTOP)`                      |
-| `ln`     | List Nth       | `list.nth($$TABSTOP, $TABSTOP)`               |
-| `to`     | Meta type-of   | `meta.type-of($$TABSTOP)`                     |
-| `si`     | String Index   | `string.index($$TABSTOP, $TABSTOP)`           |
-| `sl`     | String Length  | `string.length($$TABSTOP)`                    |
-| `sn`     | String Slice   | `string.slice($$TABSTOP, $TABSTOP, $TABSTOP)` |
-| `su`     | String Unquote | `string.unquote($TABSTOP)`                    |
+`em` ->
+
+```scss
+@each $$KEY, $$VALUE in $$MAP {
+  $TABSTOP
+}
+```
 
 ## Material UI
 
