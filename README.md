@@ -728,17 +728,9 @@ it("should $TABSTOP", async () => {
 | `sgbl`   | Screen Get By Label Text      | `const $TABSTOP = screen.getByLabelText("$TABSTOP")`                          |
 | `sfbr`   | Screen Find By Role           | `const $TABSTOP = await screen.findByRole("${button}", { name: "$TABSTOP" })` |
 | `sfbru`  | Screen Find By Role (Unnamed) | `const $TABSTOP = await screen.findByRole("${progressbar}")`                  |
-| `fbi`    | Screen Find By testId         | `const $TABSTOP = await screen.findByTestId("$TABSTOP")`                      |
-| `fbt`    | Screen Find By Text           | `const $TABSTOP = await screen.findByText("$TABSTOP")`                        |
-| `fbl`    | Screen Find By Label Text     | `const $TABSTOP = await screen.findByLabelText("$TABSTOP")`                   |
-| `gbr`    | Get By Role                   | `const $TABSTOP = getByRole("${button}", { name: "$TABSTOP" })`               |
-| `gbru`   | Get By Role (Unnamed)         | `const $TABSTOP = getByRole("${progressbar}")`                                |
-| `gbi`    | Get By testId                 | `const $TABSTOP = getByTestId("$TABSTOP")`                                    |
-| `gbt`    | Get By Text                   | `const $TABSTOP = getByText("$TABSTOP")`                                      |
-| `fbr`    | Find By Role                  | `const $TABSTOP = await findByRole("${button}", { name: "$TABSTOP" })`        |
-| `fbru`   | Find By Role (Unnamed)        | `const $TABSTOP = await findByRole("${progressbar}")`                         |
-| `fbi`    | Find By testId                | `const $TABSTOP = await findByTestId("$TABSTOP")`                             |
-| `fbt`    | Find By Text                  | `const $TABSTOP = await findByText("$TABSTOP")`                               |
+| `sfbi`   | Screen Find By testId         | `const $TABSTOP = await screen.findByTestId("$TABSTOP")`                      |
+| `sfbt`   | Screen Find By Text           | `const $TABSTOP = await screen.findByText("$TABSTOP")`                        |
+| `sfbl`   | Screen Find By Label Text     | `const $TABSTOP = await screen.findByLabelText("$TABSTOP")`                   |
 
 ### React Testing
 
