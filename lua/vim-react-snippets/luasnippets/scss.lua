@@ -314,12 +314,12 @@ local list_module = function()
     built_in({
       name = "list.index",
       trig = "li",
-      second_arg = false,
+      second_arg = true,
     }),
     built_in({
       name = "list.index",
       trig = "list.i",
-      second_arg = false,
+      second_arg = true,
     }),
     built_in({
       name = "list.length",
