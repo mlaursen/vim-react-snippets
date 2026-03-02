@@ -236,18 +236,8 @@ local map_module = function()
       second_arg = true,
     }),
     built_in({
-      name = "map.get",
-      trig = "map.g",
-      second_arg = true,
-    }),
-    built_in({
       name = "map.set",
       trig = "ms",
-      second_arg = true,
-    }),
-    built_in({
-      name = "map.set",
-      trig = "map.s",
       second_arg = true,
     }),
     built_in({
@@ -256,18 +246,8 @@ local map_module = function()
       second_arg = true,
     }),
     built_in({
-      name = "map.remove",
-      trig = "map.r",
-      second_arg = true,
-    }),
-    built_in({
       name = "map.merge",
       trig = "mm",
-      second_arg = true,
-    }),
-    built_in({
-      name = "map.merge",
-      trig = "map.m",
       second_arg = true,
     }),
     built_in({
@@ -276,9 +256,19 @@ local map_module = function()
       second_arg = true,
     }),
     built_in({
-      name = "map.deep-merge",
-      trig = "map.d",
+      name = "map.keys",
+      trig = "mk",
+      second_arg = false,
+    }),
+    built_in({
+      name = "map.has-key",
+      trig = "mh",
       second_arg = true,
+    }),
+    built_in({
+      name = "map.values",
+      trig = "mv",
+      second_arg = false,
     }),
 
     s({
@@ -426,6 +416,33 @@ local meta_module = function()
   }
 end
 
+local sassdoc = function()
+  return {
+    s({
+      trig = "@s",
+      name = "@since major.minor.patch",
+    }, {
+      t("@since "),
+      i(1, "1"),
+      t("."),
+      i(2, "0"),
+      t("."),
+      i(3, "0"),
+    }),
+    s({
+      trig = "@e",
+      name = "@example",
+      desc = "@example scss - Title",
+    }, {
+      t("@example "),
+      i(1, "scss"),
+      t(" - "),
+      i(2, "Example Title"),
+      t({ "", "///   " }),
+    }),
+  }
+end
+
 return util.merge_lists(
   use_modules(),
   at_rules(),
@@ -434,5 +451,6 @@ return util.merge_lists(
   map_module(),
   list_module(),
   meta_module(),
-  string_module()
+  string_module(),
+  sassdoc()
 )

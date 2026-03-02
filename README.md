@@ -841,6 +841,9 @@ await waitFor(() => {
 | `mr`     | Map Remove           | `map.remove($$TABSTOP, $TABSTOP)`                   |
 | `mm`     | Map Merge            | `map.merge($$TABSTOP, $TABSTOP)`                    |
 | `mdm`    | Map Deep Merge       | `map.deep-merge($$TABSTOP, $TABSTOP)`               |
+| `mk`     | Map Keys             | `map.keys($$TABSTOP)`                               |
+| `mh`     | Map Has Key          | `map.has-key($$TABSTOP, $TABSTOP)`                  |
+| `mv`     | Map Values           | `map.values($$TABSTOP)`                             |
 | `to`     | Meta type-of         | `meta.type-of($$TABSTOP)`                           |
 | `la`     | List Append          | `list.append($$TABSTOP, $TABSTOP)`                  |
 | `li`     | List Index           | `list.index($$TABSTOP, $TABSTOP)`                   |
@@ -945,6 +948,25 @@ $something: if(
 @each $$KEY, $$VALUE in $$MAP {
   $TABSTOP
 }
+```
+
+## Sassdoc
+
+### @since
+
+`@s` ->
+
+```scss
+@since $MAJOR.$MINOR.$PATCH;
+```
+
+### @example
+
+`/// @e` ->
+
+```scss
+/// @example $SCSS - $EXAMPLE_TITLE
+///   $TABSTOP;
 ```
 
 ## Material UI
