@@ -133,7 +133,6 @@ Or with additional options:
 +       "mlaursen/vim-react-snippets",
 +       opts = {
 +         readonly_props = true, -- Set to `false` if all props should no longer be wrapped in `Readonly<T>`.
-+         test_framework = "@jest/globals", -- Set to "vitest" if you use vitest
 +         test_renderer_path = "@testing-library/user-event", -- Set to a custom test renderer. For example "@/test-utils"
 +       }
 +     },
@@ -703,9 +702,6 @@ it("should $TABSTOP", async () => {
 ```
 
 #### Test Expect
-
-> NOTE: when using `vitest`, `toThrowError()` will be used instead of
-> `toThrow()`
 
 | Shortcut | Name                   | Expands to                                            |
 | -------- | ---------------------- | ----------------------------------------------------- |
