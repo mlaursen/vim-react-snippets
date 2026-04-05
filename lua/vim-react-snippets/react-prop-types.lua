@@ -64,7 +64,7 @@ local react_prop_types = function(typescript)
         trig = "cpt",
         desc = "component prop types",
       }, {
-        util.current_filename(1),
+        util.current_filename(1, true),
         t({ ".propTypes = {", "" }),
         t({ "\t" }),
         sn(2, {

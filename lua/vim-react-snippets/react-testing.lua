@@ -33,7 +33,7 @@ local react_test_file = function(esm, globals)
       i(rtl_index, config.test_renderer_path),
       t({ '"', "" }),
       t("import { "),
-      util.current_filename(filename_index),
+      util.current_filename(filename_index, true),
       t(' } from "../'),
       util.mirror_node(filename_index),
       t(esm and ".js" or ""),

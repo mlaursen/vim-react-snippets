@@ -73,7 +73,7 @@ local component_func = function(opts)
     table.insert(parts, t("async "))
   end
   table.insert(parts, t("function "))
-  table.insert(parts, util.current_filename(1))
+  table.insert(parts, util.current_filename(1, true))
   table.insert(parts, t("("))
 
   if forward then
