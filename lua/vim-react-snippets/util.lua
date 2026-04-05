@@ -42,24 +42,6 @@ M.extend_language = function(language, snippets)
   return M.merge_lists(combined_snippets, snippets)
 end
 
---- @param start number
---- @return unknown
-M.current_filename = function(start)
-  local ls = require("luasnip")
-  return ls.dynamic_node(start, function()
-    return ls.snippet_node(nil, { ls.insert_node(1, vim.fn.expand("%:t:r")) })
-  end)
-end
-
---- @param start number
---- @return unknown
-M.current_folder = function(start)
-  local ls = require("luasnip")
-  return ls.dynamic_node(start, function()
-    return ls.snippet_node(nil, { ls.insert_node(1, vim.fn.expand("%:p:h:t")) })
-  end)
-end
-
 --- @param s string
 --- @return string
 M.upper_first = function(s)
@@ -74,21 +56,55 @@ end
 
 --- @param s string
 --- @return string
-M.camel_case = function(s)
-  return M.lower_first(s) .. s:sub(1):gsub("_(.)", string.upper)
+M.camel_case_underscore_hyphen = function(s)
+  return (s:gsub("[_-](.)", string.upper))
 end
 
 --- @param s string
 --- @return string
-M.kebab_case = function(s)
-  return s
+M.camel_case = function(s)
+  return M.lower_first(M.camel_case_underscore_hyphen(s))
+end
+
+--- @param s string
+--- @return string
+M.pascal_case = function(s)
+  return M.upper_first(M.camel_case_underscore_hyphen(s))
+end
+
+--- @param start number
+--- @return unknown
+M.current_filename = function(start)
+  local ls = require("luasnip")
+  local sn = ls.snippet_node
+  local d = ls.dynamic_node
+  local i = ls.insert_node
+
+  return d(start, function()
+    return sn(nil, { i(1, vim.fn.expand("%:t:r")) })
+  end)
+end
+
+--- @param start number
+--- @return unknown
+M.current_folder = function(start)
+  local ls = require("luasnip")
+  local sn = ls.snippet_node
+  local d = ls.dynamic_node
+  local i = ls.insert_node
+
+  return d(start, function()
+    return sn(nil, { i(1, vim.fn.expand("%:p:h:t")) })
+  end)
 end
 
 --- @param i number
 --- @return unknown
 M.mirror_node = function(i)
   local ls = require("luasnip")
-  return ls.function_node(function(args)
+  local f = ls.function_node
+
+  return f(function(args)
     return args[1][1]
   end, { i })
 end
@@ -97,9 +113,12 @@ end
 --- @param reference_index number[] A list containing a single insert node index to mirror as the default value
 M.editable_mirror_node = function(index, reference_index)
   local ls = require("luasnip")
+  local sn = ls.snippet_node
+  local d = ls.dynamic_node
+  local i = ls.insert_node
 
-  return ls.dynamic_node(index, function(args)
-    return ls.snippet_node(nil, { ls.insert_node(1, args[1]) })
+  return d(index, function(args)
+    return sn(nil, { i(1, args[1]) })
   end, reference_index)
 end
 
