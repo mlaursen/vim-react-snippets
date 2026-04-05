@@ -73,15 +73,21 @@ M.pascal_case = function(s)
 end
 
 --- @param start number
+--- @param pascal_case? boolean
 --- @return unknown
-M.current_filename = function(start)
+M.current_filename = function(start, pascal_case)
   local ls = require("luasnip")
   local sn = ls.snippet_node
   local d = ls.dynamic_node
   local i = ls.insert_node
 
   return d(start, function()
-    return sn(nil, { i(1, vim.fn.expand("%:t:r")) })
+    local file_name = vim.fn.expand("%:t:r")
+    if pascal_case then
+      file_name = M.pascal_case(file_name)
+    end
+
+    return sn(nil, { i(1, file_name) })
   end)
 end
 

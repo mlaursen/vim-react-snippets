@@ -15,7 +15,7 @@ local typescript = function()
       name = "Interface",
     }, {
       t("export interface "),
-      util.current_filename(1),
+      util.current_filename(1, true),
       i(2),
       t({ " {", "\t" }),
       i(3),
