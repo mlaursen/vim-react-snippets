@@ -127,7 +127,7 @@ local libraries = function()
     }, {
       t("@if $"),
       i(1, "name"),
-      t({ " {", "\t" }),
+      t({ " != null {", "\t" }),
       t("$-"),
       util.mirror_node(1),
       t(": $"),

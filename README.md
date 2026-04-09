@@ -912,7 +912,7 @@ $something: if(
 `sg` ->
 
 ```scss
-@if $$TABSTOP {
+@if $$TABSTOP != null {
   $-$1: $1 !global;
 }
 ```
