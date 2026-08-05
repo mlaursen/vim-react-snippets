@@ -274,7 +274,21 @@ local react_hooks = function(typescript)
         }
       end,
     }),
-    create_context_provider(typescript)
+    create_context_provider(typescript),
+
+    util.const_snippet({
+      config = {
+        trig = "useI",
+        name = "useId",
+      },
+      const_name = "someId",
+      const_edit = 1,
+      create_snippet = function()
+        return {
+          t({ "useId()" }),
+        }
+      end,
+    })
   )
 end
 

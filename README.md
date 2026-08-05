@@ -37,6 +37,7 @@ snippet provider.
       - [useMemo ✨](#usememo-)
       - [useMemo return (manual return required) ✨](#usememo-return-manual-return-required-)
       - [useRef ✨](#useref-)
+      - [useId ✨](#useid-)
       - [Create Context Provider](#create-context-provider-)
     - [Redux](#redux)
       - [useAppDispatch ✨](#useappdispatch-)
@@ -89,8 +90,7 @@ snippet provider.
     - [@each $key, $value in $map](#each-key-value-in-map)
   - [Material UI](#material-ui)
     - [sx function](#sx-function)
-  - [Contributing](#contributing)
-  - [LuaSnip Template](#luasnip-template)
+  - [Contributing](#contributing) - [LuaSnip Template](#luasnip-template)
   <!--toc:end-->
 
 ## Typescript Example
@@ -392,6 +392,14 @@ const $MEMOIZED = useMemo(() => {
 
 ```ts
 const $REF = useRef$TABSTOP(TABSTOP)
+```
+
+#### useId ✨
+
+`useI` ->
+
+```ts
+const $SOMEID = useId()
 ```
 
 #### Create Context Provider
